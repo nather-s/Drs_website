@@ -4,6 +4,7 @@ import type { NextConfig } from "next";
 const previewExport = process.env.PREVIEW_EXPORT === "1";
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   ...(previewExport
     ? { output: "export", images: { unoptimized: true } }
     : { cacheComponents: true, partialPrefetching: true }),

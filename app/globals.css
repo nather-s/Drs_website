@@ -1,28 +1,19 @@
 @import "tailwindcss";
 
-/* Light/dark follow the visitor's system setting; data-theme overrides it. */
-@custom-variant dark {
-  &:where([data-theme="dark"], [data-theme="dark"] *) {
-    @slot;
-  }
-  @media (prefers-color-scheme: dark) {
-    &:where(:root:not([data-theme="light"]) *) {
-      @slot;
-    }
-  }
-}
-
+/* Light theme only. Colours come from the Harleys Clinic logo. */
 :root {
-  --paper: #faf7f8;
-  --surface: #ffffff;
+  color-scheme: light;
+  --paper: #ffffff;
+  --mist: #f8f5f6;
   --ink: #2e2433;
-  --muted-ink: #6a5e6d;
-  --line: #e7dee3;
+  --muted-ink: #685c6b;
+  --line: #e8e1e5;
   --accent: #b83154;
+  --accent-dark: #962443;
   --accent-ink: #ffffff;
   --plum: #524456;
-  --plum-soft: #f1ecf2;
-  --rose-soft: #fbeaef;
+  --plum-soft: #f2edf3;
+  --rose-soft: #fbeef2;
   --star: #a8711a;
 
   /* Tokens expected by the bklit and Kokonut components */
@@ -35,52 +26,21 @@
   --chart-3: var(--star);
   --chart-4: var(--plum);
   --chart-5: #e07a96;
-  --chart-background: var(--surface);
+  --chart-background: var(--paper);
   --chart-foreground: var(--ink);
   --chart-foreground-muted: var(--muted-ink);
   --chart-label: var(--muted-ink);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #1a141c;
-    --surface: #241c27;
-    --ink: #f2ecf1;
-    --muted-ink: #b3a6b5;
-    --line: #3a2f3e;
-    --accent: #e86a8c;
-    --accent-ink: #2a0e18;
-    --plum: #c9b6ce;
-    --plum-soft: #2c2230;
-    --rose-soft: #3a1c27;
-    --star: #e2b45a;
-    --chart-5: #f4a7bd;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #1a141c;
-    --surface: #241c27;
-    --ink: #f2ecf1;
-    --muted-ink: #b3a6b5;
-    --line: #3a2f3e;
-    --accent: #e86a8c;
-    --accent-ink: #2a0e18;
-    --plum: #c9b6ce;
-    --plum-soft: #2c2230;
-    --rose-soft: #3a1c27;
-    --star: #e2b45a;
-    --chart-5: #f4a7bd;
-  color-scheme: dark;
-}
-
 @theme inline {
   --color-paper: var(--paper);
-  --color-surface: var(--surface);
+  --color-mist: var(--mist);
+  --color-surface: var(--paper);
   --color-ink: var(--ink);
   --color-muted-ink: var(--muted-ink);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
   --color-accent-ink: var(--accent-ink);
   --color-plum: var(--plum);
   --color-plum-soft: var(--plum-soft);
@@ -91,7 +51,7 @@
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-ink);
-  --color-card: var(--surface);
+  --color-card: var(--paper);
   --color-ring: var(--accent);
   --color-chart-label: var(--chart-label);
   --font-display: var(--font-literata), Georgia, "Times New Roman", serif;
@@ -100,18 +60,22 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.12;
+  line-height: 1.15;
   text-wrap: balance;
+  letter-spacing: -0.01em;
 }
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -120,22 +84,50 @@ h1, h2, h3 {
 
 @layer components {
   .wrap {
-    @apply mx-auto w-full max-w-[1120px] px-4 sm:px-8;
+    @apply mx-auto w-full max-w-[1160px] px-4 sm:px-8;
   }
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.14em] text-plum;
+    @apply text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-accent;
   }
   .section {
-    @apply py-16 md:py-26;
+    @apply py-16 md:py-24;
+  }
+  .h-section {
+    @apply text-[clamp(1.75rem,3vw,2.4rem)];
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink px-5 py-3 text-[0.95rem] font-semibold text-ink no-underline transition-[background-color,color,scale] duration-150 hover:bg-ink hover:text-paper motion-safe:active:scale-[0.97];
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-ink/80 px-5 py-3 text-[0.95rem] font-semibold text-ink no-underline transition-[background-color,color,border-color] duration-150 hover:bg-ink hover:text-paper;
   }
   .btn-primary {
-    @apply border-accent bg-accent text-accent-ink hover:bg-accent hover:text-accent-ink hover:brightness-110;
+    @apply border-accent bg-accent text-accent-ink hover:border-accent-dark hover:bg-accent-dark hover:text-accent-ink;
+  }
+  .link {
+    @apply font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent;
   }
 }
 
+/* Continuous review strip */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee var(--marquee-duration, 60s) linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  .marquee {
+    overflow-x: auto;
+  }
 }

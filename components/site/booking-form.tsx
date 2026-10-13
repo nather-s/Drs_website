@@ -24,8 +24,8 @@ export default function BookingForm() {
   };
 
   return (
-    <div className="min-w-0 rounded-2xl border border-line bg-surface p-5 sm:p-7">
-      <h3 className="mb-4 text-[1.35rem]">Request an appointment</h3>
+    <div className="min-w-0 rounded-lg border border-line p-5 sm:p-8">
+      <h2 className="mb-5 text-[1.6rem]">Your details</h2>
       <form className="grid gap-3.5" noValidate onSubmit={submit}>
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="grid gap-1.5 text-sm font-semibold">

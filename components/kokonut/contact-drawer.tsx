@@ -33,7 +33,7 @@ const options = [
   { icon: Phone, label: "Call the clinic", detail: clinic.phoneDisplay, href: clinic.phoneHref },
   { icon: MessageCircle, label: "WhatsApp", detail: "Message the clinic team", href: clinic.whatsappHref },
   { icon: Mail, label: "Email", detail: clinic.email, href: `mailto:${clinic.email}` },
-  { icon: CalendarDays, label: "Book online", detail: "Pick a time or ask the assistant", href: "#book" },
+  { icon: CalendarDays, label: "Book online", detail: "Request a time online", href: "/book/" },
 ];
 
 export default function ContactDock() {
@@ -90,7 +90,7 @@ export default function ContactDock() {
           </motion.div>
         </DrawerContent>
       </Drawer>
-      <a className="flex-1 rounded-[10px] border border-accent bg-accent py-2.5 text-center text-sm font-semibold text-accent-ink" href="#book">
+      <a className="flex-1 rounded-[10px] border border-accent bg-accent py-2.5 text-center text-sm font-semibold text-accent-ink" href="/book/">
         Book
       </a>
     </nav>

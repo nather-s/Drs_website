@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* Light/dark follow the visitor's system setting; data-theme overrides it. */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+}
+
+:root {
+  --paper: #f5f7f4;
+  --surface: #ffffff;
+  --ink: #172427;
+  --muted-ink: #55666a;
+  --line: #d9e0dc;
+  --accent: #9e3f5c;
+  --accent-ink: #ffffff;
+  --sage: #3f6b5e;
+  --sage-soft: #e3ece7;
+  --rose-soft: #f5e8ec;
+  --star: #b07a1e;
+
+  /* Tokens expected by the bklit and Kokonut components */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --border: var(--line);
+  --muted: var(--sage-soft);
+  --chart-1: var(--accent);
+  --chart-2: var(--sage);
+  --chart-3: var(--star);
+  --chart-4: var(--sage);
+  --chart-5: #c96f8a;
+  --chart-background: var(--surface);
+  --chart-foreground: var(--ink);
+  --chart-foreground-muted: var(--muted-ink);
+  --chart-label: var(--muted-ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #101a1c;
+    --surface: #17232a;
+    --ink: #e7eeeb;
+    --muted-ink: #9aabaa;
+    --line: #2a3b3f;
+    --accent: #e28ca6;
+    --accent-ink: #22111a;
+    --sage: #8dc3af;
+    --sage-soft: #1b2d29;
+    --rose-soft: #2a1b22;
+    --star: #e2b45a;
+    --chart-5: #f2b6c7;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #101a1c;
+  --surface: #17232a;
+  --ink: #e7eeeb;
+  --muted-ink: #9aabaa;
+  --line: #2a3b3f;
+  --accent: #e28ca6;
+  --accent-ink: #22111a;
+  --sage: #8dc3af;
+  --sage-soft: #1b2d29;
+  --rose-soft: #2a1b22;
+  --star: #e2b45a;
+  --chart-5: #f2b6c7;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted-ink: var(--muted-ink);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-rose-soft: var(--rose-soft);
+  --color-star: var(--star);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-ink);
+  --color-card: var(--surface);
+  --color-ring: var(--accent);
+  --color-chart-label: var(--chart-label);
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-public-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1120px] px-4 sm:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-sage;
+  }
+  .section {
+    @apply py-16 md:py-26;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink px-5 py-3 text-[0.95rem] font-semibold text-ink no-underline transition-[background-color,color,scale] duration-150 hover:bg-ink hover:text-paper motion-safe:active:scale-[0.97];
+  }
+  .btn-primary {
+    @apply border-accent bg-accent text-accent-ink hover:bg-accent hover:text-accent-ink hover:brightness-110;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

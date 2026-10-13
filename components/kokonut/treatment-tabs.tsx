@@ -18,7 +18,14 @@ import { type KeyboardEvent, useId, useLayoutEffect, useRef, useState } from "re
 import { cn } from "@/lib/utils";
 
 export type Treatment = { name: string; blurb: string; href: string };
-export type TreatmentGroup = { id: string; title: string; intro: string; items: Treatment[] };
+export type TreatmentGroup = {
+  id: string;
+  title: string;
+  intro: string;
+  items: Treatment[];
+  /** A real patient review about this area of care, shown under the list. */
+  review?: { text: string; name: string; source: string };
+};
 
 const SLIDE_DISTANCE = 16;
 const slideVariants = {
@@ -173,6 +180,14 @@ export default function TreatmentTabs({ groups }: { groups: TreatmentGroup[] }) 
                 </li>
               ))}
             </ul>
+            {group.review && (
+              <figure className="m-0 mt-5 grid gap-1.5 border-l-2 border-accent pl-4">
+                <blockquote className="m-0 font-display text-lg italic">“{group.review.text}”</blockquote>
+                <figcaption className="text-sm text-muted-ink">
+                  {group.review.name} · {group.review.source}
+                </figcaption>
+              </figure>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>

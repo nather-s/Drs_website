@@ -14,6 +14,7 @@ const treatments: TreatmentGroup[] = [
     id: "pregnancy",
     title: "Pregnancy",
     intro: "Care from planning a pregnancy through delivery and the weeks after.",
+    review: { text: "She's really polite and listens to your problems before giving an effective solution.", name: "Debanjali Biswas", source: "Practo" },
     items: [
       { name: "Pregnancy care", blurb: "Antenatal and postnatal visits, scans and nutrition guidance.", href: "#book" },
       { name: "High-risk pregnancy", blurb: "Closer monitoring for diabetes, blood pressure, twins or past miscarriage.", href: "#book" },
@@ -47,6 +48,7 @@ const treatments: TreatmentGroup[] = [
     id: "life-stages",
     title: "Life stages",
     intro: "Support as your body changes, from the teenage years to menopause.",
+    review: { text: "Now I can look forward to a stress-free menopause.", name: "Manjusha Kollara", source: "Practo" },
     items: [
       { name: "Adolescent health", blurb: "First periods, skin, emotional health and sexual health for teenagers.", href: "#book" },
       { name: "Contraception", blurb: "Pills, IUDs and other options matched to your life.", href: "#book" },
@@ -87,7 +89,7 @@ const faqs = [
 export default function Home() {
   return (
     <>
-      <div className="border-b border-line text-sm text-muted-ink">
+      <div className="hidden border-b border-line text-sm text-muted-ink sm:block">
         <div className="wrap flex flex-wrap justify-between gap-x-6 gap-y-1 py-2">
           <span>101–102 Jyoti Tower, DN Nagar, off Link Road, Andheri West</span>
           <span>
@@ -100,7 +102,7 @@ export default function Home() {
       <header className="sticky top-[env(safe-area-inset-top,0px)] z-20 border-b border-line bg-paper/90 backdrop-blur-md">
         <div className="wrap flex items-center justify-between gap-4 py-3.5">
           <a className="flex flex-col leading-tight no-underline" href="#top">
-            <b className="font-display text-xl font-medium">{clinic.doctor}</b>
+            <b className="font-display text-[1.05rem] font-medium sm:text-xl">{clinic.doctor}</b>
             <span className="text-[0.7rem] uppercase tracking-[0.12em] text-muted-ink">{clinic.name}</span>
           </a>
           <nav aria-label="Main" className="hidden gap-6 text-[0.92rem] text-muted-ink lg:flex">
@@ -110,46 +112,60 @@ export default function Home() {
             <a className="no-underline hover:text-ink" href="#reviews">Reviews</a>
             <a className="no-underline hover:text-ink" href="#faq">FAQs</a>
           </nav>
-          <a className="btn btn-primary px-4 py-2 text-sm" href="#book">Book a visit</a>
+          <a className="btn btn-primary shrink-0 whitespace-nowrap px-4 py-2 text-sm" href="#book">Book a visit</a>
         </div>
       </header>
 
       <main id="top">
-        {/* Hero */}
-        <section className="py-10 md:py-20">
-          <div className="wrap grid items-center gap-8 md:grid-cols-[1.25fr_0.9fr] md:gap-16">
-            <div className="grid gap-5">
-              <span className="eyebrow">Gynaecologist & obstetrician · Andheri West, Mumbai</span>
-              <h1 className="text-[clamp(2.3rem,5.4vw,4rem)] tracking-[-0.01em]">
-                Care for every stage of a woman's life,{" "}
-                <em className="text-accent">from first periods to menopause.</em>
-              </h1>
-              <p className="max-w-[62ch] text-lg text-muted-ink">
-                Dr. Shilpa Bansal Agrawal looks after adolescent health, pregnancy, fertility, PCOS and menopause at
-                Harleys Women's Clinic. She takes time to listen, explains every option clearly and treats your
-                concerns in confidence.
-              </p>
-              <p className="border-l-2 border-sage pl-3 text-sm text-muted-ink">
-                MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · ICOG Fellowship in Reproductive Endocrinology ·
-                DHA Specialist (Dubai) · Member, FOGSI
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a className="btn btn-primary" href="#book">Book an appointment</a>
-                <a className="btn" href={clinic.whatsappHref} rel="noopener" target="_blank">Message on WhatsApp</a>
+        {/* Hero: opens with a patient's own words, then who the doctor is */}
+        <section className="pt-10 pb-14 md:pt-18 md:pb-22">
+          <div className="wrap grid items-end gap-10 md:grid-cols-[1.35fr_0.85fr] md:gap-16">
+            <div className="grid gap-7">
+              <figure className="m-0 grid gap-4">
+                <blockquote className="m-0 font-display text-[clamp(2.1rem,5vw,3.9rem)] font-light italic leading-[1.08] tracking-[-0.015em] text-balance">
+                  <span aria-hidden className="text-accent">“</span>She handled me like family, and guided me with real
+                  expertise.<span aria-hidden className="text-accent">”</span>
+                </blockquote>
+                <figcaption className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-ink">
+                  <span aria-label="5 out of 5 stars" className="tracking-[2px] text-star" role="img">★★★★★</span>
+                  <span>Ruchi N., on her pregnancy · Google review</span>
+                </figcaption>
+              </figure>
+
+              <div className="grid gap-4 border-t border-line pt-7">
+                <h1 className="text-[clamp(1.5rem,2.6vw,2rem)] font-medium">
+                  Dr. Shilpa Bansal Agrawal
+                  <span className="mt-1 block font-sans text-base font-normal text-muted-ink">
+                    Gynaecologist, obstetrician and fertility specialist · Andheri West, Mumbai
+                  </span>
+                </h1>
+                <p className="max-w-[60ch] text-[1.06rem] text-muted-ink">
+                  Care for adolescent health, pregnancy, fertility, PCOS and menopause at Harleys Women's Clinic. She
+                  takes time to listen, explains every option clearly and keeps your concerns confidential.
+                </p>
+                <p className="text-sm text-muted-ink">
+                  MBBS · MD (Gold Medal) · DNB · ICOG Fellowship in Reproductive Endocrinology · DHA Specialist (Dubai)
+                  · Member, FOGSI
+                </p>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <a className="btn btn-primary" href="#book">Book an appointment</a>
+                  <a className="btn" href={clinic.whatsappHref} rel="noopener" target="_blank">Message on WhatsApp</a>
+                </div>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-[340px] md:max-w-none">
+
+            <div className="relative mx-auto w-full max-w-[300px] md:max-w-none">
               <div
                 aria-label="Portrait placeholder for Dr. Shilpa"
                 className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-t-[200px] rounded-b-2xl bg-gradient-to-br from-sage-soft to-rose-soft"
                 role="img"
               >
-                <span className="font-display text-[clamp(4rem,10vw,7rem)] text-sage opacity-55">SB</span>
+                <span className="font-display text-[clamp(3.5rem,8vw,6rem)] text-sage opacity-50">SB</span>
                 <span className="absolute inset-x-3.5 bottom-3.5 text-center text-xs text-muted-ink">
                   Portrait of Dr. Shilpa goes here
                 </span>
               </div>
-              <div className="absolute -right-2 top-6 max-md:right-0 max-md:scale-90 max-md:origin-top-right">
+              <div className="absolute -left-4 bottom-10 max-md:-left-2 max-md:scale-90 max-md:origin-bottom-left">
                 <RatingGauge />
               </div>
             </div>
@@ -160,8 +176,8 @@ export default function Home() {
         <section className="section border-y border-line bg-surface" id="reviews">
           <div className="wrap grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr]">
             <Reveal className="grid gap-3">
-              <span className="eyebrow">In our patients' words</span>
-              <h2 className="text-[clamp(1.8rem,3.6vw,2.7rem)]">Women come back, and bring their sisters.</h2>
+              <span className="eyebrow">Patient reviews</span>
+              <h2 className="text-[clamp(1.8rem,3.6vw,2.7rem)]">What patients say after their visits.</h2>
               <p className="text-muted-ink">
                 Real reviews from Google and Practo. Once the clinic's Google Business Profile is connected, the newest
                 Google reviews will appear here automatically.
@@ -235,7 +251,7 @@ export default function Home() {
           <div className="wrap">
             <Reveal className="grid gap-2">
               <span className="eyebrow">Book a visit</span>
-              <h2 className="text-[clamp(1.8rem,3.6vw,2.7rem)]">Ask a question or pick a time. It takes a minute.</h2>
+              <h2 className="text-[clamp(1.8rem,3.6vw,2.7rem)]">Book a visit with Dr. Shilpa.</h2>
             </Reveal>
             <div className="mt-8 grid items-start gap-6 lg:grid-cols-2 lg:gap-12">
               <Assistant />

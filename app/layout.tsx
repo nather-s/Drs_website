@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Newsreader, Public_Sans } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Literata } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+// Literata: a book face with a warm italic, used for patients' words and headings.
+const literata = Literata({
+  variable: "--font-literata",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["400", "500"],
+  axes: ["opsz"],
 });
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
+// Atkinson Hyperlegible Next: built for low-vision readers, easy to read at any age.
+const atkinson = Atkinson_Hyperlegible_Next({
+  variable: "--font-atkinson",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -29,7 +31,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${newsreader.variable} ${publicSans.variable}`}>
+    <html lang="en-IN" className={`${literata.variable} ${atkinson.variable}`}>
       <body className="min-h-full">{children}</body>
     </html>
   );

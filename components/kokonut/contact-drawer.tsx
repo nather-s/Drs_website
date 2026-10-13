@@ -33,7 +33,7 @@ const options = [
   { icon: Phone, label: "Call the clinic", detail: clinic.phoneDisplay, href: clinic.phoneHref },
   { icon: MessageCircle, label: "WhatsApp", detail: "Message the clinic team", href: clinic.whatsappHref },
   { icon: Mail, label: "Email", detail: clinic.email, href: `mailto:${clinic.email}` },
-  { icon: CalendarDays, label: "Book online", detail: "Request a time online", href: "/book/" },
+  { icon: CalendarDays, label: "Book online", detail: "Request a time or ask the assistant", href: "/book/" },
 ];
 
 export default function ContactDock() {

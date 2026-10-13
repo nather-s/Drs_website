@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Assistant from "@/components/site/assistant";
 import BookingForm from "@/components/site/booking-form";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
@@ -18,7 +19,13 @@ export default function Book() {
         title="Book an appointment"
       />
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">
-        <BookingForm />
+        <div className="grid min-w-0 content-start gap-8">
+          <BookingForm />
+          <div className="grid gap-3">
+            <p className="text-sm text-muted-ink">Prefer to book in a conversation? Ask the clinic assistant.</p>
+            <Assistant />
+          </div>
+        </div>
         <aside aria-labelledby="contact-title" className="grid content-start gap-6" id="contact">
           <h2 className="text-[1.6rem]" id="contact-title">Contact the clinic</h2>
           <dl className="m-0 grid gap-5">

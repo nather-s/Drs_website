@@ -1,4 +1,4 @@
-import ClinicWalkthrough from "@/components/site/clinic-walkthrough";
+import Assistant from "@/components/site/assistant";
 import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
@@ -161,7 +161,23 @@ export default function Home() {
         </div>
       </section>
 
-      <ClinicWalkthrough />
+      {/* Assistant */}
+      <section aria-labelledby="assistant-title" className="section">
+        <div className="wrap grid items-start gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+          <div className="grid content-start gap-4">
+            <span className="eyebrow">Clinic assistant</span>
+            <h2 className="h-section" id="assistant-title">Questions before you book?</h2>
+            <p className="text-muted-ink">
+              The clinic assistant can book an appointment with Dr. Shilpa and answer practical questions about
+              the clinic, such as location and how to prepare for your visit.
+            </p>
+            <p className="text-sm text-muted-ink">
+              It does not give medical advice. For anything about your health, please book a consultation.
+            </p>
+          </div>
+          <Assistant />
+        </div>
+      </section>
 
       {/* FAQ */}
       <section aria-labelledby="faq-title" className="section border-t border-line">

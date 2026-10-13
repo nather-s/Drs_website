@@ -13,28 +13,28 @@
 }
 
 :root {
-  --paper: #f5f7f4;
+  --paper: #faf7f8;
   --surface: #ffffff;
-  --ink: #172427;
-  --muted-ink: #55666a;
-  --line: #d9e0dc;
-  --accent: #9e3f5c;
+  --ink: #2e2433;
+  --muted-ink: #6a5e6d;
+  --line: #e7dee3;
+  --accent: #b83154;
   --accent-ink: #ffffff;
-  --sage: #3f6b5e;
-  --sage-soft: #e3ece7;
-  --rose-soft: #f5e8ec;
-  --star: #b07a1e;
+  --plum: #524456;
+  --plum-soft: #f1ecf2;
+  --rose-soft: #fbeaef;
+  --star: #a8711a;
 
   /* Tokens expected by the bklit and Kokonut components */
   --background: var(--paper);
   --foreground: var(--ink);
   --border: var(--line);
-  --muted: var(--sage-soft);
+  --muted: var(--plum-soft);
   --chart-1: var(--accent);
-  --chart-2: var(--sage);
+  --chart-2: var(--plum);
   --chart-3: var(--star);
-  --chart-4: var(--sage);
-  --chart-5: #c96f8a;
+  --chart-4: var(--plum);
+  --chart-5: #e07a96;
   --chart-background: var(--surface);
   --chart-foreground: var(--ink);
   --chart-foreground-muted: var(--muted-ink);
@@ -43,34 +43,34 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #101a1c;
-    --surface: #17232a;
-    --ink: #e7eeeb;
-    --muted-ink: #9aabaa;
-    --line: #2a3b3f;
-    --accent: #e28ca6;
-    --accent-ink: #22111a;
-    --sage: #8dc3af;
-    --sage-soft: #1b2d29;
-    --rose-soft: #2a1b22;
+    --paper: #1a141c;
+    --surface: #241c27;
+    --ink: #f2ecf1;
+    --muted-ink: #b3a6b5;
+    --line: #3a2f3e;
+    --accent: #e86a8c;
+    --accent-ink: #2a0e18;
+    --plum: #c9b6ce;
+    --plum-soft: #2c2230;
+    --rose-soft: #3a1c27;
     --star: #e2b45a;
-    --chart-5: #f2b6c7;
+    --chart-5: #f4a7bd;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #101a1c;
-  --surface: #17232a;
-  --ink: #e7eeeb;
-  --muted-ink: #9aabaa;
-  --line: #2a3b3f;
-  --accent: #e28ca6;
-  --accent-ink: #22111a;
-  --sage: #8dc3af;
-  --sage-soft: #1b2d29;
-  --rose-soft: #2a1b22;
-  --star: #e2b45a;
-  --chart-5: #f2b6c7;
+  --paper: #1a141c;
+    --surface: #241c27;
+    --ink: #f2ecf1;
+    --muted-ink: #b3a6b5;
+    --line: #3a2f3e;
+    --accent: #e86a8c;
+    --accent-ink: #2a0e18;
+    --plum: #c9b6ce;
+    --plum-soft: #2c2230;
+    --rose-soft: #3a1c27;
+    --star: #e2b45a;
+    --chart-5: #f4a7bd;
   color-scheme: dark;
 }
 
@@ -82,8 +82,8 @@
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
-  --color-sage: var(--sage);
-  --color-sage-soft: var(--sage-soft);
+  --color-plum: var(--plum);
+  --color-plum-soft: var(--plum-soft);
   --color-rose-soft: var(--rose-soft);
   --color-star: var(--star);
   --color-background: var(--background);
@@ -123,7 +123,7 @@ h1, h2, h3 {
     @apply mx-auto w-full max-w-[1120px] px-4 sm:px-8;
   }
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.14em] text-sage;
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-plum;
   }
   .section {
     @apply py-16 md:py-26;

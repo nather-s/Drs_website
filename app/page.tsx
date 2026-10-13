@@ -6,7 +6,9 @@ import Assistant from "@/components/site/assistant";
 import BookingForm from "@/components/site/booking-form";
 import RatingGauge from "@/components/site/rating-gauge";
 import Reveal from "@/components/site/reveal";
+import Image from "next/image";
 import { clinic, reviews } from "@/lib/clinic";
+import logo from "@/public/harleys-logo.png";
 
 // Treatment pages are linked to #book until each page is built.
 const treatments: TreatmentGroup[] = [
@@ -101,9 +103,15 @@ export default function Home() {
 
       <header className="sticky top-[env(safe-area-inset-top,0px)] z-20 border-b border-line bg-paper/90 backdrop-blur-md">
         <div className="wrap flex items-center justify-between gap-4 py-3.5">
-          <a className="flex flex-col leading-tight no-underline" href="#top">
-            <b className="font-display text-[1.05rem] font-medium sm:text-xl">{clinic.doctor}</b>
-            <span className="text-[0.7rem] uppercase tracking-[0.12em] text-muted-ink">{clinic.name}</span>
+          <a className="flex items-center gap-3 no-underline" href="#top">
+            {/* White chip keeps the logo's dark lettering readable in dark mode */}
+            <span className="rounded-lg bg-white px-1.5 py-1">
+              <Image alt="Harleys Clinic, Mumbai and Dubai" className="h-9 w-auto sm:h-11" priority src={logo} />
+            </span>
+            <span className="hidden border-l border-line pl-3 leading-tight xl:block">
+              <b className="block font-display text-base font-medium">{clinic.doctor}</b>
+              <span className="text-xs text-muted-ink">Gynaecologist &amp; obstetrician</span>
+            </span>
           </a>
           <nav aria-label="Main" className="hidden gap-6 text-[0.92rem] text-muted-ink lg:flex">
             <a className="no-underline hover:text-ink" href="#clinic">The clinic</a>
@@ -157,10 +165,10 @@ export default function Home() {
             <div className="relative mx-auto w-full max-w-[300px] md:max-w-none">
               <div
                 aria-label="Portrait placeholder for Dr. Shilpa"
-                className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-t-[200px] rounded-b-2xl bg-gradient-to-br from-sage-soft to-rose-soft"
+                className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-t-[200px] rounded-b-2xl bg-gradient-to-br from-plum-soft to-rose-soft"
                 role="img"
               >
-                <span className="font-display text-[clamp(3.5rem,8vw,6rem)] text-sage opacity-50">SB</span>
+                <span className="font-display text-[clamp(3.5rem,8vw,6rem)] text-plum opacity-50">SB</span>
                 <span className="absolute inset-x-3.5 bottom-3.5 text-center text-xs text-muted-ink">
                   Portrait of Dr. Shilpa goes here
                 </span>
@@ -205,7 +213,7 @@ export default function Home() {
         </section>
 
         {/* Doctor */}
-        <section className="section bg-sage-soft" id="doctor">
+        <section className="section bg-plum-soft" id="doctor">
           <div className="wrap grid gap-10 md:grid-cols-2 md:gap-18">
             <Reveal className="grid content-start gap-4">
               <span className="eyebrow">About Dr. Shilpa</span>
@@ -228,8 +236,8 @@ export default function Home() {
             </Reveal>
             <ol className="m-0 list-none p-0">
               {timeline.map((t) => (
-                <li className="grid grid-cols-[64px_1fr] gap-4 border-t border-sage/30 py-3.5" key={t.title}>
-                  <time className="font-display text-lg text-sage tabular-nums">{t.year}</time>
+                <li className="grid grid-cols-[64px_1fr] gap-4 border-t border-plum/30 py-3.5" key={t.title}>
+                  <time className="font-display text-lg text-plum tabular-nums">{t.year}</time>
                   <div>
                     <b className="block font-semibold">{t.title}</b>
                     {t.flag ? (

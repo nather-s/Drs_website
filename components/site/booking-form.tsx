@@ -72,7 +72,7 @@ export default function BookingForm() {
           Request appointment
         </button>
         {msg && (
-          <p aria-live="polite" className="rounded-[10px] bg-sage-soft px-3.5 py-3 text-sm">
+          <p aria-live="polite" className="rounded-[10px] bg-plum-soft px-3.5 py-3 text-sm">
             {msg}
           </p>
         )}

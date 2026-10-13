@@ -84,7 +84,7 @@ export default function Assistant() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               className={
                 m.from === "bot"
-                  ? "max-w-[85%] self-start rounded-2xl rounded-bl-sm bg-sage-soft px-3.5 py-2.5 text-[0.93rem] leading-snug"
+                  ? "max-w-[85%] self-start rounded-2xl rounded-bl-sm bg-plum-soft px-3.5 py-2.5 text-[0.93rem] leading-snug"
                   : "max-w-[85%] self-end rounded-2xl rounded-br-sm bg-accent px-3.5 py-2.5 text-[0.93rem] leading-snug text-accent-ink"
               }
               initial={reduce ? false : { opacity: 0, y: 8, scale: 0.98 }}

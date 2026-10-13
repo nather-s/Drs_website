@@ -31,7 +31,7 @@ const itemVariants = {
 
 const options = [
   { icon: Phone, label: "Call the clinic", detail: clinic.phoneDisplay, href: clinic.phoneHref },
-  { icon: MessageCircle, label: "WhatsApp", detail: "Usually replies within the day", href: clinic.whatsappHref },
+  { icon: MessageCircle, label: "WhatsApp", detail: "Message the clinic team", href: clinic.whatsappHref },
   { icon: Mail, label: "Email", detail: clinic.email, href: `mailto:${clinic.email}` },
   { icon: CalendarDays, label: "Book online", detail: "Pick a time or ask the assistant", href: "#book" },
 ];
@@ -75,7 +75,7 @@ export default function ContactDock() {
                       rel={href.startsWith("http") ? "noopener" : undefined}
                       target={href.startsWith("http") ? "_blank" : undefined}
                     >
-                      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-sage-soft text-sage">
+                      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-plum-soft text-plum">
                         <Icon className="size-5" />
                       </span>
                       <span className="grid min-w-0">

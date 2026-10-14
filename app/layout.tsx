@@ -7,6 +7,9 @@ import "./globals.css";
 const literata = Literata({
   variable: "--font-literata",
   subsets: ["latin"],
+  // "optional": use the web font only if it arrives before first paint, so slow
+  // connections never see text jump when it loads.
+  display: "optional",
 });
 
 // Atkinson Hyperlegible Next: built for low-vision readers, easy to read at any age.
@@ -15,6 +18,7 @@ const atkinson = Atkinson_Hyperlegible_Next({
   variable: "--font-atkinson",
   subsets: ["latin"],
   adjustFontFallback: false,
+  display: "optional",
 });
 
 export const metadata: Metadata = {

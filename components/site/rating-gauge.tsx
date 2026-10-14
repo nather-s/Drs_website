@@ -1,8 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { Gauge } from "@/components/bklit/gauge";
 import { clinic } from "@/lib/clinic";
+
+// The gauge code (and the animation library it uses) loads after the page renders.
+const Gauge = dynamic(() => import("@/components/bklit/gauge").then((m) => m.Gauge), { ssr: false });
 
 // bklit UI notch gauge showing the clinic's public rating out of 5.
 // The gauge's animated number doesn't hydrate cleanly when rendered on the server, so

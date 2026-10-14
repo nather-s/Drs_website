@@ -28,6 +28,7 @@ for (const file of walk(root)) {
     const prefix = depth === 0 ? "./" : "../".repeat(depth);
     out = src
       .replace(/(["'(]|\\")\/_next\//g, `$1${prefix}assets/`)
+      .replace(/(\\")\/favicon\.ico/g, `$1${prefix}favicon.ico`)
       .replace(/href="\/(?!\/)([^"]*)"/g, (_, path) => `href="${prefix}${toIndex(path)}"`)
       .replace("<head>", `<head><script>self.TURBOPACK_CHUNK_BASE_PATH="${prefix}assets/"</script>`);
   } else if (file.endsWith(".js")) {

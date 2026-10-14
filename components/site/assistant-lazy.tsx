@@ -10,7 +10,7 @@ import { clinic } from "@/lib/clinic";
 const Assistant = dynamic(() => import("@/components/site/assistant"), {
   ssr: false,
   loading: () => (
-    <div className="grid min-h-[560px] content-center justify-items-center gap-3 rounded-lg border border-line bg-paper p-6 text-center sm:min-h-[460px]">
+    <div className="grid min-h-[570px] content-center justify-items-center gap-3 rounded-lg border border-line bg-paper p-6 text-center lg:min-h-[455px]">
       <p className="text-muted-ink">The clinic assistant is loading.</p>
       <p className="text-sm text-muted-ink">
         You can also{" "}

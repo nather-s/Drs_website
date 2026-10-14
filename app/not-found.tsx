@@ -3,7 +3,7 @@ import Shell from "@/components/site/shell";
 
 export const metadata: Metadata = {
   title: "Page not found",
-  robots: { index: false },
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {

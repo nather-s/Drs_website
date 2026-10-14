@@ -1,97 +1,32 @@
-"use client";
-
-/**
- * Bottom contact bar with a "Contact" drawer for phones.
- * Adapted from Kokonut UI "Smooth Drawer" by @dorianbaffier (MIT, https://kokonutui.com).
- * Changes: pricing content replaced with clinic contact options and clinic palette.
- */
-
-import { MessageCircle, Phone, Mail, CalendarDays } from "lucide-react";
-import { motion, useReducedMotion, type Variants } from "motion/react";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { CalendarDays, MessageCircle, Phone } from "lucide-react";
+import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic } from "@/lib/clinic";
-import { siteHref } from "@/lib/href";
 
-const EASE_OUT = [0.23, 1, 0.32, 1] as const;
-const listVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.06, delayChildren: 0.05 } },
-} satisfies Variants;
-const itemVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: EASE_OUT } },
-} satisfies Variants;
-
-const options = [
-  { icon: Phone, label: "Call the clinic", detail: clinic.phoneDisplay, href: clinic.phoneHref },
-  { icon: MessageCircle, label: "WhatsApp", detail: "Message the clinic team", href: clinic.whatsappHref },
-  { icon: Mail, label: "Email", detail: clinic.email, href: `mailto:${clinic.email}` },
-  { icon: CalendarDays, label: "Book online", detail: "Request a time or ask the assistant", href: "/book/" },
-];
-
+// Bottom contact bar for phones. Every button acts in one tap: call, WhatsApp the clinic
+// with a ready-written request, or choose a day and time on the booking page.
+// (Previously a Kokonut UI "Smooth Drawer"; the drawer step was removed to cut friction.)
 export default function ContactDock() {
-  const reduce = useReducedMotion();
+  const item = "flex flex-1 flex-col items-center justify-center gap-0.5 rounded-[10px] py-2 text-[0.8rem] font-semibold no-underline min-h-12";
   return (
     <nav
       aria-label="Quick contact"
-      className="fixed inset-x-0 bottom-0 z-30 flex gap-2 border-t border-line bg-surface px-3 pt-2.5 pb-[calc(10px+env(safe-area-inset-bottom,0px))] md:hidden"
+      className="fixed inset-x-0 bottom-0 z-30 flex gap-2 border-t border-line bg-paper px-3 pt-2 pb-[calc(8px+env(safe-area-inset-bottom,0px))] md:hidden"
     >
-      <a className="flex-1 rounded-[10px] border border-line py-2.5 text-center text-sm font-semibold" href={clinic.phoneHref}>
+      <a className={`${item} border border-line`} href={clinic.phoneHref}>
+        <Phone aria-hidden className="size-4" />
         Call
       </a>
-      <Drawer autoFocus>
-        <DrawerTrigger asChild>
-          <button className="flex-1 rounded-[10px] border border-line py-2.5 text-sm font-semibold" type="button">
-            Contact
-          </button>
-        </DrawerTrigger>
-        <DrawerContent className="border-line bg-surface px-5 pb-[calc(24px+env(safe-area-inset-bottom,0px))]">
-          <motion.div
-            animate="visible"
-            className="mx-auto w-full max-w-[420px]"
-            initial={reduce ? false : "hidden"}
-            variants={listVariants}
-          >
-            <DrawerHeader className="px-0 text-left">
-              <DrawerTitle className="font-display text-2xl font-normal">Get in touch</DrawerTitle>
-              <DrawerDescription className="text-muted-ink">
-                {clinic.name}, Andheri West
-              </DrawerDescription>
-            </DrawerHeader>
-            <ul className="m-0 grid list-none gap-2 p-0">
-              {options.map(({ icon: Icon, label, detail, href }) => (
-                <motion.li key={label} variants={itemVariants}>
-                  <DrawerClose asChild>
-                    <a
-                      className="flex items-center gap-3 rounded-xl border border-line bg-paper p-3.5 no-underline"
-                      href={href.startsWith("/") ? siteHref(href) : href}
-                      rel={href.startsWith("http") ? "noopener" : undefined}
-                      target={href.startsWith("http") ? "_blank" : undefined}
-                    >
-                      <span className="grid size-10 shrink-0 place-items-center rounded-full bg-plum-soft text-plum">
-                        <Icon className="size-5" />
-                      </span>
-                      <span className="grid min-w-0">
-                        <b className="font-semibold">{label}</b>
-                        <span className="truncate text-sm text-muted-ink">{detail}</span>
-                      </span>
-                    </a>
-                  </DrawerClose>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </DrawerContent>
-      </Drawer>
-      <a className="flex-1 rounded-[10px] border border-accent bg-accent py-2.5 text-center text-sm font-semibold text-accent-ink" href="/book/">
+      <a
+        className={`${item} border border-line`}
+        href={bookOnWhatsapp()}
+        rel="noopener"
+        target="_blank"
+      >
+        <MessageCircle aria-hidden className="size-4" />
+        WhatsApp
+      </a>
+      <a className={`${item} border border-accent bg-accent text-accent-ink`} href="/book/">
+        <CalendarDays aria-hidden className="size-4" />
         Book
       </a>
     </nav>

@@ -3,7 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { clinic } from "@/lib/clinic";
-import { whatsappLink } from "@/lib/href";
+import { bookOnWhatsapp } from "@/lib/booking";
 
 type Msg = { id: number; from: "bot" | "me"; text: string };
 type Action = { label: string; href: string; external?: boolean };
@@ -17,11 +17,10 @@ const whatsapp: Action = { label: "Message on WhatsApp", href: clinic.whatsappHr
 const call: Action = { label: `Call ${clinic.phoneDisplay}`, href: clinic.phoneHref };
 
 function request(day: string, time: string): Step {
-  const text = `Hello, I'd like an appointment with ${clinic.doctor}.\nPreferred day: ${day}\nPreferred time: ${time}`;
   return {
     say: `Thanks. Tap "Open WhatsApp" and your request (${day.toLowerCase()}, ${time.toLowerCase()}) will be written for you; just tap Send. It's a request, not a confirmed appointment yet: the clinic team will reply during clinic hours to agree a time.`,
     choices: [],
-    actions: [{ label: "Open WhatsApp", href: whatsappLink(clinic.whatsappHref, text), external: true }, call],
+    actions: [{ label: "Open WhatsApp", href: bookOnWhatsapp(day, time), external: true }, call],
   };
 }
 

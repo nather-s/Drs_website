@@ -3,6 +3,7 @@ import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
 import SymptomFinder from "@/components/site/symptom-finder";
+import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic, reviews } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
 
@@ -49,7 +50,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="btn btn-primary" href="/book/">Book an appointment</a>
-              <a className="btn" href="/treatments/">View treatments</a>
+              <a className="btn" href={bookOnWhatsapp()} rel="noopener" target="_blank">Book on WhatsApp</a>
             </div>
             <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
             <p className="border-t border-line pt-5 text-sm text-muted-ink">{clinic.credentials}</p>

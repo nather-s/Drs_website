@@ -21,8 +21,8 @@ const sections = [
   {
     heading: "What we collect",
     body: [
-      "When you request an appointment, we ask for your name, mobile number and, if you choose, your email address, the type of visit and your preferred day and time.",
-      "This website does not use cookies, analytics or advertising trackers, and it does not store the details you type into the booking form. Your request reaches the clinic only when you send it to us, for example on WhatsApp.",
+      "When you request an appointment on WhatsApp, the clinic receives your WhatsApp number and the message you send: your preferred day and time and, if you add it, your name. We never ask for the reason for your visit online.",
+      "This website does not use cookies, analytics or advertising trackers, and it does not store anything you type into it. Your request reaches the clinic only when you tap Send in WhatsApp, and sending it is how you agree to be contacted about your appointment.",
     ],
   },
   {

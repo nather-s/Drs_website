@@ -1,3 +1,4 @@
+import PreviewSite from "@/components/preview/preview-site";
 import Assistant from "@/components/site/assistant-lazy";
 import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
@@ -34,6 +35,12 @@ const faqs = [
 ];
 
 export default function Home() {
+  // The design preview carries every page inside this one; see PreviewSite.
+  if (process.env.PREVIEW_EXPORT === "1") return <PreviewSite home={<HomePage />} />;
+  return <HomePage />;
+}
+
+function HomePage() {
   return (
     <Shell>
       {/* Hero */}

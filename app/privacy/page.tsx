@@ -21,14 +21,15 @@ const sections = [
   {
     heading: "What we collect",
     body: [
-      "When you request an appointment on WhatsApp, the clinic receives your WhatsApp number and the message you send: your preferred day and time and, if you add it, your name. We never ask for the reason for your visit online.",
-      "This website does not use cookies, analytics or advertising trackers, and it does not store anything you type into it. Your request reaches the clinic only when you tap Send in WhatsApp, and sending it is how you agree to be contacted about your appointment.",
+      "You can contact the clinic by WhatsApp, phone or email. When you do, the clinic receives your number or email address and whatever you choose to tell us. The website's booking buttons write a WhatsApp message for you containing your preferred day and time and, if you add it, your name. We never ask for the reason for your visit online.",
+      "WhatsApp messages are carried by WhatsApp (Meta), and WhatsApp may show the clinic your profile name and photo.",
+      "This website does not use cookies, analytics or advertising trackers, and it does not store anything you type into it. Nothing reaches the clinic until you send a message, call or email.",
     ],
   },
   {
     heading: "Why we use it",
     body: [
-      "We use your details only to contact you about your appointment and to arrange your care. We do not sell your details or use them for marketing.",
+      "You choose to share these details so we can arrange your appointment and care, and we use them only for that. We do not sell your details or use them for marketing.",
     ],
   },
   {

@@ -18,8 +18,14 @@ export type Treatment = {
   reviewId?: string;
   /** Neutral browser-tab title for topics people may want to keep private. */
   metaTitle?: string;
+  /** Neutral search/link-preview text for sensitive topics (tab titles and shared links). */
+  metaDescription?: string;
   /** Sensitive topic: shows the "Exit this page" button and browsing-safety link. */
   sensitive?: boolean;
+  /** Page is for male patients; hides the gynaecology "Coming to the clinic" note. */
+  forMen?: boolean;
+  /** Guidelines and laws the page's content follows, listed at the end of the page. */
+  references?: string[];
 };
 
 export const categories: { id: CategoryId; title: string; intro: string }[] = [
@@ -54,6 +60,7 @@ export const treatments: Treatment[] = [
   // ─── Gynaecology ──────────────────────────────────────────────
   {
     slug: "pcos",
+    references: ["International evidence-based guideline for the assessment and management of PCOS (2023)"],
     title: "PCOS & PCOD",
     category: "gynaecology",
     summary:
@@ -203,7 +210,7 @@ export const treatments: Treatment[] = [
         heading: "Treatment options",
         points: [
           "Hormonal treatment: the combined pill or anti-androgen medicines to slow further loss. Anti-androgens need reliable contraception, as they can harm a developing baby.",
-          "Minoxidil: applied to the scalp to stimulate regrowth. Results take several months.",
+          "Minoxidil: applied to the scalp to stimulate regrowth. Results take several months. It is not used in pregnancy or while breastfeeding.",
           "Checking other causes: iron, vitamin D and thyroid levels can also affect hair and are easy to test.",
           "Lifestyle: weight loss and exercise improve insulin resistance and lower androgen levels.",
         ],
@@ -411,6 +418,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "cervical-cancer-prevention",
+    references: ["WHO guideline for screening and treatment of cervical pre-cancer lesions (2021)"],
     title: "Cervical cancer prevention",
     category: "gynaecology",
     summary: "Pap smear and HPV screening, HPV vaccination, and follow-up of abnormal results.",
@@ -514,6 +522,7 @@ export const treatments: Treatment[] = [
   // ─── Pregnancy ────────────────────────────────────────────────
   {
     slug: "pregnancy-care",
+    references: ["Pre-Conception and Pre-Natal Diagnostic Techniques (PCPNDT) Act, 1994"],
     title: "Pregnancy care",
     category: "pregnancy",
     summary: "Antenatal and postnatal care, from your first scan to the weeks after delivery.",
@@ -551,7 +560,7 @@ export const treatments: Treatment[] = [
           "Fever, or feeling very unwell",
         ],
         after:
-          "Call the clinic, or if you cannot reach us, go to the nearest hospital emergency department or call 108. Sex determination of the baby is not done, as it is illegal under the PCPNDT Act.",
+          "Call the clinic, or if you cannot reach us, go to the nearest hospital emergency department or call 108.",
       },
     ],
     faqs: [
@@ -583,7 +592,7 @@ export const treatments: Treatment[] = [
           "High blood pressure or pre-eclampsia",
           "PCOS and thyroid disorders",
           "Twins or multiple pregnancy",
-          "Previous miscarriage, preterm birth or stillbirth",
+          "Repeated miscarriage, or a previous preterm birth or stillbirth",
           "Previous caesarean section",
           "Pregnancy after fertility treatment, or over the age of 35",
         ],
@@ -652,8 +661,10 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "pregnancy-options",
+    references: ["Medical Termination of Pregnancy Act, 1971 (amended 2021) and MTP Rules, 2021", "World Health Organization, Abortion care guideline (2022)", "Protection of Children from Sexual Offences (POCSO) Act, 2012"],
     title: "Pregnancy options and abortion care",
     metaTitle: "Pregnancy options",
+    metaDescription: "Confidential advice and care if you are pregnant and unsure what to do, with Dr. Shilpa Bansal Agrawal in Andheri West.",
     sensitive: true,
     category: "pregnancy",
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
@@ -666,7 +677,7 @@ export const treatments: Treatment[] = [
         points: [
           "Medical abortion: tablets taken over two days, usually suitable up to about nine weeks of pregnancy.",
           "Surgical abortion: a short procedure (vacuum aspiration) under anaesthesia.",
-          "Up to 20 weeks: allowed on the opinion of one registered doctor.",
+          "Up to 20 weeks: allowed on the opinion of one registered doctor, for the reasons set out in the Act.",
           "20 to 24 weeks: allowed for specific categories of women set out in the Act, on the opinion of two registered doctors, at an approved facility.",
         ],
       },
@@ -684,7 +695,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         q: "Is it confidential?",
-        a: "Yes. Your details are kept strictly confidential, as required by the MTP Act.",
+        a: "Yes. Your details are kept confidential, as the MTP Act requires. For anyone under 18, the law also requires a guardian's consent and a report under the POCSO Act, though the young person's identity can be kept out of that report.",
       },
       {
         q: "Will it affect my fertility?",
@@ -726,10 +737,10 @@ export const treatments: Treatment[] = [
         heading: "Treatment options",
         points: [
           "Ovulation induction: tablets or injections to help you ovulate, with scans to time intercourse.",
-          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation.",
+          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation, at a registered ART centre.",
           "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre.",
           "Surgery: keyhole surgery or hysteroscopy for endometriosis, fibroids, polyps or blocked tubes.",
-          "Egg freezing: for women who wish to delay pregnancy.",
+          "Egg freezing: for women who wish to delay pregnancy, at a registered ART centre.",
         ],
       },
     ],
@@ -747,6 +758,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "male-infertility",
+    forMen: true,
     title: "Male infertility",
     category: "fertility",
     summary: "Testing and treatment for the male partner, as part of a couple's fertility care.",
@@ -777,7 +789,7 @@ export const treatments: Treatment[] = [
           "Semen analysis, hormone tests and scrotal ultrasound",
           "Lifestyle changes, which can improve sperm quality within about three months",
           "Medicines or surgery for treatable causes, with referral to a urologist when needed",
-          "IUI, or IVF with ICSI when sperm numbers are very low",
+          "IUI, or IVF with ICSI when sperm numbers are very low, at a registered ART centre",
         ],
       },
     ],
@@ -794,6 +806,8 @@ export const treatments: Treatment[] = [
   {
     slug: "adolescent-health",
     sensitive: true,
+    metaTitle: "Teen health",
+    metaDescription: "Respectful health care for teenagers, from first periods onwards, with Dr. Shilpa Bansal Agrawal in Andheri West.",
     title: "Adolescent health",
     category: "life-stages",
     summary: "Respectful, age-appropriate care for teenagers, from first periods to sexual health.",
@@ -831,6 +845,8 @@ export const treatments: Treatment[] = [
   {
     slug: "contraception",
     sensitive: true,
+    metaTitle: "Family planning advice",
+    metaDescription: "Help choosing the family planning method that suits you, with Dr. Shilpa Bansal Agrawal in Andheri West.",
     title: "Contraception",
     category: "life-stages",
     summary: "Help choosing the contraception that suits your health, plans and lifestyle.",
@@ -861,6 +877,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "menopause",
+    references: ["NICE guideline NG23: Menopause, diagnosis and management"],
     title: "Menopause & HRT",
     category: "life-stages",
     summary: "Managing menopause symptoms and deciding whether hormone replacement therapy is right for you.",
@@ -921,7 +938,10 @@ export const treatments: Treatment[] = [
   // ─── Cosmetic ─────────────────────────────────────────────────
   {
     slug: "cosmetic-gynaecology",
+    references: ["ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)", "US FDA safety communication on energy-based devices for vaginal ‘rejuvenation’ (2018)"],
     sensitive: true,
+    metaTitle: "Private consultation",
+    metaDescription: "Private, confidential consultations with Dr. Shilpa Bansal Agrawal in Andheri West.",
     title: "Cosmetic gynaecology",
     category: "cosmetic",
     summary: "Surgical and non-surgical treatments for comfort, function and confidence.",
@@ -956,7 +976,10 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "vaginal-tightening",
+    references: ["US FDA safety communication on energy-based devices for vaginal ‘rejuvenation’ (2018)", "NICE guideline NG123: urinary incontinence and pelvic organ prolapse in women (2019)", "ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)"],
     sensitive: true,
+    metaTitle: "Private consultation",
+    metaDescription: "Private, confidential consultations with Dr. Shilpa Bansal Agrawal in Andheri West.",
     title: "Vaginal tightening",
     category: "cosmetic",
     summary: "Laser and surgical options for vaginal laxity after childbirth or with age.",
@@ -979,7 +1002,7 @@ export const treatments: Treatment[] = [
         heading: "Surgical vaginoplasty",
         points: [
           "Tightens the muscles and removes excess tissue, with dissolvable stitches",
-          "Done under anaesthesia and takes about two to three hours",
+          "Done under anaesthesia; Dr. Shilpa will tell you how long your procedure takes",
           "Light exercise after about three weeks; sex after about six weeks",
         ],
       },
@@ -994,7 +1017,10 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "hymenoplasty",
+    references: ["ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)", "Protection of Children from Sexual Offences (POCSO) Act, 2012"],
     sensitive: true,
+    metaTitle: "Private consultation",
+    metaDescription: "Private, confidential consultations with Dr. Shilpa Bansal Agrawal in Andheri West.",
     title: "Hymenoplasty",
     category: "cosmetic",
     summary: "Private, judgement-free consultation and surgical repair of the hymen.",

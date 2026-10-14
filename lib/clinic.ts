@@ -19,6 +19,8 @@ export const clinic = {
     "https://www.google.com/maps/search/?api=1&query=Jyoti+Tower+DN+Nagar+Andheri+West+Mumbai",
   rating: { value: 4.9, count: 1459, source: "Justdial" },
   emergency: "108",
+  /** Consultation hours, e.g. "Mon–Sat, 10 am – 7 pm". Leave undefined until the clinic confirms them. */
+  hours: undefined as string | undefined,
   credentials:
     "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology · DHA Specialist (Dubai)",
   hospitals: ["Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],

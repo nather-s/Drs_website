@@ -4,10 +4,22 @@ import { useEffect, useRef, useState } from "react";
 import { siteHref } from "@/lib/href";
 
 // Quick exit for sensitive pages, based on the GOV.UK "Exit this page" component.
-// Pressing the button (or Shift three times) blanks the screen and replaces this page
-// with a neutral site, so Back doesn't return here. It cannot erase browsing history;
-// the browsing-safety page explains that.
+// - The button (or Shift pressed three times on its own) blanks the screen, clears the
+//   tab title and replaces this page with a neutral site, so Back doesn't return here.
+// - Same-page links (contents, skip link) replace the history entry instead of adding
+//   one, so there are no extra entries for this page left behind.
+// - The referrer is dropped, so the destination isn't told where the visitor came from.
+// It cannot erase browsing history; the browsing-safety page explains that.
 const DESTINATION = "https://www.bbc.com/weather";
+
+function leave() {
+  document.title = "Weather";
+  const meta = document.createElement("meta");
+  meta.name = "referrer";
+  meta.content = "no-referrer";
+  document.head.appendChild(meta);
+  window.location.replace(DESTINATION);
+}
 
 export default function ExitPage() {
   const [leaving, setLeaving] = useState(false);
@@ -15,18 +27,51 @@ export default function ExitPage() {
 
   const exit = () => {
     setLeaving(true);
-    window.location.replace(DESTINATION);
+    leave();
   };
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key !== "Shift" || e.repeat) return;
+    // Shift pressed and released on its own three times within 5 seconds. Any other key,
+    // or Shift used together with another key (Shift+Tab, capitals), resets the count.
+    let shiftAlone = false;
+    const isTyping = (t: EventTarget | null) =>
+      t instanceof HTMLElement && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(t.tagName));
+    const onDown = (e: KeyboardEvent) => {
+      if (e.key === "Shift" && !e.repeat && !e.ctrlKey && !e.altKey && !e.metaKey && !isTyping(e.target)) {
+        shiftAlone = true;
+      } else {
+        shiftAlone = false;
+        if (e.key !== "Shift") presses.current = [];
+      }
+    };
+    const onUp = (e: KeyboardEvent) => {
+      if (e.key !== "Shift" || !shiftAlone) return;
+      shiftAlone = false;
       const now = Date.now();
       presses.current = [...presses.current.filter((t) => now - t < 5000), now];
       if (presses.current.length >= 3) exit();
     };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    // Same-page anchor links: scroll and focus without adding a history entry.
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a[href^='#']");
+      if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      const id = decodeURIComponent(a.getAttribute("href")!.slice(1));
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+      e.preventDefault();
+      history.replaceState(history.state, "", `#${id}`);
+      target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    };
+    window.addEventListener("keydown", onDown);
+    window.addEventListener("keyup", onUp);
+    document.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("keydown", onDown);
+      window.removeEventListener("keyup", onUp);
+      document.removeEventListener("click", onClick);
+    };
   }, []);
 
   return (
@@ -39,6 +84,7 @@ export default function ExitPage() {
             e.preventDefault();
             exit();
           }}
+          referrerPolicy="no-referrer"
           rel="nofollow noreferrer"
         >
           Exit this page

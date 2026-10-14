@@ -13,36 +13,41 @@ const sections = [
   {
     heading: "The Exit this page button",
     points: [
-      "Some pages have an Exit this page button. Tapping it, or pressing the Shift key three times, takes you straight to a weather website.",
-      "It does not delete this website from your browsing history. Follow the steps below to do that.",
+      "Some pages have an Exit this page button. Tapping it, or pressing the Shift key three times in a row, takes you straight to a weather website.",
+      "It does not delete this website from your browsing history, and pressing Back may still show pages you visited earlier. Follow the steps below to remove them.",
     ],
   },
   {
     heading: "Use a private tab",
     points: [
-      "In Chrome on Android, tap the three dots at the top right, then New Incognito tab. Pages you open there are not saved in your history.",
-      "On an iPhone in Safari, tap the tabs button, then Private.",
+      "Android (Chrome): tap the three dots at the top right, then New Incognito tab. Pages you open there are not saved in your history.",
+      "iPhone (Safari): tap the tabs button, then Private.",
     ],
   },
   {
     heading: "Clear your history",
     points: [
-      "In Chrome, tap the three dots, then History, then Delete browsing data.",
-      "If someone may notice that the whole history has gone, you can delete single pages from the History list instead.",
+      "Android (Chrome): tap the three dots, then History. Delete single pages, or tap Delete browsing data to remove everything.",
+      "iPhone (Safari): tap the book icon, then the clock (History). Swipe left on a page to delete it, or tap Clear.",
+      "If someone may notice that the whole history has gone, delete single pages instead.",
+      "If you are signed in to Chrome with a Google account, your history may also be saved to that account and other devices. Use a private tab, or sign out first.",
     ],
   },
   {
     heading: "WhatsApp and phone calls",
     points: [
       "Messages to the clinic stay in your WhatsApp chats. You can delete the chat after the clinic replies.",
-      "To stop messages showing on your lock screen, open WhatsApp, go to Settings, then Notifications, and turn off message previews.",
+      "iPhone: to stop message text showing on your lock screen, open WhatsApp, go to Settings, then Notifications, and turn off Show Preview.",
+      "Android: open your phone's Settings, then Notifications (or Apps, then WhatsApp, then Notifications), and choose to hide sensitive content on the lock screen. The exact words differ between phone makers.",
+      "Even with previews hidden, the sender's name may still appear in a notification.",
       "Calls to the clinic appear in your call log, which you can delete.",
     ],
   },
   {
     heading: "If you are not safe",
     points: [
-      `If you are in danger right now, call 112. The Women Helpline is 181.`,
+      "If you are in danger right now, call 112.",
+      "Mumbai Police women's helpline: 103. Women Helpline: 181.",
       `You can also speak to Dr. Shilpa in confidence at the clinic. Call ${clinic.phoneDisplay} to book.`,
     ],
   },

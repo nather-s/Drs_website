@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { clinic } from "@/lib/clinic";
 import { bookOnWhatsapp } from "@/lib/booking";
+import { siteHref } from "@/lib/href";
 
 type Msg = { id: number; from: "bot" | "me"; text: string };
 type Action = { label: string; href: string; external?: boolean };
@@ -18,7 +19,7 @@ const call: Action = { label: `Call ${clinic.phoneDisplay}`, href: clinic.phoneH
 
 function request(day: string, time: string): Step {
   return {
-    say: `Thanks. Tap "Open WhatsApp" and your request (${day.toLowerCase()}, ${time.toLowerCase()}) will be written for you; just tap Send. It's a request, not a confirmed appointment yet: the clinic team will reply during clinic hours to agree a time.`,
+    say: `Thanks. Tap "Open WhatsApp" and your request (${day.toLowerCase()}, ${time.toLowerCase()}) will be written for you; just tap Send. It's a request, not a confirmed appointment yet: the clinic team will reply on WhatsApp to agree a time.`,
     choices: [],
     actions: [{ label: "Open WhatsApp", href: bookOnWhatsapp(day, time), external: true }, call],
   };
@@ -36,7 +37,7 @@ const visit = (): Step => ({
 });
 
 const start = (): Step => ({
-  say: "Hello, I'm the Harleys clinic assistant. I can help you request an appointment with Dr. Shilpa or answer questions about the clinic.",
+  say: "Hello, I'm the Harleys clinic assistant. I can help you request an appointment with Dr. Shilpa, find the clinic, or explain what happens at a first visit.",
   choices: [
     { label: "Book an appointment", next: visit },
     {
@@ -45,6 +46,14 @@ const start = (): Step => ({
         say: `The clinic is at ${clinic.addressLines.join(", ")}. It is convenient for Lokhandwala, Oshiwara, Versova, Juhu and Vile Parle.`,
         choices: [{ label: "Book an appointment", next: visit }],
         actions: [{ label: "Get directions", href: clinic.mapsHref, external: true }],
+      }),
+    },
+    {
+      label: "What happens at my first visit?",
+      next: () => ({
+        say: "Dr. Shilpa will talk with you in a private room first. An examination is only done if it's needed, and only with your permission. You can bring someone with you and ask to stop at any time. Bring any previous reports and a list of your medicines.",
+        choices: [{ label: "Book an appointment", next: visit }],
+        actions: [{ label: "Read the full guide", href: siteHref("/first-visit/") }],
       }),
     },
     {
@@ -156,7 +165,8 @@ export default function Assistant() {
       </div>
       <p className="mt-4 text-xs text-muted-ink">
         The assistant helps with appointments and questions about the clinic. It does not give medical advice. In a
-        medical emergency, call {clinic.emergency}.
+        medical emergency, call {clinic.emergency}. Messages you send on WhatsApp go to the clinic; see{" "}
+        <a className="underline underline-offset-2" href={siteHref("/privacy/")}>how we use your details</a>.
       </p>
     </div>
   );

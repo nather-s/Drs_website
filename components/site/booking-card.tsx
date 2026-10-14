@@ -22,6 +22,7 @@ export default function BookingCard({ topic }: { topic?: string }) {
       <div className="grid gap-1.5 border-t border-line pt-4 text-sm">
         <a className="no-underline hover:text-accent" href={clinic.phoneHref}>Call {clinic.phoneDisplay}</a>
         <a className="no-underline hover:text-accent" href="/book/">Choose a day and time</a>
+        <a className="text-xs text-muted-ink underline underline-offset-2" href="/privacy/">How we use your details</a>
       </div>
     </div>
   );

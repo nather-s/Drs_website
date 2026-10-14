@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/team/" },
 };
 
-type Member = { name: string; role: string; bio: string; initials: string; href?: string; pending?: boolean };
+type Member = { name: string; role: string; bio: string; initials: string; href?: string };
 
 const doctors: Member[] = [
   {
@@ -24,7 +24,6 @@ const doctors: Member[] = [
     role: "Cosmetic Surgeon",
     bio: "Cosmetic surgeon at Harleys Cosmetic & Women's Clinic.",
     initials: "SA",
-    pending: true,
   },
 ];
 
@@ -70,8 +69,8 @@ export default function Team() {
         <section aria-labelledby="staff" className="grid gap-3 rounded-lg bg-mist p-6 md:p-8">
           <h2 className="text-[1.5rem]" id="staff">Clinic staff</h2>
           <p className="max-w-[66ch]">
-            Most of the clinic's nursing and front-desk staff are women. They will welcome you, help with appointments
-            and, if you wish, stay with you during an examination.
+            Most of the clinic's staff are women. They will welcome you and help with your appointments and any
+            questions before or after your visit.
           </p>
           <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
         </section>

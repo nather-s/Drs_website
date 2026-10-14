@@ -7,7 +7,7 @@ import { clinic } from "@/lib/clinic";
 export const metadata: Metadata = {
   title: `About ${clinic.doctor}, Gynaecologist`,
   description:
-    "Qualifications, experience and areas of interest of Dr. Shilpa Bansal Agrawal, consultant obstetrician, gynaecologist and fertility specialist in Mumbai.",
+    "Qualifications, experience and areas of interest of Dr. Shilpa Bansal Agrawal, consultant obstetrician and gynaecologist in Mumbai.",
   alternates: { canonical: "/about/" },
 };
 
@@ -45,7 +45,7 @@ export default function About() {
       <PageIntro
         crumbs={[{ label: "About Dr. Shilpa" }]}
         eyebrow={clinic.doctorRole}
-        lede="Consultant obstetrician, gynaecologist and fertility specialist, and founder of Harleys Women's Clinic in Andheri West."
+        lede="Consultant obstetrician and gynaecologist with advanced training in fertility, and founder of Harleys Women's Clinic in Andheri West."
         title={clinic.doctor}
       />
 

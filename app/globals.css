@@ -74,6 +74,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  /* Keep focused fields clear of the phone bottom bar. */
+  scroll-padding-bottom: 84px;
+}
+@media (min-width: 768px) {
+  html {
+    scroll-padding-bottom: 0;
+  }
 }
 body {
   background: var(--paper);

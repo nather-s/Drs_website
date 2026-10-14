@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "Is the clinic private and female-friendly?",
-    a: "Yes. Most of the clinic's staff are women, and every consultation is confidential.",
+    a: "Yes. Most of the clinic's staff are women, and every consultation is confidential, within the limits the law requires.",
   },
   {
     q: "Can I come in just for a preventive check-up?",
@@ -45,8 +45,9 @@ export default function Home() {
               Women's health care, from adolescence to menopause.
             </h1>
             <p className="max-w-[58ch] text-lg text-muted-ink">
-              {clinic.doctor} provides gynaecology, pregnancy, fertility and menopause care at {clinic.name}.
-              Every consultation is unhurried and confidential.
+              Consult {clinic.doctor}, a woman gynaecologist, for gynaecology, pregnancy, fertility and menopause care
+              at {clinic.name}.
+              Every consultation is private and confidential.
             </p>
             <div className="flex flex-wrap gap-3">
               <a className="btn btn-primary" href="/book/">Book an appointment</a>
@@ -61,10 +62,8 @@ export default function Home() {
               className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-lg bg-plum-soft"
               role="img"
             >
+              {/* Replace with Dr. Shilpa's photo when the clinic provides one. */}
               <span className="font-display text-[clamp(3.5rem,8vw,5.5rem)] text-plum/40">SB</span>
-              <span className="absolute inset-x-4 bottom-4 text-center text-xs text-muted-ink">
-                Portrait of Dr. Shilpa goes here
-              </span>
             </div>
             <div className="absolute -bottom-6 left-1/2 w-max -translate-x-1/2 rounded-lg border border-line bg-paper px-5 py-3 text-center shadow-[0_12px_30px_-18px_rgba(46,36,51,0.5)]">
               <b className="block font-display text-lg font-medium">{clinic.doctor}</b>
@@ -145,7 +144,7 @@ export default function Home() {
             <span className="eyebrow">About the doctor</span>
             <h2 className="h-section" id="about-title">{clinic.doctor}</h2>
             <p>
-              Dr. Shilpa is a consultant obstetrician, gynaecologist and fertility specialist, and the founder of{" "}
+              Dr. Shilpa is a consultant obstetrician and gynaecologist with advanced training in fertility, and the founder of{" "}
               {clinic.name}. She trained at Kasturba Medical College, Manipal and King George's Medical University,
               Lucknow, with a gold medal in her MD, and holds the MRCOG from the Royal College of Obstetricians and
               Gynaecologists, UK.
@@ -179,7 +178,7 @@ export default function Home() {
             <h2 className="h-section" id="assistant-title">Questions before you book?</h2>
             <p className="text-muted-ink">
               The clinic assistant can book an appointment with Dr. Shilpa and answer practical questions about
-              the clinic, such as location and how to prepare for your visit.
+              the clinic, such as where it is and what happens at your first visit.
             </p>
             <p className="text-sm text-muted-ink">
               It does not give medical advice. For anything about your health, please book a consultation.

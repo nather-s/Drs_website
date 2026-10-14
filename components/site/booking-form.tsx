@@ -46,7 +46,8 @@ export default function BookingForm() {
       <div className="grid gap-1">
         <h2 className="text-[1.6rem]">Request an appointment</h2>
         <p className="text-muted-ink">
-          Choose when suits you and tap the button. You don't need to tell us why you're coming.
+          Your appointment is with Dr. Shilpa, a woman gynaecologist. Choose when suits you and tap the button. You
+          don't need to tell us why you're coming.
         </p>
       </div>
       {choices("Which day?", DAYS, day, setDay, "day")}

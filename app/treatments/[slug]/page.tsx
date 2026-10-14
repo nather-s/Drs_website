@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: PageProps<"/treatments/[slug]
   if (!t) return {};
   return {
     title: `${t.metaTitle ?? t.title} | Dr. Shilpa, Andheri West`,
-    description: t.summary,
+    description: t.metaDescription ?? t.summary,
     alternates: { canonical: `/treatments/${t.slug}/` },
-    openGraph: { title: t.metaTitle ?? t.title, description: t.summary, url: `/treatments/${t.slug}/` },
+    openGraph: { title: t.metaTitle ?? t.title, description: t.metaDescription ?? t.summary, url: `/treatments/${t.slug}/` },
   };
 }
 
@@ -97,19 +97,32 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             </section>
           )}
 
-          <div className="grid gap-3 rounded-lg bg-mist p-6">
-            <h2 className="text-[1.3rem]">Coming to the clinic</h2>
-            <p className="max-w-[66ch]">
-              Your consultation is private, and an examination is only done if it's needed, with your permission. You
-              can bring someone with you and ask for a female member of staff to be present.
-            </p>
-            <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
-          </div>
+          {!t.forMen && (
+            <div className="grid gap-3 rounded-lg bg-mist p-6">
+              <h2 className="text-[1.3rem]">Coming to the clinic</h2>
+              <p className="max-w-[66ch]">
+                Your consultation is private, and an examination is only done if it's needed, with your permission.
+                You're welcome to bring someone with you, and you can ask to stop at any time.
+              </p>
+              <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
+            </div>
+          )}
 
-          {t.category === "pregnancy" && (
+          {(t.category === "pregnancy" || t.category === "fertility") && (
             <p className="max-w-[66ch] text-sm font-semibold">
               Sex determination of the baby is not done at this clinic. It is illegal under the PCPNDT Act.
             </p>
+          )}
+
+          {t.references && (
+            <section aria-labelledby="based-on" className="grid gap-2">
+              <h2 className="text-[1.1rem] font-semibold" id="based-on">This page follows</h2>
+              <ul className="m-0 grid list-disc gap-1 pl-5 text-sm text-muted-ink">
+                {t.references.map((r) => (
+                  <li key={r}>{r}</li>
+                ))}
+              </ul>
+            </section>
           )}
 
           <p className="text-sm text-muted-ink">

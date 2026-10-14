@@ -18,6 +18,8 @@ export default function NotFound() {
         <div className="flex flex-wrap gap-3">
           <a className="btn btn-primary" href="/">Go to the home page</a>
           <a className="btn" href="/treatments/">View treatments</a>
+          <a className="btn" href="/about/">About Dr. Shilpa</a>
+          <a className="btn" href="/book/">Book an appointment</a>
         </div>
       </div>
     </Shell>

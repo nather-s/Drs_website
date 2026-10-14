@@ -54,10 +54,12 @@ export default function Book() {
               <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Email</dt>
               <dd className="m-0 break-words"><a className="no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a></dd>
             </div>
-            <div className="grid gap-1">
-              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consultation hours</dt>
-              <dd className="m-0 text-muted-ink">To be confirmed by the clinic</dd>
-            </div>
+            {clinic.hours && (
+              <div className="grid gap-1">
+                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consultation hours</dt>
+                <dd className="m-0">{clinic.hours}</dd>
+              </div>
+            )}
           </dl>
           <p className="rounded-lg bg-mist p-4 text-sm text-muted-ink">
             Convenient for patients from Lokhandwala, Oshiwara, Versova, Juhu and Vile Parle.

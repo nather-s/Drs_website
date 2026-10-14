@@ -7,7 +7,7 @@ import { clinic } from "@/lib/clinic";
 export const metadata: Metadata = {
   title: "Your first visit | Dr. Shilpa, Andheri West",
   description:
-    "What happens at your first appointment with Dr. Shilpa Bansal Agrawal: what to bring, the consultation, examinations, chaperones and privacy.",
+    "What happens at your first appointment with Dr. Shilpa Bansal Agrawal: what to bring, the consultation, examinations and privacy.",
   alternates: { canonical: "/first-visit/" },
 };
 
@@ -18,7 +18,7 @@ const steps = [
     points: [
       "Bring any previous reports, scans and prescriptions, and a list of medicines you take.",
       "Note the date your last period started, and any symptoms you want to mention. It's fine to write them down and read from your notes.",
-      "You can still come if you have your period. Only a Pap smear needs to be booked for a day when you are not bleeding.",
+      "You can usually still come if you have your period. A Pap smear or colposcopy needs to be booked for a day when you are not bleeding.",
     ],
   },
   {
@@ -41,7 +41,7 @@ const steps = [
     points: [
       "An examination is only done if it is needed. Many first visits don't need an internal examination at all.",
       "Dr. Shilpa will explain what the examination involves and why, and ask your permission before starting.",
-      "You can ask for a female member of staff to be with you, and you can ask to pause or stop at any time.",
+      "You can have the person you came with in the room, and you can ask to pause or stop at any time.",
     ],
   },
   {
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "How much does a consultation cost?",
-    a: "The clinic will tell you the consultation fee when you book, before you come in.",
+    a: "Ask about the consultation fee when you message or call to book, and the clinic team will tell you before your visit.",
   },
   {
     q: "What if I feel nervous or embarrassed?",

@@ -120,7 +120,8 @@ function HomePage() {
                 <ul className="m-0 grid list-none gap-1.5 p-0 text-[0.95rem]">
                   {treatments
                     .filter((t) => t.category === c.id)
-                    .slice(0, 4)
+                    // Elective cosmetic procedures are listed on their own page, not on the home page.
+                    .slice(0, c.id === "cosmetic" ? 1 : 4)
                     .map((t) => (
                       <li key={t.slug}>
                         <a className="no-underline hover:text-accent" href={`/treatments/${t.slug}/`}>
@@ -170,7 +171,7 @@ function HomePage() {
               </div>
             ))}
             <div className="grid gap-2 bg-paper p-5 sm:col-span-2">
-              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Also consults at</dt>
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Hospital experience</dt>
               <dd className="m-0">{clinic.hospitals.join(" · ")}</dd>
             </div>
           </dl>

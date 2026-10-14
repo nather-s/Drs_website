@@ -417,6 +417,60 @@ export const treatments: Treatment[] = [
     related: ["cervical-cancer-prevention", "fibroids-and-cysts"],
   },
   {
+    slug: "vaginal-infections",
+    references: ["WHO guidelines for the management of symptomatic sexually transmitted infections (2021)"],
+    title: "Discharge, itching & infections",
+    metaTitle: "Discharge and itching",
+    category: "gynaecology",
+    summary: "Diagnosis and treatment of unusual discharge, itching, burning and common vaginal infections.",
+    intro: [
+      "Some vaginal discharge is normal and healthy. It changes through the menstrual cycle and keeps the vagina clean. A change in colour, smell or amount, or itching and burning, usually means a common infection that is easy to treat.",
+      "These infections are very common at every age, including in teenagers, and most have nothing to do with sex.",
+    ],
+    sections: [
+      {
+        heading: "When to see a doctor",
+        points: [
+          "Itching, soreness or burning around the vagina",
+          "Thick white discharge, like cottage cheese",
+          "Grey, green or yellow discharge, or a fishy smell",
+          "Burning when passing urine",
+          "Symptoms that keep coming back after treatment from a chemist",
+        ],
+        after:
+          "See a doctor quickly if you also have fever, pain low in the abdomen, bleeding between periods, or if you are pregnant.",
+      },
+      {
+        heading: "Common causes",
+        points: [
+          "Thrush (yeast infection): itching and thick white discharge. Common after antibiotics, in pregnancy and with diabetes.",
+          "Bacterial vaginosis: thin grey discharge with a fishy smell. An imbalance of normal bacteria, not a sexually transmitted infection.",
+          "Urine infection: burning and needing to pass urine often.",
+          "Sexually transmitted infections such as trichomonas or chlamydia: tested for only when relevant, and always in confidence.",
+          "Irritation from scented soaps, washes, pads or tight synthetic clothing.",
+        ],
+      },
+      {
+        heading: "Diagnosis and treatment",
+        body: [
+          "Dr. Shilpa will ask about your symptoms and may take a quick swab. For teenagers and women who have not been sexually active, a swab can usually be taken without an internal examination.",
+          "Most infections clear within a few days with tablets, a cream or a pessary. Sometimes a partner needs treatment too, so the infection doesn't come back.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I just buy a cream from the chemist?",
+        a: "For a first, typical episode of thrush that can work. If symptoms are different, come back, or you are pregnant, see a doctor, as the wrong treatment can make things worse.",
+      },
+      {
+        q: "Should I use an intimate wash?",
+        a: "No. Washing the outside with plain water is enough. Douches, scented washes and wipes upset the vagina's natural balance and make infections more likely.",
+      },
+    ],
+    related: ["adolescent-health", "bartholin-cyst", "cervical-cancer-prevention"],
+  },
+  {
     slug: "cervical-cancer-prevention",
     references: ["WHO guideline for screening and treatment of cervical pre-cancer lesions (2021)"],
     title: "Cervical cancer prevention",
@@ -470,7 +524,8 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "colposcopy",
-    title: "Colposcopy",
+    references: ["WHO guideline for screening and treatment of cervical pre-cancer lesions (2021)"],
+    title: "Colposcopy and abnormal smear results",
     category: "gynaecology",
     summary: "A detailed examination of the cervix after an abnormal Pap smear or HPV test.",
     intro: [
@@ -478,6 +533,20 @@ export const treatments: Treatment[] = [
       "If an area looks abnormal, a small sample (biopsy) can be taken during the same visit.",
     ],
     sections: [
+      {
+        heading: "Understanding your result",
+        body: [
+          "Being told your result is abnormal is frightening, but it is very rarely cancer. Screening is designed to find small changes years before they could ever become cancer, so they can be watched or treated early.",
+        ],
+        points: [
+          "HPV positive: you have a common virus that most sexually active people catch at some point. In most women the body clears it within one to two years. It needs follow-up, not alarm.",
+          "ASC-US: borderline changes in a few cells, often caused by HPV or inflammation. Many return to normal on their own.",
+          "LSIL (low-grade changes): mild changes that usually clear by themselves and are often just monitored.",
+          "HSIL or ASC-H (high-grade changes): changes that are more likely to need treatment. They are still not cancer, and treatment is simple and very effective.",
+        ],
+        after:
+          "Bring your lab report to the appointment. Dr. Shilpa will explain what it means for you. If tests ever show cancer, which is rare, she will refer you promptly to a gynaecological oncologist.",
+      },
       {
         heading: "Why it is done",
         points: [
@@ -515,8 +584,16 @@ export const treatments: Treatment[] = [
         q: "Does a colposcopy mean I have cancer?",
         a: "No. Most colposcopies find either no changes or early changes that are easily treated.",
       },
+      {
+        q: "I'm HPV positive. Does it mean my partner has been unfaithful?",
+        a: "No. HPV can stay in the body unnoticed for many years, so a positive test cannot tell you when or from whom it was caught.",
+      },
+      {
+        q: "How soon should I be seen?",
+        a: "Within a few weeks is usually fine for borderline or low-grade results. For a high-grade result, or bleeding after sex, mention it when you book so you can be seen sooner.",
+      },
     ],
-    related: ["cervical-cancer-prevention"],
+    related: ["cervical-cancer-prevention", "vaginal-infections"],
   },
 
   // ─── Pregnancy ────────────────────────────────────────────────
@@ -669,7 +746,8 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
     intro: [
-      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. Your decision is respected without judgement. An adult woman does not need anyone else's consent; for anyone under 18, written consent from a guardian is required by law.",
+      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. Your decision is respected without judgement.",
+      "Abortion is legal for every woman in India, married or unmarried. If you are 18 or over, you do not need anyone else's consent: not a parent's, a partner's or a husband's. For anyone under 18, written consent from a guardian is required by law.",
     ],
     sections: [
       {
@@ -691,8 +769,28 @@ export const treatments: Treatment[] = [
         ],
         after: "Seek care urgently if you have very heavy bleeding, severe pain or fever.",
       },
+      {
+        heading: "How many visits it usually takes",
+        points: [
+          "First visit: a consultation and ultrasound. For a medical abortion, the first tablet is usually taken at the clinic.",
+          "The second set of tablets is usually taken at home a day or two later. Plan to rest that day.",
+          "A follow-up visit about two weeks later checks that the abortion is complete.",
+        ],
+        after: "Most women go back to work within a day or two of a medical abortion.",
+      },
+      {
+        heading: "Avoid unsafe options",
+        body: [
+          "Abortion pills bought online or from a chemist without a prescription are illegal to sell, and taking them without a scan is risky. A scan checks that the pregnancy is in the womb. A pregnancy outside the womb (ectopic pregnancy) cannot be ended with pills and can be life-threatening. Pills taken later than recommended are more likely to cause heavy bleeding or an incomplete abortion.",
+          "Unregistered clinics may not be legal or safe. If you have already taken pills, come in anyway. You will be cared for, not judged or reported.",
+        ],
+      },
     ],
     faqs: [
+      {
+        q: "Will my family be told?",
+        a: "No. If you are 18 or over, nobody is told without your permission. The clinic's WhatsApp messages don't mention why you came.",
+      },
       {
         q: "Is it confidential?",
         a: "Yes. Your details are kept confidential, as the MTP Act requires. For anyone under 18, the law also requires a guardian's consent and a report under the POCSO Act, though the young person's identity can be kept out of that report.",
@@ -812,14 +910,24 @@ export const treatments: Treatment[] = [
     category: "life-stages",
     summary: "Respectful, age-appropriate care for teenagers, from first periods to sexual health.",
     intro: [
-      "The teenage years bring rapid physical and emotional change. Dr. Shilpa offers young women a safe, respectful place to ask questions. For patients under 18, a parent or guardian's consent is needed for examination and treatment.",
-      "She has written on adolescents' unmet need for contraception education in the FOGSI textbook.",
+      "The teenage years bring rapid physical and emotional change. Dr. Shilpa offers girls and young women a gentle, respectful place to ask questions, and many first visits are booked by a parent.",
     ],
     sections: [
       {
+        heading: "For parents",
+        points: [
+          "You are welcome to stay in the room for the whole consultation.",
+          "Most teenagers do not need an internal examination. If any examination is needed, it is explained first and done only with your daughter's agreement and yours.",
+          "A parent or guardian's consent is needed for examination and treatment of anyone under 18.",
+          "Older teenagers sometimes like a few minutes alone with the doctor. It is offered, never insisted on.",
+        ],
+      },
+      {
         heading: "Common reasons to visit",
         points: [
-          "Painful, heavy or irregular periods",
+          "Painful periods that mean missing school",
+          "Heavy or irregular periods",
+          "White discharge or itching",
           "Acne, weight changes or excess hair, which may point to PCOS",
           "Questions about sexual health and contraception",
           "HPV vaccination",
@@ -829,8 +937,7 @@ export const treatments: Treatment[] = [
       {
         heading: "The first visit",
         body: [
-          "A first visit is mostly a conversation. Most teenagers do not need an internal examination. Dr. Shilpa will explain anything she recommends before doing it.",
-          "Conversations are kept private, with one legal exception: under the POCSO Act, doctors must report any sexual activity or abuse involving someone under 18.",
+          "A first visit is mostly a conversation about periods, symptoms and general health. Dr. Shilpa will explain anything she recommends before doing it, in words a teenager can follow.",
         ],
       },
     ],
@@ -839,8 +946,20 @@ export const treatments: Treatment[] = [
         q: "When should a girl first see a gynaecologist?",
         a: "Any time she has concerns about her periods or health, and ideally for HPV vaccination between 9 and 14.",
       },
+      {
+        q: "Her period pain makes her miss school. Is that normal?",
+        a: "Period pain is common, but pain that stops her going to school is worth seeing a doctor about. It can usually be eased with the right medicine, and occasionally it points to a condition such as endometriosis that is better found early.",
+      },
+      {
+        q: "She has white discharge and itching. Is something wrong?",
+        a: "Some clear or white discharge is normal once periods start. Itching, a bad smell or a change in colour usually means a simple infection such as thrush, which is easily treated. It does not mean she has been sexually active.",
+      },
+      {
+        q: "Is what my daughter says kept private?",
+        a: "Yes, with one exception the law sets. Under the POCSO Act, doctors must report any sexual activity or abuse involving someone under 18. Dr. Shilpa will explain this gently if it ever applies.",
+      },
     ],
-    related: ["irregular-periods", "contraception", "cervical-cancer-prevention"],
+    related: ["irregular-periods", "vaginal-infections", "cervical-cancer-prevention"],
   },
   {
     slug: "contraception",

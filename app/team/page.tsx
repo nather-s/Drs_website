@@ -15,7 +15,7 @@ const doctors: Member[] = [
   {
     name: clinic.doctor,
     role: "Founder and Lead Consultant, Obstetrics & Gynaecology",
-    bio: "MD (Gold Medal), DNB and MRCOG (UK), with over 15 years of experience in teaching hospitals and private practice.",
+    bio: "MD (Gold Medal), DNB and MRCOG (UK), in practice since 2009, in teaching hospitals and private practice.",
     initials: "SB",
     href: "/about/",
   },

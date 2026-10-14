@@ -7,9 +7,12 @@ const entries = [
   { label: "I have acne, extra hair or weight gain", slug: "pcos" },
   { label: "Heavy periods or pelvic pain", slug: "fibroids-and-cysts" },
   { label: "Hot flushes or night sweats", slug: "menopause" },
+  { label: "Discharge, itching or burning", slug: "vaginal-infections" },
   { label: "I'm due for a Pap smear", slug: "cervical-cancer-prevention" },
+  { label: "My Pap or HPV result was abnormal", slug: "colposcopy" },
   { label: "Choosing contraception", slug: "contraception" },
   { label: "An unplanned pregnancy", slug: "pregnancy-options" },
+  { label: "Booking for my teenage daughter", slug: "adolescent-health" },
 ];
 
 export default function SymptomFinder({ heading = "What brings you here?" }: { heading?: string }) {

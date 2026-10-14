@@ -120,7 +120,7 @@ export default function About() {
             <span className="font-display text-6xl text-plum/40">SB</span>
           </div>
           <div className="grid gap-2 rounded-lg border border-line p-6 text-sm">
-            <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Also consults at</b>
+            <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Hospital experience</b>
             <ul className="m-0 grid list-none gap-1 p-0">
               {clinic.hospitals.map((h) => (
                 <li key={h}>{h}</li>

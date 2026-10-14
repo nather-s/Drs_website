@@ -59,7 +59,11 @@ export default function ExitPage() {
       const target = id ? document.getElementById(id) : null;
       if (!target) return;
       e.preventDefault();
-      history.replaceState(history.state, "", `#${id}`);
+      try {
+        history.replaceState(history.state, "", `#${id}`);
+      } catch {
+        // Some embedded previews don't allow changing the address; scrolling still works.
+      }
       target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
       target.focus({ preventScroll: true });

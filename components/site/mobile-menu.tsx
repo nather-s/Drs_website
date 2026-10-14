@@ -16,7 +16,7 @@ import { siteHref } from "@/lib/href";
 const links = [{ label: "Home", href: "/" }, ...nav];
 
 // Site navigation for phones, using the same drawer as the contact bar.
-export default function MobileMenu() {
+export default function MobileMenu({ current }: { current?: string }) {
   return (
     <Drawer autoFocus>
       <DrawerTrigger asChild>
@@ -36,7 +36,11 @@ export default function MobileMenu() {
         <nav aria-label="Main" className="grid">
           {links.map((item) => (
             <DrawerClose asChild key={item.href}>
-              <a className="border-b border-line py-3.5 text-lg no-underline" href={siteHref(item.href)}>
+              <a
+                aria-current={current === item.href ? "page" : undefined}
+                className={`border-b border-line py-3.5 text-lg no-underline ${current === item.href ? "font-semibold text-accent" : ""}`}
+                href={siteHref(item.href)}
+              >
                 {item.label}
               </a>
             </DrawerClose>

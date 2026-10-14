@@ -5,7 +5,7 @@ import ExitPage from "@/components/site/exit-page";
 import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
 import Shell from "@/components/site/shell";
-import { reviews } from "@/lib/clinic";
+import { clinic, reviews } from "@/lib/clinic";
 import { categories, getTreatment, treatments } from "@/lib/treatments";
 
 // Only the treatments listed in lib/treatments.ts exist; any other address is a 404.
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps<"/treatments/[slug]
     title: `${t.metaTitle ?? t.title} | Dr. Shilpa, Andheri West`,
     description: t.metaDescription ?? t.summary,
     alternates: { canonical: `/treatments/${t.slug}/` },
-    openGraph: { title: t.metaTitle ?? t.title, description: t.metaDescription ?? t.summary, url: `/treatments/${t.slug}/` },
+    openGraph: { type: "website", locale: "en_IN", siteName: clinic.name, title: t.metaTitle ?? t.title, description: t.metaDescription ?? t.summary, url: `/treatments/${t.slug}/` },
   };
 }
 

@@ -77,9 +77,20 @@ html {
   /* Keep focused fields clear of the phone bottom bar. */
   scroll-padding-bottom: 84px;
 }
+/* On pages with the Exit button, keep focus and the footer clear of it too. */
+html:has(.exit-cluster) {
+  scroll-padding-bottom: 170px;
+}
+body:has(.exit-cluster) footer {
+  padding-bottom: 190px;
+}
 @media (min-width: 768px) {
-  html {
+  html,
+  html:has(.exit-cluster) {
     scroll-padding-bottom: 0;
+  }
+  body:has(.exit-cluster) footer {
+    padding-bottom: 96px;
   }
 }
 body {

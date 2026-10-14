@@ -76,7 +76,7 @@ export default function ExitPage() {
 
   return (
     <>
-      <div className="fixed right-3 bottom-[84px] z-40 grid justify-items-end gap-1 md:right-6 md:bottom-6">
+      <div className="exit-cluster fixed right-3 bottom-[84px] z-40 grid justify-items-end gap-1 md:right-6 md:bottom-6">
         <a
           className="inline-flex min-h-11 items-center rounded-md bg-ink px-4 font-semibold text-paper no-underline shadow-lg hover:bg-black"
           href={DESTINATION}
@@ -89,7 +89,7 @@ export default function ExitPage() {
         >
           Exit this page
         </a>
-        <a className="rounded bg-paper/90 px-1.5 text-xs text-muted-ink underline" href={siteHref("/browsing-safely/")}>
+        <a className="inline-flex min-h-7 items-center rounded bg-paper/90 px-2 text-xs text-muted-ink underline" href={siteHref("/browsing-safely/")}>
           Browsing safely
         </a>
       </div>

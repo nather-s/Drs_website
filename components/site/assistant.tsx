@@ -94,6 +94,8 @@ export default function Assistant() {
   const choose = (c: Choice) => {
     const next = c.next();
     setMsgs((m) => [...m, { id: m.length, from: "me", text: c.label }]);
+    // Hold focus on the conversation while the reply arrives, so it never drops to the page.
+    listRef.current?.focus({ preventScroll: true });
     setStep(null);
     moveFocus.current = true;
     setTimeout(() => {
@@ -112,7 +114,7 @@ export default function Assistant() {
   return (
     <div className="flex min-w-0 flex-col rounded-lg border border-line bg-paper p-5 sm:p-8">
       <h2 className="mb-4 text-[1.6rem]">Clinic assistant</h2>
-      <div aria-live="polite" className="flex max-h-[380px] min-h-[240px] flex-col gap-2.5 overflow-y-auto p-1" ref={listRef}>
+      <div aria-label="Conversation" aria-live="polite" tabIndex={-1} className="flex max-h-[380px] outline-none min-h-[240px] flex-col gap-2.5 overflow-y-auto p-1" ref={listRef}>
         <AnimatePresence initial={false}>
           {msgs.map((m) => (
             <motion.p

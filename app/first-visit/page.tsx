@@ -82,7 +82,7 @@ export default function FirstVisit() {
       />
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
         <div className="grid min-w-0 content-start gap-12">
-          <ol className="m-0 grid list-none gap-10 p-0">
+          <ol className="m-0 grid list-none gap-10 p-0" role="list">
             {steps.map((s, i) => (
               <li className="grid grid-cols-[44px_1fr] gap-4" key={s.title}>
                 <span aria-hidden className="grid size-11 place-items-center rounded-full bg-plum-soft font-display text-lg text-plum">

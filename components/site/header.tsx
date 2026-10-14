@@ -50,7 +50,7 @@ export default function Header({ current }: { current?: string }) {
             <a className="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm max-[379px]:hidden" href="/book/">
               Book appointment
             </a>
-            <MobileMenu />
+            <MobileMenu current={current} />
           </div>
         </div>
       </header>

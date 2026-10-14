@@ -50,6 +50,11 @@ export default function BookingForm() {
           don't need to tell us why you're coming.
         </p>
       </div>
+      {/* Without JavaScript the choices can't update the link, so they're hidden. */}
+      <noscript>
+        <style>{".js-only{display:none!important}"}</style>
+      </noscript>
+      <div className="js-only grid gap-6">
       {choices("Which day?", DAYS, day, setDay, "day")}
       {choices("What time?", TIMES, time, setTime, "time")}
       <label className="grid max-w-sm gap-1.5 text-sm font-semibold">
@@ -62,6 +67,7 @@ export default function BookingForm() {
           value={name}
         />
       </label>
+      </div>
       <div className="grid gap-3">
         <a className="btn btn-primary min-h-12 text-base" href={href} rel="noopener" target="_blank">
           Book on WhatsApp

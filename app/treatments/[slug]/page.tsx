@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BookingCard from "@/components/site/booking-card";
+import ExitPage from "@/components/site/exit-page";
 import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
 import Shell from "@/components/site/shell";
@@ -18,10 +19,10 @@ export async function generateMetadata({ params }: PageProps<"/treatments/[slug]
   const t = getTreatment((await params).slug);
   if (!t) return {};
   return {
-    title: `${t.title} | Dr. Shilpa, Andheri West`,
+    title: `${t.metaTitle ?? t.title} | Dr. Shilpa, Andheri West`,
     description: t.summary,
     alternates: { canonical: `/treatments/${t.slug}/` },
-    openGraph: { title: t.title, description: t.summary, url: `/treatments/${t.slug}/` },
+    openGraph: { title: t.metaTitle ?? t.title, description: t.summary, url: `/treatments/${t.slug}/` },
   };
 }
 
@@ -37,6 +38,7 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
 
   return (
     <Shell current="/treatments/">
+      {t.sensitive && <ExitPage />}
       <PageIntro
         crumbs={[{ label: "Treatments", href: "/treatments/" }, { label: t.title }]}
         eyebrow={category.title}
@@ -95,9 +97,24 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             </section>
           )}
 
+          <div className="grid gap-3 rounded-lg bg-mist p-6">
+            <h2 className="text-[1.3rem]">Coming to the clinic</h2>
+            <p className="max-w-[66ch]">
+              Your consultation is private, and an examination is only done if it's needed, with your permission. You
+              can bring someone with you and ask for a female member of staff to be present.
+            </p>
+            <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
+          </div>
+
+          {t.category === "pregnancy" && (
+            <p className="max-w-[66ch] text-sm font-semibold">
+              Sex determination of the baby is not done at this clinic. It is illegal under the PCPNDT Act.
+            </p>
+          )}
+
           <p className="text-sm text-muted-ink">
             This page is general information and not a substitute for a consultation. Treatment is always tailored to
-            the individual.
+            the individual. Last updated October 2026.
           </p>
         </article>
 

@@ -39,6 +39,7 @@ export default function Footer() {
           links={[
             { label: "About Dr. Shilpa", href: "/about/" },
             { label: "Our team", href: "/team/" },
+            { label: "Your first visit", href: "/first-visit/" },
             { label: "All treatments", href: "/treatments/" },
             { label: "Book an appointment", href: "/book/" },
             { label: "Contact and directions", href: "/book/#contact" },
@@ -57,7 +58,8 @@ export default function Footer() {
           </p>
           <p>
             © 2026 {clinic.doctor} · {clinic.legalName} ·{" "}
-            <a className="underline underline-offset-2 hover:text-accent" href="/privacy/">Privacy policy</a>
+            <a className="underline underline-offset-2 hover:text-accent" href="/privacy/">Privacy policy</a> ·{" "}
+            <a className="underline underline-offset-2 hover:text-accent" href="/browsing-safely/">Browsing safely</a>
           </p>
         </div>
       </div>

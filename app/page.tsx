@@ -1,7 +1,8 @@
-import Assistant from "@/components/site/assistant";
+import Assistant from "@/components/site/assistant-lazy";
 import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
+import SymptomFinder from "@/components/site/symptom-finder";
 import { clinic, reviews } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
 
@@ -50,6 +51,7 @@ export default function Home() {
               <a className="btn btn-primary" href="/book/">Book an appointment</a>
               <a className="btn" href="/treatments/">View treatments</a>
             </div>
+            <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
             <p className="border-t border-line pt-5 text-sm text-muted-ink">{clinic.credentials}</p>
           </div>
           <div className="relative mx-auto w-full max-w-[320px] md:max-w-none">
@@ -68,6 +70,13 @@ export default function Home() {
               <span className="text-sm text-muted-ink">{clinic.doctorRole}</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Plain-language starting points */}
+      <section aria-label="Find the right page" className="border-b border-line py-12 md:py-16">
+        <div className="wrap">
+          <SymptomFinder />
         </div>
       </section>
 

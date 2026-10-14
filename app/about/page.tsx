@@ -31,7 +31,7 @@ const experience = [
 const interests = [
   "Fertility assessment and treatment",
   "PCOS and hormonal disorders",
-  "High-risk pregnancy and painless delivery",
+  "High-risk pregnancy and epidural pain relief in labour",
   "Cervical cancer screening and colposcopy",
   "Laparoscopic and hysteroscopic surgery",
   "Menopause care and HRT",

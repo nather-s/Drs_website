@@ -22,17 +22,10 @@ const doctors: Member[] = [
   {
     name: "Dr. Sumit Agrawal",
     role: "Cosmetic Surgeon",
-    bio: "Profile to be added once the clinic confirms his details.",
+    bio: "Cosmetic surgeon at Harleys Cosmetic & Women's Clinic.",
     initials: "SA",
     pending: true,
   },
-];
-
-// Placeholders until the clinic shares names, roles and photos.
-const staff: Member[] = [
-  { name: "Name to be added", role: "Clinic manager", bio: "Coordinates appointments, records and follow-up.", initials: "", pending: true },
-  { name: "Name to be added", role: "Nursing staff", bio: "Assists during examinations and procedures.", initials: "", pending: true },
-  { name: "Name to be added", role: "Front desk", bio: "Welcomes patients and handles bookings and payments.", initials: "", pending: true },
 ];
 
 function Card({ m, large }: { m: Member; large?: boolean }) {
@@ -62,7 +55,7 @@ export default function Team() {
     <Shell current="/team/">
       <PageIntro
         crumbs={[{ label: "Our team" }]}
-        lede="Most of the clinic's staff are women, and every member of the team is trained to keep your care private and comfortable."
+        lede="The doctors and staff who will look after you at Harleys Women's Clinic."
         title="Meet the team"
       />
       <div className="wrap grid gap-14 py-12 md:py-16">
@@ -74,16 +67,13 @@ export default function Team() {
             ))}
           </div>
         </section>
-        <section aria-labelledby="staff" className="grid gap-6">
-          <div className="grid gap-2">
-            <h2 className="text-[1.6rem]" id="staff">Clinic staff</h2>
-            <p className="text-sm text-muted-ink">Names and photos will be added once the clinic shares them.</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {staff.map((m) => (
-              <Card key={m.role} m={m} />
-            ))}
-          </div>
+        <section aria-labelledby="staff" className="grid gap-3 rounded-lg bg-mist p-6 md:p-8">
+          <h2 className="text-[1.5rem]" id="staff">Clinic staff</h2>
+          <p className="max-w-[66ch]">
+            Most of the clinic's nursing and front-desk staff are women. They will welcome you, help with appointments
+            and, if you wish, stay with you during an examination.
+          </p>
+          <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
         </section>
       </div>
     </Shell>

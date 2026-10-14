@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Assistant from "@/components/site/assistant";
+import Assistant from "@/components/site/assistant-lazy";
 import BookingForm from "@/components/site/booking-form";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
@@ -16,7 +16,7 @@ export default function Book() {
     <Shell current="/book/#contact">
       <PageIntro
         crumbs={[{ label: "Book an appointment" }]}
-        lede="Send a request and the clinic will confirm a time with you. Same-day appointments are often available for urgent concerns. In a medical emergency, call 108 or go to the nearest hospital."
+        lede="Send a request on WhatsApp and the clinic team will reply to agree a time. Same-day appointments are often available for urgent concerns. In a medical emergency, call 108 or go to the nearest hospital."
         title="Book an appointment"
       />
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">

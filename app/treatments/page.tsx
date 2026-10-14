@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
+import SymptomFinder from "@/components/site/symptom-finder";
 import { categories, treatments } from "@/lib/treatments";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function TreatmentsIndex() {
         title="Treatments and services"
       />
       <div className="wrap grid gap-14 py-12 md:py-16">
+        <SymptomFinder heading="Not sure which page you need?" />
         {categories.map((c) => (
           <section aria-labelledby={c.id} className="grid gap-5 lg:grid-cols-[280px_1fr] lg:gap-12" key={c.id}>
             <div className="grid content-start gap-2">

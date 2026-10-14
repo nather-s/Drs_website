@@ -10,32 +10,30 @@ type Action = { label: string; href: string; external?: boolean };
 type Choice = { label: string; next: () => Step };
 type Step = { say: string; choices: Choice[]; actions?: Action[] };
 
-// Guided booking assistant. It collects the type of visit and preferred time, then
+// Guided booking assistant. It collects a preferred day and time, then
 // hands the request to the clinic's WhatsApp. Connecting it to Dr. Shilpa's calendar
 // is a later step.
 const whatsapp: Action = { label: "Message on WhatsApp", href: clinic.whatsappHref, external: true };
 const call: Action = { label: `Call ${clinic.phoneDisplay}`, href: clinic.phoneHref };
 
-function request(visit: string, time: string): Step {
-  const text = `Hello, I'd like to book an appointment with ${clinic.doctor}.\nType of visit: ${visit}\nPreferred time: ${time}`;
+function request(day: string, time: string): Step {
+  const text = `Hello, I'd like an appointment with ${clinic.doctor}.\nPreferred day: ${day}\nPreferred time: ${time}`;
   return {
-    say: `Thanks. Your request for a ${visit.toLowerCase()} visit in the ${time.toLowerCase()} is ready. Send it on WhatsApp and the clinic team will reply to confirm a time.`,
+    say: `Thanks. Tap "Open WhatsApp" and your request (${day.toLowerCase()}, ${time.toLowerCase()}) will be written for you; just tap Send. It's a request, not a confirmed appointment yet: the clinic team will reply during clinic hours to agree a time.`,
     choices: [],
-    actions: [{ label: "Send on WhatsApp", href: whatsappLink(clinic.whatsappHref, text), external: true }, call],
+    actions: [{ label: "Open WhatsApp", href: whatsappLink(clinic.whatsappHref, text), external: true }, call],
   };
 }
 
-const time = (visit: string): Step => ({
-  say: "What time of day suits you best?",
-  choices: ["Morning", "Afternoon", "Evening"].map((t) => ({ label: t, next: () => request(visit, t) })),
+const time = (day: string): Step => ({
+  say: "What time of day suits you?",
+  choices: ["Morning", "Afternoon", "Evening", "Any time"].map((t) => ({ label: t, next: () => request(day, t) })),
 });
 
+// The reason for the visit is never asked here: it stays private until the consultation.
 const visit = (): Step => ({
-  say: "What is the visit for? You can keep it general.",
-  choices: ["General consultation", "Pregnancy", "Fertility", "Follow-up"].map((v) => ({
-    label: v,
-    next: () => time(v),
-  })),
+  say: "Which day would you like to come? You don't need to tell us why; you can discuss that with Dr. Shilpa in private.",
+  choices: ["Today", "Tomorrow", "This week", "Next week"].map((d) => ({ label: d, next: () => time(d) })),
 });
 
 const start = (): Step => ({
@@ -128,7 +126,7 @@ export default function Assistant() {
       <div className="mt-3 flex min-h-10 flex-wrap gap-2" ref={controlsRef}>
         {step?.choices.map((c) => (
           <button
-            className="rounded-md border border-field bg-paper px-3.5 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            className="min-h-11 rounded-md border border-field bg-paper px-4 py-2 text-[0.95rem] font-medium transition-colors hover:border-accent hover:text-accent"
             key={c.label}
             onClick={() => choose(c)}
             type="button"
@@ -138,7 +136,7 @@ export default function Assistant() {
         ))}
         {step?.actions?.map((a) => (
           <a
-            className="btn btn-primary px-3.5 py-2 text-sm [&:not(:first-of-type)]:border-ink/80 [&:not(:first-of-type)]:bg-paper [&:not(:first-of-type)]:text-ink"
+            className="btn btn-primary min-h-11 px-4 py-2 text-[0.95rem] [&:not(:first-of-type)]:border-ink/80 [&:not(:first-of-type)]:bg-paper [&:not(:first-of-type)]:text-ink"
             href={a.href}
             key={a.label}
             rel={a.external ? "noopener" : undefined}
@@ -149,7 +147,7 @@ export default function Assistant() {
         ))}
         {step && msgs.length > 1 && (
           <button
-            className="rounded-md px-3.5 py-2 text-sm font-medium text-muted-ink underline underline-offset-4 hover:text-accent"
+            className="min-h-11 rounded-md px-3.5 py-2 text-[0.95rem] font-medium text-muted-ink underline underline-offset-4 hover:text-accent"
             onClick={restart}
             type="button"
           >

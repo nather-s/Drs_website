@@ -16,6 +16,10 @@ export type Treatment = {
   faqs: Faq[];
   related: string[];
   reviewId?: string;
+  /** Neutral browser-tab title for topics people may want to keep private. */
+  metaTitle?: string;
+  /** Sensitive topic: shows the "Exit this page" button and browsing-safety link. */
+  sensitive?: boolean;
 };
 
 export const categories: { id: CategoryId; title: string; intro: string }[] = [
@@ -560,7 +564,7 @@ export const treatments: Treatment[] = [
         a: "Dr. Shilpa will discuss the hospital and type of delivery that suit you during your pregnancy.",
       },
     ],
-    related: ["high-risk-pregnancy", "painless-delivery"],
+    related: ["high-risk-pregnancy", "epidural-pain-relief"],
     reviewId: "ruchi",
   },
   {
@@ -610,8 +614,8 @@ export const treatments: Treatment[] = [
     related: ["pregnancy-care", "pcos", "fertility"],
   },
   {
-    slug: "painless-delivery",
-    title: "Painless delivery (epidural)",
+    slug: "epidural-pain-relief",
+    title: "Epidural pain relief in labour",
     category: "pregnancy",
     summary: "Epidural pain relief during labour, explained before the day.",
     intro: [
@@ -647,8 +651,10 @@ export const treatments: Treatment[] = [
     related: ["pregnancy-care", "high-risk-pregnancy"],
   },
   {
-    slug: "abortion",
-    title: "Safe, legal abortion",
+    slug: "pregnancy-options",
+    title: "Pregnancy options and abortion care",
+    metaTitle: "Pregnancy options",
+    sensitive: true,
     category: "pregnancy",
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
     intro: [
@@ -787,6 +793,7 @@ export const treatments: Treatment[] = [
   // ─── Life stages ──────────────────────────────────────────────
   {
     slug: "adolescent-health",
+    sensitive: true,
     title: "Adolescent health",
     category: "life-stages",
     summary: "Respectful, age-appropriate care for teenagers, from first periods to sexual health.",
@@ -823,6 +830,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "contraception",
+    sensitive: true,
     title: "Contraception",
     category: "life-stages",
     summary: "Help choosing the contraception that suits your health, plans and lifestyle.",
@@ -849,7 +857,7 @@ export const treatments: Treatment[] = [
         a: "No. Fertility returns soon after stopping most methods. After the contraceptive injection it can take up to a year to return.",
       },
     ],
-    related: ["adolescent-health", "abortion"],
+    related: ["adolescent-health", "pregnancy-options"],
   },
   {
     slug: "menopause",
@@ -913,6 +921,7 @@ export const treatments: Treatment[] = [
   // ─── Cosmetic ─────────────────────────────────────────────────
   {
     slug: "cosmetic-gynaecology",
+    sensitive: true,
     title: "Cosmetic gynaecology",
     category: "cosmetic",
     summary: "Surgical and non-surgical treatments for comfort, function and confidence.",
@@ -947,6 +956,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "vaginal-tightening",
+    sensitive: true,
     title: "Vaginal tightening",
     category: "cosmetic",
     summary: "Laser and surgical options for vaginal laxity after childbirth or with age.",
@@ -984,6 +994,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "hymenoplasty",
+    sensitive: true,
     title: "Hymenoplasty",
     category: "cosmetic",
     summary: "Private, judgement-free consultation and surgical repair of the hymen.",

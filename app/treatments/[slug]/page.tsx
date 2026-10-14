@@ -4,8 +4,11 @@ import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
 import Shell from "@/components/site/shell";
-import { clinic, reviews } from "@/lib/clinic";
+import { reviews } from "@/lib/clinic";
 import { categories, getTreatment, treatments } from "@/lib/treatments";
+
+// Only the treatments listed in lib/treatments.ts exist; any other address is a 404.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return treatments.map((t) => ({ slug: t.slug }));
@@ -15,8 +18,10 @@ export async function generateMetadata({ params }: PageProps<"/treatments/[slug]
   const t = getTreatment((await params).slug);
   if (!t) return {};
   return {
-    title: `${t.title} in Andheri West, Mumbai | ${clinic.doctor}`,
+    title: `${t.title} | Dr. Shilpa, Andheri West`,
     description: t.summary,
+    alternates: { canonical: `/treatments/${t.slug}/` },
+    openGraph: { title: t.title, description: t.summary, url: `/treatments/${t.slug}/` },
   };
 }
 
@@ -68,7 +73,6 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
 
           {review && (
             <figure className="m-0 grid gap-3 rounded-lg bg-rose-soft p-6">
-              <span aria-label="5 out of 5 stars" className="tracking-[2px] text-star" role="img">★★★★★</span>
               <blockquote className="m-0 font-display text-xl leading-snug">“{review.text}”</blockquote>
               <figcaption className="text-sm text-muted-ink">
                 {review.name} · {review.source} review

@@ -18,6 +18,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { clinic } from "@/lib/clinic";
+import { siteHref } from "@/lib/href";
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 const listVariants = {
@@ -46,7 +47,7 @@ export default function ContactDock() {
       <a className="flex-1 rounded-[10px] border border-line py-2.5 text-center text-sm font-semibold" href={clinic.phoneHref}>
         Call
       </a>
-      <Drawer>
+      <Drawer autoFocus>
         <DrawerTrigger asChild>
           <button className="flex-1 rounded-[10px] border border-line py-2.5 text-sm font-semibold" type="button">
             Contact
@@ -71,7 +72,7 @@ export default function ContactDock() {
                   <DrawerClose asChild>
                     <a
                       className="flex items-center gap-3 rounded-xl border border-line bg-paper p-3.5 no-underline"
-                      href={href}
+                      href={href.startsWith("/") ? siteHref(href) : href}
                       rel={href.startsWith("http") ? "noopener" : undefined}
                       target={href.startsWith("http") ? "_blank" : undefined}
                     >

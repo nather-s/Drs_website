@@ -6,6 +6,7 @@ import { clinic } from "@/lib/clinic";
 export const metadata: Metadata = {
   title: `Our team | ${clinic.name}, Andheri West`,
   description: "Meet the doctors and staff at Harleys Women's Clinic in Andheri West, Mumbai.",
+  alternates: { canonical: "/team/" },
 };
 
 type Member = { name: string; role: string; bio: string; initials: string; href?: string; pending?: boolean };
@@ -14,7 +15,7 @@ const doctors: Member[] = [
   {
     name: clinic.doctor,
     role: "Founder and Lead Consultant, Obstetrics & Gynaecology",
-    bio: "Gold-medallist gynaecologist and fertility specialist with over 15 years of experience in teaching hospitals and private practice.",
+    bio: "MD (Gold Medal), DNB and MRCOG (UK), with over 15 years of experience in teaching hospitals and private practice.",
     initials: "SB",
     href: "/about/",
   },

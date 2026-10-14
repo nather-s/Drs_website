@@ -3,59 +3,72 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { clinic } from "@/lib/clinic";
+import { whatsappLink } from "@/lib/href";
 
 type Msg = { id: number; from: "bot" | "me"; text: string };
-type Choice = { label: string; next: Step };
-type Step = { say: string; choices: Choice[] };
+type Action = { label: string; href: string; external?: boolean };
+type Choice = { label: string; next: () => Step };
+type Step = { say: string; choices: Choice[]; actions?: Action[] };
 
-// Scripted preview of the booking assistant. Times are examples until the
-// live version reads Dr. Shilpa's calendar.
-const done = (when: string): Step => ({
-  say: `Done. On the live site your slot on ${when} would be held and a confirmation emailed to you and the clinic.`,
-  choices: [],
+// Guided booking assistant. It collects the type of visit and preferred time, then
+// hands the request to the clinic's WhatsApp. Connecting it to Dr. Shilpa's calendar
+// is a later step.
+const whatsapp: Action = { label: "Message on WhatsApp", href: clinic.whatsappHref, external: true };
+const call: Action = { label: `Call ${clinic.phoneDisplay}`, href: clinic.phoneHref };
+
+function request(visit: string, time: string): Step {
+  const text = `Hello, I'd like to book an appointment with ${clinic.doctor}.\nType of visit: ${visit}\nPreferred time: ${time}`;
+  return {
+    say: `Thanks. Your request for a ${visit.toLowerCase()} visit in the ${time.toLowerCase()} is ready. Send it on WhatsApp and the clinic team will reply to confirm a time.`,
+    choices: [],
+    actions: [{ label: "Send on WhatsApp", href: whatsappLink(clinic.whatsappHref, text), external: true }, call],
+  };
+}
+
+const time = (visit: string): Step => ({
+  say: "What time of day suits you best?",
+  choices: ["Morning", "Afternoon", "Evening"].map((t) => ({ label: t, next: () => request(visit, t) })),
 });
-const slots = (kind: string): Step => ({
-  say: `Here are the next openings for ${kind}. (Example times for this preview.)`,
-  choices: [
-    { label: "Tue 10:30 am", next: done("Tuesday at 10:30 am") },
-    { label: "Wed 5:00 pm", next: done("Wednesday at 5:00 pm") },
-    { label: "Sat 11:15 am", next: done("Saturday at 11:15 am") },
-  ],
-});
-const reason: Step = {
+
+const visit = (): Step => ({
   say: "What is the visit for? You can keep it general.",
+  choices: ["General consultation", "Pregnancy", "Fertility", "Follow-up"].map((v) => ({
+    label: v,
+    next: () => time(v),
+  })),
+});
+
+const start = (): Step => ({
+  say: "Hello, I'm the Harleys clinic assistant. I can help you request an appointment with Dr. Shilpa or answer questions about the clinic.",
   choices: [
-    { label: "Pregnancy", next: slots("a pregnancy consultation") },
-    { label: "PCOS / periods", next: slots("a PCOS consultation") },
-    { label: "Routine check-up", next: slots("a routine check-up") },
-  ],
-};
-const start: Step = {
-  say: "Hello, I'm the Harleys clinic assistant. I can book a visit with Dr. Shilpa or answer questions about the clinic.",
-  choices: [
-    { label: "Book an appointment", next: reason },
+    { label: "Book an appointment", next: visit },
     {
       label: "Where is the clinic?",
-      next: {
-        say: `The clinic is at ${clinic.addressLines.join(", ")}. Opening hours will appear here once the clinic confirms them.`,
-        choices: [{ label: "Book an appointment", next: reason }],
-      },
+      next: () => ({
+        say: `The clinic is at ${clinic.addressLines.join(", ")}. It is convenient for Lokhandwala, Oshiwara, Versova, Juhu and Vile Parle.`,
+        choices: [{ label: "Book an appointment", next: visit }],
+        actions: [{ label: "Get directions", href: clinic.mapsHref, external: true }],
+      }),
     },
     {
       label: "Talk to a person",
-      next: {
-        say: `Of course. Message the clinic on WhatsApp or call ${clinic.phoneDisplay} and the team will help you.`,
+      next: () => ({
+        say: "Of course. Message or call the clinic and the team will help you.",
         choices: [],
-      },
+        actions: [whatsapp, call],
+      }),
     },
   ],
-};
+});
 
 export default function Assistant() {
   const reduce = useReducedMotion();
-  const [msgs, setMsgs] = useState<Msg[]>([{ id: 0, from: "bot", text: start.say }]);
-  const [step, setStep] = useState<Step>(start);
+  const first = useRef(start());
+  const [msgs, setMsgs] = useState<Msg[]>([{ id: 0, from: "bot", text: first.current.say }]);
+  const [step, setStep] = useState<Step | null>(first.current);
   const listRef = useRef<HTMLDivElement>(null);
+  const controlsRef = useRef<HTMLDivElement>(null);
+  const moveFocus = useRef(false);
 
   // Keep the newest message in view; scroll the chat box, not the page.
   useEffect(() => {
@@ -63,38 +76,47 @@ export default function Assistant() {
     if (el && msgs.length > 1) el.scrollTo({ top: el.scrollHeight, behavior: reduce ? "auto" : "smooth" });
   }, [msgs, reduce]);
 
+  // After the user picks an option, move focus to the next set of options so keyboard
+  // and screen-reader users don't lose their place.
+  useEffect(() => {
+    if (step && moveFocus.current) {
+      controlsRef.current?.querySelector<HTMLElement>("button, a")?.focus();
+      moveFocus.current = false;
+    }
+  }, [step]);
+
   const choose = (c: Choice) => {
+    const next = c.next();
     setMsgs((m) => [...m, { id: m.length, from: "me", text: c.label }]);
-    setStep({ say: "", choices: [] });
+    setStep(null);
+    moveFocus.current = true;
     setTimeout(() => {
-      setMsgs((m) => [...m, { id: m.length, from: "bot", text: c.next.say }]);
-      setStep(c.next);
-    }, reduce ? 0 : 450);
+      setMsgs((m) => [...m, { id: m.length, from: "bot", text: next.say }]);
+      setStep(next);
+    }, reduce ? 0 : 400);
   };
+
   const restart = () => {
-    setMsgs([{ id: 0, from: "bot", text: start.say }]);
-    setStep(start);
+    const s = start();
+    moveFocus.current = true;
+    setMsgs([{ id: 0, from: "bot", text: s.say }]);
+    setStep(s);
   };
 
   return (
     <div className="flex min-w-0 flex-col rounded-lg border border-line bg-paper p-5 sm:p-8">
-      <div className="mb-4 flex items-center justify-between gap-2">
-        <h2 className="text-[1.6rem]">Clinic assistant</h2>
-        <span className="rounded bg-rose-soft px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-accent">
-          Preview
-        </span>
-      </div>
-      <div aria-live="polite" ref={listRef} className="flex max-h-[380px] min-h-[260px] flex-col gap-2.5 overflow-y-auto p-1">
+      <h2 className="mb-4 text-[1.6rem]">Clinic assistant</h2>
+      <div aria-live="polite" className="flex max-h-[380px] min-h-[240px] flex-col gap-2.5 overflow-y-auto p-1" ref={listRef}>
         <AnimatePresence initial={false}>
           {msgs.map((m) => (
             <motion.p
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              animate={{ opacity: 1, y: 0 }}
               className={
                 m.from === "bot"
-                  ? "max-w-[85%] self-start rounded-lg rounded-bl-sm bg-plum-soft px-3.5 py-2.5 text-[0.93rem] leading-snug"
-                  : "max-w-[85%] self-end rounded-lg rounded-br-sm bg-accent px-3.5 py-2.5 text-[0.93rem] leading-snug text-accent-ink"
+                  ? "max-w-[85%] self-start rounded-lg rounded-bl-sm bg-plum-soft px-3.5 py-2.5 text-[0.95rem] leading-snug"
+                  : "max-w-[85%] self-end rounded-lg rounded-br-sm bg-accent px-3.5 py-2.5 text-[0.95rem] leading-snug text-accent-ink"
               }
-              initial={reduce ? false : { opacity: 0, y: 8, scale: 0.98 }}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
               key={m.id}
               transition={{ type: "spring", stiffness: 380, damping: 30 }}
             >
@@ -103,10 +125,10 @@ export default function Assistant() {
           ))}
         </AnimatePresence>
       </div>
-      <div className="mt-3 flex min-h-10 flex-wrap gap-2">
-        {step.choices.map((c) => (
+      <div className="mt-3 flex min-h-10 flex-wrap gap-2" ref={controlsRef}>
+        {step?.choices.map((c) => (
           <button
-            className="rounded-full border border-line bg-paper px-3.5 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            className="rounded-md border border-field bg-paper px-3.5 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
             key={c.label}
             onClick={() => choose(c)}
             type="button"
@@ -114,9 +136,20 @@ export default function Assistant() {
             {c.label}
           </button>
         ))}
-        {step.choices.length === 0 && msgs.length > 1 && step.say && (
+        {step?.actions?.map((a) => (
+          <a
+            className="btn btn-primary px-3.5 py-2 text-sm [&:not(:first-of-type)]:border-ink/80 [&:not(:first-of-type)]:bg-paper [&:not(:first-of-type)]:text-ink"
+            href={a.href}
+            key={a.label}
+            rel={a.external ? "noopener" : undefined}
+            target={a.external ? "_blank" : undefined}
+          >
+            {a.label}
+          </a>
+        ))}
+        {step && msgs.length > 1 && (
           <button
-            className="rounded-full border border-line bg-paper px-3.5 py-2 text-sm font-medium hover:border-accent hover:text-accent"
+            className="rounded-md px-3.5 py-2 text-sm font-medium text-muted-ink underline underline-offset-4 hover:text-accent"
             onClick={restart}
             type="button"
           >
@@ -125,7 +158,8 @@ export default function Assistant() {
         )}
       </div>
       <p className="mt-4 text-xs text-muted-ink">
-        The assistant helps with bookings and clinic questions. It does not give medical advice.
+        The assistant helps with appointments and questions about the clinic. It does not give medical advice. In a
+        medical emergency, call {clinic.emergency}.
       </p>
     </div>
   );

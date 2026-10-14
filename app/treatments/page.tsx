@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
-import { clinic } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
 
 export const metadata: Metadata = {
-  title: `Treatments | ${clinic.doctor}, Gynaecologist in Andheri West`,
+  title: "Treatments | Dr. Shilpa, Andheri West",
   description:
     "Gynaecology, pregnancy, fertility, menopause and cosmetic gynaecology treatments offered by Dr. Shilpa Bansal Agrawal in Andheri West, Mumbai.",
+  alternates: { canonical: "/treatments/" },
 };
 
 export default function TreatmentsIndex() {

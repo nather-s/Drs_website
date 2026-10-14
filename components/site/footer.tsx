@@ -48,11 +48,17 @@ export default function Footer() {
       </div>
       <div className="border-t border-line">
         <div className="wrap grid gap-2 py-6 text-[0.8rem] text-muted-ink">
+          <p className="font-semibold text-ink">
+            In a medical emergency, call {clinic.emergency} or go to the nearest hospital emergency department.
+          </p>
           <p>
             The information on this website is for general awareness and is not medical advice. Results vary from
             person to person. Please book a consultation to discuss your health.
           </p>
-          <p>© 2026 {clinic.doctor} · {clinic.legalName}</p>
+          <p>
+            © 2026 {clinic.doctor} · {clinic.legalName} ·{" "}
+            <a className="underline underline-offset-2 hover:text-accent" href="/privacy/">Privacy policy</a>
+          </p>
         </div>
       </div>
     </footer>

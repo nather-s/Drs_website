@@ -80,17 +80,17 @@ export const treatments: Treatment[] = [
         points: [
           "Irregular or absent ovulation",
           "Signs of raised androgens, on examination or in blood tests",
-          "Polycystic-appearing ovaries on ultrasound",
+          "Polycystic-appearing ovaries on ultrasound, or a raised AMH blood test",
         ],
         after:
-          "Your assessment will usually include a pelvic examination, a pelvic ultrasound, and blood tests for hormones, thyroid function, blood sugar and cholesterol.",
+          "Your assessment usually includes blood tests for hormones, thyroid function, blood sugar and cholesterol, and often a pelvic ultrasound. In teenagers within eight years of their first period, ultrasound is not used for diagnosis: both irregular cycles and raised androgens are needed.",
       },
       {
         heading: "Treatment options",
         points: [
           "Lifestyle changes: a balanced diet, regular exercise and good sleep. Losing 5–10% of body weight can be enough to bring periods back to a regular pattern.",
           "Regulating periods: the combined oral contraceptive pill or a cyclical progestogen, which also protect the lining of the womb.",
-          "Acne and excess hair: hormonal treatment, anti-androgen medicines, and skin or laser treatment.",
+          "Acne and excess hair: hormonal treatment, anti-androgen medicines (which must be taken with reliable contraception, as they can harm a developing baby), and skin or laser treatment.",
           "Insulin resistance: insulin-sensitising medicine such as metformin.",
           "If you want to conceive: ovulation induction with tablets such as letrozole or clomiphene, hormone injections, and IVF if needed.",
           "Laparoscopic ovarian drilling: keyhole surgery occasionally used when ovulation medicines have not worked.",
@@ -148,8 +148,8 @@ export const treatments: Treatment[] = [
         heading: "Treatment options",
         points: [
           "Combined oral contraceptive pill: lowers androgen levels. It is not suitable for everyone, for example smokers over 35 or women with a history of blood clots.",
-          "Anti-androgen medicines: reduce the effect of androgens on the skin, prescribed after blood tests.",
-          "Retinoids: creams or tablets that clear pores. They make skin sensitive to the sun, so daily sunscreen is essential, and tablets must not be taken in pregnancy.",
+          "Anti-androgen medicines: reduce the effect of androgens on the skin. They can harm a developing baby, so they are only used with reliable contraception and stopped before trying to conceive.",
+          "Retinoids: creams or tablets that clear pores. They make skin sensitive to the sun, so daily sunscreen is essential. Neither creams nor tablets should be used in pregnancy or when trying to conceive, and tablets are prescribed only with reliable contraception.",
           "Topical treatments: benzoyl peroxide or salicylic acid help mild acne but are rarely enough on their own.",
           "Antibiotics: short courses for inflamed acne, only as prescribed.",
         ],
@@ -198,7 +198,7 @@ export const treatments: Treatment[] = [
       {
         heading: "Treatment options",
         points: [
-          "Hormonal treatment: the combined pill or anti-androgen medicines to slow further loss.",
+          "Hormonal treatment: the combined pill or anti-androgen medicines to slow further loss. Anti-androgens need reliable contraception, as they can harm a developing baby.",
           "Minoxidil: applied to the scalp to stimulate regrowth. Results take several months.",
           "Checking other causes: iron, vitamin D and thyroid levels can also affect hair and are easy to test.",
           "Lifestyle: weight loss and exercise improve insulin resistance and lower androgen levels.",
@@ -276,6 +276,7 @@ export const treatments: Treatment[] = [
     intro: [
       "Hirsutism is the growth of dark, coarse hair on the upper lip, chin, chest, abdomen or back. It affects most women with PCOS.",
       "It is caused by raised androgens or by hair follicles being more sensitive to them. Less often it is linked to adrenal conditions, Cushing's syndrome or certain medicines, which is why a proper assessment matters.",
+      "See a doctor promptly if hair growth starts suddenly or worsens quickly, or comes with a deepening voice, increased muscle bulk or other changes in your body, as these need urgent investigation.",
     ],
     sections: [
       {
@@ -289,7 +290,7 @@ export const treatments: Treatment[] = [
       {
         heading: "Treatment options",
         points: [
-          "Hormonal treatment: the combined pill and anti-androgen medicines. Results build gradually over six months or more.",
+          "Hormonal treatment: the combined pill and anti-androgen medicines, which must be used with reliable contraception. Results build gradually over six months or more.",
           "Temporary hair removal: shaving, waxing, threading or creams.",
           "Longer-lasting removal: laser hair removal, or electrolysis for small areas.",
           "Eflornithine cream: slows the growth of facial hair.",
@@ -324,6 +325,8 @@ export const treatments: Treatment[] = [
           "Pain during sex",
           "Difficulty conceiving or repeated miscarriage",
         ],
+        after:
+          "Sudden, severe pelvic pain, especially with vomiting or fainting, can mean a cyst has twisted or burst. Go to the nearest emergency department straight away.",
       },
       {
         heading: "Diagnosis",
@@ -354,7 +357,7 @@ export const treatments: Treatment[] = [
       },
       {
         q: "Will I need surgery?",
-        a: "Not always. Surgery is recommended only when a growth causes symptoms, is growing, or affects fertility.",
+        a: "Not always. Surgery is usually recommended when a growth causes symptoms, is growing, affects fertility, or has features on the scan that need further investigation.",
       },
     ],
     related: ["irregular-periods", "fertility", "bartholin-cyst"],
@@ -389,7 +392,7 @@ export const treatments: Treatment[] = [
           "No treatment: small, painless cysts in women under 40 often need none.",
           "Warm sitz baths and antibiotics: for mild infection.",
           "Drainage with a small catheter: allows the cyst to drain and heal.",
-          "Marsupialisation: a minor procedure to stop cysts from coming back.",
+          "Marsupialisation: a minor procedure that reduces the chance of cysts coming back.",
           "Gland removal: rarely needed, for cysts that keep returning.",
         ],
       },
@@ -534,11 +537,23 @@ export const treatments: Treatment[] = [
           "Attention to your emotional wellbeing, including postnatal depression",
         ],
       },
+      {
+        heading: "When to seek help urgently",
+        points: [
+          "Vaginal bleeding or leaking fluid",
+          "Your baby moving less than usual",
+          "Severe headache, blurred vision or sudden swelling of the face or hands",
+          "Severe or persistent abdominal pain",
+          "Fever, or feeling very unwell",
+        ],
+        after:
+          "Call the clinic, or if you cannot reach us, go to the nearest hospital emergency department or call 108. Sex determination of the baby is not done, as it is illegal under the PCPNDT Act.",
+      },
     ],
     faqs: [
       {
         q: "When should I book my first pregnancy appointment?",
-        a: "As soon as you have a positive pregnancy test. Early visits allow folic acid to be started and the due date to be confirmed.",
+        a: "As soon as you have a positive pregnancy test. If you are not already taking folic acid, start it straight away. Ideally it is started before trying to conceive and continued until 12 weeks.",
       },
       {
         q: "Where will I deliver?",
@@ -578,6 +593,8 @@ export const treatments: Treatment[] = [
           "A clear plan for the timing and type of delivery",
           "Follow-up after birth",
         ],
+        after:
+          "If you notice bleeding, leaking fluid, reduced baby movements, a severe headache or blurred vision, seek care immediately at the nearest hospital or call 108.",
       },
     ],
     faqs: [
@@ -615,7 +632,7 @@ export const treatments: Treatment[] = [
         points: [
           "A drop in blood pressure, which is monitored and treated",
           "Itching or shivering",
-          "A longer pushing stage of labour",
+          "A longer pushing stage of labour, and a higher chance of needing forceps or vacuum to help the baby out",
           "Rarely, a headache afterwards",
         ],
         after: "An epidural is not suitable for everyone, for example with some blood-clotting problems. Dr. Shilpa will discuss this with you well before your due date.",
@@ -635,7 +652,7 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
     intro: [
-      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act. Your decision is respected without judgement, and an adult woman does not need anyone else's consent.",
+      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. Your decision is respected without judgement. An adult woman does not need anyone else's consent; for anyone under 18, written consent from a guardian is required by law.",
     ],
     sections: [
       {
@@ -643,7 +660,8 @@ export const treatments: Treatment[] = [
         points: [
           "Medical abortion: tablets taken over two days, usually suitable up to about nine weeks of pregnancy.",
           "Surgical abortion: a short procedure (vacuum aspiration) under anaesthesia.",
-          "Later abortion: allowed up to 20 weeks, and up to 24 weeks in specific circumstances set out in the MTP Act.",
+          "Up to 20 weeks: allowed on the opinion of one registered doctor.",
+          "20 to 24 weeks: allowed for specific categories of women set out in the Act, on the opinion of two registered doctors, at an approved facility.",
         ],
       },
       {
@@ -703,7 +721,7 @@ export const treatments: Treatment[] = [
         points: [
           "Ovulation induction: tablets or injections to help you ovulate, with scans to time intercourse.",
           "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation.",
-          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb.",
+          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre.",
           "Surgery: keyhole surgery or hysteroscopy for endometriosis, fibroids, polyps or blocked tubes.",
           "Egg freezing: for women who wish to delay pregnancy.",
         ],
@@ -771,9 +789,9 @@ export const treatments: Treatment[] = [
     slug: "adolescent-health",
     title: "Adolescent health",
     category: "life-stages",
-    summary: "Confidential, age-appropriate care for teenagers, from first periods to sexual health.",
+    summary: "Respectful, age-appropriate care for teenagers, from first periods to sexual health.",
     intro: [
-      "The teenage years bring rapid physical and emotional change. Dr. Shilpa offers young women a safe, private place to ask questions, with parents involved as the young person prefers.",
+      "The teenage years bring rapid physical and emotional change. Dr. Shilpa offers young women a safe, respectful place to ask questions. For patients under 18, a parent or guardian's consent is needed for examination and treatment.",
       "She has written on adolescents' unmet need for contraception education in the FOGSI textbook.",
     ],
     sections: [
@@ -791,6 +809,7 @@ export const treatments: Treatment[] = [
         heading: "The first visit",
         body: [
           "A first visit is mostly a conversation. Most teenagers do not need an internal examination. Dr. Shilpa will explain anything she recommends before doing it.",
+          "Conversations are kept private, with one legal exception: under the POCSO Act, doctors must report any sexual activity or abuse involving someone under 18.",
         ],
       },
     ],
@@ -827,7 +846,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         q: "Will contraception affect my fertility later?",
-        a: "No. Fertility returns after stopping most methods. After the injection it can take a few months longer.",
+        a: "No. Fertility returns soon after stopping most methods. After the contraceptive injection it can take up to a year to return.",
       },
     ],
     related: ["adolescent-health", "abortion"],
@@ -852,6 +871,7 @@ export const treatments: Treatment[] = [
           "Joint aches and changes in skin and hair",
           "Needing to pass urine more often",
         ],
+        after: "Any bleeding after your periods have stopped for a year needs prompt assessment.",
       },
       {
         heading: "Hormone replacement therapy (HRT)",
@@ -867,7 +887,8 @@ export const treatments: Treatment[] = [
       {
         heading: "Is HRT safe for me?",
         body: [
-          "For most women who start HRT before 60, or within ten years of menopause, the benefits outweigh the risks. HRT may not be suitable if you have had certain cancers, blood clots, a stroke, liver disease or unexplained bleeding. Dr. Shilpa will go through your history and review your treatment regularly.",
+          "For most women who start HRT before 60, or within ten years of menopause, the benefits outweigh the risks. The main risks are a small increase in breast cancer risk with combined HRT, and a higher risk of blood clots with HRT tablets (patches and gels carry less). HRT may not be suitable if you have had certain cancers, blood clots, a stroke, liver disease or unexplained bleeding. Dr. Shilpa will go through your history and review your treatment regularly.",
+          "If menopause happens before 40 (premature menopause), HRT is usually recommended until around the natural age of menopause.",
         ],
       },
       {
@@ -897,7 +918,7 @@ export const treatments: Treatment[] = [
     summary: "Surgical and non-surgical treatments for comfort, function and confidence.",
     intro: [
       "Cosmetic gynaecology covers elective treatments for the comfort, function and appearance of the intimate area, for example after childbirth or with age.",
-      "Every treatment starts with a private consultation, where Dr. Shilpa explains what is realistic, the risks and the recovery.",
+      "Every treatment starts with a private consultation, where Dr. Shilpa explains what is realistic, the risks and the recovery. These procedures are for adults only, and the consultation includes a conversation about your reasons and expectations.",
     ],
     sections: [
       {
@@ -906,20 +927,20 @@ export const treatments: Treatment[] = [
           "Labiaplasty: reshaping the labia, often for discomfort during exercise or intimacy.",
           "Vaginoplasty and vaginal tightening: for laxity after childbirth.",
           "Hymenoplasty: repair of the hymen.",
-          "Non-surgical options: laser rejuvenation, radiofrequency and PRP for dryness and mild laxity.",
+          "Non-surgical options: laser, radiofrequency and PRP. Evidence that these work is still limited, and medical bodies such as the US FDA and ACOG have not found them proven for vaginal laxity, dryness or bladder leakage.",
         ],
       },
       {
         heading: "Risks and recovery",
         body: [
-          "Swelling, bruising and tenderness are common for a short time. Infection, scarring, asymmetry or changes in sensation are uncommon. Non-surgical treatments usually need one to two days' recovery. Surgery needs two to six weeks, with no strenuous activity or sex for about six weeks.",
+          "Swelling, bruising and tenderness are common for a short time. Infection, scarring, asymmetry, pain during sex and changes in sensation can also occur, and good long-term data on these procedures is limited. Most people return to normal activities soon after non-surgical treatments. Surgery needs two to six weeks' recovery, with no strenuous activity or sex for about six weeks.",
         ],
       },
     ],
     faqs: [
       {
         q: "Are these treatments safe?",
-        a: "When done by a trained gynaecologist after a full assessment, complications are uncommon. Dr. Shilpa will explain the specific risks of the treatment you are considering.",
+        a: "Every procedure carries some risk. Dr. Shilpa will explain the specific risks of the treatment you are considering, and the alternatives, before you decide.",
       },
     ],
     related: ["vaginal-tightening", "hymenoplasty"],
@@ -931,6 +952,7 @@ export const treatments: Treatment[] = [
     summary: "Laser and surgical options for vaginal laxity after childbirth or with age.",
     intro: [
       "Childbirth and ageing can stretch the vaginal tissues. This can lead to reduced sensation, mild bladder leakage or dryness. Treatment can be non-surgical or surgical, depending on the degree of laxity.",
+      "For bladder leakage, supervised pelvic floor exercises for at least three months are the recommended first step, and often help with laxity too.",
     ],
     sections: [
       {
@@ -941,6 +963,7 @@ export const treatments: Treatment[] = [
           "Normal activities can continue the same day; avoid sex and tampons for three to five days",
           "Usually needs three or more sessions",
         ],
+        after: "Evidence that laser tightening works is limited, and the US FDA has warned that these devices are not established as safe or effective for this use.",
       },
       {
         heading: "Surgical vaginoplasty",
@@ -954,7 +977,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         q: "Which option is right for me?",
-        a: "Laser suits mild laxity and dryness. Surgery gives a greater, longer-lasting change. Dr. Shilpa will recommend an option after examining you.",
+        a: "Pelvic floor exercises come first. Surgery gives a greater, longer-lasting change for marked laxity. Dr. Shilpa will discuss all the options, including their limits, after examining you.",
       },
     ],
     related: ["cosmetic-gynaecology", "hymenoplasty"],
@@ -966,16 +989,16 @@ export const treatments: Treatment[] = [
     summary: "Private, judgement-free consultation and surgical repair of the hymen.",
     intro: [
       "The hymen is a thin membrane at the vaginal opening. It can stretch or tear through exercise, cycling, tampon use or examination, as well as sex, and is not a reliable sign of virginity.",
-      "Hymenoplasty repairs it. Women choose it for personal, cultural or emotional reasons, including after sexual assault. Every consultation is private and free of judgement.",
+      "Hymenoplasty repairs it. Adult women choose it for personal, cultural or emotional reasons, including after sexual assault. Every consultation is private and free of judgement. The procedure is offered only to women aged 18 and over.",
     ],
     sections: [
       {
         heading: "Preparation",
         points: [
-          "Plan the procedure at least six weeks before any date that matters to you",
+          "Plan the procedure at least eight weeks before any date that matters to you",
           "Tell Dr. Shilpa about any medicines and allergies",
           "Avoid smoking and alcohol beforehand",
-          "Fast for four to six hours if anaesthesia is planned",
+          "Follow the anaesthetist's fasting instructions, usually no food for six hours and clear fluids up to two hours before",
         ],
       },
       {
@@ -991,7 +1014,7 @@ export const treatments: Treatment[] = [
     faqs: [
       {
         q: "Is the procedure confidential?",
-        a: "Yes. Your consultation and treatment are completely confidential.",
+        a: "Yes. Your consultation and treatment are kept confidential, within the limits the law requires.",
       },
     ],
     related: ["cosmetic-gynaecology", "vaginal-tightening"],

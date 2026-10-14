@@ -6,16 +6,16 @@ import { clinic, reviews } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
 
 const facts = [
-  { label: "Gold medals", value: "MBBS and MD" },
+  { label: "Gold medal", value: "MD Obstetrics & Gynaecology" },
   { label: "In practice since", value: "2009" },
+  { label: "Membership", value: "MRCOG (UK)" },
   { label: "Fellowship", value: "Reproductive endocrinology & infertility" },
-  { label: "Member", value: "FOGSI" },
 ];
 
 const faqs = [
   {
     q: "When should I see a gynaecologist?",
-    a: "Book a visit if your periods change, if you notice unusual discharge or pelvic pain, or if you are having trouble conceiving. Even without symptoms, a yearly check-up is recommended from age 25.",
+    a: "Book a visit if your periods change, if you notice unusual discharge or pelvic pain, or if you are having trouble conceiving. Regular check-ups and cervical screening are worthwhile even without symptoms; Dr. Shilpa will advise how often you need them.",
   },
   {
     q: "How should I prepare for my first appointment?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Can I come in just for a preventive check-up?",
-    a: "Yes. Preventive visits, including Pap smears and HPV screening, help catch problems early.",
+    a: "Yes. Preventive visits, including Pap smears and HPV screening, help catch problems early. For urgent concerns, same-day appointments are often available.",
   },
 ];
 
@@ -78,8 +78,7 @@ export default function Home() {
             <span className="eyebrow">Patient reviews</span>
             <h2 className="h-section" id="reviews-title">What patients say about their care</h2>
             <p className="max-w-[60ch] text-muted-ink">
-              Reviews from Google and Practo. The latest Google reviews will appear here automatically once the
-              clinic's Google Business Profile is connected.
+              Patient reviews from Google and Practo. The overall rating shown is from Justdial.
             </p>
           </div>
           <RatingGauge />
@@ -138,11 +137,12 @@ export default function Home() {
             <p>
               Dr. Shilpa is a consultant obstetrician, gynaecologist and fertility specialist, and the founder of{" "}
               {clinic.name}. She trained at Kasturba Medical College, Manipal and King George's Medical University,
-              Lucknow, winning gold medals in both her MBBS and MD.
+              Lucknow, with a gold medal in her MD, and holds the MRCOG from the Royal College of Obstetricians and
+              Gynaecologists, UK.
             </p>
             <p className="text-muted-ink">
-              Before private practice she was an Assistant Professor at Grant Medical College and Sir JJ Group of
-              Hospitals, Mumbai, and later led units at ESI Hospital and Global Hospital.
+              She was an Assistant Professor at Grant Medical College and Sir JJ Group of Hospitals, Mumbai, and has
+              led units at ESI Hospital and Global Hospital alongside her practice.
             </p>
             <a className="link w-fit" href="/about/">Read Dr. Shilpa's full profile</a>
           </div>

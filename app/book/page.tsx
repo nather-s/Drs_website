@@ -6,8 +6,9 @@ import Shell from "@/components/site/shell";
 import { clinic } from "@/lib/clinic";
 
 export const metadata: Metadata = {
-  title: `Book an appointment | ${clinic.doctor}, Andheri West`,
+  title: "Book an appointment | Dr. Shilpa, Andheri West",
   description: "Request an appointment with Dr. Shilpa Bansal Agrawal, or contact Harleys Women's Clinic in Andheri West, Mumbai.",
+  alternates: { canonical: "/book/" },
 };
 
 export default function Book() {
@@ -15,7 +16,7 @@ export default function Book() {
     <Shell current="/book/#contact">
       <PageIntro
         crumbs={[{ label: "Book an appointment" }]}
-        lede="Send a request and the clinic will call you to confirm a time. For urgent concerns, please call the clinic directly."
+        lede="Send a request and the clinic will confirm a time with you. Same-day appointments are often available for urgent concerns. In a medical emergency, call 108 or go to the nearest hospital."
         title="Book an appointment"
       />
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-16">

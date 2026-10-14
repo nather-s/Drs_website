@@ -5,9 +5,10 @@ import Shell from "@/components/site/shell";
 import { clinic } from "@/lib/clinic";
 
 export const metadata: Metadata = {
-  title: `About ${clinic.doctor} | Gynaecologist in Andheri West, Mumbai`,
+  title: `About ${clinic.doctor}, Gynaecologist`,
   description:
     "Qualifications, experience and areas of interest of Dr. Shilpa Bansal Agrawal, consultant obstetrician, gynaecologist and fertility specialist in Mumbai.",
+  alternates: { canonical: "/about/" },
 };
 
 const education = [
@@ -15,7 +16,7 @@ const education = [
   { year: "2009", title: "MD Obstetrics & Gynaecology, King George's Medical University, Lucknow", note: "Gold medal" },
   { year: "2012", title: "DNB, National Board of Examinations, New Delhi", note: "" },
   { year: "2015", title: "Fellowship in Reproductive Endocrinology & Infertility, ICOG", note: "" },
-  { year: "2021", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "To be confirmed by the clinic", flag: true },
+  { year: "2021", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "" },
   { year: "", title: "DHA Specialist licence, Dubai", note: "" },
 ];
 
@@ -76,13 +77,7 @@ export default function About() {
                   <span className="font-display text-lg tabular-nums text-plum">{e.year}</span>
                   <div>
                     <b className="block font-semibold">{e.title}</b>
-                    {e.flag ? (
-                      <span className="mt-1 inline-block rounded border border-star px-1.5 text-xs font-semibold uppercase tracking-[0.06em] text-star">
-                        {e.note}
-                      </span>
-                    ) : (
-                      e.note && <span className="text-sm text-muted-ink">{e.note}</span>
-                    )}
+                    {e.note && <span className="text-sm text-muted-ink">{e.note}</span>}
                   </div>
                 </li>
               ))}

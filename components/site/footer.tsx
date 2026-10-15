@@ -12,6 +12,7 @@ export default function Footer() {
               <span className="block" key={l}>{l}</span>
             ))}
           </address>
+          {clinic.hours && <p className="m-0 text-muted-ink">{clinic.hours}</p>}
           <p className="grid gap-1">
             <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
             <a className="break-words no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a>

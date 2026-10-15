@@ -64,7 +64,9 @@ const faqs = [
   },
   {
     q: "How much does a consultation cost?",
-    a: "Ask about the consultation fee when you message or call to book, and the clinic team will tell you before your visit.",
+    a: clinic.fee
+      ? `A consultation with Dr. Shilpa is ${clinic.fee}. Any tests or scans are extra, and the clinic will tell you their cost before they are done.`
+      : "Ask about the consultation fee when you message or call to book, and the clinic team will tell you before your visit.",
   },
   {
     q: "What if I feel nervous or embarrassed?",

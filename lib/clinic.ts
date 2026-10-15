@@ -18,15 +18,20 @@ export const clinic = {
   ],
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Jyoti+Tower+DN+Nagar+Andheri+West+Mumbai",
-  rating: { value: 4.9, count: 1459, source: "Justdial" },
+  // Justdial listing as indexed in October 2026. Screenshot the live page before launch.
+  rating: { value: 4.9, count: "1,400+", source: "Justdial", asOf: "October 2026" },
+  practoHref: "https://www.practo.com/mumbai/doctor/dr-shilpa-bansal-gynecologist-obstetrician-1",
   emergency: "108",
-  /** Consultation hours, e.g. "Mon–Sat, 10 am – 7 pm". Leave undefined until the clinic confirms them. */
-  hours: undefined as string | undefined,
+  // Dr. Shilpa's consultation hours and fee as listed on Practo (October 2026); the clinic
+  // itself is open longer. Confirm with the clinic before launch.
+  hours: "Mon–Fri 12–2:30 pm and 5:30–7:30 pm · Sat 12–5 pm · Closed Sunday" as string | undefined,
+  fee: "₹1,500" as string | undefined,
+  languages: "English and Hindi",
   credentials:
     "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology · DHA Specialist (Dubai)",
-  hospitals: ["Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],
+  hospitals: ["Belle Vue Hospital", "Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],
   social: {
-    youtube: "https://www.youtube.com/@Dr.ShilpaAgrawal",
+    youtube: "https://www.youtube.com/channel/UCctp3zI4hHDdt6BY3zK1hog",
     instagram: "https://www.instagram.com/harleys_womens_clinic",
     facebook: "https://www.facebook.com/share/1EsFxv6xAq/",
   },

@@ -96,6 +96,9 @@ function HomePage() {
             <p className="max-w-[60ch] text-muted-ink">
               Patient reviews from Google and Practo. The overall rating shown is from Justdial.
             </p>
+            <a className="link w-fit" href={clinic.practoHref} rel="noopener" target="_blank">
+              Read more patient stories on Practo
+            </a>
           </div>
           <RatingGauge />
         </div>

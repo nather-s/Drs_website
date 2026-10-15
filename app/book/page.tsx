@@ -54,6 +54,16 @@ export default function Book() {
               <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Email</dt>
               <dd className="m-0 break-words"><a className="no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a></dd>
             </div>
+            {clinic.fee && (
+              <div className="grid gap-1">
+                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consultation fee</dt>
+                <dd className="m-0">{clinic.fee}</dd>
+              </div>
+            )}
+            <div className="grid gap-1">
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Languages</dt>
+              <dd className="m-0">{clinic.languages}</dd>
+            </div>
             {clinic.hours && (
               <div className="grid gap-1">
                 <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consultation hours</dt>

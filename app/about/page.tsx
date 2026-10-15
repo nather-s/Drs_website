@@ -16,15 +16,15 @@ const education = [
   { year: "2009", title: "MD Obstetrics & Gynaecology, King George's Medical University, Lucknow", note: "Gold medal" },
   { year: "2012", title: "DNB, National Board of Examinations, New Delhi", note: "" },
   { year: "2015", title: "Fellowship in Reproductive Endocrinology & Infertility, ICOG", note: "" },
-  { year: "2021", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "" },
+  { year: "", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "" },
   { year: "", title: "DHA Specialist licence, Dubai", note: "" },
 ];
 
 const experience = [
-  { years: "2009–2012", role: "Assistant Professor", place: "Grant Medical College & Sir JJ Group of Hospitals, Mumbai" },
-  { years: "2012–2014", role: "Specialist Consultant and Unit Head", place: "ESI Hospital and College, Mumbai" },
+  { years: "2009–2012", role: "Assistant Professor", place: "Grant Medical College & Sir JJ Group of Hospitals (Cama & Albless Hospital), Mumbai" },
+  { years: "2012–2014", role: "Specialist Consultant and Unit Head", place: "ESI Hospital, Kandivali, Mumbai" },
   { years: "2012–2016", role: "Honorary Consultant and Unit Head", place: "Global Hospital and Research Centre, Mumbai" },
-  { years: "2012–2022", role: "Consultant", place: "Cloudnine Hospital, Mumbai; visiting consultant at Surya, Criticare Asia and Bellevue hospitals" },
+  { years: "2012–2022", role: "Consultant", place: "Cloudnine Hospital, Mumbai; visiting consultant at Surya, Criticare Asia and Belle Vue hospitals" },
   { years: "2012–present", role: "Founder and Lead Consultant", place: clinic.legalName },
 ];
 

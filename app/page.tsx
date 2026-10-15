@@ -1,5 +1,6 @@
 import PreviewSite from "@/components/preview/preview-site";
 import Assistant from "@/components/site/assistant-lazy";
+import MediaSection from "@/components/site/media-section";
 import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
@@ -177,9 +178,15 @@ function HomePage() {
               <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Hospital experience</dt>
               <dd className="m-0">{clinic.hospitals.join(" · ")}</dd>
             </div>
+            <div className="grid gap-2 bg-paper p-5 sm:col-span-2">
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Languages</dt>
+              <dd className="m-0">Consultations in {clinic.languages}</dd>
+            </div>
           </dl>
         </div>
       </section>
+
+      <MediaSection />
 
       {/* Assistant */}
       <section aria-labelledby="assistant-title" className="section">

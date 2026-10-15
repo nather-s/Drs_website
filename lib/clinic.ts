@@ -16,6 +16,8 @@ export const clinic = {
     "Next to Nav Chaitanya, off Link Road",
     "Andheri West, Mumbai 400053",
   ],
+  /** The clinic's previous address; older listings online may still show it. */
+  previousAddress: "Saidas Platinum Heights, Lokhandwala",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Jyoti+Tower+DN+Nagar+Andheri+West+Mumbai",
   // Justdial listing as indexed in October 2026. Screenshot the live page before launch.
@@ -26,7 +28,7 @@ export const clinic = {
   // itself is open longer. Confirm with the clinic before launch.
   hours: "Mon–Fri 12–2:30 pm and 5:30–7:30 pm · Sat 12–5 pm · Closed Sunday" as string | undefined,
   fee: "₹1,500" as string | undefined,
-  languages: "English and Hindi",
+  languages: "English, Hindi and Marathi",
   credentials:
     "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology · DHA Specialist (Dubai)",
   hospitals: ["Belle Vue Hospital", "Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],

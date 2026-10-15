@@ -47,7 +47,7 @@ export const oldUrls: Record<string, string> = {
   "/written-testimonials/": "/#reviews",
   "/video-testimonials/": "/#reviews",
   "/clinic-gallery/": "/",
-  "/videos/": "/",
+  "/videos/": "/#videos",
 };
 
 // Normalise an address the way the site stores it: lower case, trailing slash.

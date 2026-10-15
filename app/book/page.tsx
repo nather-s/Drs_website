@@ -40,6 +40,9 @@ export default function Book() {
                 <a className="link mt-1 inline-block text-sm" href={clinic.mapsHref} rel="noopener" target="_blank">
                   Get directions
                 </a>
+                <span className="mt-2 block text-sm text-muted-ink">
+                  The clinic has moved here from {clinic.previousAddress}. Some older listings online still show the old address.
+                </span>
               </dd>
             </div>
             <div className="grid gap-1">

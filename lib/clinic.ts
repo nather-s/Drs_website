@@ -16,8 +16,6 @@ export const clinic = {
     "Next to Nav Chaitanya, off Link Road",
     "Andheri West, Mumbai 400053",
   ],
-  /** The clinic's previous address; older listings online may still show it. */
-  previousAddress: "Saidas Platinum Heights, Lokhandwala",
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=Jyoti+Tower+DN+Nagar+Andheri+West+Mumbai",
   // Justdial listing as indexed in October 2026. Screenshot the live page before launch.

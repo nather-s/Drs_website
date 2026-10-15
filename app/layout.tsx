@@ -52,7 +52,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#clinic`,
       name: clinic.legalName,
       url: siteUrl,
-      telephone: "+91-9323048601",
+      telephone: clinic.phoneHref.replace("tel:", ""),
       email: clinic.email,
       address: {
         "@type": "PostalAddress",

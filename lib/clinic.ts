@@ -6,9 +6,10 @@ export const clinic = {
   doctorRole: "Consultant Obstetrician & Gynaecologist",
   name: "Harleys Women's Clinic",
   legalName: "Harleys Cosmetic & Women's Clinic",
-  phoneDisplay: "+91 93230 48601",
-  phoneHref: "tel:+919323048601",
-  whatsappHref: "https://wa.me/919323048601",
+  /** The clinic's front-desk number, for calls and WhatsApp bookings. (+91 93230 48601 is Dr. Shilpa's own number and is not published.) */
+  phoneDisplay: "+91 93200 48601",
+  phoneHref: "tel:+919320048601",
+  whatsappHref: "https://wa.me/919320048601",
   email: "info@drshilpagynaecologist.com",
   addressLines: [
     "101–102 Jyoti Tower, DN Nagar",

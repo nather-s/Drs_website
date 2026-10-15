@@ -27,6 +27,8 @@ export const clinic = {
   hours: "Mon–Fri 12–2:30 pm and 5:30–7:30 pm · Sat 12–5 pm · Closed Sunday" as string | undefined,
   fee: "₹1,500" as string | undefined,
   languages: "English, Hindi and Marathi",
+  registration: "Maharashtra Medical Council reg. no. 2011051601",
+  deliversAt: ["Surya Hospitals", "Cloudnine Hospital", "Criticare Asia"],
   credentials:
     "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology & Infertility · DHA Specialist (Dubai)",
   hospitals: ["Belle Vue Hospital", "Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],

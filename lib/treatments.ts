@@ -96,7 +96,7 @@ export const treatments: Treatment[] = [
           "Polycystic-appearing ovaries on ultrasound, or a raised AMH blood test",
         ],
         after:
-          "Your assessment usually includes blood tests for hormones, thyroid function, blood sugar and cholesterol, and often a pelvic ultrasound. In teenagers within eight years of their first period, ultrasound is not used for diagnosis: both irregular cycles and raised androgens are needed.",
+          "Your assessment usually includes blood tests for hormones, thyroid function, blood sugar and cholesterol, and often a pelvic ultrasound, done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally. In teenagers within eight years of their first period, ultrasound is not used for diagnosis: both irregular cycles and raised androgens are needed.",
       },
       {
         heading: "Treatment options",
@@ -538,6 +538,7 @@ export const treatments: Treatment[] = [
     intro: [
       "A colposcopy is a close examination of the cervix, vagina and vulva using a magnifying instrument with a light. It is usually recommended after an abnormal Pap smear or HPV test.",
       "If an area looks abnormal, a small sample (biopsy) can be taken during the same visit.",
+      "Dr. Shilpa, who is trained in colposcopy, does the examination herself at the clinic.",
     ],
     sections: [
       {
@@ -612,6 +613,7 @@ export const treatments: Treatment[] = [
     summary: "Antenatal and postnatal care, from your first scan to the weeks after delivery.",
     intro: [
       "Good antenatal care keeps you and your baby healthy and helps you feel prepared. Dr. Shilpa sees you regularly through your pregnancy, explains each test and scan, and plans your delivery with you.",
+      "She delivers at Surya Hospitals, Cloudnine Hospital and Criticare Asia, and her pregnancy patients can call her directly, day or night.",
     ],
     sections: [
       {
@@ -644,7 +646,7 @@ export const treatments: Treatment[] = [
           "Fever, or feeling very unwell",
         ],
         after:
-          "Call the clinic, or if you cannot reach us, go to the nearest hospital emergency department or call 108.",
+          "If you are in Dr. Shilpa's care, call her directly on the number she gives you at your first visit, day or night. If you cannot reach her, go to the nearest hospital emergency department or call 108.",
       },
     ],
     faqs: [
@@ -654,7 +656,7 @@ export const treatments: Treatment[] = [
       },
       {
         q: "Where will I deliver?",
-        a: "Dr. Shilpa will discuss the hospital and type of delivery that suit you during your pregnancy.",
+        a: "Dr. Shilpa delivers at Surya Hospitals, Cloudnine Hospital and Criticare Asia. She will help you choose the one that suits you, and plan the type of delivery with you during your pregnancy.",
       },
     ],
     related: ["high-risk-pregnancy", "epidural-pain-relief"],
@@ -754,6 +756,7 @@ export const treatments: Treatment[] = [
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
     intro: [
       "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. Your decision is respected without judgement.",
+      "The clinic is a government-approved MTP centre, and the ultrasound is done here at the clinic.",
       "Abortion is legal for every woman in India, married or unmarried. If you are 18 or over, you do not need anyone else's consent: not a parent's, a partner's or a husband's. For anyone under 18, written consent from a guardian is required by law.",
     ],
     sections: [
@@ -842,10 +845,10 @@ export const treatments: Treatment[] = [
         heading: "Treatment options",
         points: [
           "Ovulation induction: tablets or injections to help you ovulate, with scans to time intercourse.",
-          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation, at a registered ART centre.",
-          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre.",
+          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation. Dr. Shilpa does this herself.",
+          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre nearby.",
           "Surgery: keyhole surgery or hysteroscopy for endometriosis, fibroids, polyps or blocked tubes.",
-          "Egg freezing: for women who wish to delay pregnancy, at a registered ART centre.",
+          "Egg freezing: for women who wish to delay pregnancy, at a registered ART centre nearby.",
         ],
       },
     ],
@@ -924,8 +927,9 @@ export const treatments: Treatment[] = [
       {
         heading: "For parents",
         points: [
+          "Dr. Shilpa sees around 25 teenagers every week, for periods, PCOS, skin and other worries.",
           "You are welcome to stay in the room for the whole consultation.",
-          "Most teenagers do not need an internal examination. If any examination is needed, it is explained first and done only with your daughter's agreement and yours.",
+          "Most teenagers do not need an internal examination. If any examination is needed, it is explained first and done only with your daughter's agreement and yours, with a female staff member present.",
           "A parent or guardian's consent is needed for examination and treatment of anyone under 18.",
           "Older teenagers sometimes like a few minutes alone with the doctor. It is offered, never insisted on.",
         ],

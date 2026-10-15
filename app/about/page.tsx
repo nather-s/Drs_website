@@ -16,15 +16,15 @@ const education = [
   { year: "2009", title: "MD Obstetrics & Gynaecology, King George's Medical University, Lucknow", note: "Gold medal" },
   { year: "2012", title: "DNB, National Board of Examinations, New Delhi", note: "" },
   { year: "2015", title: "Fellowship in Reproductive Endocrinology & Infertility, ICOG", note: "" },
-  { year: "", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "" },
-  { year: "", title: "DHA Specialist licence, Dubai", note: "" },
+  { year: "2024", title: "MRCOG, Royal College of Obstetricians & Gynaecologists, UK", note: "" },
+  { year: "2020", title: "DHA Specialist licence, Dubai", note: "" },
 ];
 
 const experience = [
   { years: "2009–2012", role: "Assistant Professor", place: "Grant Medical College & Sir JJ Group of Hospitals (Cama & Albless Hospital), Mumbai" },
   { years: "2012–2014", role: "Specialist Consultant and Unit Head", place: "ESI Hospital, Kandivali, Mumbai" },
-  { years: "2012–2016", role: "Honorary Consultant and Unit Head", place: "Global Hospital and Research Centre, Mumbai" },
-  { years: "2012–2022", role: "Consultant", place: "Cloudnine Hospital, Mumbai; visiting consultant at Surya, Criticare Asia and Belle Vue hospitals" },
+  { years: "2012–2018", role: "Honorary Consultant and Unit Head", place: "Global Hospital and Research Centre, Mumbai" },
+  { years: "2012–present", role: "Consultant", place: "Cloudnine Hospital, Surya Hospitals, Criticare Asia, BSES MG and Belle Vue hospitals, Mumbai" },
   { years: "2012–present", role: "Founder and Lead Consultant", place: clinic.legalName },
 ];
 
@@ -64,13 +64,14 @@ export default function About() {
             </p>
             <p className="max-w-[68ch]">
               She has contributed to the textbook <i>Clinical Obstetrics &amp; Gynaecology</i> and wrote the chapter
-              "Adolescent: Unmet Need for Contraception Education" in the FOGSI textbook. She is a member of the
+              "Adolescent: Unmet Need for Contraception and Sex Education" in the FOGSI textbook. She is a member of the
               Federation of Obstetric and Gynaecological Societies of India (FOGSI).
             </p>
           </section>
 
           <section aria-labelledby="qualifications" className="grid gap-4">
             <h2 className="text-[1.6rem]" id="qualifications">Qualifications</h2>
+            <p className="m-0 text-sm text-muted-ink">{clinic.registration}</p>
             <ol className="m-0 list-none p-0">
               {education.map((e) => (
                 <li className="grid grid-cols-[72px_1fr] gap-4 border-t border-line py-4 last:border-b" key={e.title}>
@@ -115,7 +116,7 @@ export default function About() {
           {/* Add Dr. Shilpa's portrait here when the clinic provides one. An empty placeholder
               made the site look unfinished to test patients, so none is shown until then. */}
           <div className="grid gap-2 rounded-lg border border-line p-6 text-sm">
-            <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Hospital experience</b>
+            <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Consults at</b>
             <ul className="m-0 grid list-none gap-1 p-0">
               {clinic.hospitals.map((h) => (
                 <li key={h}>{h}</li>

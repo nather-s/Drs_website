@@ -95,6 +95,10 @@ function HomePage() {
               <dd className="m-0 font-display text-xl" lang="hi">हिंदी · मराठी</dd>
               <dd className="m-0 text-sm text-muted-ink">and English</dd>
             </div>
+            <div className="col-span-2 grid gap-0.5 bg-paper p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Deliveries at</dt>
+              <dd className="m-0">{clinic.deliversAt.join(" · ")}</dd>
+            </div>
             <div className="col-span-2 grid gap-0.5 bg-paper p-4 text-sm">
               <dt className="sr-only">Address</dt>
               <dd className="m-0">
@@ -201,7 +205,7 @@ function HomePage() {
               </div>
             ))}
             <div className="grid gap-2 bg-paper p-5 sm:col-span-2">
-              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Hospital experience</dt>
+              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consults at</dt>
               <dd className="m-0">{clinic.hospitals.join(" · ")}</dd>
             </div>
             <div className="grid gap-2 bg-paper p-5 sm:col-span-2">

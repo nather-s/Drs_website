@@ -41,7 +41,7 @@ const steps = [
     points: [
       "An examination is only done if it is needed. Many first visits don't need an internal examination at all.",
       "Dr. Shilpa will explain what the examination involves and why, and ask your permission before starting.",
-      "You can have the person you came with in the room, and you can ask to pause or stop at any time.",
+      "A female member of staff is always present during an examination. You can also have the person you came with in the room, and you can ask to pause or stop at any time.",
     ],
   },
   {
@@ -65,7 +65,7 @@ const faqs = [
   {
     q: "How much does a consultation cost?",
     a: clinic.fee
-      ? `A consultation with Dr. Shilpa is ${clinic.fee}. Any tests or scans are extra, and the clinic will tell you their cost before they are done.`
+      ? `A consultation with Dr. Shilpa is ${clinic.fee} per person. Any tests or scans are extra, and the clinic will tell you their cost before they are done.`
       : "Ask about the consultation fee when you message or call to book, and the clinic team will tell you before your visit.",
   },
   {

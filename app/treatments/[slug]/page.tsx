@@ -5,7 +5,9 @@ import ExitPage from "@/components/site/exit-page";
 import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
 import Shell from "@/components/site/shell";
+import VideoCards from "@/components/site/video-cards";
 import { clinic, reviews } from "@/lib/clinic";
+import { videosFor } from "@/lib/media";
 import { categories, getTreatment, treatments } from "@/lib/treatments";
 
 // Only the treatments listed in lib/treatments.ts exist; any other address is a 404.
@@ -34,6 +36,9 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
   const category = categories.find((c) => c.id === t.category)!;
   const related = t.related.map(getTreatment).filter((r) => r !== undefined);
   const review = t.reviewId ? reviews.find((r) => r.id === t.reviewId) : undefined;
+  const topicVideos = videosFor(t.slug);
+  // The design preview shows where a topic's videos will go until real ones are added.
+  const showVideoSlot = topicVideos.length > 0 || process.env.PREVIEW_EXPORT === "1";
   const contents = [...t.sections.map((s) => s.heading), ...(t.faqs.length ? ["Questions patients ask"] : [])];
 
   return (
@@ -47,12 +52,31 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
       />
 
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
-        <article className="grid min-w-0 content-start gap-10">
+        <article className="grid min-w-0 grid-cols-1 content-start gap-10">
           <div className="grid gap-4 text-[1.08rem]">
             {t.intro.map((p) => (
               <p className="max-w-[68ch]" key={p}>{p}</p>
             ))}
           </div>
+
+          {showVideoSlot && (
+            <section aria-labelledby="videos" className="grid gap-4">
+              <h2 className="text-[1.6rem]" id="videos">Watch Dr. Shilpa explain</h2>
+              {topicVideos.length > 0 ? (
+                <VideoCards items={topicVideos} />
+              ) : (
+                <p className="m-0 grid aspect-video w-full max-w-[420px] place-items-center rounded-lg border border-dashed border-field bg-mist p-6 text-center text-sm text-muted-ink">
+                  Preview: Dr. Shilpa's YouTube video on {t.title.toLowerCase()} will appear here.
+                </p>
+              )}
+              {t.sensitive && (
+                <p className="m-0 text-sm text-muted-ink">
+                  Videos open on YouTube, so they may show in your YouTube history.{" "}
+                  <a className="link" href="/browsing-safely/">Browsing safely</a>
+                </p>
+              )}
+            </section>
+          )}
 
           {t.sections.map((s) => (
             <section aria-labelledby={anchor(s.heading)} className="grid gap-4" key={s.heading}>

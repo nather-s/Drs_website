@@ -4,6 +4,7 @@ import Book from "@/app/book/page";
 import BrowsingSafely from "@/app/browsing-safely/page";
 import FirstVisit from "@/app/first-visit/page";
 import Privacy from "@/app/privacy/page";
+import Reviews from "@/app/reviews/page";
 import Team from "@/app/team/page";
 import TreatmentPage from "@/app/treatments/[slug]/page";
 import TreatmentsIndex from "@/app/treatments/page";
@@ -19,6 +20,7 @@ export default function PreviewSite({ home }: { home: ReactNode }) {
     "/treatments/": <TreatmentsIndex />,
     "/first-visit/": <FirstVisit />,
     "/book/": <Book />,
+    "/reviews/": <Reviews />,
     "/privacy/": <Privacy />,
     "/browsing-safely/": <BrowsingSafely />,
   };

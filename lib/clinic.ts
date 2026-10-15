@@ -42,7 +42,7 @@ export const nav = [
   { label: "Our team", href: "/team/" },
   { label: "Treatments", href: "/treatments/" },
   { label: "Your first visit", href: "/first-visit/" },
-  { label: "Patient reviews", href: "/#reviews" },
+  { label: "Patient reviews", href: "/reviews/" },
   { label: "Contact", href: "/book/#contact" },
 ] as const;
 

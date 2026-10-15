@@ -44,8 +44,8 @@ export const oldUrls: Record<string, string> = {
   "/women-care-hospitals-in-andheri/": "/",
   "/request-an-appointment/": "/book/",
   "/contact-us/": "/book/",
-  "/written-testimonials/": "/#reviews",
-  "/video-testimonials/": "/#reviews",
+  "/written-testimonials/": "/reviews/",
+  "/video-testimonials/": "/reviews/",
   "/clinic-gallery/": "/",
   "/videos/": "/#videos",
 };

@@ -44,45 +44,70 @@ export default function Home() {
 function HomePage() {
   return (
     <Shell>
-      {/* Hero */}
+      {/* Hero: everything a skimming visitor looks for, in the first phone screen */}
       <section className="border-b border-line">
-        <div className="wrap grid items-center gap-10 py-12 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:py-20">
-          <div className="grid gap-6">
-            <span className="eyebrow">{clinic.doctorRole} · Andheri West, Mumbai</span>
-            <h1 className="text-[clamp(2.3rem,4.6vw,3.6rem)]">
-              Women's health care, from adolescence to menopause.
-            </h1>
-            <p className="max-w-[58ch] text-lg text-muted-ink">
-              Consult {clinic.doctor}, a woman gynaecologist, for gynaecology, pregnancy, fertility and menopause care
-              at {clinic.name}.
-              Every consultation is private and confidential.
+        <div className="wrap grid gap-6 py-6 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-14 md:py-16">
+          <div className="grid gap-5">
+            <span className="eyebrow">Woman gynaecologist · DN Nagar, Andheri West</span>
+            <div className="grid gap-2">
+              <h1 className="text-[clamp(2rem,4.4vw,3.3rem)]">{clinic.doctor}</h1>
+              <p className="text-lg text-muted-ink">
+                Obstetrician &amp; gynaecologist · MD (Gold Medal) · MRCOG (UK). Pregnancy, fertility, PCOS, periods,
+                abnormal smears and menopause.
+              </p>
+            </div>
+            <div className="grid gap-3 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap">
+              <a className="btn btn-primary px-3 whitespace-nowrap" href={bookOnWhatsapp()} rel="noopener" target="_blank">
+                Book on WhatsApp
+              </a>
+              <a className="btn px-3 whitespace-nowrap" href={clinic.phoneHref}>Call {clinic.phoneDisplay.replace("+91 ", "")}</a>
+            </div>
+            <p className="text-sm text-muted-ink">
+              Private and confidential. You won't be judged, whatever your age or whether you're married, and nothing
+              is examined without your agreement.{" "}
+              <a className="link" href="/first-visit/">What happens at your first visit</a>
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a className="btn btn-primary" href="/book/">Book an appointment</a>
-              <a className="btn" href={bookOnWhatsapp()} rel="noopener" target="_blank">Book on WhatsApp</a>
-            </div>
-            <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
-            <p className="border-t border-line pt-5 text-sm text-muted-ink">{clinic.credentials}</p>
           </div>
-          <div className="relative mx-auto w-full max-w-[320px] md:max-w-none">
-            <div
-              aria-label="Portrait placeholder for Dr. Shilpa"
-              className="relative grid aspect-[4/5] place-items-center overflow-hidden rounded-lg bg-plum-soft"
-              role="img"
-            >
-              {/* Replace with Dr. Shilpa's photo when the clinic provides one. */}
-              <span className="font-display text-[clamp(3.5rem,8vw,5.5rem)] text-plum/40">SB</span>
+          <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line">
+            <div className="grid content-start gap-0.5 bg-paper p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Rating</dt>
+              <dd className="m-0 font-display text-xl">★ {clinic.rating.value} / 5</dd>
+              <dd className="m-0 text-sm text-muted-ink">
+                <a className="no-underline hover:text-accent" href="/reviews/">
+                  {clinic.rating.count} on {clinic.rating.source}
+                </a>
+              </dd>
             </div>
-            <div className="absolute -bottom-6 left-1/2 w-max -translate-x-1/2 rounded-lg border border-line bg-paper px-5 py-3 text-center shadow-[0_12px_30px_-18px_rgba(46,36,51,0.5)]">
-              <b className="block font-display text-lg font-medium">{clinic.doctor}</b>
-              <span className="text-sm text-muted-ink">{clinic.doctorRole}</span>
+            {clinic.fee && (
+              <div className="grid content-start gap-0.5 bg-paper p-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Consultation</dt>
+                <dd className="m-0 font-display text-xl">{clinic.fee}</dd>
+                <dd className="m-0 text-sm text-muted-ink">Tests extra, told first</dd>
+              </div>
+            )}
+            <div className="grid content-start gap-0.5 bg-paper p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Open</dt>
+              <dd className="m-0 font-display text-xl">Mon–Sat</dd>
+              <dd className="m-0 text-sm text-muted-ink">Weekdays till 7:30 pm · Sat 12–5</dd>
             </div>
-          </div>
+            <div className="grid content-start gap-0.5 bg-paper p-4">
+              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Languages</dt>
+              <dd className="m-0 font-display text-xl" lang="hi">हिंदी · मराठी</dd>
+              <dd className="m-0 text-sm text-muted-ink">and English</dd>
+            </div>
+            <div className="col-span-2 grid gap-0.5 bg-paper p-4 text-sm">
+              <dt className="sr-only">Address</dt>
+              <dd className="m-0">
+                {clinic.addressLines[0]}, Andheri West ·{" "}
+                <a className="link" href={clinic.mapsHref} rel="noopener" target="_blank">Directions</a>
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
 
       {/* Plain-language starting points */}
-      <section aria-label="Find the right page" className="border-b border-line py-12 md:py-16">
+      <section aria-label="Find the right page" className="border-b border-line py-8 md:py-14">
         <div className="wrap">
           <SymptomFinder />
         </div>
@@ -100,6 +125,7 @@ function HomePage() {
             <a className="link w-fit" href={clinic.practoHref} rel="noopener" target="_blank">
               Read more patient stories on Practo
             </a>
+            <a className="link w-fit" href="/reviews/">All reviews</a>
           </div>
           <RatingGauge />
         </div>

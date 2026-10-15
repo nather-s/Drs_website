@@ -112,13 +112,8 @@ export default function About() {
         </div>
 
         <aside className="grid content-start gap-6 lg:sticky lg:top-28 lg:self-start">
-          <div
-            aria-label="Portrait placeholder for Dr. Shilpa"
-            className="grid aspect-[4/5] place-items-center rounded-lg bg-plum-soft"
-            role="img"
-          >
-            <span className="font-display text-6xl text-plum/40">SB</span>
-          </div>
+          {/* Add Dr. Shilpa's portrait here when the clinic provides one. An empty placeholder
+              made the site look unfinished to test patients, so none is shown until then. */}
           <div className="grid gap-2 rounded-lg border border-line p-6 text-sm">
             <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Hospital experience</b>
             <ul className="m-0 grid list-none gap-1 p-0">

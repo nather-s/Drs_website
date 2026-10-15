@@ -13,6 +13,7 @@ const pages = [
   { href: "/team/", title: "Our team" },
   { href: "/first-visit/", title: "Your first visit" },
   { href: "/book/", title: "Book an appointment" },
+  { href: "/reviews/", title: "Patient reviews" },
   { href: "/treatments/", title: "All treatments" },
   { href: "/privacy/", title: "Privacy policy" },
   { href: "/browsing-safely/", title: "Browsing safely" },

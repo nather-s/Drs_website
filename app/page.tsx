@@ -195,7 +195,7 @@ function HomePage() {
             <span className="eyebrow">Clinic assistant</span>
             <h2 className="h-section" id="assistant-title">Questions before you book?</h2>
             <p className="text-muted-ink">
-              The clinic assistant can book an appointment with Dr. Shilpa and answer practical questions about
+              The clinic assistant can help you request an appointment with Dr. Shilpa and answer practical questions about
               the clinic, such as where it is and what happens at your first visit.
             </p>
             <p className="text-sm text-muted-ink">

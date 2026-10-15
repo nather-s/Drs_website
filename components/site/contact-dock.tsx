@@ -4,7 +4,6 @@ import { clinic } from "@/lib/clinic";
 
 // Bottom contact bar for phones. Every button acts in one tap: call, WhatsApp the clinic
 // with a ready-written request, or choose a day and time on the booking page.
-// (Previously a Kokonut UI "Smooth Drawer"; the drawer step was removed to cut friction.)
 export default function ContactDock() {
   const item = "flex flex-1 flex-col items-center justify-center gap-0.5 rounded-[10px] py-2 text-[0.8rem] font-semibold no-underline min-h-12";
   return (

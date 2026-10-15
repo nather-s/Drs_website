@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import ContactDock from "@/components/kokonut/contact-drawer";
+import ContactDock from "@/components/site/contact-dock";
 import Footer from "@/components/site/footer";
 import Header from "@/components/site/header";
 

@@ -2,8 +2,8 @@
 
 Redesign of drshilpagynaecologist.com for Harleys Women's Clinic, Andheri West.
 
-Built with Next.js, Tailwind CSS v4, Motion, anime.js, and components adapted from
-Kokonut UI and bklit UI (MIT; licences in `components/kokonut` and `components/bklit`).
+Built with Next.js, Tailwind CSS v4, Motion, and a gauge adapted from bklit UI
+(MIT; licence in `components/bklit`).
 
 ## Run locally
 

@@ -27,13 +27,13 @@ function request(day: string, time: string): Step {
 
 const time = (day: string): Step => ({
   say: "What time of day suits you?",
-  choices: ["Morning", "Afternoon", "Evening", "Any time"].map((t) => ({ label: t, next: () => request(day, t) })),
+  choices: ["Afternoon", "Evening", "Any time"].map((t) => ({ label: t, next: () => request(day, t) })),
 });
 
 // The reason for the visit is never asked here: it stays private until the consultation.
 const visit = (): Step => ({
   say: "Which day would you like to come? You don't need to tell us why; you can discuss that with Dr. Shilpa in private.",
-  choices: ["Today", "Tomorrow", "This week", "Next week"].map((d) => ({ label: d, next: () => time(d) })),
+  choices: ["Today", "Tomorrow", "This week", "Next week", "Any day"].map((d) => ({ label: d, next: () => time(d) })),
 });
 
 const start = (): Step => ({

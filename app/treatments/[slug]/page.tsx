@@ -142,7 +142,7 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
               ))}
             </ul>
           </nav>
-          <BookingCard topic={t.title} />
+          <BookingCard note={t.bookingNote} topic={t.title} />
         </aside>
       </div>
 

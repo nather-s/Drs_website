@@ -24,6 +24,8 @@ export type Treatment = {
   sensitive?: boolean;
   /** Page is for male patients; hides the gynaecology "Coming to the clinic" note. */
   forMen?: boolean;
+  /** Extra line for the page's WhatsApp booking message (never the medical reason). */
+  bookingNote?: string;
   /** Guidelines and laws the page's content follows, listed at the end of the page. */
   references?: string[];
 };
@@ -66,7 +68,7 @@ export const treatments: Treatment[] = [
     summary:
       "Diagnosis and long-term management of polycystic ovary syndrome, including irregular periods, acne, excess hair, weight and fertility.",
     intro: [
-      "Polycystic ovary syndrome (PCOS) is one of the most common hormonal conditions in women of reproductive age. Raised androgens (male-type hormones) and insulin resistance disturb ovulation, which affects the menstrual cycle, skin, hair, weight and fertility.",
+      "Polycystic ovary syndrome (PCOS), also often called PCOD in India, is one of the most common hormonal conditions in women of reproductive age. Raised androgens (male-type hormones) and insulin resistance disturb ovulation, which affects the menstrual cycle, skin, hair, weight and fertility.",
       "PCOS cannot be cured, but it can be managed well. Treatment depends on your symptoms, your general health and whether you are planning a pregnancy.",
     ],
     sections: [
@@ -324,6 +326,7 @@ export const treatments: Treatment[] = [
     intro: [
       "Fibroids are non-cancerous growths of the womb muscle. Ovarian cysts are fluid-filled sacs on an ovary, and polyps are small growths in the lining of the womb.",
       "Many cause no symptoms and only need monitoring. Others cause pain, heavy bleeding or difficulty conceiving, and can be treated with medicine or minimally invasive surgery.",
+      "Told you need your womb removed? You are welcome to come for a second opinion. Bring your scan reports, and Dr. Shilpa will explain every option, including ones that avoid surgery.",
     ],
     sections: [
       {
@@ -370,8 +373,12 @@ export const treatments: Treatment[] = [
         q: "Will I need surgery?",
         a: "Not always. Surgery is usually recommended when a growth causes symptoms, is growing, affects fertility, or has features on the scan that need further investigation.",
       },
+      {
+        q: "I'm close to menopause. Do I still need surgery for fibroids?",
+        a: "Often not. Fibroids usually shrink after menopause, when periods stop. If you are close to it, medicines to control the bleeding until then may be enough. Heavy bleeding at this age should still be checked, to rule out other causes.",
+      },
     ],
-    related: ["irregular-periods", "fertility", "bartholin-cyst"],
+    related: ["menopause", "irregular-periods", "fertility"],
   },
   {
     slug: "bartholin-cyst",
@@ -599,7 +606,7 @@ export const treatments: Treatment[] = [
   // ─── Pregnancy ────────────────────────────────────────────────
   {
     slug: "pregnancy-care",
-    references: ["Pre-Conception and Pre-Natal Diagnostic Techniques (PCPNDT) Act, 1994"],
+    references: ["WHO recommendations on antenatal care for a positive pregnancy experience (2016)", "Pre-Conception and Pre-Natal Diagnostic Techniques (PCPNDT) Act, 1994"],
     title: "Pregnancy care",
     category: "pregnancy",
     summary: "Antenatal and postnatal care, from your first scan to the weeks after delivery.",
@@ -782,7 +789,7 @@ export const treatments: Treatment[] = [
         heading: "Avoid unsafe options",
         body: [
           "Abortion pills bought online or from a chemist without a prescription are illegal to sell, and taking them without a scan is risky. A scan checks that the pregnancy is in the womb. A pregnancy outside the womb (ectopic pregnancy) cannot be ended with pills and can be life-threatening. Pills taken later than recommended are more likely to cause heavy bleeding or an incomplete abortion.",
-          "Unregistered clinics may not be legal or safe. If you have already taken pills, come in anyway. You will be cared for, not judged or reported.",
+          "Unregistered clinics may not be legal or safe. If you have already taken pills, come in anyway. You will be cared for, not judged. (For anyone under 18, the law requires the doctor to make a report; see the questions below.)",
         ],
       },
     ],
@@ -903,6 +910,7 @@ export const treatments: Treatment[] = [
   // ─── Life stages ──────────────────────────────────────────────
   {
     slug: "adolescent-health",
+    bookingNote: "The appointment is for my daughter (age: __). A parent will come with her.",
     sensitive: true,
     metaTitle: "Teen health",
     metaDescription: "Respectful health care for teenagers, from first periods onwards, with Dr. Shilpa Bansal Agrawal in Andheri West.",
@@ -996,7 +1004,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "menopause",
-    references: ["NICE guideline NG23: Menopause, diagnosis and management"],
+    references: ["NICE guideline NG23: Menopause: identification and management (updated 2024)"],
     title: "Menopause & HRT",
     category: "life-stages",
     summary: "Managing menopause symptoms and deciding whether hormone replacement therapy is right for you.",
@@ -1050,7 +1058,7 @@ export const treatments: Treatment[] = [
         a: "There is no fixed limit. Treatment is reviewed every year and continued for as long as the benefits outweigh the risks for you.",
       },
     ],
-    related: ["irregular-periods", "cervical-cancer-prevention"],
+    related: ["fibroids-and-cysts", "irregular-periods", "cervical-cancer-prevention"],
     reviewId: "manjusha",
   },
 

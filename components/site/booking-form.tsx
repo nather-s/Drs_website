@@ -6,7 +6,7 @@ import { bookOnWhatsapp } from "@/lib/booking";
 import { siteHref } from "@/lib/href";
 
 const DAYS = ["Today", "Tomorrow", "This week", "Next week", "Any day"];
-const TIMES = ["Morning", "Afternoon", "Evening", "Any time"];
+const TIMES = ["Afternoon", "Evening", "Any time"];
 
 // One tap to book: everything is optional and has a default, and the button is a plain
 // link to the clinic's WhatsApp with the request written out. WhatsApp already shares

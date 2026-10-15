@@ -21,8 +21,9 @@ const doctors: Member[] = [
   },
   {
     name: "Dr. Sumit Agrawal",
-    role: "Cosmetic Surgeon",
-    bio: "Cosmetic surgeon at Harleys Cosmetic & Women's Clinic.",
+    role: "Plastic & Cosmetic Surgeon",
+    // Qualifications as listed on Practo and Drlogy; confirm with the clinic.
+    bio: "MS, MCh (Plastic Surgery), MRCS (Edinburgh). Leads the clinic's cosmetic and hair restoration services.",
     initials: "SA",
   },
 ];

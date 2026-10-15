@@ -28,7 +28,7 @@ export const clinic = {
   fee: "₹1,500" as string | undefined,
   languages: "English, Hindi and Marathi",
   credentials:
-    "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology · DHA Specialist (Dubai)",
+    "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology & Infertility · DHA Specialist (Dubai)",
   hospitals: ["Belle Vue Hospital", "Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],
   social: {
     youtube: "https://www.youtube.com/channel/UCctp3zI4hHDdt6BY3zK1hog",
@@ -76,7 +76,7 @@ export const reviews: Review[] = [
     id: "debanjali",
     name: "Debanjali B.",
     source: "Practo",
-    topic: "Pregnancy",
+    topic: "General",
     text: "She's really polite and listens to your problems before giving an effective solution. She also tries to avoid unnecessary medication unless it's really required.",
   },
 ];

@@ -558,8 +558,8 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Diagnosis and treatment of unusual discharge, itching, burning and common vaginal infections.",
     intro: [
-      "Some vaginal discharge is normal and healthy. It changes through the menstrual cycle and keeps the vagina clean. A change in colour, smell or amount, or itching and burning, usually means a common infection that is easy to treat.",
-      "These infections are very common at every age, including in teenagers, and most have nothing to do with sex.",
+      "Some vaginal discharge is normal and healthy. It is usually clear or milky white, changes through the menstrual cycle and keeps the vagina clean. A change in colour, smell, amount or texture, or itching and burning, usually means a common infection that is easy to treat.",
+      "These infections are very common at every age, including in teenagers, and most have nothing to do with sex. Noticing the type, colour and smell of the discharge helps Dr. Shilpa find the cause.",
     ],
     sections: [
       {
@@ -577,25 +577,52 @@ export const treatments: Treatment[] = [
       {
         heading: "Common causes",
         points: [
-          "Thrush (yeast infection): itching and thick white discharge. Common after antibiotics, in pregnancy and with diabetes.",
+          "Thrush (yeast infection): an overgrowth of Candida, causing itching and thick white discharge. Common after antibiotics, in pregnancy and with diabetes.",
           "Bacterial vaginosis: thin grey discharge with a fishy smell. An imbalance of normal bacteria, not a sexually transmitted infection.",
           "Urine infection: burning and needing to pass urine often.",
-          "Sexually transmitted infections such as trichomonas or chlamydia: tested for only when relevant, and always in confidence.",
-          "Irritation from scented soaps, washes, pads or tight synthetic clothing.",
+          "Sexually transmitted infections such as trichomonas, chlamydia or gonorrhoea: tested for only when relevant, and always in confidence.",
+          "Hormonal changes: discharge often increases in pregnancy and at other times when hormone levels change.",
+          "Irritation from scented soaps, washes, pads, harsh detergents or tight synthetic clothing.",
         ],
       },
       {
         heading: "Diagnosis and treatment",
         body: [
-          "Dr. Shilpa will ask about your symptoms and may take a quick swab. For teenagers and women who have not been sexually active, a swab can usually be taken without an internal examination.",
-          "Most infections clear within a few days with tablets, a cream or a pessary. Sometimes a partner needs treatment too, so the infection doesn't come back.",
+          "Dr. Shilpa will ask about your symptoms, examine you and may take a quick swab, so that treatment matches the cause. For teenagers and women who have not been sexually active, a swab can usually be taken without an internal examination.",
+          "Most infections clear within a few days with antifungal or antibacterial tablets, a cream or a pessary. Sometimes a partner needs treatment too, so the infection doesn't come back.",
+        ],
+      },
+      {
+        heading: "Preventing it coming back",
+        points: [
+          "Cotton underwear: breathable fabrics reduce irritation.",
+          "Avoid irritants: skip scented products, intimate washes and harsh detergents.",
+          "Diet: eating less sugar, and including probiotic foods such as curd, may help some women with repeated thrush. Keeping diabetes well controlled matters most.",
+          "General health: managing stress and getting enough sleep support your overall and reproductive health.",
+          "Regular check-ups: get any change in discharge checked early.",
         ],
       },
     ],
     faqs: [
       {
+        q: "How can I tell normal from abnormal discharge?",
+        a: "Normal discharge is usually clear or milky white with little smell. Discharge with an unusual colour, smell or texture, or with itching or burning, should be checked.",
+      },
+      {
+        q: "Is more discharge in pregnancy normal?",
+        a: "Yes. Hormonal changes in pregnancy often increase discharge. Mention any change in colour or smell, or itching, to your doctor, as infections in pregnancy should be treated.",
+      },
+      {
         q: "Can I just buy a cream from the chemist?",
         a: "For a first, typical episode of thrush that can work. If symptoms are different, come back, or you are pregnant, see a doctor, as the wrong treatment can make things worse.",
+      },
+      {
+        q: "Do home remedies work?",
+        a: "Some may ease symptoms for a while, but they do not treat the cause. A proper diagnosis means you get the right treatment.",
+      },
+      {
+        q: "How long does treatment take?",
+        a: "It depends on the cause. Most infections clear within a few days, and Dr. Shilpa will tell you what to expect at your visit.",
       },
       {
         q: "Should I use an intimate wash?",
@@ -612,22 +639,59 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Pap smear and HPV screening, HPV vaccination, and follow-up of abnormal results.",
     intro: [
-      "Cervical cancer is largely preventable. Almost all cases are caused by long-term infection with high-risk types of human papillomavirus (HPV).",
-      "Vaccination prevents infection, and regular screening finds changes in the cervix years before they could turn into cancer.",
+      "Cervical cancer starts in the cells of the cervix, the narrow lower part of the womb that opens into the vagina. Almost all cases are caused by long-term infection with high-risk types of human papillomavirus (HPV), so it is largely preventable.",
+      "HPV vaccination helps prevent infection, and regular screening finds changes in the cervix years before they could turn into cancer. Screening matters even when you feel well, because early changes usually cause no symptoms.",
+      "At Harleys Women's Clinic, Andheri West, Dr. Shilpa offers HPV vaccination, Pap smear and HPV testing, and explains your results and next steps.",
     ],
     sections: [
       {
+        heading: "How cervical cancer develops",
+        body: [
+          "Cervical cancer usually develops slowly. First, some cells in the cervix change and become abnormal (dysplasia, also called cervical intraepithelial neoplasia or CIN). These are precancerous changes, not cancer.",
+          "If abnormal cells are not removed or treated, over many years some can grow deeper into the cervix and become cancer. It can take a decade or more. Finding and treating changes at the precancerous stage is far easier than treating cancer once symptoms appear.",
+          "HPV is a very common infection passed on through sexual contact. Most HPV infections cause no symptoms and clear within one to two years. Only infections with high-risk types that persist for years can lead to cancer, and only in some women.",
+        ],
+      },
+      {
+        heading: "Symptoms to get checked",
+        body: ["Early cervical changes usually cause no symptoms, which is why screening is important. See a doctor, rather than waiting for a routine screening appointment, if you notice:"],
+        points: [
+          "Bleeding after sex, between periods or after the menopause",
+          "Periods that are heavier or longer than usual",
+          "Watery, bloodstained or strong-smelling vaginal discharge",
+          "Pelvic pain or pain during sex",
+        ],
+        after:
+          "In more advanced disease there may also be a dull backache, swelling of the legs, abdominal pain, tiredness, painful urination or blood in the urine, or pain or bleeding when opening the bowels. These symptoms often have other causes, but they should always be checked.",
+      },
+      {
         heading: "Screening tests",
         points: [
-          "Pap smear: cells are gently collected from the cervix and checked under a microscope.",
-          "HPV test: checks for high-risk types of HPV, often on the same sample.",
+          "Pap smear (Pap test or cervical cytology): cells are gently collected from the cervix and checked under a microscope for abnormal or precancerous changes. It can also show inflammation, some infections and changes caused by HPV.",
+          "HPV test: checks for high-risk types of HPV, often on the same sample. A negative result means no high-risk HPV was found. A positive result does not mean you have cancer; it means you need follow-up.",
+          "Co-test: a Pap smear and HPV test done together.",
         ],
-        after: "Dr. Shilpa will advise how often you need screening based on your age and previous results.",
+        after:
+          "For both tests you lie on your back with your knees bent and feet supported. A speculum is gently inserted to see the cervix, and a soft brush or small spatula is used to collect cells. It takes a few minutes.",
+      },
+      {
+        heading: "When to be screened",
+        body: [
+          "How often you need screening, and with which test, depends on your age, your previous results and your health history. Dr. Shilpa will advise how often you need screening based on your age and previous results. A common schedule is:",
+        ],
+        points: [
+          "Age 21 to 29: a Pap smear every 3 years. From 25, an HPV test every 5 years is an alternative.",
+          "Age 30 to 65: an HPV test every 5 years, a co-test every 5 years, or a Pap smear every 3 years.",
+          "Over 65: you may be able to stop if you have been screened regularly and your recent results have all been normal. Screening continues if recent results were abnormal or you have not been screened regularly.",
+        ],
+        after:
+          "Women who have had the HPV vaccine still need screening, because the vaccine does not cover every high-risk HPV type.",
       },
       {
         heading: "HPV vaccination",
         body: [
-          "The HPV vaccine works best before sexual activity begins, ideally between 9 and 14 years of age. Young women who missed it can usually still be vaccinated, and Dr. Shilpa can advise whether it is worthwhile for you.",
+          "The HPV vaccine protects against the HPV types that cause most cervical cancers. It works best before sexual activity begins, ideally between 9 and 14 years of age.",
+          "Young women who missed it can usually still be vaccinated, and Dr. Shilpa can advise whether it is worthwhile for you, depending on your age and vaccination history, and which schedule applies.",
         ],
       },
       {
@@ -641,18 +705,43 @@ export const treatments: Treatment[] = [
       {
         heading: "If your result is abnormal",
         body: [
-          "Most abnormal results are not cancer. You may be offered a colposcopy, a closer look at the cervix. Any precancerous areas can be treated with simple outpatient procedures such as cryotherapy or LEEP.",
+          "Most abnormal results are not cancer. Depending on the result, you may be advised a repeat test, more frequent Pap smears and HPV tests, or a colposcopy, a closer look at the cervix, sometimes with a small biopsy.",
+          "Any precancerous areas can be treated with simple outpatient procedures such as cryotherapy or LEEP.",
         ],
       },
     ],
     faqs: [
       {
+        q: "Who should get the HPV vaccine?",
+        a: "It works best when given before any exposure to HPV, ideally between 9 and 14 years of age. Whether it is recommended for you depends on your age and vaccination history, and Dr. Shilpa can advise on the right schedule.",
+      },
+      {
+        q: "Can I get the HPV vaccine if I am already sexually active?",
+        a: "Often, yes. Being sexually active does not rule it out. The benefit depends on your age, previous vaccination and the chance that you have already been exposed to the HPV types the vaccine covers.",
+      },
+      {
+        q: "What is the difference between a Pap smear and an HPV test?",
+        a: "A Pap smear looks at cervical cells for abnormal changes, while an HPV test looks for the high-risk virus types that can cause those changes. Both are used in screening, and they can be done on the same sample.",
+      },
+      {
         q: "If I've had the HPV vaccine, do I still need screening?",
         a: "Yes. The vaccine protects against the most common high-risk types, but not all of them.",
       },
       {
+        q: "How often should I be screened?",
+        a: "There is no single interval that suits everyone. It depends on your age, the test used and your previous results. Dr. Shilpa will tell you when your next test is due.",
+      },
+      {
+        q: "What happens if my Pap smear or HPV test is abnormal?",
+        a: "An abnormal Pap smear or a positive HPV test does not mean you have cancer. You may need a repeat test or a colposcopy. Bring your report and Dr. Shilpa will explain what it means for you.",
+      },
+      {
         q: "Is a Pap smear painful?",
         a: "Most women find it mildly uncomfortable rather than painful, and it is over in a few minutes.",
+      },
+      {
+        q: "How much does a Pap smear cost?",
+        a: "The cost depends on which tests you need, for example whether an HPV test is added. The clinic can tell you the current charges when you book.",
       },
     ],
     related: ["colposcopy", "adolescent-health"],
@@ -665,8 +754,8 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "A detailed examination of the cervix after an abnormal Pap smear or HPV test.",
     intro: [
-      "A colposcopy is a close examination of the cervix, vagina and vulva using a magnifying instrument with a light. It is usually recommended after an abnormal Pap smear or HPV test.",
-      "If an area looks abnormal, a small sample (biopsy) can be taken during the same visit.",
+      "A colposcopy is a close examination of the cervix, vagina and vulva using a colposcope, a magnifying instrument with a light. It stays outside the body, a few inches from the vaginal opening, and works rather like binoculars. It is usually recommended after an abnormal Pap smear or HPV test.",
+      "If an area looks abnormal, a small sample (biopsy) can be taken during the same visit and sent to a laboratory. This shows exactly what the problem is and how to treat it. Finding precancerous changes or early cancer this way means they can be treated in time.",
       "Dr. Shilpa, who is trained in colposcopy, does the examination herself at the clinic.",
     ],
     sections: [
@@ -686,34 +775,49 @@ export const treatments: Treatment[] = [
       },
       {
         heading: "Why it is done",
+        body: [
+          "Colposcopy shows changes in blood vessels, colour, tissue and surface patterns that cannot be seen with the naked eye. It is recommended after an abnormal Pap smear or HPV test, or if something unusual is seen during a pelvic examination. It helps diagnose and plan treatment for:",
+        ],
         points: [
-          "An abnormal Pap smear or a positive high-risk HPV test",
+          "Precancerous changes in the cervix, vagina or vulva",
+          "Cervicitis (inflammation of the cervix)",
+          "Genital warts, which are caused by HPV",
+          "Polyps (non-cancerous growths) on the cervix, vagina or vulva",
           "Unexplained bleeding, for example after sex",
-          "Checking warts, polyps or inflammation of the cervix",
+          "Exposure to diethylstilbestrol (DES) before birth, in women whose mothers took this medicine in pregnancy, as it raises the risk of some reproductive cancers",
         ],
       },
       {
         heading: "Preparing",
         points: [
           "Book for a day when you are not having your period",
-          "Avoid sex, tampons and vaginal medicines for one to two days beforehand",
-          "Tell us if you might be pregnant, take blood thinners or have allergies",
+          "Avoid sex, tampons and vaginal medicines or creams for one to two days beforehand",
+          "Tell us if you might be pregnant",
+          "Tell us about all your medicines and supplements, especially blood thinners. Do not stop a blood thinner unless your doctor advises it",
+          "Tell us about any allergies, for example to medicines, local anaesthetic, latex, tape or iodine",
           "You can take a simple painkiller an hour before",
         ],
       },
       {
         heading: "What happens",
         body: [
-          "The examination takes 10 to 20 minutes. A speculum is inserted, as for a Pap smear, and a mild solution is applied to the cervix to highlight abnormal areas, which may sting briefly. If a biopsy is needed, it is taken under local anaesthetic.",
+          "The examination takes 10 to 20 minutes. You will be asked to empty your bladder and change into a gown, then lie on the examination couch with your legs supported, as for a Pap smear.",
+          "A speculum is inserted to see the cervix, and the colposcope is positioned just outside the vagina. The cervix is gently cleaned of mucus, and a mild vinegar (acetic acid) solution is applied to highlight abnormal areas, which turn white. This may sting or burn briefly. An iodine solution may also be used (the Schiller test).",
+          "If a biopsy is needed, it is taken under local anaesthetic. You may still feel a slight pinch or cramp, especially if cells are taken from inside the cervical canal. A paste or pressure is then applied to stop any bleeding.",
+          "You can rest for a short while before going home. If a biopsy is done in hospital under sedation or anaesthesia, which is uncommon, you will be observed until you recover and someone else should take you home.",
         ],
       },
       {
         heading: "Afterwards",
         points: [
-          "Use pads, not tampons, and avoid sex for about a week if a biopsy was taken",
-          "Light spotting or dark discharge for a few days is normal",
-          "Contact the clinic if you have fever, severe pain or bleeding heavier than a period",
+          "Use pads, not tampons, and avoid sex and douching for about a week if a biopsy was taken, or as long as advised",
+          "Light spotting, mild cramps, or dark or black discharge (from the paste used to stop bleeding) for a few days is normal",
+          "Avoid strenuous exercise and heavy lifting until you are advised it is fine",
+          "Take the prescribed painkiller if you have cramps or soreness",
+          "Come back for your follow-up visit. Your results decide whether you need treatment, and you will usually need further Pap smears afterwards",
         ],
+        after:
+          "Colposcopy is safe, and complications are rare. Contact the clinic if you have fever or chills, severe abdominal pain, or bleeding heavier than a period.",
       },
     ],
     faqs: [
@@ -728,6 +832,10 @@ export const treatments: Treatment[] = [
       {
         q: "How soon should I be seen?",
         a: "Within a few weeks is usually fine for borderline or low-grade results. For a high-grade result, or bleeding after sex, mention it when you book so you can be seen sooner.",
+      },
+      {
+        q: "Does a colposcopy hurt?",
+        a: "Most women feel only mild discomfort from the speculum and a brief sting from the solution. If a biopsy is taken, the area is numbed first, though you may feel a pinch or cramp.",
       },
     ],
     related: ["cervical-cancer-prevention", "vaginal-infections"],

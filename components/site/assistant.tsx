@@ -6,7 +6,7 @@ import { clinic } from "@/lib/clinic";
 import { bookOnWhatsapp } from "@/lib/booking";
 import { siteHref } from "@/lib/href";
 
-type Msg = { id: number; from: "bot" | "me"; text: string };
+type Msg = { id: number; from: "bot" | "me"; text: string; ai?: boolean };
 type Action = { label: string; href: string; external?: boolean };
 type Choice = { label: string; next: () => Step };
 type Step = { say: string; choices: Choice[]; actions?: Action[] };
@@ -104,6 +104,41 @@ export default function Assistant() {
     }, reduce ? 0 : 400);
   };
 
+  // Typed questions go to the AI assistant (see app/api/assistant). If it isn't available,
+  // the visitor is pointed to the buttons, WhatsApp and phone instead.
+  const [question, setQuestion] = useState("");
+  const [thinking, setThinking] = useState(false);
+  const ask = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const text = question.trim();
+    if (!text || thinking) return;
+    setQuestion("");
+    const history = [...msgs.filter((m) => m.from === "me" || m.ai), { id: -1, from: "me" as const, text }];
+    setMsgs((m) => [...m, { id: m.length, from: "me", text }]);
+    setThinking(true);
+    let reply = "I can't answer typed questions right now. Please use the options below, or message or call the clinic and the team will help you.";
+    let ai = false;
+    try {
+      const res = await fetch("/api/assistant/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: history.map((m) => ({ role: m.from === "me" ? "user" : "assistant", content: m.text })),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.reply) {
+        reply = data.reply;
+        ai = true;
+      } else if (res.status === 429) {
+        reply = "Lots of people are asking questions right now. Please try again in a few minutes, or message or call the clinic.";
+      }
+    } catch {}
+    setThinking(false);
+    setMsgs((m) => [...m, { id: m.length, from: "bot", text: reply, ai }]);
+    setStep((s) => (s && s.choices.length ? s : { ...start(), say: "" }));
+  };
+
   const restart = () => {
     const s = start();
     moveFocus.current = true;
@@ -128,11 +163,31 @@ export default function Assistant() {
               key={m.id}
               transition={{ type: "spring", stiffness: 380, damping: 30 }}
             >
-              {m.text}
+              {m.from === "bot" ? <Linked text={m.text} /> : m.text}
             </motion.p>
           ))}
         </AnimatePresence>
+        {thinking && (
+          <p className="max-w-[85%] self-start rounded-lg rounded-bl-sm bg-plum-soft px-3.5 py-2.5 text-[0.95rem] text-muted-ink">
+            Thinking…
+          </p>
+        )}
       </div>
+      <form className="mt-3 flex gap-2" onSubmit={ask}>
+        <label className="sr-only" htmlFor="assistant-question">Type a question</label>
+        <input
+          autoComplete="off"
+          className="min-h-11 min-w-0 flex-1 rounded-md border border-field bg-paper px-3 text-[0.95rem]"
+          id="assistant-question"
+          maxLength={500}
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder="Type a question, in English, हिंदी or मराठी"
+          value={question}
+        />
+        <button className="btn btn-primary min-h-11 px-4" disabled={thinking || !question.trim()} type="submit">
+          Ask
+        </button>
+      </form>
       <div className="mt-3 flex min-h-10 flex-wrap gap-2" ref={controlsRef}>
         {step?.choices.map((c) => (
           <button
@@ -167,9 +222,31 @@ export default function Assistant() {
       </div>
       <p className="mt-4 text-xs text-muted-ink">
         The assistant helps with appointments and questions about the clinic. It does not give medical advice. In a
-        medical emergency, call {clinic.emergency}. Messages you send on WhatsApp go to the clinic; see{" "}
+        medical emergency, call {clinic.emergency}. Typed questions are answered by an AI service, so please don't
+        include your name, phone number or other personal details. Messages you send on WhatsApp go to the clinic; see{" "}
         <a className="underline underline-offset-2" href={siteHref("/privacy/")}>how we use your details</a>.
       </p>
     </div>
+  );
+}
+
+// The site's own page addresses, as the assistant writes them (e.g. /treatments/pcos/).
+const sitePage = /^\/(|about\/|team\/|first-visit\/|book\/|reviews\/|privacy\/|browsing-safely\/|treatments\/([a-z0-9-]+\/)?)$/;
+
+// Shows a reply with any of the site's own page addresses as tappable links.
+function Linked({ text }: { text: string }) {
+  const parts = text.split(/(\/[a-z0-9\-/]*\/)/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        sitePage.test(part) ? (
+          <a className="font-semibold underline underline-offset-2" href={siteHref(part)} key={i}>
+            {part === "/" ? "home page" : part}
+          </a>
+        ) : (
+          <span key={i}>{part}</span>
+        ),
+      )}
+    </>
   );
 }

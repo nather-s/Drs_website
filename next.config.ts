@@ -16,6 +16,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  // Server-only routes are named *.api.ts and left out of the static preview build.
+  pageExtensions: previewExport ? ["tsx", "ts"] : ["tsx", "ts", "api.ts"],
   poweredByHeader: false,
   ...(previewExport
     ? { output: "export", images: { unoptimized: true } }

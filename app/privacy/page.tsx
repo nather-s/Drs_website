@@ -27,6 +27,12 @@ const sections = [
     ],
   },
   {
+    heading: "The clinic assistant",
+    body: [
+      "If you type a question into the clinic assistant, your question and the assistant's earlier replies in that chat are sent to an AI service (OpenRouter and the AI model provider it uses) to write an answer. They are not stored by this website, but the AI service may keep them for a time under its own terms. Please don't type your name, phone number or other details that identify you. The assistant gives general information only, not medical advice.",
+    ],
+  },
+  {
     heading: "Why we use it",
     body: [
       "You choose to share these details so we can arrange your appointment and care, and we use them only for that. We do not sell your details or use them for marketing.",

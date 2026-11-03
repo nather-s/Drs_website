@@ -360,7 +360,7 @@ export const treatments: Treatment[] = [
     summary: "Finding the cause of irregular, missed or heavy periods and treating it.",
     intro: [
       "A typical cycle lasts 21 to 35 days. Periods that come further apart or closer together, or that vary a lot from month to month, are one of the most common reasons to see a gynaecologist.",
-      "PCOS is a frequent cause, but thyroid problems, raised prolactin, stress, weight change and approaching menopause can all affect your cycle.",
+      "PCOS (polycystic ovary syndrome) is a frequent cause, but thyroid problems, raised prolactin, stress, weight change and approaching menopause can all affect your cycle.",
     ],
     sections: [
       {
@@ -374,22 +374,77 @@ export const treatments: Treatment[] = [
         ],
       },
       {
+        heading: "How PCOS affects your periods",
+        body: [
+          "PCOS is a common hormonal condition in women of reproductive age, and irregular periods are one of its main signs.",
+          "Your cycle is normally controlled by the hormones oestrogen and progesterone. In PCOS, the ovaries make more androgens (often called male hormones, such as testosterone) than usual. This imbalance can stop you ovulating regularly, so periods become irregular or stop.",
+          "Some women have long cycles, with periods 35 days or more apart. Others have short cycles of less than 21 days. Some have very heavy or long periods, or irregular bleeding.",
+        ],
+      },
+      {
+        heading: "Other symptoms of PCOS",
+        body: ["Whether your periods are regular or not, PCOS can also cause:"],
+        points: [
+          "Excess hair growth (hirsutism): due to raised androgens.",
+          "Acne: also linked to raised androgens.",
+          "Weight gain or difficulty losing weight: insulin resistance in PCOS can make it harder to keep a healthy weight.",
+          "Difficulty getting pregnant: irregular ovulation can affect fertility.",
+          "Mood changes: PCOS is linked to mood swings, anxiety and low mood.",
+        ],
+      },
+      {
         heading: "Finding the cause",
         points: [
           "Your history and a record of your cycle",
           "A pregnancy test where relevant",
           "Blood tests for thyroid, prolactin and other hormones",
-          "A pelvic ultrasound",
+          "A pelvic ultrasound, done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally.",
         ],
+        after: "Under the 2023 international PCOS guideline, ultrasound is not used to diagnose PCOS within 8 years of the first period.",
       },
       {
         heading: "Treatment options",
+        body: [
+          "Treatment aims to restore hormone balance, regulate your cycle and manage other symptoms. It is planned around your needs, including whether you want to get pregnant.",
+        ],
         points: [
-          "Lifestyle: a balanced, low-GI diet and regular exercise, especially with PCOS.",
-          "Hormonal treatment: the pill or a progestogen to regulate bleeding.",
+          "Combined contraceptive pill: contains oestrogen and a progestogen. It regulates periods and lowers androgen levels, which can also help excess hair and acne.",
+          "Progestogen treatment: a synthetic form of progesterone, given as tablets or an injection, to bring on regular periods and protect the lining of the womb.",
+          "Metformin: a medicine used for insulin resistance and diabetes. In PCOS it can improve insulin sensitivity and help periods become more regular.",
+          "Anti-androgen medicines: such as spironolactone, which block the effects of androgens and help with excess hair and acne. They can harm a developing baby, so they are only used with reliable contraception.",
           "Treating the cause: for example thyroid or prolactin problems.",
           "If you are trying to conceive: treatment to help you ovulate.",
+          "Lifestyle: regular exercise, a healthy diet, weight loss if needed, and ways to reduce stress.",
         ],
+      },
+      {
+        heading: "Diet tips for PCOS",
+        body: [
+          "A healthy diet can improve insulin sensitivity, support hormone balance and help your periods. Every woman with PCOS is different, so a dietitian or your gynaecologist can give advice that suits you.",
+        ],
+        points: [
+          "Balanced meals: combine carbohydrates, protein and healthy fats to keep blood sugar steady. Include whole grains, lean protein, fruit, vegetables and healthy fats such as nuts.",
+          "Low-GI foods: choose carbohydrates that are digested slowly, such as whole grains, dals and legumes, non-starchy vegetables and most fruits.",
+          "Fewer processed foods and added sugars: these cause blood sugar spikes and worsen insulin resistance. Limit sugary snacks and drinks.",
+          "More fibre: fruit, vegetables, whole grains, legumes and seeds help control blood sugar and keep bowels regular.",
+          "Enough protein: such as fish, tofu, paneer, lentils and yoghurt. Protein keeps you full for longer and steadies blood sugar.",
+          "Healthy fats: nuts, seeds, olive oil, avocado and oily fish provide important nutrients.",
+          "Less caffeine and alcohol: too much can affect hormone balance. Try herbal teas or water instead.",
+          "Water: drink plenty through the day.",
+        ],
+      },
+      {
+        heading: "Dairy and PCOS",
+        body: [
+          "The link between dairy and PCOS is not fully understood. Some studies suggest dairy may affect PCOS symptoms, while others show no clear link.",
+        ],
+        points: [
+          "Insulin resistance: full-fat dairy is high in saturated fat, and too much saturated fat may worsen insulin resistance. Low-fat dairy, or other sources of calcium and protein such as fortified plant milks, are options.",
+          "Inflammation: some evidence suggests dairy may cause inflammation in some people, and low-grade inflammation is linked to PCOS.",
+          "Hormones: milk naturally contains small amounts of hormones such as oestrogen, progesterone and IGF-1. Whether these affect PCOS is not known.",
+          "Everyone is different: some women find dairy makes their symptoms worse, others notice no effect.",
+        ],
+        after: "If dairy seems to worsen your symptoms or upset your stomach, you could cut down for a while to see if it helps. Make sure you still get enough calcium, and ask your dietitian or gynaecologist for advice.",
       },
     ],
     faqs: [
@@ -401,8 +456,17 @@ export const treatments: Treatment[] = [
         q: "Should I track my periods?",
         a: "Yes. A period app or diary with dates, flow and symptoms is very helpful to bring to your appointment.",
       },
+      {
+        q: "Do I need to stop dairy if I have PCOS?",
+        a: "Not necessarily. The evidence is mixed. If you feel dairy worsens your symptoms, try cutting down for a while, and make sure you still get enough calcium.",
+      },
+      {
+        q: "Where can I be seen?",
+        a: "Dr. Shilpa sees patients at Harleys Women's Clinic, Andheri West, where ultrasound is also available.",
+      },
     ],
     related: ["pcos", "fertility", "adolescent-health"],
+    references: ["International evidence-based guideline for the assessment and management of PCOS (2023)"],
   },
   {
     slug: "hirsutism",
@@ -411,26 +475,82 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Assessment and treatment of hirsutism, the growth of coarse hair in a male-type pattern.",
     intro: [
-      "Hirsutism is the growth of dark, coarse hair on the upper lip, chin, chest, abdomen or back. It affects most women with PCOS.",
-      "It is caused by raised androgens or by hair follicles being more sensitive to them. Less often it is linked to adrenal conditions, Cushing's syndrome or certain medicines, which is why a proper assessment matters.",
+      "Hirsutism is the growth of dark, coarse hair on the upper lip, chin, chest, abdomen or back. It is one of the most visible and distressing symptoms of PCOS, and affects about 7 in 10 women with PCOS.",
+      "It is caused by raised androgens or by hair follicles being more sensitive to them. Less often it is linked to adrenal conditions, Cushing's syndrome or certain medicines, which is why a proper assessment matters. Treatment can improve it.",
       "See a doctor promptly if hair growth starts suddenly or worsens quickly, or comes with a deepening voice, increased muscle bulk or other changes in your body, as these need urgent investigation.",
     ],
     sections: [
       {
-        heading: "Assessment",
-        points: [
-          "Examination to assess the pattern and amount of hair growth",
-          "Blood tests for androgens and other hormones",
-          "A pelvic ultrasound if PCOS is suspected",
+        heading: "What is PCOS?",
+        body: [
+          "PCOS (polycystic ovary syndrome) is a common hormonal condition in which the ovaries make too many androgens. These are hormones, including testosterone, that are responsible for male characteristics. PCOS affects about 1 in 10 women of childbearing age.",
+          "Symptoms include irregular periods, acne, difficulty getting pregnant, thinning hair on the scalp, weight gain (especially around the tummy) and hirsutism. The ovaries may be larger than usual and contain many small fluid-filled sacs. These are not true cysts but egg follicles that did not mature and release an egg.",
         ],
       },
       {
-        heading: "Treatment options",
+        heading: "How hair normally grows",
+        body: [
+          "Each hair grows from a follicle deep under the skin. As long as the follicle is not destroyed, the hair keeps growing back even after it is plucked or removed.",
+          "Almost the whole body is covered with hair, except the palms and soles. Men have more hair on the face and body because they have higher androgen levels.",
+          "Hair thickness also varies with ethnic background and family traits. When extra hair is inherited rather than hormonal, it is usually on the arms and legs. In hirsutism, the extra hair is typically on the face, upper lip, chest, tummy, back and inner thighs.",
+          "Adults have two kinds of hair. Vellus hair is fine, soft, short and light, and covers the face, chest and back in most women. Terminal hair is dark, coarse, long and sometimes curly, and grows on the scalp, armpits and pubic area. The lower arms and legs have a mix of both.",
+          "Hair grows in cycles: a growing phase (anagen), a transition phase (catagen) and a resting phase (telogen), after which the hair sheds. Hormone changes, such as in pregnancy or when starting or stopping the pill, can make many hairs grow or shed at the same time. The pattern usually settles within 6 to 12 months.",
+        ],
+      },
+      {
+        heading: "How PCOS affects hair growth",
+        body: [
+          "Women normally have lower levels of active androgens than men. In PCOS, the ovaries and adrenal glands make more androgens.",
+          "If the hair follicles are sensitive to these hormones, some fine vellus hairs turn into terminal hairs, which are dark and coarse and grow faster and thicker. The androgen-sensitive areas are:",
+        ],
+        points: ["Upper lip", "Beard area", "Chest", "Lower tummy", "Lower back", "Inner thighs"],
+      },
+      {
+        heading: "Causes of hirsutism",
         points: [
-          "Hormonal treatment: the combined pill and anti-androgen medicines, which must be used with reliable contraception. Results build gradually over six months or more.",
-          "Temporary hair removal: shaving, waxing, threading or creams.",
-          "Longer-lasting removal: laser hair removal, or electrolysis for small areas.",
-          "Eflornithine cream: slows the growth of facial hair.",
+          "PCOS: excess androgens made by the ovaries.",
+          "Insulin resistance: high insulin levels can raise androgens.",
+          "Non-classical congenital adrenal hyperplasia: the adrenal glands release extra androgens.",
+          "Cushing's syndrome: the adrenal glands release too much cortisol.",
+          "HAIR-AN syndrome: a rare form with high androgens (HA), marked insulin resistance (IR) and dark velvety skin patches (acanthosis nigricans, AN).",
+          "Androgen-producing tumours: rare tumours of the ovary or adrenal gland.",
+          "Menopause.",
+          "Certain medicines.",
+        ],
+      },
+      {
+        heading: "Assessment",
+        body: [
+          "Your doctor will ask about your periods and symptoms and examine you to assess the pattern and amount of hair growth. Tests check how your ovaries and adrenal glands are working.",
+        ],
+        points: [
+          "Blood tests for androgens and other hormones",
+          "A pelvic ultrasound if PCOS is suspected, done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally.",
+          "Other scans, only if a rarer cause needs to be ruled out",
+        ],
+      },
+      {
+        heading: "Removing unwanted hair",
+        body: [
+          "The best way to treat hirsutism in the long term is to correct the hormone imbalance and lower androgen levels. But this takes time, and many women also want quicker results. Cosmetic methods remove hair but do not stop new hair from growing, so they work best alongside medical treatment.",
+        ],
+        points: [
+          "Temporary hair removal: shaving, waxing, threading, plucking, hair removal creams and bleaching.",
+          "Eflornithine cream: a prescription cream that slows the growth of facial hair.",
+          "Laser hair removal: the most popular long-term option, and it can be used on sensitive areas. A concentrated beam of light is absorbed by the pigment in the hair and heats and damages the follicle. Dark, thick hair becomes finer and thinner, and many hairs do not grow back. Several sessions are needed, and occasional top-ups may be needed if hormones stay high.",
+          "Electrolysis: a fine needle is placed into each hair follicle and a mild electric current destroys it. It can be permanent, but is practical only for small areas.",
+        ],
+      },
+      {
+        heading: "Medical treatment",
+        body: [
+          "Medicines work on the cause by lowering androgen levels or blocking their effect on the hair follicles. Results build gradually over six months or more.",
+        ],
+        points: [
+          "Combined contraceptive pill: contains oestrogen and a progestogen, and lowers androgen production.",
+          "Anti-androgen medicines: such as spironolactone, which block the effect of androgens on hair follicles. They can harm a developing baby, so they must be used with reliable contraception.",
+          "Steroids: in low doses, to reduce androgen production by overactive adrenal glands, for example in adrenal hyperplasia.",
+          "GnRH analogues: for severe cases, to lower androgens made by the ovaries to very low levels. These are used only under specialist care.",
         ],
       },
     ],
@@ -438,6 +558,14 @@ export const treatments: Treatment[] = [
       {
         q: "Does shaving make hair grow back thicker?",
         a: "No. Shaving cuts hair at the surface and does not change how thick it grows back.",
+      },
+      {
+        q: "Is laser hair removal permanent?",
+        a: "Laser gives long-term reduction, and treated hair grows back finer and thinner. If hormone levels stay high, new hair can grow, so top-up sessions and medical treatment may be needed.",
+      },
+      {
+        q: "Where can I be seen?",
+        a: "Dr. Shilpa sees patients at Harleys Women's Clinic, Andheri West, where ultrasound is also available.",
       },
     ],
     related: ["pcos", "pcos-acne", "pcos-hair-fall"],
@@ -512,39 +640,87 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Treatment for swelling of the Bartholin glands, from simple care to minor surgery.",
     intro: [
-      "The Bartholin glands sit on either side of the vaginal opening. If a gland's duct becomes blocked, fluid builds up and forms a cyst. Most are painless and harmless, but an infected cyst can become a painful abscess.",
-      "They are most common in women in their twenties.",
+      "A Bartholin cyst (also called a Bartholin duct cyst) is a small, fluid-filled swelling of a Bartholin gland. Most are painless and harmless, and almost all are non-cancerous.",
+      "If the fluid inside becomes infected, pus can collect and the cyst can turn into a painful abscess. Both cysts and abscesses are common.",
     ],
     sections: [
       {
+        heading: "What are the Bartholin glands?",
+        body: [
+          "There are two Bartholin glands, one on each side of the vaginal opening. Each is about the size of a pea, rarely more than 1 cm across. They make fluid that flows through tiny tubes (ducts) to keep the vagina moist.",
+          "If the opening of a duct becomes blocked, fluid backs up and forms a cyst.",
+        ],
+      },
+      {
         heading: "Symptoms",
+        body: [
+          "A small cyst that is not infected often goes unnoticed. If it grows, you may feel a soft lump near the vaginal opening, which can be uncomfortable but is usually painless.",
+          "A cyst can become infected within a few days. An infected cyst or abscess may cause:",
+        ],
         points: [
-          "A small, painless lump near the vaginal opening",
-          "Discomfort when walking, sitting or during sex, if the cyst is larger",
-          "If infected: a red, hot, painful swelling, sometimes with fever and discharge",
+          "A painful, red, hot and tender lump next to the vaginal opening",
+          "Pain in the vulva (outer genitals) when sitting, walking or during sex",
+          "Fever and chills",
+          "Discharge from the cyst",
+        ],
+        after: "A cyst or abscess usually forms on one side only. A large cyst can stretch the outer lip (labia majora), so one side looks swollen or hangs lower than the other.",
+      },
+      {
+        heading: "Causes",
+        body: [
+          "The duct can become blocked after an injury or an infection. Infection is often caused by common bacteria such as E. coli. Rarely, it is linked to sexually transmitted infections such as chlamydia or gonorrhoea.",
+          "Bartholin cysts are most common in women in their twenties. They are less likely after menopause, when the glands shrink, and rare in young girls, because the glands do not start working until puberty. About 2 in 100 women get one at some point in their lives.",
         ],
       },
       {
         heading: "Diagnosis",
-        body: [
-          "A cyst is usually diagnosed on examination. A swab may be taken to check for infection. For women over 40, a small tissue sample (biopsy) may be recommended to rule out rarer causes.",
+        points: [
+          "Your medical history",
+          "A pelvic examination",
+          "A swab of any discharge from the vagina, cervix or abscess, to check for infection, including sexually transmitted infections",
+          "For women over 40 or after menopause, a small tissue sample (biopsy) may be recommended to rule out rarer causes, including cancer of the vulva",
         ],
       },
       {
         heading: "Treatment options",
+        body: [
+          "Treatment depends on the size of the cyst, how painful it is and whether it is infected.",
+        ],
         points: [
           "No treatment: small, painless cysts in women under 40 often need none.",
-          "Warm sitz baths and antibiotics: for mild infection.",
-          "Drainage with a small catheter: allows the cyst to drain and heal.",
-          "Marsupialisation: a minor procedure that reduces the chance of cysts coming back.",
-          "Gland removal: rarely needed, for cysts that keep returning.",
+          "Warm sitz baths: sitting in a few inches of warm water several times a day can help a small cyst drain on its own.",
+          "Antibiotics: if the cyst is infected or a sexually transmitted infection is found.",
+          "Drainage with a small catheter: for a large or infected cyst. Under local anaesthesia or sedation, a small cut is made to drain the fluid, and a small rubber tube (catheter) is placed in it. The tube is usually left for up to six weeks so the cyst drains fully and heals. Most women feel better straight away, though painkillers may be needed for a few days. The cyst can come back.",
+          "Marsupialisation: for cysts that keep coming back or are troublesome. The cyst is opened and its edges are stitched to the skin, leaving a small permanent opening (about 6 mm) so fluid can drain. A catheter or gauze packing may be used for a few days afterwards.",
+          "Gland removal: rarely needed, for cysts or abscesses that keep returning despite other treatment. It takes about an hour under general anaesthesia and may need a short hospital stay. As with any surgery, there is a risk of bleeding, bruising or infection.",
         ],
+      },
+      {
+        heading: "Bartholin gland cancer",
+        body: [
+          "Cancer of the Bartholin gland is very rare. It usually affects middle-aged and older women. Because it can look like a simple cyst, it may be missed, which can delay diagnosis. This is why a lump in women over 40 is checked more carefully.",
+          "The main treatment is surgery to remove the tumour with a clear margin, sometimes followed by radiotherapy or chemotherapy. When it is found early, the outlook is usually good.",
+          "Its exact cause is not known, but general risk factors for cancers of the cervix and vulva include:",
+        ],
+        points: [
+          "Human papillomavirus (HPV) infection",
+          "Smoking",
+          "Not having regular Pap smear or HPV screening tests",
+          "A weakened immune system, from illness such as HIV or from medicines that suppress immunity",
+          "Having a first baby very young (before 17) or many pregnancies",
+          "Exposure before birth to DES (diethylstilboestrol), a synthetic oestrogen once given to some pregnant women",
+        ],
+        after: "HPV vaccination and regular screening help prevent cervical cancer.",
       },
     ],
     faqs: [
       {
         q: "Is a Bartholin cyst cancer?",
         a: "Almost never. Bartholin gland cancer is very rare and mostly affects older women, which is why a biopsy may be suggested after 40.",
+      },
+      {
+        q: "Can a Bartholin cyst come back?",
+        a: "Yes, a cyst can return after drainage. If it keeps coming back, marsupialisation lowers the chance of it recurring, and gland removal is an option if that does not work.",
       },
     ],
     related: ["cervical-cancer-prevention", "fibroids-and-cysts"],
@@ -850,12 +1026,29 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Antenatal and postnatal care, from your first scan to the weeks after delivery.",
     intro: [
-      "Good antenatal care keeps you and your baby healthy and helps you feel prepared. Dr. Shilpa sees you regularly through your pregnancy, explains each test and scan, and plans your delivery with you.",
-      "She delivers at Surya Hospitals, Cloudnine Hospital and Criticare Asia, and her pregnancy patients can call her directly, day or night.",
+      "Pregnancy brings new questions, important decisions and changing health needs. Good antenatal care keeps you and your baby healthy and helps you know what to expect at each stage, from your first appointment to giving birth and recovering afterwards.",
+      "Dr. Shilpa sees you regularly through your pregnancy at Harleys Women's Clinic, Andheri West, explains each test and scan, and plans your delivery with you. She delivers at Surya Hospitals, Cloudnine Hospital and Criticare Asia, and her pregnancy patients can call her directly, day or night.",
     ],
     sections: [
       {
+        heading: "Just found out you're pregnant?",
+        body: [
+          "Your first appointment is a chance to review your health and medical history and plan your care for the early weeks. You can talk about the date of your last period, any symptoms, previous pregnancies, existing medical conditions and any medicines you take. Depending on your situation, this may include confirming the pregnancy, blood tests, an ultrasound scan and planning your next visits.",
+        ],
+        points: [
+          "Any pregnancy test results or earlier ultrasound reports",
+          "The date of your last period, if you know it",
+          "Records of previous pregnancies or deliveries, if any",
+          "A list of your medicines, supplements, allergies and medical conditions",
+          "Your questions about symptoms, food, work, travel or daily activities",
+        ],
+        after: "You do not need every document before booking. If you are worried about a new pregnancy, contact the clinic to ask how soon you should be seen.",
+      },
+      {
         heading: "What antenatal care includes",
+        body: [
+          "Antenatal care is the medical care you receive during pregnancy to check your health and how the pregnancy is progressing. Your plan is made for you, based on how far along you are, your medical history, any previous pregnancies and your current health.",
+        ],
         points: [
           "Confirming the pregnancy and the due date",
           "Routine blood tests and screening for conditions such as diabetes and anaemia",
@@ -864,14 +1057,50 @@ export const treatments: Treatment[] = [
           "Advice on diet, supplements, safe exercise and pelvic floor (Kegel) exercises",
           "Planning your delivery and pain relief options",
         ],
+        after: "By law (the PCPNDT Act), the sex of the baby cannot be tested for or told to parents. Scans are done only to check the baby's health and growth.",
+      },
+      {
+        heading: "Care at each stage",
+        points: [
+          "Early pregnancy: understanding your health and pregnancy history, reviewing symptoms, and advice on medicines, supplements, nutrition and everyday questions.",
+          "Mid-pregnancy: reviewing symptoms, routine checks and test results, and planning any further scans or tests. Dr. Shilpa will explain what each test is for and whether extra monitoring is needed.",
+          "Later pregnancy: preparing for birth, including the signs of labour, your delivery plan, pain relief and when to contact her.",
+        ],
+        after: "Keeping your antenatal appointments lets problems be picked up and dealt with at the right time, and gives you a chance to ask questions instead of relying on general advice that may not apply to you.",
+      },
+      {
+        heading: "Planning for the birth",
+        body: [
+          "Vaginal birth and caesarean section are different ways of giving birth. The right choice depends on how labour progresses, your health and the baby's, and any previous deliveries. You can discuss your preference during your visits, but the safest approach may change as pregnancy goes on or during labour. If it does, Dr. Shilpa will explain why.",
+          "Pain relief in labour can include breathing and relaxation techniques, other supportive measures, medicines and an epidural. An epidural is given at the hospital by an anaesthetist. Talk through your preferences, and the benefits and risks of each option, well before your due date.",
+        ],
+        points: [
+          "Where to go when labour begins",
+          "Whom to contact if you have concerns outside clinic hours",
+          "Which hospital you will deliver at",
+          "What happens if a caesarean becomes necessary",
+          "How your medical history may affect the plan",
+          "What support and follow-up you will have after the birth",
+        ],
       },
       {
         heading: "After your baby is born",
+        body: [
+          "The weeks after birth bring physical recovery, emotional adjustment and new routines. Recovery differs depending on the type of delivery, any complications and your health, so follow-up is planned around you.",
+        ],
         points: [
-          "A check of your recovery after delivery",
-          "Support with breastfeeding and nutrition",
-          "Advice on contraception and spacing pregnancies",
-          "Attention to your emotional wellbeing, including postnatal depression",
+          "Physical recovery: bleeding, pain, stitches or wound healing, and any other concerns.",
+          "Breastfeeding: feeding difficulties and breast discomfort, along with advice on nutrition.",
+          "Contraception and spacing pregnancies: suitable methods and when to start them.",
+          "Emotional wellbeing: low mood, anxiety or feeling overwhelmed, including postnatal depression. Symptoms that are severe or do not go away need attention.",
+          "Future care: follow-up of any pregnancy-related conditions, such as diabetes or high blood pressure.",
+        ],
+      },
+      {
+        heading: "Health conditions and unplanned pregnancy",
+        body: [
+          "If you have a medical condition, take regular medicines or had problems in a previous pregnancy, tell Dr. Shilpa at your first visit so she can plan any changes to your care or extra monitoring. Do not stop prescribed medicines without medical advice.",
+          "An unplanned pregnancy can bring difficult questions and mixed emotions. A confidential consultation gives you time to talk through your situation and understand your options, without judgement.",
         ],
       },
       {
@@ -882,6 +1111,7 @@ export const treatments: Treatment[] = [
           "Severe headache, blurred vision or sudden swelling of the face or hands",
           "Severe or persistent abdominal pain",
           "Fever, or feeling very unwell",
+          "After delivery: heavy bleeding, chest pain, difficulty breathing or fainting",
         ],
         after:
           "If you are in Dr. Shilpa's care, call her directly on the number she gives you at your first visit, day or night. If you cannot reach her, go to the nearest hospital emergency department or call 108.",
@@ -893,8 +1123,28 @@ export const treatments: Treatment[] = [
         a: "As soon as you have a positive pregnancy test. If you are not already taking folic acid, start it straight away. Ideally it is started before trying to conceive and continued until 12 weeks.",
       },
       {
+        q: "What happens at an antenatal appointment?",
+        a: "Dr. Shilpa goes over your medical and pregnancy history, checks your current health, reviews any reports and plans the tests or scans you need next. What is done depends on how far along you are and your own needs.",
+      },
+      {
         q: "Where will I deliver?",
         a: "Dr. Shilpa delivers at Surya Hospitals, Cloudnine Hospital and Criticare Asia. She will help you choose the one that suits you, and plan the type of delivery with you during your pregnancy.",
+      },
+      {
+        q: "Can I discuss delivery options before my due date?",
+        a: "Yes. Your antenatal visits are the time to talk about normal delivery or caesarean, the hospital and pain relief. Dr. Shilpa will explain how your health and the baby's may affect the plan.",
+      },
+      {
+        q: "Can I have an epidural?",
+        a: "Epidurals are available at the hospitals where Dr. Shilpa delivers and are given by an anaesthetist. Whether it suits you depends on your health and how labour goes, so discuss the benefits and risks with her before your due date.",
+      },
+      {
+        q: "When should I have a check-up after delivery?",
+        a: "The timing depends on your recovery, the type of delivery and your medical needs, and Dr. Shilpa will advise you. Do not wait for an appointment if you have heavy bleeding, difficulty breathing, a severe headache or other worrying symptoms.",
+      },
+      {
+        q: "Can I see a gynaecologist about an unplanned pregnancy?",
+        a: "Yes. A confidential consultation can help you talk through your situation and understand the options available to you.",
       },
     ],
     related: ["high-risk-pregnancy", "epidural-pain-relief"],
@@ -907,26 +1157,33 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Closer monitoring for pregnancies with medical conditions, twins or past complications.",
     intro: [
-      "A pregnancy is called high-risk when the mother or baby needs closer monitoring. It does not mean problems are expected. It means extra care is planned from the start.",
+      "A pregnancy is called high-risk when a health condition, something about the current pregnancy or a past pregnancy raises the chance of complications for the mother, the baby or both.",
+      "Being told your pregnancy is high-risk does not mean something will go wrong. It means extra care and closer monitoring are planned from the start, based on your health, your previous pregnancies and how this pregnancy is going.",
     ],
     sections: [
       {
         heading: "Conditions we care for",
         points: [
-          "Gestational diabetes or pre-existing diabetes",
-          "High blood pressure or pre-eclampsia",
-          "PCOS and thyroid disorders",
-          "Twins or multiple pregnancy",
-          "Repeated miscarriage, or a previous preterm birth or stillbirth",
-          "Previous caesarean section",
-          "Pregnancy after fertility treatment, or over the age of 35",
+          "Gestational diabetes or pre-existing diabetes: diabetes that starts in pregnancy, or was there before, needs regular checks and treatment to protect you and your baby.",
+          "High blood pressure or pre-eclampsia: raised blood pressure in pregnancy can lead to complications, so it is watched closely and the plan depends on your readings and how the pregnancy is progressing.",
+          "PCOS and thyroid disorders: care is planned around your overall health and medical history. As a fertility specialist as well as an obstetrician, Dr. Shilpa can take your reproductive history into account.",
+          "Twins or multiple pregnancy: with more than one baby growing, you will usually need more frequent check-ups and scans.",
+          "Repeated miscarriage, or a previous preterm birth or stillbirth: your history is reviewed so the right tests and monitoring can be planned.",
+          "Previous caesarean section: your care and delivery plan depend on the details of the earlier caesarean and of this pregnancy.",
+          "Pregnancy after fertility treatment, or over the age of 35: these do not automatically make a pregnancy high-risk, but your history is considered when planning care.",
         ],
+        after: "A previous miscarriage can understandably make you anxious in your next pregnancy. One miscarriage does not mean the next pregnancy will have problems, and Dr. Shilpa will support you through it.",
       },
       {
         heading: "How care is managed",
+        body: [
+          "There is no single plan that suits every woman. Not every high-risk pregnancy needs the same number of visits or tests, so your follow-up is planned around your own situation.",
+        ],
         points: [
+          "Assessment of your medical and pregnancy history, and your individual risk factors",
           "More frequent visits and scans, planned around your situation",
           "Close control of conditions such as diabetes or blood pressure",
+          "Tests and screening when they are needed",
           "Coordination with specialists where needed",
           "A clear plan for the timing and type of delivery",
           "Follow-up after birth",
@@ -934,8 +1191,29 @@ export const treatments: Treatment[] = [
         after:
           "If you notice bleeding, leaking fluid, reduced baby movements, a severe headache or blurred vision, seek care immediately at the nearest hospital or call 108.",
       },
+      {
+        heading: "Planning your delivery",
+        body: [
+          "A high-risk pregnancy does not automatically mean you will need a caesarean. The timing and type of delivery are planned together with you, based on your health and the baby's.",
+        ],
+        points: [
+          "Your own health",
+          "The baby's health and growth",
+          "A previous caesarean or other past deliveries",
+          "Conditions that have developed during pregnancy",
+          "Whether you are expecting twins or more",
+        ],
+      },
     ],
     faqs: [
+      {
+        q: "What makes a pregnancy high-risk?",
+        a: "Common reasons include diabetes, high blood pressure, twins or more, and problems in a previous pregnancy. Your own risk depends on your health and pregnancy history.",
+      },
+      {
+        q: "Does a high-risk pregnancy mean something will go wrong?",
+        a: "No. It does not mean a complication will happen. It means extra checks or monitoring are sensible for your situation.",
+      },
       {
         q: "Does a high-risk pregnancy mean I will need a caesarean?",
         a: "No. Many women with high-risk pregnancies have a normal delivery. The plan depends on your health and the baby's.",
@@ -943,6 +1221,22 @@ export const treatments: Treatment[] = [
       {
         q: "I have had a miscarriage before. Is my next pregnancy high-risk?",
         a: "One miscarriage does not usually make a pregnancy high-risk. After repeated miscarriages, tests and closer care are recommended.",
+      },
+      {
+        q: "How often will I be seen?",
+        a: "There is no fixed schedule. How often you are seen depends on your risk factors, your health and how the pregnancy is progressing.",
+      },
+      {
+        q: "Does a twin pregnancy need extra monitoring?",
+        a: "Yes, usually. With more than one baby developing, closer monitoring is needed, and the schedule depends on your pregnancy.",
+      },
+      {
+        q: "Can PCOS affect pregnancy?",
+        a: "PCOS can bring some extra considerations in pregnancy, such as a higher chance of gestational diabetes. Your care will depend on your overall health and medical history.",
+      },
+      {
+        q: "Is pregnancy after a caesarean high-risk?",
+        a: "A previous caesarean is an important part of your history. Your antenatal care and delivery plan depend on why and how the earlier caesarean was done and how this pregnancy is going.",
       },
     ],
     related: ["pregnancy-care", "pcos", "fertility"],
@@ -954,16 +1248,43 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Epidural pain relief during labour, explained before the day.",
     intro: [
-      "An epidural is the most effective form of pain relief during labour. Local anaesthetic is given through a fine tube placed in the lower back, numbing the lower body while you stay awake and alert.",
+      "In active labour, the womb contracts regularly, and the contractions become stronger and more frequent as the baby moves down into the pelvis. Every woman feels labour pain differently, and about 70% describe it as severe or very hard to bear.",
+      "An epidural is the most effective form of pain relief during labour, and is what is usually meant by a \"painless delivery\". Local anaesthetic is given through a fine tube placed in the lower back, numbing the nerves that carry pain from the birth canal while you stay awake and alert.",
+      "Epidurals are available at the hospitals where Dr. Shilpa delivers. She will discuss with you before your due date whether an epidural is right for you, and what the alternatives are if you would rather not have one.",
     ],
     sections: [
       {
+        heading: "Benefits",
+        points: [
+          "Strong, reliable pain relief, so labour feels much more manageable",
+          "Less exhaustion, so you are better able to cope through a long labour",
+          "It can help keep blood pressure under control in women with high blood pressure",
+          "If you need a caesarean or stitches, the epidural can often be topped up so you do not need a general anaesthetic",
+        ],
+      },
+      {
+        heading: "Types of epidural",
+        points: [
+          "Standard epidural: uses local anaesthetic, sometimes with a small dose of a pain-relieving medicine. Your legs may feel heavy and moving can be difficult, though you can still turn from side to side with help.",
+          "Low-dose or combined spinal-epidural (CSE), sometimes called a \"walking epidural\": a small dose is first injected into the fluid around the spinal nerves for quick relief, and an epidural tube is placed at the same time for top-ups. More feeling is left in the legs, so it is easier to change position, which may help labour progress.",
+        ],
+        after: "Which type is offered depends on the hospital and the anaesthetist.",
+      },
+      {
+        heading: "How it is done",
+        body: [
+          "The epidural is placed by an anaesthetist, usually once labour is established. Dr. Shilpa first examines you to make sure it is safe. You will have a drip in your arm for fluids and medicines.",
+          "You sit up or lie on your side and keep still while a nurse helps you hold the position. The anaesthetist cleans your back and numbs the skin with local anaesthetic, so placing the needle is usually only mildly uncomfortable. A needle is guided into the epidural space, the area just outside the sac of fluid around the spinal nerves, and a fine, soft tube (catheter) is passed through it. The needle is removed and the tube is taped to your back.",
+          "Pain-relieving medicine is then given through the tube, either as a continuous pump or as top-ups, within safe limits for you and your baby, until the baby is born. The tube is removed after delivery.",
+        ],
+      },
+      {
         heading: "What to expect",
         points: [
-          "The epidural is placed by an anaesthetist, usually once labour is established",
           "Pain eases within 15 to 20 minutes",
-          "You can still feel pressure and push when the time comes",
+          "You can still feel pressure and push when the time comes. Some pressure in the back passage near the end is normal and tells you when to push",
           "Your baby's heart rate and your blood pressure are monitored throughout",
+          "Take care when moving in bed so the tube is not pulled out",
         ],
       },
       {
@@ -971,16 +1292,41 @@ export const treatments: Treatment[] = [
         points: [
           "A drop in blood pressure, which is monitored and treated",
           "Itching or shivering",
+          "A slight rise in temperature",
+          "Difficulty passing urine, so a catheter may be needed for a short time",
+          "Tingling, numbness or heaviness in the legs, which wears off",
           "A longer pushing stage of labour, and a higher chance of needing forceps or vacuum to help the baby out",
-          "Rarely, a headache afterwards",
+          "Rarely, a headache afterwards, if spinal fluid leaks",
+          "Very rarely, nerve damage, infection (meningitis or abscess) or bleeding around the spine",
         ],
         after: "An epidural is not suitable for everyone, for example with some blood-clotting problems. Dr. Shilpa will discuss this with you well before your due date.",
+      },
+      {
+        heading: "Preparing",
+        points: [
+          "Tell Dr. Shilpa and the anaesthetist about all your medicines, allergies, health problems and any anaesthetic you have had before",
+          "If you take blood thinners, ask Dr. Shilpa when to stop them before labour. Do not stop them on your own",
+          "Avoid smoking and alcohol in pregnancy",
+          "Follow the hospital's advice about eating and drinking during labour",
+        ],
       },
     ],
     faqs: [
       {
         q: "Does an epidural harm the baby?",
         a: "Epidurals are widely used and considered safe for babies. Very little of the medicine reaches the baby.",
+      },
+      {
+        q: "Who cannot have an epidural?",
+        a: "It may not be suitable if you have a blood-clotting disorder, take blood-thinning medicine, have certain nerve conditions, an infection in the lower back, or have had some types of back surgery. Dr. Shilpa will check this with you before labour.",
+      },
+      {
+        q: "When can I have the epidural?",
+        a: "Usually once you are in established labour and ask for it. There is no fixed point in labour that is too early, and it can often still be given late in labour if the baby is not about to be born.",
+      },
+      {
+        q: "How long does it last?",
+        a: "Medicine is given through the tube for as long as you need it during labour, then the tube is removed after the baby is born.",
       },
     ],
     related: ["pregnancy-care", "high-risk-pregnancy"],

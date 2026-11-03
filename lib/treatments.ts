@@ -1216,17 +1216,48 @@ export const treatments: Treatment[] = [
     category: "cosmetic",
     summary: "Surgical and non-surgical treatments for comfort, function and confidence.",
     intro: [
-      "Cosmetic gynaecology covers elective treatments for the comfort, function and appearance of the intimate area, for example after childbirth or with age.",
-      "Every treatment starts with a private consultation, where Dr. Shilpa explains what is realistic, the risks and the recovery. These procedures are for adults only, and the consultation includes a conversation about your reasons and expectations.",
+      "Cosmetic gynaecology covers elective treatments for the comfort, function and appearance of the intimate area, such as labiaplasty, vaginal rejuvenation and vaginal tightening. The right approach depends on your concerns, a medical assessment and your expectations.",
+      "Every treatment starts with a private consultation at Harleys Women's Clinic, Andheri West, where Dr. Shilpa explains what is realistic, the risks and the recovery. These procedures are for adults only, and the consultation includes a conversation about your reasons and expectations.",
+      "A consultation does not mean you need to have a procedure. Its purpose is to help you understand your concern and make an informed decision.",
     ],
     sections: [
       {
+        heading: "What to expect at your consultation",
+        points: [
+          "Personal consultation: discuss your concerns, expectations and relevant medical history.",
+          "Treatment options: learn about the surgical and non-surgical approaches relevant to you.",
+          "Clear information: understand the proposed procedure, its possible benefits, limitations and risks.",
+          "Recovery guidance: learn about aftercare, follow-up and any activity restrictions.",
+          "Informed decisions: take time to understand your options before deciding how to proceed.",
+        ],
+      },
+      {
         heading: "Treatments",
         points: [
-          "Labiaplasty: reshaping the labia, often for discomfort during exercise or intimacy.",
-          "Vaginoplasty and vaginal tightening: for laxity after childbirth.",
+          "Labiaplasty: a surgical procedure that changes the size or shape of the labia minora, the inner folds of skin around the vaginal opening. Some women consider it because of discomfort during exercise, intimacy or with certain clothing, or because of concerns about appearance.",
+          "Vaginal rejuvenation: a broad term for different procedures aimed at concerns in the vaginal or surrounding area. The method, purpose and evidence vary from one treatment to another.",
+          "Vaginoplasty and vaginal tightening: surgical or non-surgical approaches for vaginal laxity, for example after childbirth.",
           "Hymenoplasty: repair of the hymen.",
           "Non-surgical options: laser, radiofrequency and PRP. Evidence that these work is still limited, and medical bodies such as the US FDA and ACOG have not found them proven for vaginal laxity, dryness or bladder leakage.",
+        ],
+      },
+      {
+        heading: "When to consider a consultation",
+        points: [
+          "Physical discomfort: discomfort with particular activities or clothing, and whether an examination is needed.",
+          "Concerns about intimate anatomy: understanding normal variation and talking through your concerns, without pressure to have a procedure.",
+          "Questions about a specific procedure: what labiaplasty, vaginal rejuvenation or tightening involves, the risks, recovery, alternatives and the evidence behind it.",
+          "Vaginal laxity: possible causes, and the treatment and non-procedural options for your situation.",
+        ],
+      },
+      {
+        heading: "Your consultation step by step",
+        points: [
+          "Book: contact the clinic to arrange a private appointment.",
+          "Discuss your concerns: explain your concerns, expectations, symptoms and medical history.",
+          "Assessment: Dr. Shilpa decides what examination is appropriate and discusses the options that fit your circumstances.",
+          "Understand your options: the proposed procedure, possible benefits, limitations, risks, alternatives and recovery.",
+          "Decide: if a treatment is suitable and you choose to go ahead, the clinic explains preparation, aftercare and follow-up.",
         ],
       },
       {
@@ -1240,6 +1271,26 @@ export const treatments: Treatment[] = [
       {
         q: "Are these treatments safe?",
         a: "Every procedure carries some risk. Dr. Shilpa will explain the specific risks of the treatment you are considering, and the alternatives, before you decide.",
+      },
+      {
+        q: "How long does recovery after labiaplasty take?",
+        a: "It depends on the extent of surgery and how you heal. Swelling, tenderness and some discomfort are common at first. Dr. Shilpa will give you individual instructions on wound care, returning to work, exercise and sex, and follow-up visits.",
+      },
+      {
+        q: "What are the risks of vaginal rejuvenation treatments?",
+        a: "They depend on the procedure or device. Possible problems include pain, bleeding, infection, scarring or changes in sensation. Some treatments marketed as vaginal rejuvenation have limited evidence, so ask about the evidence, alternatives and complications before deciding.",
+      },
+      {
+        q: "Is vaginal rejuvenation surgical or non-surgical?",
+        a: "It is a broad term, not one procedure. Some options are surgical and others use non-surgical devices, and their purpose, evidence, risks and recovery differ. Ask exactly which procedure is proposed and whether an alternative may suit your concern better.",
+      },
+      {
+        q: "How do I know whether labiaplasty is right for me?",
+        a: "An individual assessment helps clarify your concerns, expectations, risks and alternatives. Labia vary naturally in size and shape, and this variation alone does not mean surgery is medically needed.",
+      },
+      {
+        q: "What is the difference between surgical and non-surgical vaginal tightening?",
+        a: "They differ in method, who they suit, evidence, risks and recovery. Dr. Shilpa can examine you and explain the options and alternatives for your concern.",
       },
     ],
     related: ["vaginal-tightening", "hymenoplasty"],
@@ -1255,26 +1306,55 @@ export const treatments: Treatment[] = [
     category: "cosmetic",
     summary: "Laser and surgical options for vaginal laxity after childbirth or with age.",
     intro: [
-      "Childbirth and ageing can stretch the vaginal tissues. This can lead to reduced sensation, mild bladder leakage or dryness. Treatment can be non-surgical or surgical, depending on the degree of laxity.",
+      "Childbirth and ageing can stretch the vaginal tissues. This can lead to reduced sensation, mild bladder leakage or dryness. Vaginal tightening aims to address this laxity, either without surgery (laser) or with surgery (vaginoplasty), depending on the degree of laxity.",
       "For bladder leakage, supervised pelvic floor exercises for at least three months are the recommended first step, and often help with laxity too.",
     ],
     sections: [
       {
-        heading: "Laser tightening",
+        heading: "Who may consider it",
         points: [
-          "Gentle heat stimulates new collagen in the vaginal wall",
-          "Takes 15 to 30 minutes with numbing cream",
-          "Normal activities can continue the same day; avoid sex and tampons for three to five days",
-          "Usually needs three or more sessions",
+          "Women with vaginal laxity after childbirth (at least three months after delivery) or with age",
+          "Women with vaginal dryness, including after menopause",
+          "Women with mild bladder leakage when laughing, jumping or running, once pelvic floor exercises have been tried",
+          "Women in good health with realistic expectations of what treatment can and cannot do",
+          "Non-smokers",
+        ],
+        after: "If you plan more children, tell Dr. Shilpa: a later vaginal birth can stretch the tissues again, so surgery is usually best left until your family is complete.",
+      },
+      {
+        heading: "Laser tightening",
+        body: [
+          "Laser tightening is a non-surgical procedure. A laser probe gently heats the vaginal wall to stimulate new collagen and blood flow, with the aim of improving firmness, elasticity and moisture.",
+        ],
+        points: [
+          "Before: Dr. Shilpa discusses your goals, expectations, risks and benefits, examines you and reviews your medical history. You may be asked to stop smoking and shave the area.",
+          "During: you lie on your back with your legs supported. The area is cleaned, numbing cream is applied, and the probe is moved gently around the vaginal wall. It takes 15 to 30 minutes.",
+          "After: mild discomfort or swelling can be eased with pain relief or an ice pack. Normal activities can continue the same day; avoid sex and tampons for three to five days.",
+          "Follow-up: a check about 5 to 10 days later. Usually three or more sessions are needed.",
         ],
         after: "Evidence that laser tightening works is limited, and the US FDA has warned that these devices are not established as safe or effective for this use.",
       },
       {
         heading: "Surgical vaginoplasty",
+        body: [
+          "Vaginoplasty tightens the vaginal muscles and surrounding tissue that have stretched, often after childbirth. Through a cut inside the vagina, the muscles are repaired and stitched together, excess tissue is removed and the opening may be narrowed. The cut is closed with dissolvable stitches.",
+        ],
         points: [
           "Tightens the muscles and removes excess tissue, with dissolvable stitches",
           "Done under anaesthesia; Dr. Shilpa will tell you how long your procedure takes",
+          "Expect some discomfort, swelling and bruising at first; full recovery takes a few weeks or longer",
           "Light exercise after about three weeks; sex after about six weeks",
+        ],
+        after: "Some women find that comfort, bladder control and confidence improve after surgery, but results vary and no particular outcome can be promised.",
+      },
+      {
+        heading: "Risks",
+        points: [
+          "Temporary redness, tingling, swelling, tenderness or mild cramping",
+          "Pain or bleeding at the treated area, or spotting",
+          "Pain during sex or a change in sexual sensation",
+          "Infection",
+          "Scarring",
         ],
       },
     ],
@@ -1282,6 +1362,14 @@ export const treatments: Treatment[] = [
       {
         q: "Which option is right for me?",
         a: "Pelvic floor exercises come first. Surgery gives a greater, longer-lasting change for marked laxity. Dr. Shilpa will discuss all the options, including their limits, after examining you.",
+      },
+      {
+        q: "Will I need more than one laser session?",
+        a: "Usually yes, three or more, depending on your concern. Surgical tightening is a single procedure.",
+      },
+      {
+        q: "How much does vaginal tightening cost?",
+        a: "It depends on the procedure and its extent, anaesthesia fees and follow-up visits. The clinic can give you an estimate once Dr. Shilpa has assessed your needs.",
       },
     ],
     related: ["cosmetic-gynaecology", "hymenoplasty"],
@@ -1297,33 +1385,66 @@ export const treatments: Treatment[] = [
     category: "cosmetic",
     summary: "Private, judgement-free consultation and surgical repair of the hymen.",
     intro: [
-      "The hymen is a thin membrane at the vaginal opening. It can stretch or tear through exercise, cycling, tampon use or examination, as well as sex, and is not a reliable sign of virginity.",
-      "Hymenoplasty repairs it. Adult women choose it for personal, cultural or emotional reasons, including after sexual assault. Every consultation is private and free of judgement. The procedure is offered only to women aged 18 and over.",
+      "The hymen is a thin membrane at the vaginal opening. It can stretch or tear through exercise, cycling, horse riding, swimming, tampon use or examination, as well as sex, and some women are born without one. A tear may cause a little pain or bleeding, or none at all. The hymen is not a reliable sign of virginity.",
+      "Hymenoplasty repairs or reconstructs it. Adult women choose it for personal, cultural or emotional reasons, including after sexual assault. Every consultation is private and free of judgement. The procedure is offered only to women aged 18 and over.",
     ],
     sections: [
+      {
+        heading: "Who it may suit",
+        points: [
+          "Women aged 18 and over who are in good general health",
+          "Women who want repair for personal, cultural or religious reasons",
+          "Survivors of sexual abuse who feel it would help them emotionally",
+          "Women with realistic expectations of what the surgery can offer",
+          "Non-smokers",
+        ],
+        after: "Any vaginal infection or serious medical condition needs treatment first. A repaired hymen may or may not bleed later, so the procedure cannot guarantee any particular outcome.",
+      },
       {
         heading: "Preparation",
         points: [
           "Plan the procedure at least eight weeks before any date that matters to you",
-          "Tell Dr. Shilpa about any medicines and allergies",
+          "Tell Dr. Shilpa about any medicines and allergies, including the contraceptive pill and supplements, as some thin the blood",
           "Avoid smoking and alcohol beforehand",
           "Follow the anaesthetist's fasting instructions, usually no food for six hours and clear fluids up to two hours before",
+          "Bring loose clothing and soft sanitary pads in case of spotting",
         ],
       },
       {
         heading: "The procedure and recovery",
+        body: [
+          "Under local or general anaesthetic, uneven edges of the torn hymen are trimmed and the edges are joined in layers with dissolvable stitches so they heal together. If there is little or no hymen, a small flap of nearby vaginal tissue may be used to rebuild it.",
+        ],
         points: [
           "Takes 30 to 60 minutes under local or general anaesthetic",
+          "Mild discomfort, numbness, swelling and bruising are common for a few days and are eased with prescribed pain relief",
           "Most women return to work in three to four days",
           "Swelling settles in about a week; full healing takes four to six weeks",
           "Avoid sex for six to eight weeks, and use pads rather than tampons",
         ],
+      },
+      {
+        heading: "Aftercare",
+        points: [
+          "Rest for the first few days and finish any prescribed medicines",
+          "Avoid heavy lifting, bending, jogging and other strain for two to three weeks",
+          "Shower after two to three days, or as advised; wash the outside gently, pat dry and do not use a jet spray or clean inside the vagina",
+          "A warm or cold compress can ease pain or swelling",
+          "Avoid swimming pools and saunas for four to six weeks",
+          "Avoid smoking and alcohol for three to four weeks and eat a balanced diet",
+          "Keep your follow-up appointments",
+        ],
+        after: "Contact the clinic straight away if you have heavy bleeding, an unusual or foul-smelling discharge, fever or worsening pain.",
       },
     ],
     faqs: [
       {
         q: "Is the procedure confidential?",
         a: "Yes. Your consultation and treatment are kept confidential, within the limits the law requires.",
+      },
+      {
+        q: "How long does the repair last?",
+        a: "The repaired hymen remains until it is stretched or torn again, for example by sex or exercise.",
       },
     ],
     related: ["cosmetic-gynaecology", "vaginal-tightening"],

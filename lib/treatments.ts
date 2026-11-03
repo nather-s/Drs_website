@@ -71,71 +71,113 @@ export const treatments: Treatment[] = [
     summary:
       "Diagnosis and long-term management of polycystic ovary syndrome, including irregular periods, acne, excess hair, weight and fertility.",
     intro: [
-      "Polycystic ovary syndrome (PCOS), also often called PCOD in India, is one of the most common hormonal conditions in women of reproductive age. Raised androgens (male-type hormones) and insulin resistance disturb ovulation, which affects the menstrual cycle, skin, hair, weight and fertility.",
-      "PCOS cannot be cured, but it can be managed well. Treatment depends on your symptoms, your general health and whether you are planning a pregnancy.",
+      "Polycystic ovary syndrome (PCOS), often called PCOD in India, is the most common hormonal condition affecting women of childbearing age. In PCOS the ovaries develop many small fluid-filled sacs along their outer edge.",
+      "These sacs are often called cysts, but they are not painful or dangerous. They are follicles, each holding an immature egg, that do not grow and release an egg regularly.",
+      "PCOS cannot be cured, but it can be managed well. Dr. Shilpa sees patients with PCOS at Harleys Women's Clinic, Andheri West, and plans treatment around your symptoms, your general health and whether you want to get pregnant.",
     ],
     sections: [
       {
-        heading: "Common signs",
-        points: [
-          "Irregular, infrequent or absent periods",
-          "Acne or oily skin",
-          "Excess facial or body hair (hirsutism)",
-          "Thinning scalp hair",
-          "Weight gain around the waist, or difficulty losing weight",
-          "Dark, thickened skin on the neck or in skin folds (acanthosis nigricans)",
-          "Difficulty getting pregnant",
-          "Low mood, anxiety or poor sleep",
+        heading: "Causes of PCOS",
+        body: [
+          "Several factors are thought to play a part in PCOS. These include insulin resistance, low-grade inflammation, heredity and excess androgens (male-type hormones).",
+          "Insulin resistance means the body does not respond to insulin properly, so blood sugar levels rise and the body makes more insulin. High insulin levels can make the ovaries produce more androgens.",
+          "Women with PCOS also tend to have ongoing low-grade inflammation, which can show up in blood tests such as C-reactive protein (CRP) and white blood cell count.",
         ],
+      },
+      {
+        heading: "How hormonal imbalance affects your cycle",
+        body: [
+          "The hormones involved in PCOS include androgens (such as testosterone and androstenedione), oestrogen, progesterone, follicle-stimulating hormone (FSH), luteinising hormone (LH) and insulin.",
+          "In PCOS, testosterone, insulin and LH are often raised, and LH is often high compared with FSH. Because ovulation does not happen regularly, progesterone stays low for much of the cycle.",
+          "This imbalance disrupts the normal menstrual cycle and stops the ovaries from releasing an egg regularly (ovulation). It can lead to irregular periods, difficulty getting pregnant, acne, excess hair, weight problems, skin tags, thinning or patchy hair loss on the scalp, darkening of the skin on the back of the neck or in skin folds (acanthosis nigricans), and effects on mental health.",
+        ],
+      },
+      {
+        heading: "Signs of PCOS",
+        body: [
+          "Signs often start around the time of the first period, but some women develop them later, after years of periods. Every woman is different, and symptoms vary.",
+          "PCOS is usually diagnosed when at least two of the following are present and other causes have been ruled out:",
+        ],
+        points: [
+          "Irregular periods: few or irregular periods, or periods that are shorter or longer than usual. Some women ovulate irregularly or not at all, which can make it harder to get pregnant.",
+          "Excess androgens: high androgen levels can cause excess facial and body hair (hirsutism), severe acne, or thinning hair and pattern hair loss.",
+          "Polycystic ovaries: the ultrasound shows larger ovaries or many small follicles around the edge of the ovary. A raised AMH blood test can be used instead of ultrasound in adults.",
+        ],
+        after:
+          "In teenagers within eight years of their first period, ultrasound is not used to diagnose PCOS: both irregular cycles and raised androgens are needed. Women with PCOS may also notice rapid weight gain, skin tags and dark, thickened skin (acanthosis nigricans).",
       },
       {
         heading: "How PCOS is diagnosed",
         body: [
-          "There is no single test for PCOS. It is usually diagnosed when at least two of the following are present and other causes have been ruled out:",
+          "There is no single test for PCOS. Dr. Shilpa will first talk with you about your symptoms, your periods, any change in weight, the medicines you take and any other health conditions.",
+          "A physical examination looks for signs of raised androgens or insulin resistance, such as excess hair, hair thinning, acne, skin tags or dark, thickened skin. Your weight is also checked. Tests may include:",
         ],
         points: [
-          "Irregular or absent ovulation",
-          "Signs of raised androgens, on examination or in blood tests",
-          "Polycystic-appearing ovaries on ultrasound, or a raised AMH blood test",
+          "Pelvic examination: to check the reproductive organs for any lumps, growths or other changes.",
+          "Ultrasound scan: sound waves create images of the ovaries and the lining of the womb. The scan is done at the clinic, usually with a slim probe placed gently in the vagina. If you have never been sexually active, the scan is done over the tummy instead, not internally.",
+          "Blood tests: to measure androgen and other hormone levels, thyroid function, fasting cholesterol and triglycerides, and blood sugar and insulin. A glucose tolerance test may be done to check for insulin resistance by measuring how your body handles sugar.",
         ],
-        after:
-          "Your assessment usually includes blood tests for hormones, thyroid function, blood sugar and cholesterol, and often a pelvic ultrasound, done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally. In teenagers within eight years of their first period, ultrasound is not used for diagnosis: both irregular cycles and raised androgens are needed.",
       },
       {
-        heading: "Treatment options",
-        points: [
-          "Lifestyle changes: a balanced diet, regular exercise and good sleep. Losing 5–10% of body weight can be enough to bring periods back to a regular pattern.",
-          "Regulating periods: the combined oral contraceptive pill or a cyclical progestogen, which also protect the lining of the womb.",
-          "Acne and excess hair: hormonal treatment, anti-androgen medicines (which must be taken with reliable contraception, as they can harm a developing baby), and skin or laser treatment.",
-          "Insulin resistance: insulin-sensitising medicine such as metformin.",
-          "If you want to conceive: ovulation induction with tablets such as letrozole or clomiphene, hormone injections, and IVF if needed.",
-          "Laparoscopic ovarian drilling: keyhole surgery occasionally used when ovulation medicines have not worked.",
+        heading: "Treatment for PCOS",
+        body: [
+          "PCOS treatment focuses on the symptoms that concern you, such as irregular periods, excess hair, acne, weight or difficulty getting pregnant. It may involve lifestyle changes, medicines, or occasionally surgery.",
         ],
+        points: [
+          "Lifestyle changes: a healthy, balanced diet and regular moderate exercise to reach and keep a healthy weight. Losing 5–10% of body weight can be enough to bring periods back to a regular pattern. Weight loss can also make medicines work better and help fertility.",
+          "Regulating periods: a progestogen tablet taken for 10–14 days every 1–2 months brings on a period and protects the lining of the womb against cancer. Combined hormonal contraception (the pill, a vaginal ring) or a hormonal intrauterine device can also regulate periods; the combined pill also helps acne and excess hair. These are suitable when you are not trying to get pregnant.",
+          "Insulin resistance: an insulin-sensitising diabetes medicine (metformin) may be recommended.",
+          "Excess hair and acne: anti-androgen medicines, laser hair removal, and tablets or creams for acne. Anti-androgen medicines must be taken with reliable contraception, as they can harm a developing baby.",
+          "If you want to get pregnant: tablets that help you ovulate (letrozole, originally a breast cancer medicine, or clomiphene, an anti-oestrogen tablet), metformin, hormone injections (gonadotrophins), and IVF if needed.",
+          "Laparoscopic ovarian drilling: keyhole surgery, rarely needed, for women who want to get pregnant and have not ovulated with medicines and lifestyle changes. Through small cuts in the tummy, a laser or heat probe makes a few tiny punctures in the surface of each ovary. This reduces androgen-producing tissue and can help ovulation return.",
+        ],
+        after:
+          "Treatment controls the symptoms of PCOS rather than curing it, and your plan can change over time as your symptoms and goals change.",
       },
       {
         heading: "Long-term health",
         body: [
-          "PCOS increases the risk of type 2 diabetes, high blood pressure, raised cholesterol and sleep apnoea. When periods are very infrequent, the lining of the womb can thicken, which needs treatment. In pregnancy, PCOS raises the chance of gestational diabetes and pre-eclampsia.",
-          "Regular check-ups help catch these problems early, so annual screening is recommended.",
+          "PCOS that is diagnosed early and managed, together with lifestyle changes, is usually not a serious threat to health. Without care, it can lead to long-term problems such as type 2 diabetes and heart disease.",
+          "When periods are very infrequent, the lining of the womb can thicken, which needs treatment. Regular check-ups help catch these problems early, so yearly screening is recommended.",
+        ],
+      },
+      {
+        heading: "PCOS and related concerns",
+        points: [
+          "Acne: acne is one of the common hormone-related effects of PCOS.",
+          "Hirsutism: excess growth of dark, coarse hair on the face or body.",
+          "Fertility: irregular ovulation in PCOS is a common reason for difficulty getting pregnant.",
+          "Weight: insulin resistance can cause weight gain or make it harder to lose weight.",
+          "Mental health: PCOS, and worries about fertility, can affect mood and lead to anxiety or depression.",
+          "Hair fall: raised androgens can cause thinning of scalp hair.",
+          "Irregular periods: one of the most common signs of PCOS.",
         ],
       },
     ],
     faqs: [
       {
-        q: "Can PCOS be cured?",
-        a: "No, but its symptoms can be controlled well. With the right treatment, many women have regular cycles and healthy pregnancies.",
+        q: "Can pregnancy cure PCOS?",
+        a: "No. PCOS has no cure, but it can be managed well. Some women notice more regular cycles after a pregnancy, but the condition remains. PCOS can make it harder to conceive, but with the right treatment many women with PCOS get pregnant.",
       },
       {
-        q: "Can I get pregnant if I have PCOS?",
-        a: "Yes. Many women with PCOS conceive naturally or with help to ovulate. Dr. Shilpa will plan treatment around your goals.",
+        q: "If I have PCOS, am I at risk of other health problems?",
+        a: "Yes. PCOS increases the long-term risk of sleep apnoea, impaired glucose tolerance and diabetes, endometrial (womb lining) cancer, high cholesterol, high blood pressure, heart disease such as heart attack, and depression. In pregnancy it raises the chance of gestational diabetes, high blood pressure, pre-eclampsia, preterm birth and caesarean delivery. Have yearly check-ups for these risks, and closer monitoring during pregnancy.",
       },
       {
-        q: "At what age does PCOS start?",
-        a: "Signs often appear around the first periods, but PCOS can show up later. It is most often diagnosed in the twenties and thirties, and is more likely if a close relative has it.",
+        q: "What lifestyle changes can help my PCOS symptoms?",
+        a: "Many symptoms improve with lifestyle and diet changes: exercise regularly and try relaxation techniques, get enough good-quality sleep, avoid too much alcohol or caffeine, and eat a healthy diet rich in lean protein, vitamins and minerals.",
       },
       {
-        q: "Does pregnancy cure PCOS?",
-        a: "No. Some women notice more regular cycles after pregnancy, but the underlying condition remains.",
+        q: "How do doctors diagnose PCOS?",
+        a: "PCOS is diagnosed when at least two of these three are present: missed or irregular periods (some women also have heavy bleeding); signs of raised androgens, such as acne or unwanted hair growth, or high androgen levels on a blood test; and many follicles or enlarged ovaries on ultrasound. Many women with PCOS do not have polycystic-looking ovaries, and other causes need to be ruled out first.",
+      },
+      {
+        q: "At what age can I get PCOS?",
+        a: "PCOS can start at any time after puberty, but it is most often diagnosed in women in their twenties and thirties. It is more likely if you are overweight or if a close relative has PCOS.",
+      },
+      {
+        q: "Is PCOS a gynaecological or a hormonal (endocrine) disorder?",
+        a: "Both. PCOS is a common hormonal disorder in women, and its main effects are on periods, fertility and other gynaecological health.",
       },
     ],
     related: ["pcos-acne", "pcos-hair-fall", "irregular-periods", "hirsutism", "fertility"],
@@ -147,52 +189,91 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Treating acne caused by hormone imbalance, often linked to PCOS, alongside the underlying cause.",
     intro: [
-      "Raised androgens make the skin's oil glands produce more sebum. Together with dead skin cells and bacteria, this blocks pores and causes acne, often along the jawline and chin, and on the chest and upper back.",
-      "Because the cause is hormonal, treating the hormone imbalance is usually part of clearing the skin. Improvement takes time, often three to six months.",
+      "Acne and PCOS are closely linked. When acne is caused by a hormone imbalance, a gynaecologist can treat the cause as well as the skin.",
+      "Because the cause is hormonal, improvement takes time, often three to six months.",
     ],
     sections: [
       {
-        heading: "Signs that acne may be hormonal",
-        points: [
-          "Persistent breakouts on the jaw, chin and neck",
-          "Deep, painful or cystic spots",
-          "Flare-ups around your period",
-          "Acne that continues well past the teenage years",
-          "Other signs of PCOS, such as irregular periods or excess hair",
+        heading: "What is PCOS?",
+        body: [
+          "PCOS (polycystic ovary syndrome) is a common hormonal condition in women of childbearing age. The ovaries produce more androgens than usual. Androgens are often called male hormones, but women normally make them in small amounts.",
+          "The name comes from the many small fluid-filled sacs seen in the ovaries. These are not true cysts but egg follicles that have not matured and released an egg, because ovulation is not happening regularly. Signs usually start around the first period, but can also appear later in life. PCOS affects about 1 in 10 women.",
         ],
       },
       {
-        heading: "Treatment options",
+        heading: "How PCOS causes acne",
+        body: [
+          "The main problem in PCOS is hormone imbalance, and raised androgens are one of its most common features. Androgens make the oil glands in the skin produce extra sebum, the skin's natural oil.",
+          "Acne forms when pores and hair follicles are blocked by this extra oil, dead skin cells and dirt. Bacteria can become trapped inside, which causes inflammation. PCOS acne can appear on the face, neck, chest and upper back. High insulin and blood sugar levels, chronic inflammation and stress can all push androgen levels up and make acne worse.",
+          "PCOS is only one cause of acne. Others include hormone changes during puberty, pregnancy or menopause, stress, some medicines such as corticosteroids, pore-clogging (comedogenic) skincare or make-up, and not washing the face regularly.",
+        ],
+      },
+      {
+        heading: "Signs and symptoms of PCOS",
         points: [
-          "Combined oral contraceptive pill: lowers androgen levels. It is not suitable for everyone, for example smokers over 35 or women with a history of blood clots.",
-          "Anti-androgen medicines: reduce the effect of androgens on the skin. They can harm a developing baby, so they are only used with reliable contraception and stopped before trying to conceive.",
-          "Retinoids: creams or tablets that clear pores. They make skin sensitive to the sun, so daily sunscreen is essential. Neither creams nor tablets should be used in pregnancy or when trying to conceive, and tablets are prescribed only with reliable contraception.",
-          "Topical treatments: benzoyl peroxide or salicylic acid help mild acne but are rarely enough on their own.",
-          "Antibiotics: short courses for inflamed acne, only as prescribed.",
+          "Irregular periods: periods more than 35 days apart, fewer than nine periods a year, or long gaps followed by heavy bleeding.",
+          "Raised androgens: excess facial or body hair (hirsutism), acne and thinning scalp hair.",
+          "Polycystic ovaries: on ultrasound the ovaries may look enlarged, with many small follicles.",
+        ],
+        after:
+          "An ultrasound can be done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally. In teenagers within eight years of their first period, ultrasound is not used to diagnose PCOS: both irregular cycles and raised androgens are needed.",
+      },
+      {
+        heading: "Signs of PCOS acne",
+        points: [
+          "Very oily skin from extra sebum",
+          "Blocked pores that turn into pimples",
+          "Redness and inflammation around the spots",
+          "Pain, depending on how deep or severe the acne is",
+          "Spots that fill with pus",
+          "Breakouts along the jaw, chin and neck, flare-ups around your period, or acne that continues well past the teenage years",
+        ],
+      },
+      {
+        heading: "How PCOS acne is treated",
+        body: [
+          "Because the main cause is raised androgens, treating the hormone imbalance usually helps clear the skin. When PCOS is well controlled, acne usually improves a lot, but this can take several months.",
+        ],
+        points: [
+          "Combined oral contraceptive pill: contains oestrogen and progestogen, and lowers androgen levels. It works for most women with PCOS but takes time, and should be taken as prescribed. It is not suitable for everyone, for example smokers over 35, or women with high blood pressure or a history of blood clots.",
+          "Anti-androgen medicines: reduce androgen levels or their effect on the skin. Blood tests are usually done first to guide treatment. They can harm a developing baby, so they are only used with reliable contraception and stopped before trying to conceive.",
+          "Retinoids: creams, gels or tablets that clear blocked pores, used only on prescription. They make the skin more sensitive to the sun, so use a broad-spectrum sunscreen of SPF 30 or above every day. Apply creams at night only. They can dry the skin at first, so start every other day and increase slowly. Neither creams nor tablets should be used in pregnancy or when trying to conceive, and tablets are prescribed only with reliable contraception.",
+          "Skin treatments: products containing salicylic acid, benzoyl peroxide or sulphur can help mild acne, but are usually not enough on their own for PCOS acne.",
+          "Antibiotics: may be prescribed for inflamed acne, for a set course and only as advised by your doctor, to avoid side effects.",
         ],
       },
       {
         heading: "Caring for your skin",
         points: [
-          "Avoid picking or squeezing spots",
-          "Wash your face twice a day with a gentle cleanser, and remove make-up before bed",
-          "Use non-comedogenic (non-pore-clogging) moisturiser, sunscreen and make-up",
-          "Eat plenty of vegetables and limit sugary and refined foods",
-          "Manage stress and sleep well",
+          "Do not pick, scratch or squeeze spots. This can spread the contents and cause more breakouts.",
+          "Wash your face with a gentle cleanser and lukewarm water every morning and night, and remove make-up before bed.",
+          "Use a moisturiser and sunscreen every day, chosen for your skin type.",
+          "Choose non-comedogenic (non-pore-clogging) make-up and skincare.",
+          "Eat a balanced diet with plenty of fresh fruit and vegetables. Cut down on fried and fatty foods, sugar, refined flour and sugary drinks.",
+          "Include anti-inflammatory foods such as walnuts, almonds, olive oil, avocado, broccoli, tomatoes, green leafy vegetables, lemon and turmeric. A dietitian can help you plan your meals.",
+          "Drink enough water through the day.",
+          "Manage stress with meditation, yoga or deep breathing.",
+          "Exercise for about half an hour a day at moderate intensity, or less if the workout is vigorous. Regular exercise helps control weight and blood sugar.",
+          "Get enough sleep every night.",
         ],
       },
     ],
     faqs: [
       {
         q: "Will my acne clear if my PCOS is treated?",
-        a: "It usually improves significantly, but it takes a few months. Skin treatments can be used alongside hormonal treatment in the meantime.",
+        a: "It usually improves a lot, but it takes a few months. Skin treatments can be used alongside hormonal treatment in the meantime.",
       },
       {
         q: "Should I see a dermatologist or a gynaecologist?",
         a: "A gynaecologist treats the hormonal cause. For severe acne, Dr. Shilpa may work with a dermatologist so both sides are treated together.",
       },
+      {
+        q: "Where can I be seen?",
+        a: "Dr. Shilpa sees patients at Harleys Women's Clinic, Andheri West, where ultrasound is also available.",
+      },
     ],
     related: ["pcos", "pcos-hair-fall", "hirsutism"],
+    references: ["International evidence-based guideline for the assessment and management of PCOS (2023)"],
   },
   {
     slug: "pcos-hair-fall",
@@ -201,29 +282,65 @@ export const treatments: Treatment[] = [
     category: "gynaecology",
     summary: "Slowing hair thinning caused by hormone imbalance and supporting regrowth.",
     intro: [
-      "Raised androgens in PCOS can shorten the growth phase of scalp hair, so hair becomes finer and sheds more. It usually shows as thinning on the crown or a widening parting rather than bald patches.",
-      "Treating the hormone imbalance early gives the best chance of slowing hair loss.",
+      "PCOS (polycystic ovary syndrome) is a common hormonal condition in women of reproductive age. Hair loss is one of its symptoms, and it can be distressing.",
+      "Hair fall in PCOS is mainly caused by raised levels of male hormones called androgens. The good news is that it can be managed, and treating the hormone imbalance early gives the best chance of slowing it down.",
     ],
     sections: [
       {
+        heading: "What is PCOS?",
+        body: [
+          "In PCOS, the ovaries often contain many small, partly developed follicles (sometimes called \"cysts\"), though not every woman with PCOS has these. The hormone imbalance can affect your periods, fertility and appearance.",
+          "Some women grow excess hair on the face, chest and abdomen, while others lose hair from the scalp. Some have both.",
+          "PCOS is diagnosed from your symptoms, blood tests and, if needed, an ultrasound scan, which is done at the clinic. If you have never been sexually active, the scan is done over the tummy, not internally. Under the 2023 international PCOS guideline, ultrasound is not used to diagnose PCOS within 8 years of the first period.",
+        ],
+      },
+      {
+        heading: "Why PCOS causes hair fall",
+        body: [
+          "Everyone sheds some hair every day. Hair grows in a natural cycle of growing, resting and shedding.",
+          "In PCOS, the balance between female and male hormones is disturbed. Androgens such as testosterone, the same hormones that cause baldness in men, rise. They shorten the growth phase of the hair and make it shed sooner, so over time the hair becomes thinner and weaker.",
+        ],
+      },
+      {
         heading: "Signs to look out for",
+        body: [
+          "The first sign is usually noticeable thinning of the scalp hair. It is often gradual and can worsen over time, though it sometimes starts quite suddenly.",
+        ],
         points: [
           "More hair than usual on your pillow or in the shower drain",
           "A widening parting or thinning at the crown",
           "Hair that feels finer and breaks easily",
         ],
+        after: "PCOS hair loss rarely causes round bald patches. If you notice these, tell your doctor, as they usually have a different cause.",
       },
       {
-        heading: "Treatment options",
+        heading: "How hair fall in PCOS is managed",
+        body: [
+          "The first step is to bring PCOS under control and manage your hormone levels. Your doctor may prescribe hormonal treatment to help slow further hair loss. Alongside this, the following can help.",
+        ],
         points: [
-          "Hormonal treatment: the combined pill or anti-androgen medicines to slow further loss. Anti-androgens need reliable contraception, as they can harm a developing baby.",
-          "Minoxidil: applied to the scalp to stimulate regrowth. Results take several months. It is not used in pregnancy or while breastfeeding.",
-          "Checking other causes: iron, vitamin D and thyroid levels can also affect hair and are easy to test.",
-          "Lifestyle: weight loss and exercise improve insulin resistance and lower androgen levels.",
+          "Hormonal treatment: the combined contraceptive pill or anti-androgen medicines. Anti-androgens can harm a developing baby, so they are only used with reliable contraception and stopped before trying to conceive.",
+          "Minoxidil: a lotion or foam applied to the scalp that can stimulate hair growth. Results take several months. It is not used in pregnancy or while breastfeeding.",
+          "Checking other causes: low iron, low vitamin D and thyroid problems can also cause hair fall and are easy to test for.",
+          "Supplements: biotin, vitamins and omega-3 fatty acids help only if you are low in them, so blood tests come first. Too much vitamin A can itself cause hair loss, and biotin can affect some blood test results, so tell your doctor if you take it.",
+          "Lifestyle: if you are overweight, losing weight, eating a healthy diet and exercising regularly improve PCOS and lower androgen levels, which helps hair loss over time.",
+          "Scalp massage: may help some women and is safe to try.",
+          "Hairstyling: a hairstylist can suggest cuts and styles that add volume and cover thinning areas while treatment works.",
+        ],
+      },
+      {
+        heading: "When to see a doctor",
+        body: [
+          "Hair loss can be distressing, but there are effective ways to manage it. If you have hair loss or any other symptoms of PCOS, see your doctor for a prompt diagnosis and treatment. With the right treatment, hair loss can usually be slowed or stopped, and many women see some regrowth.",
+          "Dr. Shilpa Bansal Agrawal sees patients at Harleys Women's Clinic, Andheri West.",
         ],
       },
     ],
     faqs: [
+      {
+        q: "Does PCOS cause hair loss?",
+        a: "Yes. Raised androgens in PCOS shorten the growth phase of scalp hair, so hair becomes thinner and sheds more.",
+      },
       {
         q: "Will my hair grow back?",
         a: "Treatment can slow hair loss, and many women see some regrowth over six to twelve months. Starting early helps.",

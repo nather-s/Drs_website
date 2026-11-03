@@ -7,6 +7,14 @@
 //   { id: "abcdEFGhijk", title: "What is PCOS?", topics: ["pcos", "irregular-periods"] },
 export type Video = { id: string; title: string; topics: string[] };
 
-export const videos: Video[] = [];
+export const videos: Video[] = [
+  { id: "_WfODYyC3hE", title: "What is PCOS? Myths and facts", topics: ["pcos", "pcos-acne", "pcos-hair-fall", "irregular-periods", "hirsutism"] },
+  { id: "DTUV8mUBWTA", title: "Cervical cancer: causes, signs, diagnosis and treatment", topics: ["cervical-cancer-prevention", "colposcopy"] },
+  { id: "0NMxwucIDQI", title: "HRT for menopause: benefits and side effects", topics: ["menopause"] },
+  { id: "szQCxpHddfc", title: "Myths about contraception", topics: ["contraception", "adolescent-health"] },
+  { id: "zagR9kcD7UU", title: "Can you get pregnant on 'safe days'?", topics: ["contraception"] },
+  { id: "SGaynS4V95g", title: "A patient's journey to motherhood", topics: ["fertility"] },
+  { id: "Bqt9bxX59FA", title: "Blessed with twins: a patient's story", topics: ["fertility"] },
+];
 
 export const videosFor = (slug: string) => videos.filter((v) => v.topics.includes(slug));

@@ -1342,44 +1342,85 @@ export const treatments: Treatment[] = [
     category: "pregnancy",
     summary: "Confidential medical and surgical abortion care under the MTP Act.",
     intro: [
-      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. Your decision is respected without judgement.",
-      "The clinic is a government-approved MTP centre, and the ultrasound is done here at the clinic.",
+      "An unplanned pregnancy can bring uncertainty and difficult questions. You do not need to have every answer before you come in. You deserve accurate information and a chance to talk through your options without judgement.",
+      "The clinic provides safe, legal and confidential abortion care under the Medical Termination of Pregnancy (MTP) Act, 1971, as amended in 2021. The clinic is a government-approved MTP centre, and the ultrasound is done here at the clinic.",
       "Abortion is legal for every woman in India, married or unmarried. If you are 18 or over, you do not need anyone else's consent: not a parent's, a partner's or a husband's. For anyone under 18, written consent from a guardian is required by law.",
     ],
     sections: [
       {
-        heading: "Options",
+        heading: "What the law says",
+        body: [
+          "The MTP Act sets out when a pregnancy can be ended and by whom. Only a registered doctor, at an approved place, can do it. In simple terms:",
+        ],
         points: [
-          "Medical abortion: tablets taken over two days, usually suitable up to about nine weeks of pregnancy.",
-          "Surgical abortion: a short procedure (vacuum aspiration) under anaesthesia.",
           "Up to 20 weeks: allowed on the opinion of one registered doctor, for the reasons set out in the Act.",
           "20 to 24 weeks: allowed for specific categories of women set out in the Act, on the opinion of two registered doctors, at an approved facility.",
+          "Beyond 24 weeks: allowed only in specific situations, such as a serious abnormality in the baby confirmed by a medical board.",
+          "Consent: an adult woman's own consent is what the law requires. Separate rules apply to anyone under 18.",
+          "Confidentiality: the Act protects the name and details of every woman who has an abortion.",
+        ],
+        after: "This is a general overview, not a decision about your own case. Dr. Shilpa will explain what applies to you at your consultation.",
+      },
+      {
+        heading: "Early abortion",
+        body: [
+          "An early abortion is one done in the first weeks of pregnancy, within the first trimester. It is less complex, carries less risk and needs less recovery time than an abortion later in pregnancy.",
+          "It can usually be done once the ultrasound shows the pregnancy in the womb, often from about 5 weeks. Coming early gives you more choice of method.",
         ],
       },
       {
-        heading: "Before and after",
+        heading: "Options",
         points: [
-          "An ultrasound confirms how far along the pregnancy is and that it is in the womb",
-          "Bleeding and cramping after a medical abortion are expected and usually settle within two weeks",
-          "A follow-up visit confirms the abortion is complete",
-          "Contraception can be started straight away",
+          "Medical abortion: tablets taken over two days, usually suitable up to about nine weeks of pregnancy. The first tablet blocks progesterone, the hormone the pregnancy needs. The second, taken a day or two later, makes the womb contract and empty, usually within a few hours.",
+          "Surgical abortion: a short procedure (vacuum aspiration) under anaesthesia. It may be advised because of a health condition, a slightly later stage of pregnancy, or if tablets have not worked. Most women are back to their normal routine within a day or two.",
         ],
-        after: "Seek care urgently if you have very heavy bleeding, severe pain or fever.",
+        after: "Both methods are safe when done by a qualified doctor at a licensed centre. Which one suits you depends on how far along the pregnancy is, your health and your own preference.",
+      },
+      {
+        heading: "Your consultation",
+        points: [
+          "Pregnancy assessment: your pregnancy test result and the date of your last period.",
+          "Ultrasound: to confirm how far along the pregnancy is and that it is in the womb.",
+          "Medical history: health conditions, medicines, allergies and any previous pregnancies.",
+          "Your options: the methods that suit you, their benefits and risks, and the legal requirements.",
+          "Next steps: the plan for treatment, follow-up and what to expect.",
+        ],
+        after: "The clinic works by appointment only, with no walk-ins, so that every consultation is private and unhurried. Bring an ID, your pregnancy test result, any medical records, and a list of your medicines and allergies. If you do not have these, contact the clinic for advice before your visit.",
       },
       {
         heading: "How many visits it usually takes",
         points: [
           "First visit: a consultation and ultrasound. For a medical abortion, the first tablet is usually taken at the clinic.",
-          "The second set of tablets is usually taken at home a day or two later. Plan to rest that day.",
+          "The second set of tablets is usually taken at home a day or two later. Plan to rest that day and, if possible, have someone with you.",
           "A follow-up visit about two weeks later checks that the abortion is complete.",
         ],
         after: "Most women go back to work within a day or two of a medical abortion.",
+      },
+      {
+        heading: "Before and after",
+        points: [
+          "An ultrasound confirms how far along the pregnancy is and that it is in the womb",
+          "Cramping and bleeding after a medical abortion are expected and are signs the tablets are working. They usually settle within two weeks",
+          "Rest, fluids, light meals and a painkiller your doctor advises can help",
+          "A follow-up visit confirms the abortion is complete",
+          "Contraception can be started straight away",
+          "Feelings afterwards vary. Some women feel relief, others need time or support, and you can talk to Dr. Shilpa about this at any visit",
+        ],
+        after: "Seek care urgently if you have very heavy bleeding, severe pain, fever, fainting or difficulty breathing. Do not wait for a routine appointment.",
       },
       {
         heading: "Avoid unsafe options",
         body: [
           "Abortion pills bought online or from a chemist without a prescription are illegal to sell, and taking them without a scan is risky. A scan checks that the pregnancy is in the womb. A pregnancy outside the womb (ectopic pregnancy) cannot be ended with pills and can be life-threatening. Pills taken later than recommended are more likely to cause heavy bleeding or an incomplete abortion.",
           "Unregistered clinics may not be legal or safe. If you have already taken pills, come in anyway. You will be cared for, not judged. (For anyone under 18, the law requires the doctor to make a report; see the questions below.)",
+        ],
+      },
+      {
+        heading: "Myths and facts",
+        points: [
+          "Myth: abortion makes you infertile. Fact: a safe abortion done by a qualified doctor does not usually affect future pregnancies.",
+          "Myth: abortion is illegal for unmarried women. Fact: the law allows abortion for women whether married or unmarried.",
+          "Myth: it is always very painful. Fact: cramps and bleeding are expected, but they can be managed.",
         ],
       },
     ],
@@ -1393,8 +1434,36 @@ export const treatments: Treatment[] = [
         a: "Yes. Your details are kept confidential, as the MTP Act requires. For anyone under 18, the law also requires a guardian's consent and a report under the POCSO Act, though the young person's identity can be kept out of that report.",
       },
       {
+        q: "Can I have an abortion without my partner's consent?",
+        a: "Yes. If you are 18 or over, the decision is legally yours. A partner's or husband's consent is not required in India.",
+      },
+      {
+        q: "How early can I have an abortion?",
+        a: "Usually as soon as the ultrasound shows the pregnancy in the womb, often from about 5 weeks. Many women have an abortion between 6 and 10 weeks, which is still early and safer than later.",
+      },
+      {
+        q: "Is it safe to take the abortion tablets at home?",
+        a: "Yes, when they are prescribed by a registered doctor after a proper consultation and scan, with clear instructions and a follow-up visit. Do not take abortion pills without medical advice.",
+      },
+      {
+        q: "What happens after I take the tablets?",
+        a: "You will have cramping and bleeding as the pregnancy passes. This is expected. You will be told beforehand what is normal and when to call.",
+      },
+      {
+        q: "How do I know the abortion is complete?",
+        a: "A follow-up visit, often with an ultrasound, confirms it. Contact the clinic if you have no bleeding after the second set of tablets, or if you still feel pregnant.",
+      },
+      {
+        q: "How long does recovery take?",
+        a: "Most women feel physically better within a few days. Light bleeding can continue for a week or so. Emotional recovery varies, and support is available if you need it.",
+      },
+      {
         q: "Will it affect my fertility?",
         a: "A safe abortion done by a qualified doctor does not usually affect future fertility.",
+      },
+      {
+        q: "How much does it cost?",
+        a: "The cost depends on the method and how far along the pregnancy is. A medical abortion typically costs between ₹4,000 and ₹15,000, and a surgical abortion may cost more. The total, including follow-up, is confirmed at your first visit.",
       },
     ],
     related: ["contraception", "pregnancy-care"],
@@ -1572,7 +1641,8 @@ export const treatments: Treatment[] = [
     category: "life-stages",
     summary: "Respectful, age-appropriate care for teenagers, from first periods to sexual health.",
     intro: [
-      "The teenage years bring rapid physical and emotional change. Dr. Shilpa offers girls and young women a gentle, respectful place to ask questions, and many first visits are booked by a parent.",
+      "Adolescence, roughly the ages of 10 to 19, brings rapid physical, hormonal and emotional change, and every girl goes through puberty at her own pace. From first periods to painful periods, acne and questions about her body, the right guidance helps a teenager understand what is happening and feel more confident.",
+      "Dr. Shilpa offers girls and young women a gentle, respectful place to ask questions, and many first visits are booked by a parent. She sees teenagers at Harleys Women's Clinic, Andheri West.",
     ],
     sections: [
       {
@@ -1581,6 +1651,7 @@ export const treatments: Treatment[] = [
           "Dr. Shilpa sees around 25 teenagers every week, for periods, PCOS, skin and other worries.",
           "You are welcome to stay in the room for the whole consultation.",
           "Most teenagers do not need an internal examination. If any examination is needed, it is explained first and done only with your daughter's agreement and yours, with a female staff member present.",
+          "If a scan is needed, it is done at the clinic. For girls who have never been sexually active, it is done over the tummy, not internally.",
           "A parent or guardian's consent is needed for examination and treatment of anyone under 18.",
           "Older teenagers sometimes like a few minutes alone with the doctor. It is offered, never insisted on.",
         ],
@@ -1592,15 +1663,40 @@ export const treatments: Treatment[] = [
           "Heavy or irregular periods",
           "White discharge or itching",
           "Acne, weight changes or excess hair, which may point to PCOS",
+          "Questions about puberty, such as its timing or breast development",
           "Questions about sexual health and contraception",
           "HPV vaccination",
           "Eating concerns, body image or low mood",
         ],
       },
       {
+        heading: "When to see a gynaecologist",
+        body: [
+          "Many changes during puberty are normal, but some deserve a check.",
+        ],
+        points: [
+          "Irregular or missed periods: periods are often irregular in the first years, but gaps of around 90 days, irregularity that continues, or a sudden change in pattern should be checked.",
+          "Painful periods: cramps are common, but pain that stops her going to school, sleeping or doing everyday things should not be ignored.",
+          "Heavy bleeding: very heavy or long periods can cause iron deficiency or anaemia, especially if she feels dizzy, weak or unusually tired.",
+          "Acne and hormonal symptoms: severe acne, particularly with irregular periods or excess facial hair, may need a check for a hormonal condition such as PCOS.",
+          "Puberty concerns: if puberty seems early, late or unusual, a doctor can check whether development is on track.",
+          "Eating, weight and body image: distress about weight or changes in eating need sensitive attention. If an eating disorder or serious emotional distress is suspected, Dr. Shilpa will arrange specialist support.",
+        ],
+      },
+      {
+        heading: "Sexual health",
+        body: [
+          "Sexual health means physical, emotional and social wellbeing in relation to sexuality, with relationships that are respectful and free from pressure, violence and discrimination. It also means having accurate information and being able to get care when it is needed.",
+          "Teenagers who have sex without enough knowledge or protection are at higher risk of an unplanned pregnancy, an unsafe abortion and sexually transmitted infections, including HIV. A teenage pregnancy also carries higher risks of anaemia, pre-eclampsia, infection, heavy bleeding after birth and depression, and the baby is more likely to be born early or small. It can also mean leaving studies, with long-term effects on her future.",
+          "Teenagers often avoid asking for help because they feel embarrassed or fear being judged. Dr. Shilpa gives age-appropriate, accurate information about periods, sexual health, contraception, and the prevention and treatment of infections, in a private and non-judgemental way.",
+        ],
+      },
+      {
         heading: "The first visit",
         body: [
           "A first visit is mostly a conversation about periods, symptoms and general health. Dr. Shilpa will explain anything she recommends before doing it, in words a teenager can follow.",
+          "She will ask the reason for the visit and about menstrual and medical history. An examination or tests are suggested only if they are needed. You will then hear what was found and the options, which may be treatment, self-care or a referral to another specialist, and whether a follow-up visit would help.",
+          "A first visit in the early teens, even without any problems, is a good chance for a girl to ask about the changes she is going through and to build trust with a doctor she can return to later.",
         ],
       },
     ],
@@ -1610,12 +1706,28 @@ export const treatments: Treatment[] = [
         a: "Any time she has concerns about her periods or health, and ideally for HPV vaccination between 9 and 14.",
       },
       {
+        q: "Are irregular periods normal in teenage girls?",
+        a: "Periods can be irregular in the first few years while the body matures. Irregularity that continues, gaps of around 90 days between periods or very heavy bleeding should be checked.",
+      },
+      {
         q: "Her period pain makes her miss school. Is that normal?",
         a: "Period pain is common, but pain that stops her going to school is worth seeing a doctor about. It can usually be eased with the right medicine, and occasionally it points to a condition such as endometriosis that is better found early.",
       },
       {
+        q: "Is heavy bleeding in teenagers a concern?",
+        a: "It can be. Heavy or long periods can lead to iron deficiency or anaemia and sometimes have an underlying cause. Seek prompt care if bleeding is very heavy or causes dizziness, fainting or marked weakness.",
+      },
+      {
+        q: "Can teenagers have PCOS?",
+        a: "Yes, but diagnosis needs care because some normal changes of puberty look like PCOS. It is based on her periods, signs of excess male-type hormones and ruling out other causes. Ultrasound is not used to diagnose PCOS within 8 years of the first period.",
+      },
+      {
         q: "She has white discharge and itching. Is something wrong?",
         a: "Some clear or white discharge is normal once periods start. Itching, a bad smell or a change in colour usually means a simple infection such as thrush, which is easily treated. It does not mean she has been sexually active.",
+      },
+      {
+        q: "Does she need a Pap smear?",
+        a: "No. Cervical screening is not needed in the teenage years. HPV vaccination is what protects her at this age.",
       },
       {
         q: "Is what my daughter says kept private?",
@@ -1634,19 +1746,82 @@ export const treatments: Treatment[] = [
     category: "life-stages",
     summary: "Help choosing the contraception that suits your health, plans and lifestyle.",
     intro: [
+      "Contraception, or birth control, prevents pregnancy by stopping the release of an egg (ovulation), stopping sperm from reaching the egg (fertilisation), or stopping a fertilised egg from settling in the womb (implantation). Only condoms also protect against sexually transmitted infections (STIs).",
       "There is no single best method of contraception. The right choice depends on your health, whether you plan to have children and when, and what you are comfortable with.",
     ],
     sections: [
       {
-        heading: "Methods available",
+        heading: "Barrier methods",
+        body: [
+          "Barrier methods can be bought without a prescription and can be used together with other methods. For protection against STIs, a condom needs to be used every time.",
+        ],
         points: [
-          "Condoms: the only method that also protects against sexually transmitted infections.",
-          "The pill: taken daily, and can also help with heavy or painful periods.",
-          "Hormonal IUD (such as Mirena): lasts several years and makes periods lighter.",
+          "Condoms: the only method that also protects against sexually transmitted infections. A male condom is a thin latex sheath worn over the penis that stops semen entering the vagina. A female condom is a pouch placed inside the vagina.",
+          "Spermicide: a cream, foam, film, gel, pessary or tablet put into the vagina before sex to kill sperm.",
+          "Sponge, diaphragm and cervical cap: devices that sit over the cervix to block sperm. The sponge contains spermicide; the diaphragm and cap are used with spermicide.",
+        ],
+      },
+      {
+        heading: "Short-acting hormonal methods",
+        body: [
+          "These use small amounts of female hormones, either a progestogen alone or oestrogen and a progestogen together, mainly to stop ovulation.",
+        ],
+        points: [
+          "The pill: taken daily at the same time, and can also help with heavy or painful periods.",
+          "Patch: a thin patch stuck on the skin that releases oestrogen and a progestogen. A new patch is put on once a week for three weeks, followed by a week without a patch.",
+          "Vaginal ring: a small, soft plastic ring placed in the vagina for three weeks, then removed for a week when the period comes.",
+          "Injection: a progestogen injection given by the doctor every three months.",
+        ],
+      },
+      {
+        heading: "Long-acting reversible methods",
+        body: [
+          "These work for three to ten years depending on the type and are fitted by a doctor. They do not protect against STIs.",
+        ],
+        points: [
+          "Implant: a small flexible rod, about the size of a matchstick, placed under the skin of the upper arm. It releases a progestogen and lasts three years.",
+          "Hormonal IUD (levonorgestrel intrauterine device): a small T-shaped device placed in the womb that slowly releases a progestogen. It lasts several years and makes periods lighter.",
           "Copper IUD: hormone-free and lasts up to ten years.",
-          "Injections and implants: long-acting hormonal options.",
-          "Emergency contraception: tablets or a copper IUD after unprotected sex, the sooner the better.",
+        ],
+      },
+      {
+        heading: "Emergency contraception",
+        body: [
+          "Emergency contraception can be used after unprotected sex, or when a method has failed, for example if a condom breaks or slips off. The sooner it is used, the better it works.",
+        ],
+        points: [
+          "Emergency contraceptive pills (the morning-after pill): depending on the type, they can be taken up to 3 to 5 days after sex. Some are available without a prescription.",
+          "Copper IUD: can be fitted up to 5 days after sex and then kept as ongoing contraception.",
+        ],
+        after: "Emergency contraception does not protect against STIs. It is also important after sex that was forced or unwanted; in that case please come in, as medical care and support are needed too.",
+      },
+      {
+        heading: "Permanent contraception",
+        points: [
           "Sterilisation: tubal ligation for women who are sure their family is complete.",
+        ],
+      },
+      {
+        heading: "Contraception for teenagers",
+        body: [
+          "Pregnancy and STIs can have life-changing effects for a teenager. A teenage pregnancy carries physical, emotional, social and financial consequences for the young mother and her baby, and an untreated STI can lead to problems such as infertility and a higher risk of HIV.",
+          "Not having sex (abstinence) is completely effective at preventing pregnancy and STIs. Teenagers who do have sex should use a condom every time, on its own or together with another method.",
+          "Teenagers often do not use contraception because sex was unplanned, because they fear a medical procedure or a judgemental doctor, because a parent or partner is against it, because of pressure to have children, or because they do not know what is available or cannot afford it.",
+          "Dr. Shilpa gives teenagers age-appropriate, non-judgemental advice about avoiding pregnancy and STIs, and helps parents talk to their children about abstinence and contraception. For anyone under 18, a parent or guardian's consent is needed for examination and treatment.",
+        ],
+      },
+      {
+        heading: "Choosing a method",
+        body: [
+          "Dr. Shilpa will go through the options that suit you and the pros and cons of each, including:",
+        ],
+        points: [
+          "How well the method works",
+          "Its benefits and health risks",
+          "Whether it protects against STIs",
+          "Common side effects",
+          "How soon fertility returns after stopping",
+          "Where to get it and what it costs",
         ],
       },
     ],

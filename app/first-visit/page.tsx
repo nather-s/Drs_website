@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
+import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
 export const metadata: Metadata = {
@@ -83,7 +84,17 @@ export default function FirstVisit() {
         title="Your first visit"
       />
       <div className="wrap grid gap-12 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
-        <div className="grid min-w-0 content-start gap-12">
+        <div className="grid min-w-0 grid-cols-1 content-start gap-12">
+          <figure className="m-0 grid gap-2">
+            <img
+              alt={`Reception at ${clinic.name}`}
+              className="aspect-[16/9] w-full rounded-lg object-cover"
+              height={925}
+              src={asset("images/clinic-reception.jpg")}
+              width={826}
+            />
+            <figcaption className="text-sm text-muted-ink">The reception at {clinic.name}, {clinic.addressLines[0]}.</figcaption>
+          </figure>
           <ol className="m-0 grid list-none gap-10 p-0" role="list">
             {steps.map((s, i) => (
               <li className="grid grid-cols-[44px_1fr] gap-4" key={s.title}>

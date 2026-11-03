@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
+import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
 export const metadata: Metadata = {
@@ -113,8 +114,13 @@ export default function About() {
         </div>
 
         <aside className="grid content-start gap-6 lg:sticky lg:top-28 lg:self-start">
-          {/* Add Dr. Shilpa's portrait here when the clinic provides one. An empty placeholder
-              made the site look unfinished to test patients, so none is shown until then. */}
+          <img
+            alt={`${clinic.doctor} at ${clinic.name}`}
+            className="aspect-[4/5] w-full rounded-lg object-cover object-top"
+            height={760}
+            src={asset("images/dr-shilpa.jpg")}
+            width={570}
+          />
           <div className="grid gap-2 rounded-lg border border-line p-6 text-sm">
             <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">Consults at</b>
             <ul className="m-0 grid list-none gap-1 p-0">

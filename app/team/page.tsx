@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
+import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/team/" },
 };
 
-type Member = { name: string; role: string; bio: string; initials: string; href?: string };
+type Member = { name: string; role: string; bio: string; initials: string; photo?: string; href?: string };
 
 const doctors: Member[] = [
   {
@@ -17,6 +18,7 @@ const doctors: Member[] = [
     role: "Founder and Lead Consultant, Obstetrics & Gynaecology",
     bio: "MD (Gold Medal), DNB and MRCOG (UK), in practice since 2009, in teaching hospitals and private practice.",
     initials: "SB",
+    photo: "images/dr-shilpa.jpg",
     href: "/about/",
   },
   {
@@ -31,13 +33,21 @@ const doctors: Member[] = [
 function Card({ m, large }: { m: Member; large?: boolean }) {
   return (
     <article className="grid content-start gap-4 rounded-lg border border-line p-5">
-      <div
-        aria-label={`Photo placeholder for ${m.name}`}
-        className={`grid place-items-center rounded-md bg-plum-soft ${large ? "aspect-[4/3]" : "aspect-square"}`}
-        role="img"
-      >
-        <span className="font-display text-4xl text-plum/40">{m.initials || "Photo"}</span>
-      </div>
+      {m.photo ? (
+        <img
+          alt={m.name}
+          className={`w-full rounded-md object-cover object-[50%_30%] ${large ? "aspect-[4/3]" : "aspect-square"}`}
+          src={asset(m.photo)}
+        />
+      ) : (
+        <div
+          aria-label={`Photo placeholder for ${m.name}`}
+          className={`grid place-items-center rounded-md bg-plum-soft ${large ? "aspect-[4/3]" : "aspect-square"}`}
+          role="img"
+        >
+          <span className="font-display text-4xl text-plum/40">{m.initials || "Photo"}</span>
+        </div>
+      )}
       <div className="grid gap-1">
         <h3 className="text-xl">{m.name}</h3>
         <p className="text-sm font-semibold text-accent">{m.role}</p>

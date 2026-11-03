@@ -5,6 +5,7 @@ import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
 import SymptomFinder from "@/components/site/symptom-finder";
+import { asset } from "@/lib/asset";
 import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic, reviews } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
@@ -50,7 +51,16 @@ function HomePage() {
           <div className="grid gap-5">
             <span className="eyebrow">Woman gynaecologist · DN Nagar, Andheri West</span>
             <div className="grid gap-2">
-              <h1 className="text-[clamp(2rem,4.4vw,3.3rem)]">{clinic.doctor}</h1>
+              <div className="flex items-center gap-4">
+                <img
+                  alt=""
+                  className="size-[72px] shrink-0 rounded-full border border-line object-cover md:size-24"
+                  height={96}
+                  src={asset("images/dr-shilpa-face.jpg")}
+                  width={96}
+                />
+                <h1 className="text-[clamp(2rem,4.4vw,3.3rem)]">{clinic.doctor}</h1>
+              </div>
               <p className="text-lg text-muted-ink">
                 Obstetrician &amp; gynaecologist · MD (Gold Medal) · MRCOG (UK). Pregnancy, fertility, PCOS, periods,
                 abnormal smears and menopause.

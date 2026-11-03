@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BookingCard from "@/components/site/booking-card";
+import DoctorHelp, { DoctorHelpTeaser } from "@/components/site/doctor-help";
 import ExitPage from "@/components/site/exit-page";
 import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
@@ -59,6 +60,8 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             ))}
           </div>
 
+          <DoctorHelpTeaser topic={t.title} />
+
           <section aria-labelledby="videos" className="grid gap-4">
             <h2 className="text-[1.6rem]" id="videos">Watch Dr. Shilpa explain</h2>
             {topicVideos.length > 0 && <VideoCards items={topicVideos} />}
@@ -103,8 +106,10 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             </section>
           ))}
 
+          <DoctorHelp forMen={t.forMen} note={t.bookingNote} topic={t.title} />
+
           {review && (
-            <figure className="m-0 grid gap-3 rounded-lg bg-rose-soft p-6">
+            <figure className="m-0 grid gap-3 rounded-lg bg-mist p-6">
               <blockquote className="m-0 font-display text-xl leading-snug">“{review.text}”</blockquote>
               <figcaption className="text-sm text-muted-ink">
                 {review.name} · {review.source} review
@@ -127,16 +132,6 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             </section>
           )}
 
-          {!t.forMen && (
-            <div className="grid gap-3 rounded-lg bg-mist p-6">
-              <h2 className="text-[1.3rem]">Coming to the clinic</h2>
-              <p className="max-w-[66ch]">
-                Your consultation is private, and an examination is only done if it's needed, with your permission.
-                You're welcome to bring someone with you, and you can ask to stop at any time.
-              </p>
-              <a className="link w-fit" href="/first-visit/">What happens at your first visit</a>
-            </div>
-          )}
 
           {(t.category === "pregnancy" || t.category === "fertility") && (
             <p className="max-w-[66ch] text-sm font-semibold">

@@ -37,8 +37,8 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
   const related = t.related.map(getTreatment).filter((r) => r !== undefined);
   const review = t.reviewId ? reviews.find((r) => r.id === t.reviewId) : undefined;
   const topicVideos = videosFor(t.slug);
-  // The design preview shows where a topic's videos will go until real ones are added.
-  const showVideoSlot = topicVideos.length > 0 || process.env.PREVIEW_EXPORT === "1";
+  // Until specific videos are listed for a topic, link to that topic within her channel.
+  const videoSearch = `${clinic.social.youtube}/search?query=${encodeURIComponent(t.videoQuery ?? t.title)}`;
   const contents = [...t.sections.map((s) => s.heading), ...(t.faqs.length ? ["Questions patients ask"] : [])];
 
   return (
@@ -59,24 +59,30 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
             ))}
           </div>
 
-          {showVideoSlot && (
-            <section aria-labelledby="videos" className="grid gap-4">
-              <h2 className="text-[1.6rem]" id="videos">Watch Dr. Shilpa explain</h2>
-              {topicVideos.length > 0 ? (
-                <VideoCards items={topicVideos} />
-              ) : (
-                <p className="m-0 grid aspect-video w-full max-w-[420px] place-items-center rounded-lg border border-dashed border-field bg-mist p-6 text-center text-sm text-muted-ink">
-                  Preview: Dr. Shilpa's YouTube video on {t.title.toLowerCase()} will appear here.
-                </p>
-              )}
-              {t.sensitive && (
-                <p className="m-0 text-sm text-muted-ink">
-                  Videos open on YouTube, so they may show in your YouTube history.{" "}
-                  <a className="link" href="/browsing-safely/">Browsing safely</a>
-                </p>
-              )}
-            </section>
-          )}
+          <section aria-labelledby="videos" className="grid gap-4">
+            <h2 className="text-[1.6rem]" id="videos">Watch Dr. Shilpa explain</h2>
+            {topicVideos.length > 0 && <VideoCards items={topicVideos} />}
+            <a
+              className="flex w-fit items-center gap-3 rounded-lg border border-line bg-paper px-4 py-3 no-underline hover:border-accent"
+              href={videoSearch}
+              rel="noopener"
+              target="_blank"
+            >
+              <span aria-hidden className="grid size-9 shrink-0 place-items-center rounded-full bg-rose-soft text-accent">▶</span>
+              <span>
+                <b className="block font-semibold">
+                  {topicVideos.length > 0 ? "More videos on her YouTube channel" : `Dr. Shilpa's videos on ${t.videoQuery ?? t.title}`}
+                </b>
+                <span className="text-sm text-muted-ink">Opens YouTube</span>
+              </span>
+            </a>
+            {t.sensitive && (
+              <p className="m-0 text-sm text-muted-ink">
+                Videos open on YouTube, so they may show in your YouTube history.{" "}
+                <a className="link" href="/browsing-safely/">Browsing safely</a>
+              </p>
+            )}
+          </section>
 
           {t.sections.map((s) => (
             <section aria-labelledby={anchor(s.heading)} className="grid gap-4" key={s.heading}>

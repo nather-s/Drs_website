@@ -24,6 +24,8 @@ export type Treatment = {
   sensitive?: boolean;
   /** Page is for male patients; hides the gynaecology "Coming to the clinic" note. */
   forMen?: boolean;
+  /** Topic to search for in Dr. Shilpa's YouTube channel (defaults to the page title). */
+  videoQuery?: string;
   /** Extra line for the page's WhatsApp booking message (never the medical reason). */
   bookingNote?: string;
   /** Guidelines and laws the page's content follows, listed at the end of the page. */
@@ -62,6 +64,7 @@ export const treatments: Treatment[] = [
   // ─── Gynaecology ──────────────────────────────────────────────
   {
     slug: "pcos",
+    videoQuery: "PCOS",
     references: ["International evidence-based guideline for the assessment and management of PCOS (2023)"],
     title: "PCOS & PCOD",
     category: "gynaecology",
@@ -139,6 +142,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "pcos-acne",
+    videoQuery: "PCOS acne",
     title: "Hormonal acne",
     category: "gynaecology",
     summary: "Treating acne caused by hormone imbalance, often linked to PCOS, alongside the underlying cause.",
@@ -192,6 +196,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "pcos-hair-fall",
+    videoQuery: "PCOS hair fall",
     title: "Hair fall in PCOS",
     category: "gynaecology",
     summary: "Slowing hair thinning caused by hormone imbalance and supporting regrowth.",
@@ -232,6 +237,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "irregular-periods",
+    videoQuery: "irregular periods",
     title: "Irregular periods",
     category: "gynaecology",
     summary: "Finding the cause of irregular, missed or heavy periods and treating it.",
@@ -283,6 +289,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "hirsutism",
+    videoQuery: "hirsutism",
     title: "Excess facial and body hair",
     category: "gynaecology",
     summary: "Assessment and treatment of hirsutism, the growth of coarse hair in a male-type pattern.",
@@ -320,6 +327,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "fibroids-and-cysts",
+    videoQuery: "fibroids and cysts",
     title: "Fibroids, cysts & polyps",
     category: "gynaecology",
     summary: "Assessment and treatment of fibroids, ovarian cysts and polyps, including keyhole surgery.",
@@ -382,6 +390,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "bartholin-cyst",
+    videoQuery: "Bartholin cyst",
     title: "Bartholin cyst",
     category: "gynaecology",
     summary: "Treatment for swelling of the Bartholin glands, from simple care to minor surgery.",
@@ -425,6 +434,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "vaginal-infections",
+    videoQuery: "vaginal infection",
     references: ["WHO guidelines for the management of symptomatic sexually transmitted infections (2021)"],
     title: "Discharge, itching & infections",
     metaTitle: "Discharge and itching",
@@ -479,6 +489,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "cervical-cancer-prevention",
+    videoQuery: "cervical cancer",
     references: ["WHO guideline for screening and treatment of cervical pre-cancer lesions (2021)"],
     title: "Cervical cancer prevention",
     category: "gynaecology",
@@ -531,6 +542,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "colposcopy",
+    videoQuery: "colposcopy",
     references: ["WHO guideline for screening and treatment of cervical pre-cancer lesions (2021)"],
     title: "Colposcopy and abnormal smear results",
     category: "gynaecology",
@@ -607,6 +619,7 @@ export const treatments: Treatment[] = [
   // ─── Pregnancy ────────────────────────────────────────────────
   {
     slug: "pregnancy-care",
+    videoQuery: "pregnancy",
     references: ["WHO recommendations on antenatal care for a positive pregnancy experience (2016)", "Pre-Conception and Pre-Natal Diagnostic Techniques (PCPNDT) Act, 1994"],
     title: "Pregnancy care",
     category: "pregnancy",
@@ -664,6 +677,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "high-risk-pregnancy",
+    videoQuery: "high-risk pregnancy",
     title: "High-risk pregnancy",
     category: "pregnancy",
     summary: "Closer monitoring for pregnancies with medical conditions, twins or past complications.",
@@ -710,6 +724,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "epidural-pain-relief",
+    videoQuery: "painless delivery",
     title: "Epidural pain relief in labour",
     category: "pregnancy",
     summary: "Epidural pain relief during labour, explained before the day.",
@@ -747,6 +762,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "pregnancy-options",
+    videoQuery: "abortion",
     references: ["Medical Termination of Pregnancy Act, 1971 (amended 2021) and MTP Rules, 2021", "World Health Organization, Abortion care guideline (2022)", "Protection of Children from Sexual Offences (POCSO) Act, 2012"],
     title: "Pregnancy options and abortion care",
     metaTitle: "Pregnancy options",
@@ -816,6 +832,7 @@ export const treatments: Treatment[] = [
   // ─── Fertility ────────────────────────────────────────────────
   {
     slug: "fertility",
+    videoQuery: "infertility",
     title: "Fertility treatment",
     category: "fertility",
     summary: "Step-by-step fertility assessment and treatment for couples, from ovulation tracking to IVF.",
@@ -866,6 +883,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "male-infertility",
+    videoQuery: "male infertility",
     forMen: true,
     title: "Male infertility",
     category: "fertility",
@@ -913,6 +931,7 @@ export const treatments: Treatment[] = [
   // ─── Life stages ──────────────────────────────────────────────
   {
     slug: "adolescent-health",
+    videoQuery: "teenage health",
     bookingNote: "The appointment is for my daughter (age: __). A parent will come with her.",
     sensitive: true,
     metaTitle: "Teen health",
@@ -975,6 +994,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "contraception",
+    videoQuery: "contraception",
     sensitive: true,
     metaTitle: "Family planning advice",
     metaDescription: "Help choosing the family planning method that suits you, with Dr. Shilpa Bansal Agrawal in Andheri West.",
@@ -1008,6 +1028,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "menopause",
+    videoQuery: "menopause",
     references: ["NICE guideline NG23: Menopause: identification and management (updated 2024)"],
     title: "Menopause & HRT",
     category: "life-stages",
@@ -1069,6 +1090,7 @@ export const treatments: Treatment[] = [
   // ─── Cosmetic ─────────────────────────────────────────────────
   {
     slug: "cosmetic-gynaecology",
+    videoQuery: "cosmetic gynaecology",
     references: ["ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)", "US FDA safety communication on energy-based devices for vaginal ‘rejuvenation’ (2018)"],
     sensitive: true,
     metaTitle: "Private consultation",
@@ -1107,6 +1129,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "vaginal-tightening",
+    videoQuery: "vaginal tightening",
     references: ["US FDA safety communication on energy-based devices for vaginal ‘rejuvenation’ (2018)", "NICE guideline NG123: urinary incontinence and pelvic organ prolapse in women (2019)", "ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)"],
     sensitive: true,
     metaTitle: "Private consultation",
@@ -1148,6 +1171,7 @@ export const treatments: Treatment[] = [
   },
   {
     slug: "hymenoplasty",
+    videoQuery: "hymenoplasty",
     references: ["ACOG Committee Opinion 795: Elective Female Genital Cosmetic Surgery (2020)", "Protection of Children from Sexual Offences (POCSO) Act, 2012"],
     sensitive: true,
     metaTitle: "Private consultation",

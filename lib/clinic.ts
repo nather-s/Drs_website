@@ -35,7 +35,7 @@ export const clinic = {
   social: {
     youtube: "https://www.youtube.com/channel/UCctp3zI4hHDdt6BY3zK1hog",
     instagram: "https://www.instagram.com/harleys_womens_clinic",
-    facebook: "https://www.facebook.com/share/1EsFxv6xAq/",
+    facebook: "https://www.facebook.com/profile.php?id=61568640843835",
   },
 } as const;
 

@@ -1062,36 +1062,73 @@ export const treatments: Treatment[] = [
     category: "fertility",
     summary: "Step-by-step fertility assessment and treatment for couples, from ovulation tracking to IVF.",
     intro: [
-      "Difficulty conceiving is common, and in most couples a cause can be found. Dr. Shilpa, who holds a fellowship in reproductive endocrinology and infertility, starts with a full assessment of both partners and explains each option before treatment begins.",
+      "Difficulty conceiving is common, and in most couples a cause can be found. Dr. Shilpa, who holds a fellowship in reproductive endocrinology and infertility, sees couples at Harleys Women's Clinic, Andheri West.",
+      "She starts with a full assessment of both partners and explains each option before treatment begins. Seeing a fertility doctor does not mean you are starting IVF. The process usually begins with a conversation and a few simple tests.",
     ],
     sections: [
       {
         heading: "When to seek help",
         points: [
-          "No pregnancy after 12 months of trying, or after 6 months if you are over 35",
-          "Irregular or absent periods, or known PCOS",
+          "No pregnancy after 12 months of regular unprotected sex, or after 6 months if you are over 35",
+          "Irregular or absent periods, which may mean you are not ovulating regularly",
+          "Known PCOS or another hormonal problem, such as a thyroid disorder",
           "Two or more miscarriages",
           "Known problems such as endometriosis or blocked tubes",
+          "Concerns about age: female fertility falls with age, especially after 35",
         ],
+        after: "Age is not the only factor. Many younger couples also have difficulty conceiving, and it is worth seeking advice early.",
+      },
+      {
+        heading: "Your first consultation",
+        points: [
+          "A review of your medical, menstrual and pregnancy history, and any earlier treatment",
+          "Discussion of lifestyle factors such as stress, sleep, diet and weight",
+          "A clear plan of the tests you need and what the next steps could be",
+        ],
+        after: "It helps to track your cycle before your visit, write down any symptoms, and bring your partner so you both understand the plan. Ask anything. Consultations are available in English, Hindi and Marathi.",
       },
       {
         heading: "Assessment",
+        body: [
+          "A male factor plays a part in many couples, so both partners are assessed from the start.",
+        ],
         points: [
           "Hormone blood tests, including ovarian reserve (AMH)",
-          "Pelvic ultrasound and tracking of ovulation",
+          "Pelvic ultrasound at the clinic, to check the womb and ovaries and track ovulation",
           "A check that the fallopian tubes are open",
           "Semen analysis for the male partner",
         ],
       },
       {
         heading: "Treatment options",
-        points: [
-          "Ovulation induction: tablets or injections to help you ovulate, with scans to time intercourse.",
-          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation. Dr. Shilpa does this herself.",
-          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre nearby.",
-          "Surgery: keyhole surgery or hysteroscopy for endometriosis, fibroids, polyps or blocked tubes.",
-          "Egg freezing: for women who wish to delay pregnancy, at a registered ART centre nearby.",
+        body: [
+          "Not everyone needs IVF. Some couples conceive after small changes or simple treatment, and the plan is matched to your situation.",
         ],
+        points: [
+          "Lifestyle changes: for women who are overweight, losing some weight can improve periods and ovulation.",
+          "Ovulation induction: tablets or injections to help you ovulate, with scans to time intercourse.",
+          "IUI (intrauterine insemination): prepared sperm placed in the womb at ovulation, often advised for mild male factor, ovulation problems or unexplained infertility. Dr. Shilpa does this herself.",
+          "IVF and ICSI: eggs fertilised in the laboratory and an embryo transferred to the womb, at a registered ART centre nearby. ICSI, where a single sperm is injected into each egg, is used when sperm numbers are very low.",
+          "Surgery: keyhole surgery or hysteroscopy for endometriosis, fibroids, polyps or blocked tubes.",
+          "Egg freezing: for women who wish to delay pregnancy or before some medical treatments, at a registered ART centre nearby.",
+          "Donor treatment: when appropriate, discussed with care and arranged through a registered ART centre.",
+        ],
+        after: "Fertility medicines are monitored with scans, because they can sometimes cause twins or over-stimulate the ovaries. You will never be pressured into any treatment, and every decision is made with your full consent.",
+      },
+      {
+        heading: "PCOS and fertility",
+        body: [
+          "PCOS is a common hormonal condition and the most common reason women do not ovulate regularly. Without regular ovulation, periods become irregular and it can take longer to conceive.",
+          "Many women with PCOS conceive naturally, and treatment improves the chances further. Weight loss, if you are overweight, can bring back regular ovulation.",
+        ],
+        points: [
+          "Ovulation tablets: letrozole or clomiphene, which help an egg mature and be released.",
+          "Metformin: a diabetes medicine that helps with insulin resistance, used for some women.",
+          "Gonadotrophin injections: FSH and LH hormones that stimulate the ovaries, with close scan monitoring.",
+          "Laparoscopic ovarian drilling: keyhole surgery that makes a few tiny punctures in the surface of the ovary to reduce androgen production, used when tablets have not worked.",
+          "IVF: when other treatments have not worked.",
+        ],
+        after: "PCOS also raises the risk of some pregnancy problems, such as gestational diabetes, high blood pressure and pre-eclampsia, so pregnancies are monitored closely.",
       },
     ],
     faqs: [
@@ -1102,6 +1139,30 @@ export const treatments: Treatment[] = [
       {
         q: "Should my partner be tested too?",
         a: "Yes. A male factor plays a part in a large share of couples, so both partners are assessed from the start.",
+      },
+      {
+        q: "What is the difference between IVF and IUI?",
+        a: "In IUI, prepared sperm are placed inside the womb around ovulation. In IVF, eggs are collected and fertilised in the laboratory, and an embryo is then transferred to the womb.",
+      },
+      {
+        q: "Is fertility treatment painful or risky?",
+        a: "Most tests and treatments cause only mild discomfort. IUI is a short procedure similar to a smear test. Medicines that stimulate the ovaries carry some risks, so you are monitored with scans and the risks are explained before you start.",
+      },
+      {
+        q: "How long does fertility treatment take?",
+        a: "It depends on the cause and the treatment. Some couples conceive within a few months, while others need several cycles. Dr. Shilpa will give you realistic expectations at the start.",
+      },
+      {
+        q: "What will my chances of success be?",
+        a: "Chances depend on your age, the cause and the treatment, so they differ for every couple. Dr. Shilpa will discuss your own situation honestly once your tests are back.",
+      },
+      {
+        q: "How much does fertility treatment cost?",
+        a: "Costs depend on the tests and treatment you need. Basic assessment and ovulation treatment cost much less than IVF. The clinic will tell you the charges before you start.",
+      },
+      {
+        q: "Another doctor said I cannot conceive. Is it worth a second opinion?",
+        a: "Yes. A second opinion and a fresh look at your tests can sometimes change the options available to you.",
       },
     ],
     related: ["male-infertility", "pcos", "fibroids-and-cysts"],
@@ -1259,50 +1320,112 @@ export const treatments: Treatment[] = [
     category: "life-stages",
     summary: "Managing menopause symptoms and deciding whether hormone replacement therapy is right for you.",
     intro: [
-      "Menopause is when periods stop for good, usually between 45 and 55. Falling hormone levels in the years around it can cause symptoms that affect sleep, mood, comfort and long-term bone health.",
+      "Menopause is when periods stop for good, usually between 45 and 55. It is a natural stage of life, but falling hormone levels in the years around it can affect sleep, mood, comfort, intimacy and long-term bone health.",
+      "Some women have mild symptoms, while for others they affect daily life. Dr. Shilpa sees women at Harleys Women's Clinic, Andheri West, to talk through symptoms and treatment choices, whether you are approaching menopause or your periods have already stopped.",
     ],
     sections: [
+      {
+        heading: "Perimenopause and menopause",
+        body: [
+          "Perimenopause is the transition before menopause, when hormone levels change and periods often become irregular. Symptoms can start before periods stop completely.",
+          "Menopause is reached after 12 months in a row without a period, when there is no other cause. The timing and symptoms vary from woman to woman.",
+        ],
+      },
       {
         heading: "Common symptoms",
         points: [
           "Hot flushes and night sweats",
+          "Irregular periods in the years before menopause",
           "Poor sleep and tiredness",
-          "Mood changes, anxiety or low mood",
-          "Vaginal dryness and pain during sex",
+          "Mood changes, irritability, anxiety or low mood",
+          "Vaginal dryness, itching and pain during sex",
           "Lower sex drive",
+          "Dry eyes, skin or mouth",
           "Joint aches and changes in skin and hair",
-          "Needing to pass urine more often",
+          "Needing to pass urine more often or more urgently",
         ],
         after: "Any bleeding after your periods have stopped for a year needs prompt assessment.",
       },
       {
+        heading: "What to expect at your consultation",
+        points: [
+          "A discussion of your symptoms, periods, medical history and current medicines",
+          "An examination or tests only where needed. Most women over 45 do not need hormone blood tests to confirm menopause.",
+          "Advice on hormonal and non-hormonal treatment, and on bone health",
+          "Regular follow-up to review how treatment is working",
+        ],
+      },
+      {
         heading: "Hormone replacement therapy (HRT)",
         body: [
-          "HRT replaces the hormones your body no longer makes. It is the most effective treatment for hot flushes and night sweats, and it protects bone strength.",
+          "HRT replaces the hormones your body no longer makes. It is the most effective treatment for hot flushes and night sweats, and it protects bone strength. It can also help with sleep, mood, joint aches and vaginal dryness.",
         ],
         points: [
-          "Combined HRT: oestrogen with a progestogen, for women who still have a womb.",
-          "Oestrogen-only HRT: usually for women who have had a hysterectomy.",
-          "Vaginal oestrogen: a low-dose cream or tablet for dryness, with very little absorbed into the body.",
+          "Combined HRT: oestrogen with a progestogen, for women who still have a womb. The progestogen protects the lining of the womb. It can be a tablet, such as micronised progesterone, or a hormone coil, which can also help with irregular periods in perimenopause.",
+          "Oestrogen-only HRT: usually for women who have had a hysterectomy. It comes as tablets, patches, gel or spray.",
+          "Vaginal oestrogen: a low-dose cream, tablet or ring for dryness, with very little absorbed into the body.",
         ],
+        after: "Treatment usually starts at a low dose. It can take a few weeks to a few months to feel the full effect, and the type or dose can be changed if it does not suit you. HRT is not a contraceptive, so you may still need contraception in the years around menopause.",
       },
       {
         heading: "Is HRT safe for me?",
         body: [
-          "For most women who start HRT before 60, or within ten years of menopause, the benefits outweigh the risks. The main risks are a small increase in breast cancer risk with combined HRT, and a higher risk of blood clots with HRT tablets (patches and gels carry less). HRT may not be suitable if you have had certain cancers, blood clots, a stroke, liver disease or unexplained bleeding. Dr. Shilpa will go through your history and review your treatment regularly.",
+          "For most women who start HRT before 60, or within ten years of menopause, the benefits outweigh the risks. The main risks are a small increase in breast cancer risk with combined HRT, which grows the longer it is taken, and a higher risk of blood clots and stroke with HRT tablets (patches and gels carry less). Oestrogen alone, without a progestogen, raises the risk of womb cancer in women who still have a womb.",
+          "HRT may not be suitable if you have had breast, womb or ovarian cancer, blood clots, a stroke or heart disease, liver disease or unexplained bleeding, or if you are pregnant or breastfeeding. High blood pressure should be controlled first. After a blood clot, HRT through the skin may still be possible with specialist advice. Dr. Shilpa will go through your history and review your treatment regularly.",
           "If menopause happens before 40 (premature menopause), HRT is usually recommended until around the natural age of menopause.",
+        ],
+      },
+      {
+        heading: "Side effects of HRT",
+        points: [
+          "Breast tenderness",
+          "Headaches",
+          "Bloating, nausea or indigestion",
+          "Mood changes",
+          "Fluid retention",
+          "Vaginal bleeding",
+        ],
+        after: "These often settle within the first few months. Tell Dr. Shilpa about any side effects, and about any bleeding that continues after the first months or starts later on.",
+      },
+      {
+        heading: "Vaginal dryness",
+        body: [
+          "Vaginal dryness is common, especially after menopause, but it can happen at other times too. It can make sex painful and affect everyday comfort.",
+        ],
+        points: [
+          "Vaginal moisturisers and lubricants",
+          "Low-dose vaginal oestrogen",
+          "HRT, if you also have other menopause symptoms",
+          "Simple changes, such as avoiding perfumed soaps and washes",
         ],
       },
       {
         heading: "Other options",
         points: [
           "Non-hormonal medicines for hot flushes",
-          "Calcium, vitamin D and weight-bearing exercise for bone health",
-          "Vaginal moisturisers and lubricants",
+          "Lifestyle measures such as regular exercise, a healthy weight and limiting alcohol and caffeine",
+          "Calcium, vitamin D and weight-bearing exercise for bone health, with a bone density scan when needed",
+          "Talking therapies and support for low mood or anxiety",
         ],
       },
     ],
     faqs: [
+      {
+        q: "When should I see a doctor about menopause symptoms?",
+        a: "See a doctor if hot flushes, night sweats, poor sleep, mood changes or vaginal discomfort are affecting your daily life. Any vaginal bleeding after menopause should be checked promptly.",
+      },
+      {
+        q: "Is HRT suitable for every woman?",
+        a: "No. The benefits and risks depend on your age, the time since menopause, your symptoms and your medical history. Dr. Shilpa will help you decide whether it is right for you.",
+      },
+      {
+        q: "Can menopause symptoms be managed without hormones?",
+        a: "Yes. Lifestyle changes, non-hormonal medicines and treatments for specific problems such as vaginal dryness can help. The best approach depends on your symptoms, history and preferences.",
+      },
+      {
+        q: "How long does HRT take to work?",
+        a: "Some women notice a difference within a few weeks, while for others it takes a few months.",
+      },
       {
         q: "How long can I take HRT?",
         a: "There is no fixed limit. Treatment is reviewed every year and continued for as long as the benefits outweigh the risks for you.",

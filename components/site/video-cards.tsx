@@ -1,6 +1,11 @@
 import { Play } from "lucide-react";
 import type { Video } from "@/lib/media";
 
+// Thumbnails are saved in public/videos/<id>.jpg, so nothing loads from YouTube until a
+// visitor chooses to watch. The design preview renders every page inside its home page,
+// so it uses a relative path there.
+const thumbBase = process.env.PREVIEW_EXPORT === "1" ? "./videos/" : "/videos/";
+
 // Video links that open on YouTube (the app on phones) rather than playing in the page,
 // so nothing from YouTube loads until a visitor chooses to watch.
 export default function VideoCards({ items }: { items: Video[] }) {
@@ -20,7 +25,7 @@ export default function VideoCards({ items }: { items: Video[] }) {
                 className="absolute inset-0 size-full object-cover"
                 height={180}
                 loading="lazy"
-                src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`}
+                src={`${thumbBase}${v.id}.jpg`}
                 width={320}
               />
               <span className="relative grid size-12 place-items-center rounded-full bg-paper/90 text-accent shadow">

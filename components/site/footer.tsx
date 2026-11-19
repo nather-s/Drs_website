@@ -1,12 +1,14 @@
 import { categories, treatments } from "@/lib/treatments";
 import { clinic } from "@/lib/clinic";
+import Logo from "@/components/site/logo";
 
 export default function Footer() {
   return (
     <footer className="bg-plum pb-28 text-[0.92rem] text-white/75 md:pb-0">
       <div className="wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1fr]">
         <div className="grid content-start gap-3">
-          <b className="font-display text-2xl font-medium text-gold-light">{clinic.name}</b>
+          <Logo className="mb-2" tone="light" />
+          <b className="sr-only">{clinic.name}</b>
           <address className="not-italic text-white/70">
             {clinic.addressLines.map((l) => (
               <span className="block" key={l}>{l}</span>

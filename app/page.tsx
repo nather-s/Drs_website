@@ -2,12 +2,15 @@ import { Play } from "lucide-react";
 import ReviewStack from "@/components/kokonut/review-stack";
 import {
   DriftRow,
+  HeroContent,
   HeroPhoto,
+  Parallax,
   ParallaxBand,
   Reveal,
   RevealImage,
   RevealLines,
   ScrollProgress,
+  ScrollWords,
 } from "@/components/motion/scroll";
 import PreviewSite from "@/components/preview/preview-site";
 import Assistant from "@/components/site/assistant-lazy";
@@ -105,7 +108,7 @@ function HomePage() {
           {/* Fades the photo into the page: downward on phones, sideways on wider screens */}
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--paper))] md:bg-[linear-gradient(to_right,var(--paper)_8%,rgba(248,245,240,0.85)_38%,transparent_70%)]" />
         </div>
-        <div className="wrap relative grid gap-4 pb-10 md:gap-5 md:min-h-[min(88vh,820px)] md:content-center md:py-24">
+        <HeroContent className="wrap relative grid gap-4 pb-10 md:gap-5 md:min-h-[min(88vh,820px)] md:content-center md:py-24">
           <p className="rise eyebrow" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician · Andheri West</p>
           <h1 className="rise title-caps max-w-[15ch] text-[clamp(2.1rem,5.4vw,4.2rem)]" style={{ ["--i" as string]: 1 }}>
             Women's health, <span className="block">every stage of life</span>
@@ -150,7 +153,7 @@ function HomePage() {
               <dd className="m-0" lang="hi">हिंदी · मराठी · English</dd>
             </div>
           </dl>
-        </div>
+        </HeroContent>
       </section>
 
       {/* 2 · Your concern first */}
@@ -191,7 +194,13 @@ function HomePage() {
                   src={asset(c.image.src)}
                   width={c.image.w}
                 />
-                <div className="grid content-center gap-5">
+                <div className="relative grid content-center gap-5">
+                  <Parallax
+                    className="pointer-events-none absolute -top-24 right-0 select-none font-display text-[clamp(7rem,14vw,12rem)] italic leading-none text-gold/15"
+                    distance={70}
+                  >
+                    <span aria-hidden>{String(i + 1).padStart(2, "0")}</span>
+                  </Parallax>
                   <Reveal>
                     <span className="font-display text-lg italic text-gold">{String(i + 1).padStart(2, "0")} —</span>
                   </Reveal>
@@ -261,15 +270,13 @@ function HomePage() {
       {/* 4 · Then Dr. Shilpa comes in */}
       <ParallaxBand className="text-white" src={asset("images/clinic-reception-wide.jpg")}>
         <div className="bg-[rgba(40,36,31,0.52)]">
-          <div className="wrap grid min-h-[56vh] content-center justify-items-center gap-3 py-24 text-center">
+          <div className="wrap grid min-h-[70vh] content-center justify-items-center gap-3 py-28 text-center">
             <Reveal><p className="font-script text-[clamp(2rem,4vw,3rem)] text-gold-light">whatever brought you here</p></Reveal>
             <RevealLines className="title-caps text-white" lines={["Dr. Shilpa can", "help with that"]} />
-            <Reveal delay={0.2}>
-              <p className="max-w-[48ch] text-white/85">
-                One doctor who knows your story, in a calm, private clinic, with a female staff member present at every
-                examination.
-              </p>
-            </Reveal>
+            <ScrollWords
+              className="mt-3 max-w-[30ch] font-display text-[clamp(1.4rem,2.6vw,2rem)] leading-snug text-white"
+              text="One doctor who knows your story, in a calm, private clinic, with a female staff member present at every examination."
+            />
           </div>
         </div>
       </ParallaxBand>

@@ -34,7 +34,10 @@ export default function PreviewRouter({ pages }: { pages: Record<string, ReactNo
   useEffect(() => {
     if (at.n === 0) return;
     const target = at.hash ? document.getElementById(decodeURIComponent(at.hash)) : null;
-    if (target) target.scrollIntoView();
+    // Smooth scrolling (Lenis) keeps its own position, so jump it too when it's running.
+    const lenis = (window as Window & { __lenis?: { scrollTo: (t: Element | number, o: object) => void } }).__lenis;
+    if (lenis) lenis.scrollTo(target ?? 0, { immediate: true, force: true, offset: 0 });
+    else if (target) target.scrollIntoView();
     else window.scrollTo(0, 0);
   }, [at]);
 

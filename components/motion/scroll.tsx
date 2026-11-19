@@ -72,7 +72,10 @@ export function Reveal({
   );
 }
 
-/** Each line of a title slides up from behind a mask, one after another. */
+/**
+ * Title words rise one after another from behind a mask, with a slight tilt that
+ * straightens as they settle, like type being set.
+ */
 export function RevealLines({
   lines,
   className,
@@ -86,19 +89,30 @@ export function RevealLines({
 }) {
   const { ref, controls } = useReveal<HTMLHeadingElement>();
   const Tag = as;
+  let n = 0;
+  const word = (content: ReactNode, key: string) => {
+    const i = n++;
+    return (
+      <span className="inline-block overflow-hidden pb-[0.1em] align-bottom" key={key}>
+        <motion.span
+          animate={controls}
+          className="inline-block origin-bottom-left"
+          initial={false}
+          transition={{ duration: 1.15, ease: EASE, delay: i * 0.07 }}
+          variants={{ hidden: { y: "110%", rotate: 5 }, shown: { y: "0%", rotate: 0 } }}
+        >
+          {content}
+        </motion.span>
+      </span>
+    );
+  };
   return (
     <Tag className={className} id={id} ref={ref}>
-      {lines.map((line, i) => (
-        <span className="block overflow-hidden pb-[0.08em]" key={i}>
-          <motion.span
-            animate={controls}
-            className="block"
-            initial={false}
-            transition={{ duration: 1.1, ease: EASE, delay: i * 0.12 }}
-            variants={{ hidden: { y: "105%" }, shown: { y: "0%" } }}
-          >
-            {line}
-          </motion.span>
+      {lines.map((line, li) => (
+        <span className="block" key={li}>
+          {typeof line === "string"
+            ? line.split(" ").flatMap((w, wi) => [wi > 0 ? " " : null, word(w, `${li}-${wi}`)])
+            : word(line, `${li}`)}
         </span>
       ))}
     </Tag>
@@ -106,8 +120,9 @@ export function RevealLines({
 }
 
 /**
- * A photo that unveils from the bottom like a curtain lifting, settles from a slight
- * zoom, and then drifts gently against the scroll (parallax).
+ * A photo whose frame opens up in step with the scroll, from a smaller window to full
+ * size while the picture settles from a slight zoom, then drifts against the scroll.
+ * Because it follows the scroll rather than a timer, it feels weighted and unhurried.
  */
 export function RevealImage({
   src,
@@ -126,37 +141,105 @@ export function RevealImage({
   imgClassName?: string;
   priority?: boolean;
 }) {
-  const { ref, controls } = useReveal<HTMLDivElement>();
+  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-6%", "6%"]);
+  const { scrollYProgress: enter } = useScroll({ target: ref, offset: ["start end", "start 0.3"] });
+  const { scrollYProgress: pass } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const inset = useTransform(enter, [0, 1], reduce ? [0, 0] : [16, 0]);
+  const clipPath = useTransform(inset, (v) => `inset(${v}% ${v * 0.75}% ${v}% ${v * 0.75}%)`);
+  const scale = useTransform(enter, [0, 1], reduce ? [1, 1] : [1.25, 1]);
+  const y = useTransform(pass, [0, 1], reduce ? ["0%", "0%"] : ["-6%", "6%"]);
 
   return (
-    <motion.div
-      animate={controls}
-      className={cn("relative overflow-hidden", className)}
-      initial={false}
-      ref={ref}
-      transition={{ duration: 1.4, ease: EASE }}
-      variants={{
-        hidden: { clipPath: "inset(100% 0% 0% 0%)" },
-        shown: { clipPath: "inset(0% 0% 0% 0%)" },
-      }}
-    >
+    <motion.div className={cn("relative overflow-hidden", className)} ref={ref} style={{ clipPath }}>
       <motion.div className="absolute inset-[-7%_0]" style={{ y }}>
         <motion.img
           alt={alt}
-          animate={controls}
           className={cn("size-full object-cover", imgClassName)}
           height={height}
-          initial={false}
           loading={priority ? "eager" : "lazy"}
           src={src}
-          transition={{ duration: 1.8, ease: EASE }}
-          variants={{ hidden: { scale: 1.18 }, shown: { scale: 1 } }}
+          style={{ scale }}
           width={width}
         />
       </motion.div>
+    </motion.div>
+  );
+}
+
+/**
+ * A sentence whose words light up one by one as it scrolls through the screen,
+ * so it reads at the pace of the scroll. Screen readers get the plain sentence.
+ */
+export function ScrollWords({ text, className }: { text: string; className?: string }) {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.85", "end 0.45"] });
+  const words = text.split(" ");
+  return (
+    <p className={className} ref={ref}>
+      <span className="sr-only">{text}</span>
+      <span aria-hidden>
+        {words.map((w, i) => (
+          <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]} still={!!reduce}>
+            {w}
+          </Word>
+        ))}
+      </span>
+    </p>
+  );
+}
+
+function Word({
+  children,
+  progress,
+  range,
+  still,
+}: {
+  children: string;
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+  range: [number, number];
+  still: boolean;
+}) {
+  const opacity = useTransform(progress, range, still ? [1, 1] : [0.18, 1]);
+  return (
+    <>
+      <motion.span style={{ opacity }}>{children}</motion.span>{" "}
+    </>
+  );
+}
+
+/** Moves at a different speed from the page, for depth. */
+export function Parallax({
+  children,
+  className,
+  distance = 80,
+}: {
+  children: ReactNode;
+  className?: string;
+  distance?: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [distance, -distance]);
+  return (
+    <motion.div className={className} ref={ref} style={{ y }}>
+      {children}
+    </motion.div>
+  );
+}
+
+/** Hero words drift up and fade as the page scrolls away from them. */
+export function HeroContent({ children, className }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -90]);
+  const opacity = useTransform(scrollYProgress, [0, 0.75], reduce ? [1, 1] : [1, 0]);
+  return (
+    <motion.div className={className} ref={ref} style={{ y, opacity }}>
+      {children}
     </motion.div>
   );
 }

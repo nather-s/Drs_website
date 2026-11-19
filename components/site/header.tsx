@@ -2,6 +2,7 @@ import MobileMenu from "@/components/site/mobile-menu";
 import { clinic, nav } from "@/lib/clinic";
 import { cn } from "@/lib/utils";
 import Logo from "@/components/site/logo";
+import SocialLinks from "@/components/site/social-icons";
 
 export default function Header({ current }: { current?: string }) {
   return (
@@ -17,9 +18,10 @@ export default function Header({ current }: { current?: string }) {
           <span>
             {clinic.name} &amp; {clinic.aesthetics.name} · {clinic.addressLines[0]}, Andheri West
           </span>
-          <span className="flex gap-5">
+          <span className="flex items-center gap-5">
             <a className="no-underline hover:text-white" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
             <a className="no-underline hover:text-white" href={`mailto:${clinic.email}`}>{clinic.email}</a>
+            <SocialLinks className="-my-2 -mr-2" />
           </span>
         </div>
       </div>

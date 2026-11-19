@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import About from "@/app/about/page";
+import Blog from "@/app/blog/page";
 import Book from "@/app/book/page";
 import BrowsingSafely from "@/app/browsing-safely/page";
 import FirstVisit from "@/app/first-visit/page";
@@ -21,6 +22,7 @@ export default function PreviewSite({ home }: { home: ReactNode }) {
     "/first-visit/": <FirstVisit />,
     "/book/": <Book />,
     "/reviews/": <Reviews />,
+    "/blog/": <Blog />,
     "/privacy/": <Privacy />,
     "/browsing-safely/": <BrowsingSafely />,
   };

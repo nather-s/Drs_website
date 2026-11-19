@@ -60,6 +60,7 @@ export const nav = [
   { label: "Cosmetic gynaecology", href: "/treatments/cosmetic-gynaecology/" },
   { label: "First visit", href: "/first-visit/" },
   { label: "Reviews", href: "/reviews/" },
+  { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/book/#contact" },
 ] as const;
 

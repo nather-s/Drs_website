@@ -35,6 +35,11 @@ export const pageSeo: Record<string, { title: string; description: string }> = {
     description:
       "Rated 4.9/5 by 1,400+ patients on Justdial. Read reviews of Dr. Shilpa Bansal Agrawal, gynaecologist and obstetrician in Andheri West, Mumbai.",
   },
+  blog: {
+    title: "Women's Health Blog & Videos | Dr. Shilpa, Gynaecologist Mumbai",
+    description:
+      "Guides on PCOS, periods, pregnancy, fertility, menopause and more, plus videos from gynaecologist Dr. Shilpa Bansal Agrawal, Andheri West, Mumbai.",
+  },
   "first-visit": {
     title: "Your First Gynaecology Visit | Harleys Women's Clinic, Andheri",
     description:

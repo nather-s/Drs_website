@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useRef } from "react";
 import { clinic, nav } from "@/lib/clinic";
 import { siteHref } from "@/lib/href";
+import SocialLinks from "@/components/site/social-icons";
 
 const links = [{ label: "Home", href: "/" }, ...nav];
 
@@ -63,6 +64,10 @@ export default function MobileMenu({ current }: { current?: string }) {
               </a>
             ))}
           </nav>
+          <div className="mt-4 flex items-center justify-between gap-3 text-sm text-muted-ink">
+            <span>Follow Dr. Shilpa</span>
+            <SocialLinks className="text-plum" size="size-5" />
+          </div>
         </div>
       </dialog>
     </>

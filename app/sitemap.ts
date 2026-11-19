@@ -5,7 +5,7 @@ import { treatments } from "@/lib/treatments";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["/", "/about/", "/team/", "/first-visit/", "/treatments/", "/book/", "/reviews/", "/privacy/", "/browsing-safely/"];
+  const pages = ["/", "/about/", "/team/", "/first-visit/", "/treatments/", "/book/", "/reviews/", "/blog/", "/privacy/", "/browsing-safely/"];
   // Date of the last content update; change it when pages are edited.
   const lastModified = new Date("2026-11-19");
   return [

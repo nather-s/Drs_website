@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
         redirects: async () => [
           ...Object.entries(oldUrls).map(([source, destination]) => ({ source, destination, permanent: true })),
           // Any other old article goes to the treatments overview.
-          { source: "/blog/:path*", destination: "/treatments/", permanent: true },
+          { source: "/blog/:path+", destination: "/blog/", permanent: true },
         ],
       }),
   turbopack: {

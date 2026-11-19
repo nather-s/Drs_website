@@ -47,6 +47,7 @@ export default function Footer() {
             { label: "Our team", href: "/team/" },
             { label: "Your first visit", href: "/first-visit/" },
             { label: "All treatments", href: "/treatments/" },
+            { label: "Blog & videos", href: "/blog/" },
             { label: "Book an appointment", href: "/book/" },
             { label: "Contact and directions", href: "/book/#contact" },
           ]}

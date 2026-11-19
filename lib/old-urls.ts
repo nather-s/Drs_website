@@ -198,7 +198,6 @@ export const oldUrls: Record<string, string> = {
   "/dr-shilpa-top-gynaecologist-mumbai/": "/about/",
   "/private-health-care-for-pregnancy-india/": "/treatments/pregnancy-care/",
   "/maternity-hospital-in-mumbai/": "/treatments/pregnancy-care/",
-  "/blog/": "/treatments/",
   "/women-care-clinic/": "/",
   "/small-growth-on-vulva/": "/treatments/bartholin-cyst/",
   "/vaginal-discharge-treatment-in-malad/": "/treatments/vaginal-infections/",

@@ -1,46 +1,91 @@
+import { Play } from "lucide-react";
+import ReviewStack from "@/components/kokonut/review-stack";
+import {
+  DriftRow,
+  HeroPhoto,
+  ParallaxBand,
+  Reveal,
+  RevealImage,
+  RevealLines,
+  ScrollProgress,
+} from "@/components/motion/scroll";
 import PreviewSite from "@/components/preview/preview-site";
 import Assistant from "@/components/site/assistant-lazy";
 import BookingForm from "@/components/site/booking-form";
 import ClinicMap from "@/components/site/clinic-map";
-import MediaSection from "@/components/site/media-section";
 import RatingGauge from "@/components/site/rating-gauge";
-import ReviewMarquee from "@/components/site/review-marquee";
 import Shell from "@/components/site/shell";
 import SymptomFinder from "@/components/site/symptom-finder";
 import { asset } from "@/lib/asset";
 import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic, reviews } from "@/lib/clinic";
-import { categories, treatments } from "@/lib/treatments";
+import { videos } from "@/lib/media";
+import { getTreatment } from "@/lib/treatments";
 
-// Specific, checkable reasons rather than general claims.
-const reasons = [
-  "MD in Obstetrics & Gynaecology with a gold medal, DNB, and MRCOG from the Royal College in the UK",
-  "ICOG fellowship in reproductive endocrinology and infertility; IUI done by Dr. Shilpa herself",
-  "Former Assistant Professor at Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
-  "Delivers at Surya Hospitals, Cloudnine and Criticare Asia, and her pregnancy patients can reach her directly",
-  "Ultrasound and colposcopy at the clinic, so most visits need no trip elsewhere",
-  "A female staff member is present during every examination",
-  "Consultations in English, Hindi and Marathi",
+// The home page reads as one story: what you're feeling, how it can be helped, who
+// will help you, what other women say, and how to come in. Each life-stage chapter
+// carries the one video of Dr. Shilpa's that belongs to it.
+const chapters = [
+  {
+    id: "periods",
+    title: "Periods & hormones",
+    script: "listening to your body",
+    text: "Irregular or painful periods, PCOS, acne and unwanted hair, discharge, fibroids and cysts. Dr. Shilpa looks for the cause first and explains every option in plain words before anything is decided.",
+    image: { src: "images/woman-periods.jpg", w: 900, h: 1000, alt: "A woman resting at home with a glass of water" },
+    slugs: ["irregular-periods", "pcos", "pcos-acne", "hirsutism", "fibroids-and-cysts", "vaginal-infections"],
+    video: "_WfODYyC3hE",
+    more: "/treatments/#gynaecology",
+  },
+  {
+    id: "fertility",
+    title: "Trying for a baby",
+    script: "when you're ready",
+    text: "Tests for both partners, ovulation tracking, and IUI at the clinic, done by Dr. Shilpa herself. If IVF is the right step, she refers you to a registered centre nearby.",
+    image: { src: "images/consult-fertility.jpg", w: 1000, h: 1000, alt: "A woman talking with her doctor beside an ultrasound screen" },
+    slugs: ["fertility", "male-infertility", "pcos"],
+    video: "Bqt9bxX59FA",
+    more: "/treatments/fertility/",
+  },
+  {
+    id: "pregnancy",
+    title: "Pregnancy & birth",
+    script: "from first scan to first cry",
+    text: "Check-ups and scans at the clinic, care for high-risk pregnancies, and delivery with Dr. Shilpa at Surya Hospitals, Cloudnine or Criticare Asia. Her pregnancy patients can call her directly, day or night.",
+    image: { src: "images/woman-pregnancy.jpg", w: 512, h: 1024, alt: "A pregnant woman in soft cream clothes, hands on her bump" },
+    slugs: ["pregnancy-care", "high-risk-pregnancy", "epidural-pain-relief", "pregnancy-options"],
+    video: "SGaynS4V95g",
+    more: "/treatments/pregnancy-care/",
+  },
+  {
+    id: "life-stages",
+    title: "Every age after",
+    script: "teens to menopause",
+    text: "A first visit for teenagers, with a parent if they wish. Contraception that suits your life, Pap and HPV screening, and support through perimenopause and menopause, including HRT when it's right for you.",
+    image: { src: "images/woman-wellbeing.jpg", w: 819, h: 1024, alt: "A woman meditating calmly at home" },
+    slugs: ["adolescent-health", "contraception", "cervical-cancer-prevention", "menopause"],
+    video: "0NMxwucIDQI",
+    more: "/treatments/#life-stages",
+  },
+] as const;
+
+const credentials = [
+  { k: "MD, Gold Medal", v: "Obstetrics & Gynaecology" },
+  { k: "MRCOG", v: "Royal College of Obstetricians & Gynaecologists, UK" },
+  { k: "Fellowship", v: "Reproductive endocrinology & infertility (ICOG)" },
+  { k: "Formerly", v: "Assistant Professor, Grant Medical College & Sir JJ Hospitals" },
 ];
 
-const faqs = [
-  {
-    q: "When should I see a gynaecologist?",
-    a: "Book a visit if your periods change, if you notice unusual discharge or pelvic pain, or if you are having trouble conceiving. Regular check-ups and cervical screening are worthwhile even without symptoms; Dr. Shilpa will advise how often you need them.",
-  },
-  {
-    q: "How should I prepare for my first appointment?",
-    a: "Note your period dates and any symptoms, list your medicines and past surgeries, and bring previous reports.",
-  },
-  {
-    q: "Is the clinic private and female-friendly?",
-    a: "Yes. Most of the clinic's staff are women, and every consultation is confidential, within the limits the law requires.",
-  },
-  {
-    q: "Can I come in just for a preventive check-up?",
-    a: "Yes. Preventive visits, including Pap smears and HPV screening, help catch problems early. For urgent concerns, same-day appointments are often available.",
-  },
+const gallery = [
+  { src: "images/clinic-reception-wide.jpg", alt: "Reception at Harleys Women's Clinic" },
+  { src: "images/woman-pregnancy-hero.jpg", alt: "" },
+  { src: "images/clinic-room.jpg", alt: "Consultation room" },
+  { src: "images/woman-contraception.jpg", alt: "" },
+  { src: "images/clinic-corridor.jpg", alt: "The clinic's waiting area" },
+  { src: "images/consult-pregnancy.jpg", alt: "" },
+  { src: "images/clinic-room-detail.jpg", alt: "Treatment room" },
 ];
+
+const thumb = (id: string) => `${process.env.PREVIEW_EXPORT === "1" ? "./" : "/"}videos/${id}.jpg`;
 
 export default function Home() {
   // The design preview carries every page inside this one; see PreviewSite.
@@ -49,367 +94,329 @@ export default function Home() {
 }
 
 function HomePage() {
-  const delivers = new Set<string>(clinic.deliversAt);
   return (
     <Shell>
-      {/* Hero: name, what she treats and the two ways to book, in the first phone screen */}
-      <section className="bg-[linear-gradient(135deg,#f8efdc_0%,#efdfbd_100%)]">
-        <div className="wrap grid gap-10 py-8 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-16 md:py-20">
-          <div className="grid content-center gap-5">
-            <span className="eyebrow">Woman gynaecologist · DN Nagar, Andheri West</span>
-            <div className="flex items-center gap-4">
-              <img
-                alt=""
-                className="size-[72px] shrink-0 rounded-full border-2 border-gold/60 object-cover md:hidden"
-                height={72}
-                src={asset("images/dr-shilpa-face.jpg")}
-                width={72}
-              />
-              <h1 className="text-[clamp(2.5rem,6vw,4.4rem)] leading-[1.02]">
-                Dr. Shilpa <em>Bansal Agrawal</em>
-              </h1>
-            </div>
-            <p className="font-display text-[clamp(1.25rem,2vw,1.5rem)] text-accent">
-              Obstetrician &amp; gynaecologist · MD (Gold Medal) · MRCOG (UK)
-            </p>
-            <p className="text-lg">Pregnancy, fertility, PCOS, periods, abnormal smears and menopause.</p>
-            <p className="max-w-[52ch] border-l border-gold pl-4 text-[0.95rem] text-muted-ink">
-              Private and confidential. You won't be judged, whatever your age or whether you're married, and nothing
-              is examined without your agreement.{" "}
-              <a className="link" href="/first-visit/">What happens at your first visit</a>
-            </p>
-            <div className="grid gap-3 min-[400px]:grid-cols-2 sm:flex sm:flex-wrap">
-              <a className="btn btn-primary whitespace-nowrap px-4" href={bookOnWhatsapp()} rel="noopener" target="_blank">
-                Book on WhatsApp
-              </a>
-              <a className="btn whitespace-nowrap px-4" href={clinic.phoneHref}>
-                Call {clinic.phoneDisplay.replace("+91 ", "")}
-              </a>
-            </div>
-            <p className="text-sm text-muted-ink">
-              {clinic.addressLines[0]}, Andheri West ·{" "}
-              <a className="link" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions</a>
-            </p>
-          </div>
-          <figure className="photo-frame m-0 hidden justify-self-end md:block">
-            <img
-              alt="Dr. Shilpa Bansal Agrawal in her clinic"
-              className="relative block w-full max-w-[440px] object-cover shadow-[0_30px_60px_-30px_rgba(59,42,20,0.45)]"
-              height={760}
-              src={asset("images/dr-shilpa.jpg")}
-              width={570}
-            />
-            <figcaption className="absolute -bottom-6 -left-8 bg-paper px-6 py-4 shadow-lg">
-              <span className="block text-[0.65rem] font-medium uppercase tracking-[0.22em] text-accent">{clinic.doctorRole}</span>
-              <span className="font-display text-xl text-plum">{clinic.doctor}</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+      <ScrollProgress />
 
-      {/* Gold band: the facts skimmers look for */}
-      <section aria-label="At a glance" className="bg-gold text-white">
-        <dl className="wrap my-0 grid grid-cols-2 gap-x-6 gap-y-4 py-6 lg:grid-cols-4">
-          <div className="grid gap-0.5">
-            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Rating</dt>
-            <dd className="m-0">
-              <a className="font-display text-2xl text-white no-underline hover:underline" href="/reviews/">
-                ★ {clinic.rating.value} / 5
-              </a>
-              <span className="block text-sm text-white/90">{clinic.rating.count} on {clinic.rating.source}</span>
-            </dd>
+      {/* 1 · Hero */}
+      <section className="relative isolate overflow-hidden bg-paper md:min-h-[min(88vh,820px)]">
+        <div className="relative h-[26vh] min-h-[180px] md:absolute md:inset-0 md:h-auto">
+          <HeroPhoto alt="A pregnant woman in white holding her ultrasound picture" src={asset("images/woman-pregnancy-hero.jpg")} />
+          {/* Fades the photo into the page: downward on phones, sideways on wider screens */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--paper))] md:bg-[linear-gradient(to_right,var(--paper)_8%,rgba(248,245,240,0.85)_38%,transparent_70%)]" />
+        </div>
+        <div className="wrap relative grid gap-4 pb-10 md:gap-5 md:min-h-[min(88vh,820px)] md:content-center md:py-24">
+          <p className="rise eyebrow" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician · Andheri West</p>
+          <h1 className="rise title-caps max-w-[15ch] text-[clamp(2.1rem,5.4vw,4.2rem)]" style={{ ["--i" as string]: 1 }}>
+            Women's health, <span className="block">every stage of life</span>
+          </h1>
+          <p className="rise script -mt-1" style={{ ["--i" as string]: 2 }}>with Dr. Shilpa Bansal Agrawal</p>
+          <p className="rise max-w-[46ch] text-[1.05rem] text-muted-ink md:text-lg" style={{ ["--i" as string]: 3 }}>
+            Periods, PCOS, fertility, pregnancy and menopause. Private, unhurried care with no judgement, whatever your
+            age or whether you're married. MD (Gold Medal) · MRCOG (UK).
+          </p>
+          <div className="rise grid gap-3 min-[400px]:grid-cols-2 sm:flex sm:flex-wrap" style={{ ["--i" as string]: 4 }}>
+            <a className="btn btn-primary whitespace-nowrap px-5" href={bookOnWhatsapp()} rel="noopener" target="_blank">
+              Book on WhatsApp
+            </a>
+            <a className="btn whitespace-nowrap bg-paper/60 px-5" href={clinic.phoneHref}>
+              Call {clinic.phoneDisplay.replace("+91 ", "")}
+            </a>
           </div>
-          {clinic.fee && (
-            <div className="grid gap-0.5">
-              <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Consultation</dt>
+          <dl
+            className="rise m-0 mt-2 grid max-w-[620px] grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-5 text-sm sm:grid-cols-4"
+            style={{ ["--i" as string]: 5 }}
+          >
+            <div>
+              <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Rated</dt>
               <dd className="m-0">
-                <span className="font-display text-2xl">{clinic.fee}</span>
-                <span className="block text-sm text-white/90">Tests extra, told first</span>
+                <a className="no-underline hover:text-accent" href="/reviews/">
+                  <b className="font-display text-xl font-medium">★ {clinic.rating.value}</b> · {clinic.rating.count} on {clinic.rating.source}
+                </a>
               </dd>
             </div>
-          )}
-          <div className="grid gap-0.5">
-            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Open</dt>
-            <dd className="m-0">
-              <span className="font-display text-2xl">Mon–Sat</span>
-              <span className="block text-sm text-white/90">Weekdays till 7:30 pm · Sat 12–5</span>
-            </dd>
-          </div>
-          <div className="grid gap-0.5">
-            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Languages</dt>
-            <dd className="m-0">
-              <span className="font-display text-2xl" lang="hi">हिंदी · मराठी</span>
-              <span className="block text-sm text-white/90">and English</span>
-            </dd>
-          </div>
-        </dl>
-      </section>
-
-      {/* Plain-language starting points */}
-      <section aria-label="Find the right page" className="py-12 md:py-16">
-        <div className="wrap">
-          <SymptomFinder />
-        </div>
-      </section>
-
-      {/* Why Dr. Shilpa */}
-      <section aria-labelledby="why-title" className="section border-t border-line">
-        <div className="wrap grid items-center gap-14 md:grid-cols-2 md:gap-16">
-          <div className="relative mx-auto w-full max-w-[460px] pr-10 pb-12">
-            <div className="photo-frame">
-              <img
-                alt="Consultation room at Harleys Women's Clinic, Andheri West"
-                className="relative block aspect-[4/5] w-full object-cover"
-                height={950}
-                loading="lazy"
-                src={asset("images/clinic-room.jpg")}
-                width={760}
-              />
-            </div>
-            <img
-              alt="Treatment room at Harleys Women's Clinic"
-              className="absolute right-0 bottom-0 w-[48%] border-[6px] border-paper object-cover shadow-xl"
-              height={507}
-              loading="lazy"
-              src={asset("images/clinic-room-detail.jpg")}
-              width={380}
-            />
-          </div>
-          <div className="grid content-start gap-5">
-            <span className="eyebrow">Why patients choose Dr. Shilpa</span>
-            <h2 className="h-section" id="why-title">
-              Experienced, <em>unhurried</em> care for women
-            </h2>
-            <ul className="m-0 grid list-none p-0">
-              {reasons.map((r) => (
-                <li className="flex gap-4 border-b border-line py-3" key={r}>
-                  <span aria-hidden className="mt-[0.8em] h-px w-3 shrink-0 bg-gold" />
-                  {r}
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-wrap gap-3">
-              <a className="btn btn-primary" href="/book/">Book appointment</a>
-              <a className="btn" href="/about/">About Dr. Shilpa</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treatments, as a numbered list */}
-      <section aria-labelledby="treatments-title" className="section bg-mist">
-        <div className="wrap grid gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="grid gap-3">
-              <span className="eyebrow">Treatments</span>
-              <h2 className="h-section" id="treatments-title">Areas of <em>care</em></h2>
-              <p className="max-w-[54ch] text-muted-ink">
-                Not sure where to start? Book a general consultation and Dr. Shilpa will guide you.
-              </p>
-            </div>
-            <a className="link" href="/treatments/">All treatments</a>
-          </div>
-          <ol className="m-0 list-none border-t border-gold/40 p-0">
-            {categories.map((c, i) => (
-              <li className="grid gap-3 border-b border-gold/40 py-7 md:grid-cols-[3.5rem_1fr_1.3fr] md:gap-8" key={c.id}>
-                <span className="font-display text-xl italic text-gold">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="text-[1.75rem]">
-                  <a className="no-underline hover:text-accent" href={`/treatments/#${c.id}`}>{c.title}</a>
-                </h3>
-                <div className="grid gap-3">
-                  <p className="text-muted-ink">{c.intro}</p>
-                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                    {treatments
-                      .filter((t) => t.category === c.id)
-                      // Elective cosmetic procedures are listed on their own page, not on the home page.
-                      .slice(0, c.id === "cosmetic" ? 1 : 5)
-                      .map((t) => (
-                        <li key={t.slug}>
-                          <a
-                            className="inline-flex min-h-10 items-center border border-gold/60 px-3 text-[0.72rem] font-medium uppercase tracking-[0.14em] text-plum no-underline transition-colors hover:bg-gold hover:text-white"
-                            href={`/treatments/${t.slug}/`}
-                          >
-                            {t.title}
-                          </a>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-            <li className="grid gap-3 py-7 md:grid-cols-[3.5rem_1fr_1.3fr] md:gap-8">
-              <span className="font-display text-xl italic text-gold">{String(categories.length + 1).padStart(2, "0")}</span>
-              <h3 className="text-[1.75rem]">Not sure where to start?</h3>
-              <div className="grid justify-items-start gap-3">
-                <p className="text-muted-ink">Book a general consultation and Dr. Shilpa will guide you.</p>
-                <a className="btn btn-primary" href="/book/">Book an appointment</a>
+            {clinic.fee && (
+              <div>
+                <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Consultation</dt>
+                <dd className="m-0"><b className="font-display text-xl font-medium">{clinic.fee}</b></dd>
               </div>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section aria-labelledby="reviews-title" className="section" id="reviews">
-        <div className="wrap mb-10 grid items-end gap-8 md:grid-cols-[1fr_auto]">
-          <div className="grid gap-3">
-            <span className="eyebrow">Patient reviews</span>
-            <h2 className="h-section" id="reviews-title">What patients say about <em>their care</em></h2>
-            <p className="max-w-[60ch] text-muted-ink">
-              Patient reviews from Google and Practo. The overall rating shown is from Justdial.
-            </p>
-            <div className="mt-2 flex flex-wrap gap-3">
-              <a className="btn" href="/reviews/">All reviews</a>
-              <a className="btn" href={clinic.practoHref} rel="noopener" target="_blank">Read more on Practo</a>
+            )}
+            <div>
+              <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Open</dt>
+              <dd className="m-0">Mon–Sat · weekdays till 7:30</dd>
             </div>
-          </div>
-          <RatingGauge />
+            <div>
+              <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Languages</dt>
+              <dd className="m-0" lang="hi">हिंदी · मराठी · English</dd>
+            </div>
+          </dl>
         </div>
-        <ReviewMarquee items={reviews} />
       </section>
 
-      {/* Location */}
-      <section aria-labelledby="location-title" className="section border-t border-line bg-mist" id="location">
-        <div className="wrap grid gap-10">
-          <div className="grid gap-3">
-            <span className="eyebrow">Clinic location</span>
-            <h2 className="h-section" id="location-title">Harleys <em>Women's Clinic</em></h2>
+      {/* 2 · Your concern first */}
+      <section aria-labelledby="concern-title" className="section bg-paper">
+        <div className="wrap grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid content-start gap-4 lg:sticky lg:top-32">
+            <Reveal><p className="script">care the way it should be</p></Reveal>
+            <RevealLines className="title-caps" id="concern-title" lines={["Tell us what's", "on your mind"]} />
+            <Reveal delay={0.1}>
+              <p className="max-w-[40ch] text-muted-ink">
+                Choose what's closest to how you feel. Each page explains it in plain words, what can be done, and how
+                Dr. Shilpa can help. You don't need to know the medical name.
+              </p>
+            </Reveal>
           </div>
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
-            <div className="grid content-start gap-6">
+          <Reveal delay={0.1}>
+            <SymptomFinder hideHeading />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 3 · Life-stage chapters, alternating photo and text */}
+      <section aria-label="Care at every stage" className="bg-mist py-16 md:py-28">
+        <div className="wrap grid gap-20 md:gap-32">
+          {chapters.map((c, i) => {
+            const video = videos.find((v) => v.id === c.video);
+            const flip = i % 2 === 1;
+            return (
+              <article
+                aria-labelledby={`ch-${c.id}`}
+                className="grid items-center gap-8 md:grid-cols-2 md:gap-16 lg:gap-24"
+                key={c.id}
+              >
+                <RevealImage
+                  alt={c.image.alt}
+                  className={`aspect-[4/5] w-full ${flip ? "md:order-2" : ""}`}
+                  height={c.image.h}
+                  src={asset(c.image.src)}
+                  width={c.image.w}
+                />
+                <div className="grid content-center gap-5">
+                  <Reveal>
+                    <span className="font-display text-lg italic text-gold">{String(i + 1).padStart(2, "0")} —</span>
+                  </Reveal>
+                  <div className="grid gap-1">
+                    <RevealLines as="h2" className="title-caps text-[clamp(1.9rem,3.6vw,3rem)]" id={`ch-${c.id}`} lines={[c.title]} />
+                    <Reveal delay={0.1}><p className="script">{c.script}</p></Reveal>
+                  </div>
+                  <Reveal delay={0.15}><p className="max-w-[46ch] text-muted-ink">{c.text}</p></Reveal>
+                  <Reveal delay={0.2}>
+                    <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                      {c.slugs.map((slug) => {
+                        const t = getTreatment(slug)!;
+                        return (
+                          <li key={slug}>
+                            <a
+                              className="inline-flex min-h-10 items-center rounded-full border border-plum/25 bg-paper/70 px-4 text-[0.9rem] no-underline transition-colors duration-300 hover:border-plum hover:bg-plum hover:text-paper"
+                              href={`/treatments/${slug}/`}
+                            >
+                              {t.title}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </Reveal>
+                  {video && (
+                    <Reveal delay={0.25}>
+                      <a
+                        className="group flex max-w-[440px] items-center gap-4 border-t border-line pt-5 no-underline"
+                        href={`https://www.youtube.com/watch?v=${video.id}`}
+                        rel="noopener"
+                        target="_blank"
+                      >
+                        <span className="relative grid aspect-video w-32 shrink-0 place-items-center overflow-hidden bg-plum-soft">
+                          <img
+                            alt=""
+                            className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            height={72}
+                            loading="lazy"
+                            src={thumb(video.id)}
+                            width={128}
+                          />
+                          <span className="relative grid size-8 place-items-center rounded-full bg-paper/90 text-plum">
+                            <Play aria-hidden className="size-3.5 translate-x-px" />
+                          </span>
+                        </span>
+                        <span className="grid gap-0.5">
+                          <span className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Dr. Shilpa explains</span>
+                          <span className="font-display text-lg leading-snug text-plum group-hover:underline">{video.title}</span>
+                        </span>
+                      </a>
+                    </Reveal>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+          <Reveal className="text-center">
+            <p className="text-muted-ink">
+              Looking for something else?{" "}
+              <a className="link" href="/treatments/">See all treatments</a>, including cosmetic gynaecology.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 4 · Then Dr. Shilpa comes in */}
+      <ParallaxBand className="text-white" src={asset("images/clinic-reception-wide.jpg")}>
+        <div className="bg-[rgba(40,36,31,0.52)]">
+          <div className="wrap grid min-h-[56vh] content-center justify-items-center gap-3 py-24 text-center">
+            <Reveal><p className="font-script text-[clamp(2rem,4vw,3rem)] text-gold-light">whatever brought you here</p></Reveal>
+            <RevealLines className="title-caps text-white" lines={["Dr. Shilpa can", "help with that"]} />
+            <Reveal delay={0.2}>
+              <p className="max-w-[48ch] text-white/85">
+                One doctor who knows your story, in a calm, private clinic, with a female staff member present at every
+                examination.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </ParallaxBand>
+
+      <section aria-labelledby="doctor-title" className="section bg-paper">
+        <div className="wrap grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
+          <RevealImage
+            alt="Dr. Shilpa Bansal Agrawal"
+            className="aspect-[4/5] w-full max-w-[480px] justify-self-center"
+            height={800}
+            imgClassName="object-[50%_20%]"
+            src={asset("images/dr-shilpa-portrait.jpg")}
+            width={800}
+          />
+          <div className="grid content-start gap-5">
+            <Reveal><p className="script">meet your doctor</p></Reveal>
+            <RevealLines className="title-caps" id="doctor-title" lines={["Dr. Shilpa", "Bansal Agrawal"]} />
+            <Reveal delay={0.1}>
+              <p>
+                A consultant obstetrician and gynaecologist and the founder of {clinic.name}. She believes every woman
+                deserves time to be heard: she explains each option clearly, avoids unnecessary medication, and plans
+                treatment around you.
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <dl className="m-0 grid gap-px border-y border-line sm:grid-cols-2">
+                {credentials.map((c) => (
+                  <div className="grid gap-0.5 py-4 sm:pr-6" key={c.k}>
+                    <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">{c.k}</dt>
+                    <dd className="m-0 font-display text-lg leading-snug text-plum">{c.v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="text-sm text-muted-ink">
+                Consults at {clinic.hospitals.join(", ")}. Consultations in {clinic.languages}.
+              </p>
+            </Reveal>
+            <Reveal className="flex flex-wrap gap-3" delay={0.25}>
+              <a className="btn btn-primary" href="/book/">Book with Dr. Shilpa</a>
+              <a className="btn" href="/about/">Her full story</a>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 5 · What other women say */}
+      <section aria-labelledby="reviews-title" className="section overflow-hidden bg-mist" id="reviews">
+        <div className="wrap grid items-center gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="grid content-start gap-5">
+            <Reveal><p className="script">in their words</p></Reveal>
+            <RevealLines className="title-caps" id="reviews-title" lines={["What patients", "say"]} />
+            <Reveal delay={0.1}>
+              <p className="max-w-[40ch] text-muted-ink">
+                Reviews from Google and Practo. The overall rating is from {clinic.rating.source}.
+              </p>
+            </Reveal>
+            <Reveal className="w-fit" delay={0.15}>
+              <RatingGauge />
+            </Reveal>
+            <Reveal className="flex flex-wrap gap-3" delay={0.2}>
+              <a className="btn" href="/reviews/">All reviews</a>
+              <a className="btn" href={clinic.practoHref} rel="noopener" target="_blank">On Practo</a>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <ReviewStack items={reviews} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 6 · Plan your visit: where, when, what it costs, then book or ask */}
+      <section aria-labelledby="visit-title" className="section bg-paper" id="book">
+        <div className="wrap grid gap-14">
+          <div className="grid justify-items-center gap-3 text-center">
+            <Reveal><p className="script">we're here for you</p></Reveal>
+            <RevealLines className="title-caps" id="visit-title" lines={["Plan your visit"]} />
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+            <Reveal className="grid content-start gap-6">
               <ClinicMap />
-              <dl className="m-0 grid gap-5 sm:grid-cols-2">
-                <div className="grid gap-1">
-                  <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Address</dt>
+              <dl className="m-0 grid gap-6 sm:grid-cols-2">
+                <div className="grid content-start gap-1 sm:col-span-2">
+                  <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Where</dt>
                   <dd className="m-0">
-                    {clinic.addressLines.map((l) => (
-                      <span className="block" key={l}>{l}</span>
-                    ))}
-                    <a className="link mt-1 inline-block" href={clinic.mapsHref} rel="noopener" target="_blank">
-                      Get directions →
-                    </a>
+                    {clinic.name}, {clinic.addressLines.join(", ")}
+                    <a className="link mt-1 block" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions →</a>
                   </dd>
                 </div>
-                <div className="grid content-start gap-4">
-                  {clinic.hours && (
-                    <div className="grid gap-1">
-                      <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Consultation hours</dt>
-                      <dd className="m-0">
-                        Mon–Fri 12–2:30 pm and 5:30–7:30 pm
-                        <span className="block">Sat 12–5 pm · Closed Sunday</span>
-                      </dd>
-                    </div>
-                  )}
-                  <div className="grid gap-1">
-                    <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Telephone &amp; WhatsApp</dt>
-                    <dd className="m-0">
-                      <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
-                    </dd>
-                  </div>
-                  <div className="grid gap-1">
-                    <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Email</dt>
-                    <dd className="m-0 break-words">
-                      <a className="no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a>
-                    </dd>
-                  </div>
+                <div className="grid content-start gap-1">
+                  <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">When</dt>
+                  <dd className="m-0">
+                    Mon–Fri 12–2:30 pm &amp; 5:30–7:30 pm
+                    <span className="block">Sat 12–5 pm · Closed Sunday</span>
+                  </dd>
+                </div>
+                <div className="grid content-start gap-1">
+                  <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Your first visit</dt>
+                  <dd className="m-0">
+                    {clinic.fee ? `${clinic.fee} consultation; any tests are explained and priced first.` : "Any tests are explained first."}
+                    <a className="link mt-1 block" href="/first-visit/">What to expect →</a>
+                  </dd>
                 </div>
               </dl>
-            </div>
-            <div className="grid content-start gap-4">
-              <h3 className="border-t border-gold/60 pt-5 text-[1.75rem]">Hospital affiliations</h3>
-              <ul className="m-0 grid list-none p-0">
-                {clinic.hospitals.map((h) => (
-                  <li className="flex items-baseline justify-between gap-4 border-b border-line py-3.5" key={h}>
-                    <span className="font-display text-xl text-plum">{h}</span>
-                    <span className="text-right text-[0.66rem] font-medium uppercase tracking-[0.18em] text-accent">
-                      Consults{delivers.has(h) ? " · Deliveries" : ""}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-muted-ink">
-                Dr. Shilpa's pregnancy patients deliver with her at Surya Hospitals, Cloudnine or Criticare Asia.
+            </Reveal>
+            <Reveal className="shadow-[0_30px_60px_-40px_rgba(47,44,40,0.5)]" delay={0.1}>
+              <BookingForm />
+            </Reveal>
+          </div>
+
+          <div className="grid items-start gap-8 border-t border-line pt-14 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+            <Reveal className="grid content-start gap-3">
+              <h2 className="title-caps text-[clamp(1.6rem,2.6vw,2.2rem)]" id="assistant-title">Still have a question?</h2>
+              <p className="text-muted-ink">
+                The clinic assistant answers practical questions about the clinic and helps you request an appointment.
+                It does not give medical advice. In an emergency, call {clinic.emergency}.
               </p>
-            </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <Assistant />
+            </Reveal>
           </div>
         </div>
       </section>
 
-      <MediaSection />
-
-      {/* FAQ */}
-      <section aria-labelledby="faq-title" className="section">
-        <div className="wrap grid max-w-[880px] gap-8">
-          <div className="grid justify-items-center gap-3 text-center">
-            <span className="eyebrow">Before your visit</span>
-            <h2 className="h-section" id="faq-title">Common <em>questions</em></h2>
-          </div>
-          <div>
-            {faqs.map((f) => (
-              <details className="group border-t border-line py-5 last:border-b" key={f.q}>
-                <summary className="flex cursor-pointer list-none justify-between gap-4 font-display text-[1.4rem] text-plum [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <span aria-hidden className="text-2xl leading-none text-gold transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-2 max-w-[62ch] text-muted-ink">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Assistant */}
-      <section aria-labelledby="assistant-title" className="section border-t border-line bg-mist">
-        <div className="wrap grid items-start gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-          <div className="grid content-start gap-4">
-            <span className="eyebrow">Clinic assistant</span>
-            <h2 className="h-section" id="assistant-title">Questions <em>before you book?</em></h2>
-            <p className="text-muted-ink">
-              The clinic assistant can help you request an appointment with Dr. Shilpa and answer practical questions about
-              the clinic, such as where it is and what happens at your first visit.
-            </p>
-            <p className="text-sm text-muted-ink">
-              It does not give medical advice. For anything about your health, please book a consultation.
-            </p>
-          </div>
-          <Assistant />
-        </div>
-      </section>
-
-      {/* Book */}
-      <section aria-labelledby="book-title" className="section bg-[linear-gradient(135deg,#f8efdc_0%,#efdfbd_100%)]" id="book">
-        <div className="wrap grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
-          <div className="grid content-start gap-5">
-            <span className="eyebrow">Book a consultation</span>
-            <h2 className="h-section" id="book-title">Book a consultation <em>with Dr. Shilpa</em></h2>
-            <dl className="m-0 grid gap-4">
-              <div className="grid gap-1">
-                <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Clinic</dt>
-                <dd className="m-0">
-                  {clinic.name}, {clinic.addressLines.join(", ")}
-                  <a className="link ml-1" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions →</a>
-                </dd>
-              </div>
-              <div className="grid gap-1">
-                <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Telephone</dt>
-                <dd className="m-0">
-                  <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
-                </dd>
-              </div>
-              {clinic.hours && (
-                <div className="grid gap-1">
-                  <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Hours</dt>
-                  <dd className="m-0">{clinic.hours}</dd>
-                </div>
-              )}
-            </dl>
-            <p className="text-sm text-muted-ink">
-              In a medical emergency, call {clinic.emergency} or go to the nearest hospital emergency department.
-            </p>
-          </div>
-          <div className="bg-paper/80 shadow-[0_30px_60px_-40px_rgba(59,42,20,0.5)]">
-            <BookingForm />
-          </div>
+      {/* 7 · A glimpse of the clinic */}
+      <section aria-label="Inside the clinic" className="bg-paper pb-16">
+        <DriftRow>
+          {gallery.map((g) => (
+            <img
+              alt={g.alt}
+              className="h-[200px] w-auto object-cover sm:h-[280px]"
+              height={280}
+              key={g.src}
+              loading="lazy"
+              src={asset(g.src)}
+              width={360}
+            />
+          ))}
+        </DriftRow>
+        <div className="wrap mt-6 flex flex-wrap items-center justify-between gap-3 text-[0.7rem] uppercase tracking-[0.22em] text-muted-ink">
+          <span>{clinic.name} · Jyoti Tower, DN Nagar</span>
+          <a className="no-underline hover:text-accent" href={clinic.social.instagram} rel="noopener" target="_blank">
+            Follow on Instagram →
+          </a>
         </div>
       </section>
     </Shell>

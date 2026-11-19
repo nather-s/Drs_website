@@ -1,14 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Allura, Cormorant_Garamond, Jost } from "next/font/google";
 import { clinic, siteUrl } from "@/lib/clinic";
 import "./globals.css";
 
-// Cormorant Garamond for headings, Jost for text.
+// Cormorant Garamond for headings, Jost for text, Allura for script accents.
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
+  display: "swap",
+});
+
+// Allura: a script face, used only for short decorative accent lines.
+const allura = Allura({
+  variable: "--font-allura",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -75,7 +83,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en-IN" className={`${cormorant.variable} ${jost.variable} ${allura.variable}`}>
       <body className="min-h-full">
         <script
           // Static, trusted object; escaping "<" keeps it from closing the script tag.

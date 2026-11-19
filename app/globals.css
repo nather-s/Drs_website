@@ -6,19 +6,19 @@
   color-scheme: light;
   --paper: #f8f5f0;
   --mist: #eee7dd;
-  --ink: #2f2c28;
-  --muted-ink: #5f574d;
+  --ink: #1c1915;
+  --muted-ink: #463f36;
   --line: #ddd3c5;
-  --accent: #4a453c;
-  --accent-dark: #2f2c28;
+  --accent: #35302a;
+  --accent-dark: #1c1915;
   --accent-ink: #ffffff;
-  --gold: #a39079;
+  --gold: #87725a;
   --gold-light: #ddd0bd;
-  --plum: #3b3731;
+  --plum: #26221d;
   --plum-soft: #f1ece5;
   --rose-soft: #f3eee7;
   --star: #7a6236;
-  --field: #8a7f70;
+  --field: #6e6457;
 
   /* Tokens expected by the bklit and Kokonut components */
   --background: var(--paper);

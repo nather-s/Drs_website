@@ -112,7 +112,7 @@ function HomePage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--paper))] md:bg-[linear-gradient(to_right,var(--paper)_8%,rgba(248,245,240,0.85)_38%,transparent_70%)]" />
         </div>
         <HeroContent className="wrap relative grid gap-4 pb-10 md:gap-5 md:min-h-[min(88vh,820px)] md:content-center md:py-24">
-          <h1 className="rise eyebrow" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician in Andheri West, Mumbai</h1>
+          <h1 className="rise eyebrow font-sans" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician in Andheri West, Mumbai</h1>
           <p className="rise title-caps max-w-[15ch] text-[clamp(2.1rem,5.4vw,4.2rem)]" style={{ ["--i" as string]: 1 }}>
             Women's health, <span className="block">every stage of life</span>
           </p>
@@ -284,7 +284,7 @@ function HomePage() {
               <Reveal delay={0.1}><p className="script text-gold-light">comfort &amp; confidence</p></Reveal>
             </div>
             <Reveal delay={0.15}>
-              <p className="max-w-[46ch] text-paper/80">
+              <p className="max-w-[46ch] text-paper/90">
                 Elective treatments for the comfort, function and appearance of the intimate area, such as vaginal
                 tightening, labiaplasty and hymenoplasty. Offered by {clinic.name} together with {clinic.aesthetics.name}, led by
                 {" "}{clinic.aesthetics.role.toLowerCase()} {clinic.aesthetics.doctor}.
@@ -297,7 +297,7 @@ function HomePage() {
                   "The risks, recovery and alternatives explained before you decide",
                   "For adults only, with no pressure to go ahead",
                 ].map((x) => (
-                  <li className="flex gap-4 border-b border-paper/15 py-3 text-paper/85" key={x}>
+                  <li className="flex gap-4 border-b border-paper/15 py-3 text-paper/95" key={x}>
                     <span aria-hidden className="mt-[0.8em] h-px w-3 shrink-0 bg-gold-light" />
                     {x}
                   </li>

@@ -4,25 +4,25 @@ import Logo from "@/components/site/logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-plum pb-28 text-[0.92rem] text-white/75 md:pb-0">
+    <footer className="bg-plum pb-28 text-[0.92rem] text-white/90 md:pb-0">
       <div className="wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1fr]">
         <div className="grid content-start gap-3">
           <Logo className="mb-2" tone="light" />
           <b className="sr-only">{clinic.name}</b>
-          <p className="m-0 text-white/70">
+          <p className="m-0 text-white/85">
             {clinic.name}, with {clinic.aesthetics.name} for cosmetic gynaecology.
           </p>
-          <address className="not-italic text-white/70">
+          <address className="not-italic text-white/85">
             {clinic.addressLines.map((l) => (
               <span className="block" key={l}>{l}</span>
             ))}
           </address>
-          {clinic.hours && <p className="m-0 text-white/70">{clinic.hours}</p>}
+          {clinic.hours && <p className="m-0 text-white/85">{clinic.hours}</p>}
           <p className="grid gap-1">
             <a className="no-underline hover:text-gold-light" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
             <a className="break-words no-underline hover:text-gold-light" href={`mailto:${clinic.email}`}>{clinic.email}</a>
           </p>
-          <p className="flex gap-4 text-white/70">
+          <p className="flex gap-4 text-white/85">
             <a className="no-underline hover:text-gold-light" href={clinic.social.youtube} rel="noopener" target="_blank">YouTube</a>
             <a className="no-underline hover:text-gold-light" href={clinic.social.instagram} rel="noopener" target="_blank">Instagram</a>
             <a className="no-underline hover:text-gold-light" href={clinic.social.facebook} rel="noopener" target="_blank">Facebook</a>
@@ -55,7 +55,7 @@ export default function Footer() {
         />
       </div>
       <div className="border-t border-gold/40">
-        <div className="wrap grid gap-2 py-6 text-[0.8rem] text-white/70">
+        <div className="wrap grid gap-2 py-6 text-[0.8rem] text-white/85">
           <p className="font-semibold text-white">
             In a medical emergency, call {clinic.emergency} or go to the nearest hospital emergency department.
           </p>
@@ -81,7 +81,7 @@ function FooterList({ title, links }: { title: string; links: { label: string; h
       <ul className="m-0 grid list-none gap-2 p-0">
         {links.map((l) => (
           <li key={l.href}>
-            <a className="text-white/70 no-underline hover:text-gold-light" href={l.href}>{l.label}</a>
+            <a className="text-white/85 no-underline hover:text-gold-light" href={l.href}>{l.label}</a>
           </li>
         ))}
       </ul>

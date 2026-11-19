@@ -33,7 +33,7 @@ const chapters = [
     id: "periods",
     title: "Periods & hormones",
     script: "listening to your body",
-    text: "Irregular or painful periods, PCOS, acne and unwanted hair, discharge, fibroids and cysts. Dr. Shilpa looks for the cause first and explains every option in plain words before anything is decided.",
+    text: "Irregular or painful periods, PCOS, acne and unwanted hair, discharge, fibroids and cysts. Dr. Shilpa looks for the cause first and explains every option in plain words, with the team's dietician for food and weight plans.",
     image: { src: "images/woman-periods.jpg", w: 900, h: 1000, alt: "A woman resting at home with a glass of water" },
     slugs: ["irregular-periods", "pcos", "pcos-acne", "hirsutism", "fibroids-and-cysts", "vaginal-infections"],
     video: "_WfODYyC3hE",
@@ -53,7 +53,7 @@ const chapters = [
     id: "pregnancy",
     title: "Pregnancy & birth",
     script: "from first scan to first cry",
-    text: "Check-ups and scans at the clinic, care for high-risk pregnancies, and delivery with Dr. Shilpa at Surya Hospitals, Cloudnine or Criticare Asia. Her pregnancy patients can call her directly, day or night.",
+    text: "Check-ups and scans at the clinic, care for high-risk pregnancies, and delivery with Dr. Shilpa at Surya Hospitals, Cloudnine or Criticare Asia. Her pregnancy patients can call her directly, day or night, and the team's paediatrician looks after your newborn.",
     image: { src: "images/woman-pregnancy.jpg", w: 512, h: 1024, alt: "A pregnant woman in soft cream clothes, hands on her bump" },
     slugs: ["pregnancy-care", "high-risk-pregnancy", "epidural-pain-relief", "pregnancy-options"],
     video: "SGaynS4V95g",
@@ -398,6 +398,13 @@ function HomePage() {
               </dl>
             </Reveal>
             <Reveal delay={0.2}>
+              <p className="text-sm text-muted-ink">
+                Her team includes {clinic.specialists.map((x) => `a ${x.role.toLowerCase()}`).join(", ").replace(/, ([^,]*)$/, " and $1")}, and{" "}
+                {clinic.aesthetics.role.toLowerCase()} {clinic.aesthetics.doctor}.{" "}
+                <a className="link" href="/team/">Meet the team</a>
+              </p>
+            </Reveal>
+            <Reveal delay={0.22}>
               <p className="text-sm text-muted-ink">
                 Consults at {clinic.hospitals.join(", ")}. Consultations in {clinic.languages}.
               </p>

@@ -39,6 +39,13 @@ export const clinic = {
     doctor: "Dr. Sumit Agrawal",
     role: "Plastic & Cosmetic Surgeon",
   },
+  /** Specialists in Dr. Shilpa's team. Add each person's name and qualifications here
+   *  when the clinic shares them; the team page shows them automatically. */
+  specialists: [
+    { role: "Radiologist", focus: "Pregnancy and gynaecology scans, read and reported by a specialist in imaging.", name: undefined },
+    { role: "Dietician", focus: "Food and weight plans for PCOS, pregnancy, after delivery and menopause.", name: undefined },
+    { role: "Paediatrician", focus: "Care for your newborn from birth, so mother and baby are looked after by one team.", name: undefined },
+  ] as { role: string; focus: string; name?: string }[],
   social: {
     youtube: "https://www.youtube.com/channel/UCctp3zI4hHDdt6BY3zK1hog",
     instagram: "https://www.instagram.com/harleys_womens_clinic",

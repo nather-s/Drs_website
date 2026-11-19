@@ -77,6 +77,24 @@ export default function Team() {
             ))}
           </div>
         </section>
+        <section aria-labelledby="specialists" className="grid gap-6">
+          <div className="grid gap-2">
+            <h2 className="text-[1.6rem]" id="specialists">Specialists in the team</h2>
+            <p className="max-w-[62ch] text-muted-ink">
+              Dr. Shilpa works with specialists so that scans, nutrition and your baby's care are handled by the same team.
+            </p>
+          </div>
+          <ul className="m-0 grid list-none gap-5 p-0 md:grid-cols-3">
+            {clinic.specialists.map((sp) => (
+              <li className="grid content-start gap-2 border-t border-gold pt-5" key={sp.role}>
+                <h3 className="text-xl">{sp.name ?? sp.role}</h3>
+                {sp.name && <p className="text-sm font-semibold text-accent">{sp.role}</p>}
+                <p className="text-muted-ink">{sp.focus}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section aria-labelledby="staff" className="grid gap-3 rounded-lg bg-mist p-6 md:p-8">
           <h2 className="text-[1.5rem]" id="staff">Clinic staff</h2>
           <p className="max-w-[66ch]">

@@ -18,7 +18,7 @@ const entries = [
 export default function SymptomFinder({ heading = "What brings you here?" }: { heading?: string }) {
   return (
     <nav aria-labelledby="symptom-finder" className="grid gap-4">
-      <h2 className="text-[1.5rem]" id="symptom-finder">{heading}</h2>
+      <h2 className="text-[clamp(1.8rem,3vw,2.3rem)]" id="symptom-finder">{heading}</h2>
       <ul className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {entries.map((e) => (
           <li key={e.slug}>

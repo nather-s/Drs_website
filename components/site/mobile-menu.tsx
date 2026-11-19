@@ -19,7 +19,7 @@ export default function MobileMenu({ current }: { current?: string }) {
       <button
         aria-haspopup="dialog"
         aria-label="Open menu"
-        className="grid size-11 shrink-0 place-items-center rounded-md border border-line lg:hidden"
+        className="grid size-11 shrink-0 place-items-center rounded-md border border-line xl:hidden"
         onClick={() => dialog.current?.showModal()}
         type="button"
       >
@@ -27,7 +27,7 @@ export default function MobileMenu({ current }: { current?: string }) {
       </button>
       <dialog
         aria-labelledby="mobile-menu-title"
-        className="mobile-menu m-0 mt-auto w-full max-w-none rounded-t-xl border-t border-line bg-paper p-0 text-ink backdrop:bg-black/50 lg:hidden"
+        className="mobile-menu m-0 mt-auto w-full max-w-none rounded-t-xl border-t border-line bg-paper p-0 text-ink backdrop:bg-black/50 xl:hidden"
         onClick={(e) => {
           // A tap on the dimmed backdrop (outside the sheet) closes the menu.
           if (e.target === dialog.current) close();

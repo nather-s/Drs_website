@@ -13,7 +13,7 @@ export default function Header({ current }: { current?: string }) {
       >
         Skip to content
       </a>
-      <div className="hidden bg-plum text-[0.85rem] text-white/85 md:block">
+      <div className="hidden bg-plum text-[0.82rem] tracking-[0.04em] text-white/85 md:block">
         <div className="wrap flex justify-between gap-6 py-2">
           <span>{clinic.addressLines.join(", ")}</span>
           <span className="flex gap-5">
@@ -27,17 +27,17 @@ export default function Header({ current }: { current?: string }) {
           <a className="flex shrink-0 items-center gap-4 no-underline" href="/">
             <Image alt="Harleys Clinic, Mumbai and Dubai" className="h-9 w-auto min-[360px]:h-10 md:h-12" preload src={logo} />
             <span className="hidden border-l border-line pl-4 leading-tight 2xl:block">
-              <b className="block font-display text-[1.05rem] font-medium">{clinic.doctor}</b>
-              <span className="text-[0.8rem] text-muted-ink">{clinic.doctorRole}</span>
+              <b className="block font-display text-[1.2rem] font-medium uppercase tracking-[0.12em] text-plum">Dr. Shilpa</b>
+              <span className="text-[0.62rem] uppercase tracking-[0.2em] text-accent">Obstetrician &amp; Gynaecologist</span>
             </span>
           </a>
-          <nav aria-label="Main" className="hidden items-center gap-6 whitespace-nowrap text-[0.95rem] lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-5 whitespace-nowrap text-[0.7rem] font-medium uppercase tracking-[0.12em] xl:flex 2xl:gap-7">
             {nav.map((item) => (
               <a
                 aria-current={current === item.href ? "page" : undefined}
                 className={cn(
                   "no-underline transition-colors hover:text-accent",
-                  current === item.href ? "font-semibold text-accent" : "text-ink"
+                  current === item.href ? "text-accent" : "text-plum"
                 )}
                 href={item.href}
                 key={item.href}
@@ -47,7 +47,7 @@ export default function Header({ current }: { current?: string }) {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <a className="btn btn-primary whitespace-nowrap px-4 py-2.5 text-sm max-[379px]:hidden" href="/book/">
+            <a className="btn btn-primary whitespace-nowrap px-4 py-2.5 text-[0.7rem] max-[379px]:hidden" href="/book/">
               Book appointment
             </a>
             <MobileMenu current={current} />

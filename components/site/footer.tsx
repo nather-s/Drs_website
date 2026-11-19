@@ -3,24 +3,24 @@ import { clinic } from "@/lib/clinic";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-mist pb-28 text-[0.92rem] md:pb-0">
+    <footer className="bg-plum pb-28 text-[0.92rem] text-white/75 md:pb-0">
       <div className="wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.1fr_1fr]">
         <div className="grid content-start gap-3">
-          <b className="font-display text-lg font-medium">{clinic.name}</b>
-          <address className="not-italic text-muted-ink">
+          <b className="font-display text-2xl font-medium text-gold-light">{clinic.name}</b>
+          <address className="not-italic text-white/70">
             {clinic.addressLines.map((l) => (
               <span className="block" key={l}>{l}</span>
             ))}
           </address>
-          {clinic.hours && <p className="m-0 text-muted-ink">{clinic.hours}</p>}
+          {clinic.hours && <p className="m-0 text-white/70">{clinic.hours}</p>}
           <p className="grid gap-1">
-            <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
-            <a className="break-words no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a>
+            <a className="no-underline hover:text-gold-light" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
+            <a className="break-words no-underline hover:text-gold-light" href={`mailto:${clinic.email}`}>{clinic.email}</a>
           </p>
-          <p className="flex gap-4 text-muted-ink">
-            <a className="no-underline hover:text-accent" href={clinic.social.youtube} rel="noopener" target="_blank">YouTube</a>
-            <a className="no-underline hover:text-accent" href={clinic.social.instagram} rel="noopener" target="_blank">Instagram</a>
-            <a className="no-underline hover:text-accent" href={clinic.social.facebook} rel="noopener" target="_blank">Facebook</a>
+          <p className="flex gap-4 text-white/70">
+            <a className="no-underline hover:text-gold-light" href={clinic.social.youtube} rel="noopener" target="_blank">YouTube</a>
+            <a className="no-underline hover:text-gold-light" href={clinic.social.instagram} rel="noopener" target="_blank">Instagram</a>
+            <a className="no-underline hover:text-gold-light" href={clinic.social.facebook} rel="noopener" target="_blank">Facebook</a>
           </p>
         </div>
         <FooterList
@@ -48,9 +48,9 @@ export default function Footer() {
           title="Patients"
         />
       </div>
-      <div className="border-t border-line">
-        <div className="wrap grid gap-2 py-6 text-[0.8rem] text-muted-ink">
-          <p className="font-semibold text-ink">
+      <div className="border-t border-gold/40">
+        <div className="wrap grid gap-2 py-6 text-[0.8rem] text-white/70">
+          <p className="font-semibold text-white">
             In a medical emergency, call {clinic.emergency} or go to the nearest hospital emergency department.
           </p>
           <p>
@@ -59,8 +59,8 @@ export default function Footer() {
           </p>
           <p>
             © 2026 {clinic.doctor} · {clinic.legalName} ·{" "}
-            <a className="underline underline-offset-2 hover:text-accent" href="/privacy/">Privacy policy</a> ·{" "}
-            <a className="underline underline-offset-2 hover:text-accent" href="/browsing-safely/">Browsing safely</a>
+            <a className="underline underline-offset-2 hover:text-gold-light" href="/privacy/">Privacy policy</a> ·{" "}
+            <a className="underline underline-offset-2 hover:text-gold-light" href="/browsing-safely/">Browsing safely</a>
           </p>
         </div>
       </div>
@@ -71,11 +71,11 @@ export default function Footer() {
 function FooterList({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div className="grid content-start gap-3">
-      <b className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-plum">{title}</b>
+      <b className="font-display text-xl font-medium text-gold-light">{title}</b>
       <ul className="m-0 grid list-none gap-2 p-0">
         {links.map((l) => (
           <li key={l.href}>
-            <a className="text-muted-ink no-underline hover:text-accent" href={l.href}>{l.label}</a>
+            <a className="text-white/70 no-underline hover:text-gold-light" href={l.href}>{l.label}</a>
           </li>
         ))}
       </ul>

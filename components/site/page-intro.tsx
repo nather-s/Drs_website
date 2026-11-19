@@ -17,7 +17,7 @@ export default function PageIntro({
   children?: ReactNode;
 }) {
   return (
-    <div className="border-b border-line bg-mist">
+    <div className="border-b border-line bg-[linear-gradient(135deg,#f6ecd6,#efdfbd)]">
       <div className="wrap grid gap-4 py-10 md:py-14">
         <nav aria-label="Breadcrumb">
           <ol className="m-0 flex list-none flex-wrap gap-x-2 p-0 text-sm text-muted-ink">
@@ -34,7 +34,7 @@ export default function PageIntro({
           </ol>
         </nav>
         {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-        <h1 className="max-w-[24ch] text-[clamp(2rem,4vw,3rem)]">{title}</h1>
+        <h1 className="max-w-[24ch] text-[clamp(2.3rem,4.6vw,3.6rem)]">{title}</h1>
         {lede && <p className="max-w-[62ch] text-lg text-muted-ink">{lede}</p>}
         {children}
       </div>

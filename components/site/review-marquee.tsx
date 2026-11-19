@@ -31,8 +31,8 @@ export default function ReviewMarquee({ items }: { items: Review[] }) {
                 className={`flex w-[300px] shrink-0 flex-col gap-3 rounded-lg border border-line bg-paper p-5 sm:w-[360px] ${isCopy ? "marquee-copy" : ""}`}
                 key={`${r.id}-${i}`}
               >
-                <span className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-ink">{r.source} review</span>
-                <blockquote className="m-0 text-[0.98rem] leading-relaxed">“{r.text}”</blockquote>
+                <span className="text-[0.68rem] font-medium uppercase tracking-[0.2em] text-accent">{r.source} review</span>
+                <blockquote className="m-0 font-display text-[1.18rem] italic leading-snug text-plum">“{r.text}”</blockquote>
                 <footer className="mt-auto flex justify-between gap-3 border-t border-line pt-3 text-sm">
                   <b className="font-semibold">{r.name}</b>
                   <span className="text-muted-ink">{r.topic}</span>

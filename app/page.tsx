@@ -1,5 +1,7 @@
 import PreviewSite from "@/components/preview/preview-site";
 import Assistant from "@/components/site/assistant-lazy";
+import BookingForm from "@/components/site/booking-form";
+import ClinicMap from "@/components/site/clinic-map";
 import MediaSection from "@/components/site/media-section";
 import RatingGauge from "@/components/site/rating-gauge";
 import ReviewMarquee from "@/components/site/review-marquee";
@@ -10,11 +12,15 @@ import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic, reviews } from "@/lib/clinic";
 import { categories, treatments } from "@/lib/treatments";
 
-const facts = [
-  { label: "Gold medal", value: "MD Obstetrics & Gynaecology" },
-  { label: "In practice since", value: "2009" },
-  { label: "Membership", value: "MRCOG (UK)" },
-  { label: "Fellowship", value: "Reproductive endocrinology & infertility" },
+// Specific, checkable reasons rather than general claims.
+const reasons = [
+  "MD in Obstetrics & Gynaecology with a gold medal, DNB, and MRCOG from the Royal College in the UK",
+  "ICOG fellowship in reproductive endocrinology and infertility; IUI done by Dr. Shilpa herself",
+  "Former Assistant Professor at Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "Delivers at Surya Hospitals, Cloudnine and Criticare Asia, and her pregnancy patients can reach her directly",
+  "Ultrasound and colposcopy at the clinic, so most visits need no trip elsewhere",
+  "A female staff member is present during every examination",
+  "Consultations in English, Hindi and Marathi",
 ];
 
 const faqs = [
@@ -43,197 +49,321 @@ export default function Home() {
 }
 
 function HomePage() {
+  const delivers = new Set<string>(clinic.deliversAt);
   return (
     <Shell>
-      {/* Hero: everything a skimming visitor looks for, in the first phone screen */}
-      <section className="border-b border-line">
-        <div className="wrap grid gap-6 py-6 md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-14 md:py-16">
-          <div className="grid gap-5">
+      {/* Hero: name, what she treats and the two ways to book, in the first phone screen */}
+      <section className="bg-[linear-gradient(135deg,#f8efdc_0%,#efdfbd_100%)]">
+        <div className="wrap grid gap-10 py-8 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-16 md:py-20">
+          <div className="grid content-center gap-5">
             <span className="eyebrow">Woman gynaecologist · DN Nagar, Andheri West</span>
-            <div className="grid gap-2">
-              <div className="flex items-center gap-4">
-                <img
-                  alt=""
-                  className="size-[72px] shrink-0 rounded-full border border-line object-cover md:size-24"
-                  height={96}
-                  src={asset("images/dr-shilpa-face.jpg")}
-                  width={96}
-                />
-                <h1 className="text-[clamp(2rem,4.4vw,3.3rem)]">{clinic.doctor}</h1>
-              </div>
-              <p className="text-lg text-muted-ink">
-                Obstetrician &amp; gynaecologist · MD (Gold Medal) · MRCOG (UK). Pregnancy, fertility, PCOS, periods,
-                abnormal smears and menopause.
-              </p>
+            <div className="flex items-center gap-4">
+              <img
+                alt=""
+                className="size-[72px] shrink-0 rounded-full border-2 border-gold/60 object-cover md:hidden"
+                height={72}
+                src={asset("images/dr-shilpa-face.jpg")}
+                width={72}
+              />
+              <h1 className="text-[clamp(2.5rem,6vw,4.4rem)] leading-[1.02]">
+                Dr. Shilpa <em>Bansal Agrawal</em>
+              </h1>
             </div>
-            <div className="grid gap-3 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap">
-              <a className="btn btn-primary px-3 whitespace-nowrap" href={bookOnWhatsapp()} rel="noopener" target="_blank">
-                Book on WhatsApp
-              </a>
-              <a className="btn px-3 whitespace-nowrap" href={clinic.phoneHref}>Call {clinic.phoneDisplay.replace("+91 ", "")}</a>
-            </div>
-            <p className="text-sm text-muted-ink">
+            <p className="font-display text-[clamp(1.25rem,2vw,1.5rem)] text-accent">
+              Obstetrician &amp; gynaecologist · MD (Gold Medal) · MRCOG (UK)
+            </p>
+            <p className="text-lg">Pregnancy, fertility, PCOS, periods, abnormal smears and menopause.</p>
+            <p className="max-w-[52ch] border-l border-gold pl-4 text-[0.95rem] text-muted-ink">
               Private and confidential. You won't be judged, whatever your age or whether you're married, and nothing
               is examined without your agreement.{" "}
               <a className="link" href="/first-visit/">What happens at your first visit</a>
             </p>
+            <div className="grid gap-3 min-[400px]:grid-cols-2 sm:flex sm:flex-wrap">
+              <a className="btn btn-primary whitespace-nowrap px-4" href={bookOnWhatsapp()} rel="noopener" target="_blank">
+                Book on WhatsApp
+              </a>
+              <a className="btn whitespace-nowrap px-4" href={clinic.phoneHref}>
+                Call {clinic.phoneDisplay.replace("+91 ", "")}
+              </a>
+            </div>
+            <p className="text-sm text-muted-ink">
+              {clinic.addressLines[0]}, Andheri West ·{" "}
+              <a className="link" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions</a>
+            </p>
           </div>
-          <dl className="m-0 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line">
-            <div className="grid content-start gap-0.5 bg-paper p-4">
-              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Rating</dt>
-              <dd className="m-0 font-display text-xl">★ {clinic.rating.value} / 5</dd>
-              <dd className="m-0 text-sm text-muted-ink">
-                <a className="no-underline hover:text-accent" href="/reviews/">
-                  {clinic.rating.count} on {clinic.rating.source}
-                </a>
-              </dd>
-            </div>
-            {clinic.fee && (
-              <div className="grid content-start gap-0.5 bg-paper p-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Consultation</dt>
-                <dd className="m-0 font-display text-xl">{clinic.fee}</dd>
-                <dd className="m-0 text-sm text-muted-ink">Tests extra, told first</dd>
-              </div>
-            )}
-            <div className="grid content-start gap-0.5 bg-paper p-4">
-              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Open</dt>
-              <dd className="m-0 font-display text-xl">Mon–Sat</dd>
-              <dd className="m-0 text-sm text-muted-ink">Weekdays till 7:30 pm · Sat 12–5</dd>
-            </div>
-            <div className="grid content-start gap-0.5 bg-paper p-4">
-              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Languages</dt>
-              <dd className="m-0 font-display text-xl" lang="hi">हिंदी · मराठी</dd>
-              <dd className="m-0 text-sm text-muted-ink">and English</dd>
-            </div>
-            <div className="col-span-2 grid gap-0.5 bg-paper p-4">
-              <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-plum">Deliveries at</dt>
-              <dd className="m-0">{clinic.deliversAt.join(" · ")}</dd>
-            </div>
-            <div className="col-span-2 grid gap-0.5 bg-paper p-4 text-sm">
-              <dt className="sr-only">Address</dt>
-              <dd className="m-0">
-                {clinic.addressLines[0]}, Andheri West ·{" "}
-                <a className="link" href={clinic.mapsHref} rel="noopener" target="_blank">Directions</a>
-              </dd>
-            </div>
-          </dl>
+          <figure className="photo-frame m-0 hidden justify-self-end md:block">
+            <img
+              alt="Dr. Shilpa Bansal Agrawal in her clinic"
+              className="relative block w-full max-w-[440px] object-cover shadow-[0_30px_60px_-30px_rgba(59,42,20,0.45)]"
+              height={760}
+              src={asset("images/dr-shilpa.jpg")}
+              width={570}
+            />
+            <figcaption className="absolute -bottom-6 -left-8 bg-paper px-6 py-4 shadow-lg">
+              <span className="block text-[0.65rem] font-medium uppercase tracking-[0.22em] text-accent">{clinic.doctorRole}</span>
+              <span className="font-display text-xl text-plum">{clinic.doctor}</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
+      {/* Gold band: the facts skimmers look for */}
+      <section aria-label="At a glance" className="bg-gold text-white">
+        <dl className="wrap my-0 grid grid-cols-2 gap-x-6 gap-y-4 py-6 lg:grid-cols-4">
+          <div className="grid gap-0.5">
+            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Rating</dt>
+            <dd className="m-0">
+              <a className="font-display text-2xl text-white no-underline hover:underline" href="/reviews/">
+                ★ {clinic.rating.value} / 5
+              </a>
+              <span className="block text-sm text-white/90">{clinic.rating.count} on {clinic.rating.source}</span>
+            </dd>
+          </div>
+          {clinic.fee && (
+            <div className="grid gap-0.5">
+              <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Consultation</dt>
+              <dd className="m-0">
+                <span className="font-display text-2xl">{clinic.fee}</span>
+                <span className="block text-sm text-white/90">Tests extra, told first</span>
+              </dd>
+            </div>
+          )}
+          <div className="grid gap-0.5">
+            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Open</dt>
+            <dd className="m-0">
+              <span className="font-display text-2xl">Mon–Sat</span>
+              <span className="block text-sm text-white/90">Weekdays till 7:30 pm · Sat 12–5</span>
+            </dd>
+          </div>
+          <div className="grid gap-0.5">
+            <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-white/85">Languages</dt>
+            <dd className="m-0">
+              <span className="font-display text-2xl" lang="hi">हिंदी · मराठी</span>
+              <span className="block text-sm text-white/90">and English</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
       {/* Plain-language starting points */}
-      <section aria-label="Find the right page" className="border-b border-line py-8 md:py-14">
+      <section aria-label="Find the right page" className="py-12 md:py-16">
         <div className="wrap">
           <SymptomFinder />
         </div>
       </section>
 
+      {/* Why Dr. Shilpa */}
+      <section aria-labelledby="why-title" className="section border-t border-line">
+        <div className="wrap grid items-center gap-14 md:grid-cols-2 md:gap-16">
+          <div className="relative mx-auto w-full max-w-[460px] pr-10 pb-12">
+            <div className="photo-frame">
+              <img
+                alt="Consultation room at Harleys Women's Clinic, Andheri West"
+                className="relative block aspect-[4/5] w-full object-cover"
+                height={950}
+                loading="lazy"
+                src={asset("images/clinic-room.jpg")}
+                width={760}
+              />
+            </div>
+            <img
+              alt="Treatment room at Harleys Women's Clinic"
+              className="absolute right-0 bottom-0 w-[48%] border-[6px] border-paper object-cover shadow-xl"
+              height={507}
+              loading="lazy"
+              src={asset("images/clinic-room-detail.jpg")}
+              width={380}
+            />
+          </div>
+          <div className="grid content-start gap-5">
+            <span className="eyebrow">Why patients choose Dr. Shilpa</span>
+            <h2 className="h-section" id="why-title">
+              Experienced, <em>unhurried</em> care for women
+            </h2>
+            <ul className="m-0 grid list-none p-0">
+              {reasons.map((r) => (
+                <li className="flex gap-4 border-b border-line py-3" key={r}>
+                  <span aria-hidden className="mt-[0.8em] h-px w-3 shrink-0 bg-gold" />
+                  {r}
+                </li>
+              ))}
+            </ul>
+            <div className="flex flex-wrap gap-3">
+              <a className="btn btn-primary" href="/book/">Book appointment</a>
+              <a className="btn" href="/about/">About Dr. Shilpa</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Treatments, as a numbered list */}
+      <section aria-labelledby="treatments-title" className="section bg-mist">
+        <div className="wrap grid gap-10">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="grid gap-3">
+              <span className="eyebrow">Treatments</span>
+              <h2 className="h-section" id="treatments-title">Areas of <em>care</em></h2>
+              <p className="max-w-[54ch] text-muted-ink">
+                Not sure where to start? Book a general consultation and Dr. Shilpa will guide you.
+              </p>
+            </div>
+            <a className="link" href="/treatments/">All treatments</a>
+          </div>
+          <ol className="m-0 list-none border-t border-gold/40 p-0">
+            {categories.map((c, i) => (
+              <li className="grid gap-3 border-b border-gold/40 py-7 md:grid-cols-[3.5rem_1fr_1.3fr] md:gap-8" key={c.id}>
+                <span className="font-display text-xl italic text-gold">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="text-[1.75rem]">
+                  <a className="no-underline hover:text-accent" href={`/treatments/#${c.id}`}>{c.title}</a>
+                </h3>
+                <div className="grid gap-3">
+                  <p className="text-muted-ink">{c.intro}</p>
+                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                    {treatments
+                      .filter((t) => t.category === c.id)
+                      // Elective cosmetic procedures are listed on their own page, not on the home page.
+                      .slice(0, c.id === "cosmetic" ? 1 : 5)
+                      .map((t) => (
+                        <li key={t.slug}>
+                          <a
+                            className="inline-flex min-h-10 items-center border border-gold/60 px-3 text-[0.72rem] font-medium uppercase tracking-[0.14em] text-plum no-underline transition-colors hover:bg-gold hover:text-white"
+                            href={`/treatments/${t.slug}/`}
+                          >
+                            {t.title}
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+            <li className="grid gap-3 py-7 md:grid-cols-[3.5rem_1fr_1.3fr] md:gap-8">
+              <span className="font-display text-xl italic text-gold">{String(categories.length + 1).padStart(2, "0")}</span>
+              <h3 className="text-[1.75rem]">Not sure where to start?</h3>
+              <div className="grid justify-items-start gap-3">
+                <p className="text-muted-ink">Book a general consultation and Dr. Shilpa will guide you.</p>
+                <a className="btn btn-primary" href="/book/">Book an appointment</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
       {/* Reviews */}
-      <section aria-labelledby="reviews-title" className="section bg-mist" id="reviews">
+      <section aria-labelledby="reviews-title" className="section" id="reviews">
         <div className="wrap mb-10 grid items-end gap-8 md:grid-cols-[1fr_auto]">
           <div className="grid gap-3">
             <span className="eyebrow">Patient reviews</span>
-            <h2 className="h-section" id="reviews-title">What patients say about their care</h2>
+            <h2 className="h-section" id="reviews-title">What patients say about <em>their care</em></h2>
             <p className="max-w-[60ch] text-muted-ink">
               Patient reviews from Google and Practo. The overall rating shown is from Justdial.
             </p>
-            <a className="link w-fit" href={clinic.practoHref} rel="noopener" target="_blank">
-              Read more patient stories on Practo
-            </a>
-            <a className="link w-fit" href="/reviews/">All reviews</a>
+            <div className="mt-2 flex flex-wrap gap-3">
+              <a className="btn" href="/reviews/">All reviews</a>
+              <a className="btn" href={clinic.practoHref} rel="noopener" target="_blank">Read more on Practo</a>
+            </div>
           </div>
           <RatingGauge />
         </div>
         <ReviewMarquee items={reviews} />
       </section>
 
-      {/* Treatments */}
-      <section aria-labelledby="treatments-title" className="section">
+      {/* Location */}
+      <section aria-labelledby="location-title" className="section border-t border-line bg-mist" id="location">
         <div className="wrap grid gap-10">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="grid gap-3">
-              <span className="eyebrow">Treatments</span>
-              <h2 className="h-section" id="treatments-title">Areas of care</h2>
-            </div>
-            <a className="link" href="/treatments/">All treatments</a>
+          <div className="grid gap-3">
+            <span className="eyebrow">Clinic location</span>
+            <h2 className="h-section" id="location-title">Harleys <em>Women's Clinic</em></h2>
           </div>
-          <div className="grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => (
-              <div className="grid content-start gap-3 bg-paper p-6" key={c.id}>
-                <h3 className="text-xl">{c.title}</h3>
-                <p className="text-sm text-muted-ink">{c.intro}</p>
-                <ul className="m-0 grid list-none gap-1.5 p-0 text-[0.95rem]">
-                  {treatments
-                    .filter((t) => t.category === c.id)
-                    // Elective cosmetic procedures are listed on their own page, not on the home page.
-                    .slice(0, c.id === "cosmetic" ? 1 : 4)
-                    .map((t) => (
-                      <li key={t.slug}>
-                        <a className="no-underline hover:text-accent" href={`/treatments/${t.slug}/`}>
-                          <span aria-hidden className="mr-2 text-accent">›</span>
-                          {t.title}
-                        </a>
-                      </li>
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
+            <div className="grid content-start gap-6">
+              <ClinicMap />
+              <dl className="m-0 grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-1">
+                  <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Address</dt>
+                  <dd className="m-0">
+                    {clinic.addressLines.map((l) => (
+                      <span className="block" key={l}>{l}</span>
                     ))}
-                </ul>
-              </div>
-            ))}
-            <a
-              className="grid content-center gap-2 bg-plum p-6 text-white no-underline transition-colors hover:bg-ink"
-              href="/book/"
-            >
-              <b className="font-display text-xl font-normal">Not sure where to start?</b>
-              <span className="text-sm text-white/80">Book a general consultation and Dr. Shilpa will guide you.</span>
-              <span className="mt-2 text-sm font-semibold">Book an appointment →</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section aria-labelledby="about-title" className="section border-y border-line bg-mist">
-        <div className="wrap grid gap-10 md:grid-cols-2 md:gap-16">
-          <div className="grid content-start gap-5">
-            <span className="eyebrow">About the doctor</span>
-            <h2 className="h-section" id="about-title">{clinic.doctor}</h2>
-            <p>
-              Dr. Shilpa is a consultant obstetrician and gynaecologist with advanced training in fertility, and the founder of{" "}
-              {clinic.name}. She trained at Kasturba Medical College, Manipal and King George's Medical University,
-              Lucknow, with a gold medal in her MD, and holds the MRCOG from the Royal College of Obstetricians and
-              Gynaecologists, UK.
-            </p>
-            <p className="text-muted-ink">
-              She was an Assistant Professor at Grant Medical College and Sir JJ Group of Hospitals, Mumbai, and has
-              led units at ESI Hospital and Global Hospital alongside her practice.
-            </p>
-            <a className="link w-fit" href="/about/">Read Dr. Shilpa's full profile</a>
-          </div>
-          <dl className="m-0 grid content-start gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
-            {facts.map((f) => (
-              <div className="grid gap-1 bg-paper p-5" key={f.label}>
-                <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">{f.label}</dt>
-                <dd className="m-0 font-display text-lg">{f.value}</dd>
-              </div>
-            ))}
-            <div className="grid gap-2 bg-paper p-5 sm:col-span-2">
-              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consults at</dt>
-              <dd className="m-0">{clinic.hospitals.join(" · ")}</dd>
+                    <a className="link mt-1 inline-block" href={clinic.mapsHref} rel="noopener" target="_blank">
+                      Get directions →
+                    </a>
+                  </dd>
+                </div>
+                <div className="grid content-start gap-4">
+                  {clinic.hours && (
+                    <div className="grid gap-1">
+                      <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Consultation hours</dt>
+                      <dd className="m-0">
+                        Mon–Fri 12–2:30 pm and 5:30–7:30 pm
+                        <span className="block">Sat 12–5 pm · Closed Sunday</span>
+                      </dd>
+                    </div>
+                  )}
+                  <div className="grid gap-1">
+                    <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Telephone &amp; WhatsApp</dt>
+                    <dd className="m-0">
+                      <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
+                    </dd>
+                  </div>
+                  <div className="grid gap-1">
+                    <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Email</dt>
+                    <dd className="m-0 break-words">
+                      <a className="no-underline hover:text-accent" href={`mailto:${clinic.email}`}>{clinic.email}</a>
+                    </dd>
+                  </div>
+                </div>
+              </dl>
             </div>
-            <div className="grid gap-2 bg-paper p-5 sm:col-span-2">
-              <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Languages</dt>
-              <dd className="m-0">Consultations in {clinic.languages}</dd>
+            <div className="grid content-start gap-4">
+              <h3 className="border-t border-gold/60 pt-5 text-[1.75rem]">Hospital affiliations</h3>
+              <ul className="m-0 grid list-none p-0">
+                {clinic.hospitals.map((h) => (
+                  <li className="flex items-baseline justify-between gap-4 border-b border-line py-3.5" key={h}>
+                    <span className="font-display text-xl text-plum">{h}</span>
+                    <span className="text-right text-[0.66rem] font-medium uppercase tracking-[0.18em] text-accent">
+                      Consults{delivers.has(h) ? " · Deliveries" : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-muted-ink">
+                Dr. Shilpa's pregnancy patients deliver with her at Surya Hospitals, Cloudnine or Criticare Asia.
+              </p>
             </div>
-          </dl>
+          </div>
         </div>
       </section>
 
       <MediaSection />
 
+      {/* FAQ */}
+      <section aria-labelledby="faq-title" className="section">
+        <div className="wrap grid max-w-[880px] gap-8">
+          <div className="grid justify-items-center gap-3 text-center">
+            <span className="eyebrow">Before your visit</span>
+            <h2 className="h-section" id="faq-title">Common <em>questions</em></h2>
+          </div>
+          <div>
+            {faqs.map((f) => (
+              <details className="group border-t border-line py-5 last:border-b" key={f.q}>
+                <summary className="flex cursor-pointer list-none justify-between gap-4 font-display text-[1.4rem] text-plum [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span aria-hidden className="text-2xl leading-none text-gold transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-2 max-w-[62ch] text-muted-ink">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Assistant */}
-      <section aria-labelledby="assistant-title" className="section">
+      <section aria-labelledby="assistant-title" className="section border-t border-line bg-mist">
         <div className="wrap grid items-start gap-10 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
           <div className="grid content-start gap-4">
             <span className="eyebrow">Clinic assistant</span>
-            <h2 className="h-section" id="assistant-title">Questions before you book?</h2>
+            <h2 className="h-section" id="assistant-title">Questions <em>before you book?</em></h2>
             <p className="text-muted-ink">
               The clinic assistant can help you request an appointment with Dr. Shilpa and answer practical questions about
               the clinic, such as where it is and what happens at your first visit.
@@ -246,41 +376,39 @@ function HomePage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section aria-labelledby="faq-title" className="section border-t border-line">
-        <div className="wrap grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-          <div className="grid content-start gap-3">
-            <span className="eyebrow">Before your visit</span>
-            <h2 className="h-section" id="faq-title">Common questions</h2>
+      {/* Book */}
+      <section aria-labelledby="book-title" className="section bg-[linear-gradient(135deg,#f8efdc_0%,#efdfbd_100%)]" id="book">
+        <div className="wrap grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+          <div className="grid content-start gap-5">
+            <span className="eyebrow">Book a consultation</span>
+            <h2 className="h-section" id="book-title">Book a consultation <em>with Dr. Shilpa</em></h2>
+            <dl className="m-0 grid gap-4">
+              <div className="grid gap-1">
+                <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Clinic</dt>
+                <dd className="m-0">
+                  {clinic.name}, {clinic.addressLines.join(", ")}
+                  <a className="link ml-1" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions →</a>
+                </dd>
+              </div>
+              <div className="grid gap-1">
+                <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Telephone</dt>
+                <dd className="m-0">
+                  <a className="no-underline hover:text-accent" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
+                </dd>
+              </div>
+              {clinic.hours && (
+                <div className="grid gap-1">
+                  <dt className="text-[0.66rem] font-medium uppercase tracking-[0.22em] text-accent">Hours</dt>
+                  <dd className="m-0">{clinic.hours}</dd>
+                </div>
+              )}
+            </dl>
+            <p className="text-sm text-muted-ink">
+              In a medical emergency, call {clinic.emergency} or go to the nearest hospital emergency department.
+            </p>
           </div>
-          <div>
-            {faqs.map((f) => (
-              <details className="group border-t border-line py-4 last:border-b" key={f.q}>
-                <summary className="flex cursor-pointer list-none justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <span aria-hidden className="text-xl leading-none text-accent transition-transform group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-2 max-w-[62ch] text-muted-ink">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Closing call to action */}
-      <section className="bg-plum text-white">
-        <div className="wrap flex flex-wrap items-center justify-between gap-6 py-12">
-          <div className="grid gap-1">
-            <h2 className="text-[clamp(1.5rem,2.6vw,2rem)]">Book a consultation with Dr. Shilpa</h2>
-            <p className="text-white/80">{clinic.addressLines.join(", ")}</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <a className="btn border-white bg-white text-plum hover:border-white hover:bg-rose-soft hover:text-plum" href="/book/">
-              Book appointment
-            </a>
-            <a className="btn border-white/60 text-white hover:bg-white hover:text-plum" href={clinic.phoneHref}>
-              Call {clinic.phoneDisplay}
-            </a>
+          <div className="bg-paper/80 shadow-[0_30px_60px_-40px_rgba(59,42,20,0.5)]">
+            <BookingForm />
           </div>
         </div>
       </section>

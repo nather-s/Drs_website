@@ -1,24 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Atkinson_Hyperlegible_Next, Literata } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import { clinic, siteUrl } from "@/lib/clinic";
 import "./globals.css";
 
-// Literata: a book face, used for headings. Only the upright style is loaded.
-const literata = Literata({
-  variable: "--font-literata",
+// Cormorant Garamond for headings, Jost for text.
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
-  // "optional": use the web font only if it arrives before first paint, so slow
-  // connections never see text jump when it loads.
-  display: "optional",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-// Atkinson Hyperlegible Next: built for low-vision readers, easy to read at any age.
-// Next.js has no fallback metrics for it, so the fallback is matched by hand in globals.css.
-const atkinson = Atkinson_Hyperlegible_Next({
-  variable: "--font-atkinson",
+const jost = Jost({
+  variable: "--font-jost",
   subsets: ["latin"],
-  adjustFontFallback: false,
-  display: "optional",
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -77,7 +75,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${literata.variable} ${atkinson.variable}`}>
+    <html lang="en-IN" className={`${cormorant.variable} ${jost.variable}`}>
       <body className="min-h-full">
         <script
           // Static, trusted object; escaping "<" keeps it from closing the script tag.

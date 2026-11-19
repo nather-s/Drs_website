@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import Assistant from "@/components/site/assistant-lazy";
 import BookingForm from "@/components/site/booking-form";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
 import { clinic } from "@/lib/clinic";
 
-export const metadata: Metadata = {
-  title: "Book an appointment | Dr. Shilpa, Andheri West",
-  description: "Request an appointment with Dr. Shilpa Bansal Agrawal, or contact Harleys Women's Clinic in Andheri West, Mumbai.",
-  alternates: { canonical: "/book/" },
-};
+export const metadata: Metadata = seoMeta("/book/", pageSeo["book"]);
 
 export default function Book() {
   return (

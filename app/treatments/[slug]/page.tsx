@@ -7,7 +7,8 @@ import PageIntro from "@/components/site/page-intro";
 import RichPoint from "@/components/site/rich-point";
 import Shell from "@/components/site/shell";
 import VideoCards from "@/components/site/video-cards";
-import { clinic, reviews } from "@/lib/clinic";
+import { clinic, reviews, siteUrl } from "@/lib/clinic";
+import { seoMeta, treatmentSeo } from "@/lib/seo";
 import { videosFor } from "@/lib/media";
 import { categories, getTreatment, treatments } from "@/lib/treatments";
 
@@ -21,12 +22,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/treatments/[slug]">): Promise<Metadata> {
   const t = getTreatment((await params).slug);
   if (!t) return {};
-  return {
-    title: `${t.metaTitle ?? t.title} | Dr. Shilpa, Andheri West`,
-    description: t.metaDescription ?? t.summary,
-    alternates: { canonical: `/treatments/${t.slug}/` },
-    openGraph: { type: "website", locale: "en_IN", siteName: clinic.name, title: t.metaTitle ?? t.title, description: t.metaDescription ?? t.summary, url: `/treatments/${t.slug}/` },
-  };
+  const seo = treatmentSeo[t.slug] ?? { title: `${t.title} | Dr. Shilpa, Andheri West`, description: t.summary };
+  return seoMeta(`/treatments/${t.slug}/`, seo);
 }
 
 const anchor = (heading: string) => heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
@@ -42,8 +39,54 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
   const videoSearch = `${clinic.social.youtube}/search?query=${encodeURIComponent(t.videoQuery ?? t.title)}`;
   const contents = [...t.sections.map((s) => s.heading), ...(t.faqs.length ? ["Questions patients ask"] : [])];
 
+  const seo = treatmentSeo[t.slug];
+  const url = `${siteUrl}/treatments/${t.slug}/`;
+  // Structured data: the page's place in the site, what it's about, and its questions.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Treatments", item: `${siteUrl}/treatments/` },
+          { "@type": "ListItem", position: 3, name: t.title, item: url },
+        ],
+      },
+      {
+        "@type": "MedicalWebPage",
+        "@id": url,
+        url,
+        name: seo?.title ?? t.title,
+        description: seo?.description ?? t.summary,
+        inLanguage: "en-IN",
+        about: { "@type": "MedicalCondition", name: t.title },
+        audience: { "@type": "PeopleAudience", audienceType: "Patient" },
+        reviewedBy: { "@id": `${siteUrl}/#doctor` },
+        publisher: { "@id": `${siteUrl}/#clinic` },
+      },
+      ...(t.faqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: t.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <Shell current="/treatments/">
+      <script
+        // Static, trusted object; escaping "<" keeps it from closing the script tag.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        type="application/ld+json"
+      />
       {t.sensitive && <ExitPage />}
       <PageIntro
         crumbs={[{ label: "Treatments", href: "/treatments/" }, { label: t.title }]}

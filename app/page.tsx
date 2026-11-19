@@ -24,6 +24,9 @@ import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic, reviews } from "@/lib/clinic";
 import { videos } from "@/lib/media";
 import { getTreatment } from "@/lib/treatments";
+import { seoMeta, site } from "@/lib/seo";
+
+export const metadata = seoMeta("/", site);
 
 // The home page reads as one story: what you're feeling, how it can be helped, who
 // will help you, what other women say, and how to come in. Each life-stage chapter
@@ -109,10 +112,10 @@ function HomePage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--paper))] md:bg-[linear-gradient(to_right,var(--paper)_8%,rgba(248,245,240,0.85)_38%,transparent_70%)]" />
         </div>
         <HeroContent className="wrap relative grid gap-4 pb-10 md:gap-5 md:min-h-[min(88vh,820px)] md:content-center md:py-24">
-          <p className="rise eyebrow" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician · Andheri West</p>
-          <h1 className="rise title-caps max-w-[15ch] text-[clamp(2.1rem,5.4vw,4.2rem)]" style={{ ["--i" as string]: 1 }}>
+          <h1 className="rise eyebrow" style={{ ["--i" as string]: 0 }}>Gynaecologist &amp; obstetrician in Andheri West, Mumbai</h1>
+          <p className="rise title-caps max-w-[15ch] text-[clamp(2.1rem,5.4vw,4.2rem)]" style={{ ["--i" as string]: 1 }}>
             Women's health, <span className="block">every stage of life</span>
-          </h1>
+          </p>
           <p className="rise script -mt-1" style={{ ["--i" as string]: 2 }}>with Dr. Shilpa Bansal Agrawal</p>
           <p className="rise max-w-[46ch] text-[1.05rem] text-muted-ink md:text-lg" style={{ ["--i" as string]: 3 }}>
             Periods, PCOS, fertility, pregnancy and menopause. Private, unhurried care with no judgement, whatever your
@@ -458,6 +461,9 @@ function HomePage() {
                   <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">Where</dt>
                   <dd className="m-0">
                     {clinic.name}, {clinic.addressLines.join(", ")}
+                    <span className="mt-1 block text-sm text-muted-ink">
+                      Easy to reach from Lokhandwala, Versova, Juhu, Jogeshwari, Vile Parle and Malad.
+                    </span>
                     <a className="link mt-1 block" href={clinic.mapsHref} rel="noopener" target="_blank">Get directions →</a>
                   </dd>
                 </div>

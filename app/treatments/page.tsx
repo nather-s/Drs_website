@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
 import SymptomFinder from "@/components/site/symptom-finder";
 import { categories, treatments } from "@/lib/treatments";
 
-export const metadata: Metadata = {
-  title: "Treatments | Dr. Shilpa, Andheri West",
-  description:
-    "Gynaecology, pregnancy, fertility, menopause and cosmetic gynaecology treatments offered by Dr. Shilpa Bansal Agrawal in Andheri West, Mumbai.",
-  alternates: { canonical: "/treatments/" },
-};
+export const metadata: Metadata = seoMeta("/treatments/", pageSeo["treatments"]);
 
 export default function TreatmentsIndex() {
   return (

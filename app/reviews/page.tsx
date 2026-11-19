@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import RatingGauge from "@/components/site/rating-gauge";
 import Shell from "@/components/site/shell";
 import { clinic, reviews } from "@/lib/clinic";
 
-export const metadata: Metadata = {
-  title: "Patient reviews",
-  description: `What patients say about ${clinic.doctor}, gynaecologist in Andheri West, Mumbai.`,
-  alternates: { canonical: "/reviews/" },
-};
+export const metadata: Metadata = seoMeta("/reviews/", pageSeo["reviews"]);
 
 export default function Reviews() {
   return (

@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
         // Old website addresses go straight to their new pages (permanent, keeps Google rankings).
         redirects: async () => [
           ...Object.entries(oldUrls).map(([source, destination]) => ({ source, destination, permanent: true })),
-          // The old site's articles haven't moved yet; send them to the treatments overview.
-          { source: "/blog/:path*", destination: "/treatments/", permanent: false },
+          // Any other old article goes to the treatments overview.
+          { source: "/blog/:path*", destination: "/treatments/", permanent: true },
         ],
       }),
   turbopack: {

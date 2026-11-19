@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
 import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
-export const metadata: Metadata = {
-  title: "Your first visit | Dr. Shilpa, Andheri West",
-  description:
-    "What happens at your first appointment with Dr. Shilpa Bansal Agrawal: what to bring, the consultation, examinations and privacy.",
-  alternates: { canonical: "/first-visit/" },
-};
+export const metadata: Metadata = seoMeta("/first-visit/", pageSeo["first-visit"]);
 
 // Steps in the order they happen, so the numbering is real information.
 const steps = [

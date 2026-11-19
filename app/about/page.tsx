@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import BookingCard from "@/components/site/booking-card";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
 import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
-export const metadata: Metadata = {
-  title: `About ${clinic.doctor}, Gynaecologist`,
-  description:
-    "Qualifications, experience and areas of interest of Dr. Shilpa Bansal Agrawal, consultant obstetrician and gynaecologist in Mumbai.",
-  alternates: { canonical: "/about/" },
-};
+export const metadata: Metadata = seoMeta("/about/", pageSeo["about"]);
 
 const education = [
   { year: "2005", title: "MBBS, Kasturba Medical College, Manipal", note: "Gold medal in second year; distinction in all subjects" },

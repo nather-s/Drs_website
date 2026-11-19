@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
+import { pageSeo, seoMeta } from "@/lib/seo";
 import PageIntro from "@/components/site/page-intro";
 import Shell from "@/components/site/shell";
 import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
 
-export const metadata: Metadata = {
-  title: `Our team | ${clinic.name}, Andheri West`,
-  description: "Meet the doctors and staff at Harleys Women's Clinic in Andheri West, Mumbai.",
-  alternates: { canonical: "/team/" },
-};
+export const metadata: Metadata = seoMeta("/team/", pageSeo["team"]);
 
 type Member = { name: string; role: string; bio: string; initials: string; photo?: string; href?: string };
 

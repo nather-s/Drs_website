@@ -14,7 +14,9 @@ export default function Header({ current }: { current?: string }) {
       </a>
       <div className="hidden bg-plum text-[0.82rem] tracking-[0.04em] text-white/85 md:block">
         <div className="wrap flex justify-between gap-6 py-2">
-          <span>{clinic.addressLines.join(", ")}</span>
+          <span>
+            {clinic.name} &amp; {clinic.aesthetics.name} · {clinic.addressLines[0]}, Andheri West
+          </span>
           <span className="flex gap-5">
             <a className="no-underline hover:text-white" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
             <a className="no-underline hover:text-white" href={`mailto:${clinic.email}`}>{clinic.email}</a>

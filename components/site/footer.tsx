@@ -9,6 +9,9 @@ export default function Footer() {
         <div className="grid content-start gap-3">
           <Logo className="mb-2" tone="light" />
           <b className="sr-only">{clinic.name}</b>
+          <p className="m-0 text-white/70">
+            {clinic.name}, with {clinic.aesthetics.name} for cosmetic gynaecology.
+          </p>
           <address className="not-italic text-white/70">
             {clinic.addressLines.map((l) => (
               <span className="block" key={l}>{l}</span>

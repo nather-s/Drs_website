@@ -261,9 +261,95 @@ function HomePage() {
           <Reveal className="text-center">
             <p className="text-muted-ink">
               Looking for something else?{" "}
-              <a className="link" href="/treatments/">See all treatments</a>, including cosmetic gynaecology.
+              <a className="link" href="/treatments/">See all treatments</a>.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* 3b · Cosmetic gynaecology, a featured service with Harleys Cosmetic Clinic */}
+      <section aria-labelledby="cosmetic-title" className="relative overflow-hidden bg-plum text-paper" id="cosmetic">
+        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-[1.05fr_0.95fr] md:gap-20 md:py-32">
+          <div className="grid content-start gap-5">
+            <Reveal>
+              <p className="eyebrow text-gold-light before:bg-gold-light">
+                {clinic.name} × {clinic.aesthetics.name}
+              </p>
+            </Reveal>
+            <div className="grid gap-1">
+              <RevealLines className="title-caps text-paper" id="cosmetic-title" lines={["Cosmetic", "gynaecology"]} />
+              <Reveal delay={0.1}><p className="script text-gold-light">comfort &amp; confidence</p></Reveal>
+            </div>
+            <Reveal delay={0.15}>
+              <p className="max-w-[46ch] text-paper/80">
+                Elective treatments for the comfort, function and appearance of the intimate area, such as vaginal
+                tightening, labiaplasty and hymenoplasty. Offered by {clinic.name} together with {clinic.aesthetics.name}, led by
+                {" "}{clinic.aesthetics.role.toLowerCase()} {clinic.aesthetics.doctor}.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <ul className="m-0 grid list-none gap-0 border-t border-paper/15 p-0">
+                {[
+                  "A private consultation first, with honest advice on what is realistic",
+                  "The risks, recovery and alternatives explained before you decide",
+                  "For adults only, with no pressure to go ahead",
+                ].map((x) => (
+                  <li className="flex gap-4 border-b border-paper/15 py-3 text-paper/85" key={x}>
+                    <span aria-hidden className="mt-[0.8em] h-px w-3 shrink-0 bg-gold-light" />
+                    {x}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                {["cosmetic-gynaecology", "vaginal-tightening", "hymenoplasty"].map((slug) => (
+                  <li key={slug}>
+                    <a
+                      className="inline-flex min-h-10 items-center rounded-full border border-paper/30 px-4 text-[0.9rem] text-paper no-underline transition-colors duration-300 hover:bg-paper hover:text-plum"
+                      href={`/treatments/${slug}/`}
+                    >
+                      {getTreatment(slug)!.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal className="flex flex-wrap gap-3 pt-2" delay={0.3}>
+              <a
+                className="btn border-paper bg-paper text-plum hover:border-gold-light hover:bg-gold-light hover:text-plum"
+                href={bookOnWhatsapp(undefined, undefined, undefined, "This is for a private cosmetic gynaecology consultation.")}
+                rel="noopener"
+                target="_blank"
+              >
+                Book a private consultation
+              </a>
+              <a className="btn border-paper/50 text-paper hover:bg-paper hover:text-plum" href="/treatments/cosmetic-gynaecology/">
+                Learn more
+              </a>
+            </Reveal>
+          </div>
+          <div className="relative mx-auto w-full max-w-[480px] pb-14 pl-10">
+            <RevealImage
+              alt="Treatment room at Harleys Women's Clinic"
+              className="aspect-[4/5] w-full"
+              height={950}
+              src={asset("images/clinic-room.jpg")}
+              width={760}
+            />
+            <Parallax className="absolute bottom-0 left-0 w-[46%]" distance={40}>
+              <div className="border-[6px] border-plum">
+                <img
+                  alt=""
+                  className="block aspect-[3/4] w-full object-cover"
+                  height={1024}
+                  loading="lazy"
+                  src={asset("images/clinic-corridor.jpg")}
+                  width={1024}
+                />
+              </div>
+            </Parallax>
+          </div>
         </div>
       </section>
 

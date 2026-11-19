@@ -22,10 +22,10 @@ const doctors: Member[] = [
     href: "/about/",
   },
   {
-    name: "Dr. Sumit Agrawal",
-    role: "Plastic & Cosmetic Surgeon",
+    name: clinic.aesthetics.doctor,
+    role: `${clinic.aesthetics.role} · ${clinic.aesthetics.name}`,
     // Qualifications as listed on Practo and Drlogy; confirm with the clinic.
-    bio: "MS, MCh (Plastic Surgery), MRCS (Edinburgh). Leads the clinic's cosmetic and hair restoration services.",
+    bio: `MS, MCh (Plastic Surgery), MRCS (Edinburgh). Leads ${clinic.aesthetics.name}, including cosmetic and hair restoration services.`,
     initials: "SA",
   },
 ];

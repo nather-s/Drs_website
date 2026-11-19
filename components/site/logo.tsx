@@ -17,7 +17,7 @@ export default function Logo({ className, tone = "dark" }: { className?: string;
         className="hidden pl-[0.15em] text-[0.56rem] font-medium uppercase tracking-[0.42em] sm:block md:text-[0.6rem]"
         style={{ color: tone === "dark" ? "var(--muted-ink)" : "rgba(248,245,240,0.7)" }}
       >
-        Women&apos;s Clinic · Andheri West
+        Women&apos;s &amp; Cosmetic Clinic
       </span>
     </span>
   );

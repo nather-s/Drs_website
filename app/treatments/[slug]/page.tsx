@@ -108,6 +108,20 @@ export default async function TreatmentPage({ params }: PageProps<"/treatments/[
 
           <DoctorHelp forMen={t.forMen} note={t.bookingNote} topic={t.title} />
 
+          {t.category === "cosmetic" && (
+            <aside aria-label="Who provides this service" className="grid gap-2 border-l-2 border-gold pl-5">
+              <p className="eyebrow">
+                {clinic.name} × {clinic.aesthetics.name}
+              </p>
+              <p className="text-muted-ink">
+                Cosmetic gynaecology is offered by {clinic.name} together with {clinic.aesthetics.name}, led by{" "}
+                {clinic.aesthetics.role.toLowerCase()}{" "}
+                <a className="link" href="/team/">{clinic.aesthetics.doctor}</a>. Your first consultation is private, and
+                you will be told who will carry out any procedure before you decide.
+              </p>
+            </aside>
+          )}
+
           {review && (
             <figure className="m-0 grid gap-3 rounded-lg bg-mist p-6">
               <blockquote className="m-0 font-display text-xl leading-snug">“{review.text}”</blockquote>

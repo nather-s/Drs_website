@@ -47,6 +47,7 @@ Clinic facts:
 - Phone and WhatsApp: ${clinic.phoneDisplay}. Email: ${clinic.email}.
 - Consultation fee: ${clinic.fee ?? "ask the clinic"} per person. Hours: ${clinic.hours ?? "ask the clinic"}.
 - Languages: ${clinic.languages}.
+- Cosmetic gynaecology is offered together with ${clinic.aesthetics.name}, led by ${clinic.aesthetics.doctor} (${clinic.aesthetics.role}), at the same address.
 - Delivers babies at: ${clinic.deliversAt.join(", ")}. Also consults at: ${clinic.hospitals.join(", ")}.
 - Same-day appointments are often available for urgent concerns. A female staff member is present during examinations. Ultrasound is done at the clinic. The clinic is a government-approved MTP centre.
 

@@ -32,6 +32,13 @@ export const clinic = {
   credentials:
     "MBBS · MD Obstetrics & Gynaecology (Gold Medal) · DNB · MRCOG (UK) · ICOG Fellowship in Reproductive Endocrinology & Infertility · DHA Specialist (Dubai)",
   hospitals: ["Belle Vue Hospital", "Surya Hospitals", "Cloudnine Hospital", "BSES MG Hospital", "Criticare Asia"],
+  /** The clinic's cosmetic side, led by Dr. Sumit Agrawal, which offers the cosmetic
+   *  gynaecology service together with the women's clinic. */
+  aesthetics: {
+    name: "Harleys Cosmetic Clinic",
+    doctor: "Dr. Sumit Agrawal",
+    role: "Plastic & Cosmetic Surgeon",
+  },
   social: {
     youtube: "https://www.youtube.com/channel/UCctp3zI4hHDdt6BY3zK1hog",
     instagram: "https://www.instagram.com/harleys_womens_clinic",
@@ -40,11 +47,12 @@ export const clinic = {
 } as const;
 
 export const nav = [
-  { label: "About Dr. Shilpa", href: "/about/" },
-  { label: "Our team", href: "/team/" },
+  { label: "About", href: "/about/" },
+  { label: "Team", href: "/team/" },
   { label: "Treatments", href: "/treatments/" },
-  { label: "Your first visit", href: "/first-visit/" },
-  { label: "Patient reviews", href: "/reviews/" },
+  { label: "Cosmetic gynaecology", href: "/treatments/cosmetic-gynaecology/" },
+  { label: "First visit", href: "/first-visit/" },
+  { label: "Reviews", href: "/reviews/" },
   { label: "Contact", href: "/book/#contact" },
 ] as const;
 

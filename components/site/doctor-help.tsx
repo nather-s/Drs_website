@@ -1,3 +1,4 @@
+import ClinicHours from "@/components/site/clinic-hours";
 import { bookOnWhatsapp } from "@/lib/booking";
 import { asset } from "@/lib/asset";
 import { clinic } from "@/lib/clinic";
@@ -34,12 +35,12 @@ export default function DoctorHelp({ topic, note, forMen }: { topic: string; not
         </a>
         <a className="btn bg-paper" href={clinic.phoneHref}>Call {clinic.phoneDisplay.replace("+91 ", "")}</a>
       </div>
+      <ClinicHours className="text-sm" />
       <p className="m-0 text-sm text-muted-ink">
-        {clinic.fee && <>Consultation {clinic.fee} · </>}
-        {clinic.hours}
+        {clinic.fee && <>Consultation {clinic.fee}</>}
         {!forMen && (
           <>
-            {" · "}
+            {clinic.fee && " · "}
             <a className="link" href="/first-visit/">What happens at your first visit</a>
           </>
         )}

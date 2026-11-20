@@ -1,3 +1,4 @@
+import ClinicHours from "@/components/site/clinic-hours";
 import { bookOnWhatsapp } from "@/lib/booking";
 import { clinic } from "@/lib/clinic";
 
@@ -29,8 +30,8 @@ export default function BookingCard({ topic, note }: { topic?: string; note?: st
         )}
         {clinic.hours && (
           <div className="grid gap-0.5">
-            <dt className="text-muted-ink">Hours</dt>
-            <dd className="m-0">{clinic.hours}</dd>
+            <dt className="text-muted-ink">Consultation hours</dt>
+            <dd className="m-0"><ClinicHours className="text-[0.95rem]" /></dd>
           </div>
         )}
         <div className="grid gap-0.5">

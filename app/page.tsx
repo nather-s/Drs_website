@@ -1,3 +1,4 @@
+import ClinicHours from "@/components/site/clinic-hours";
 import { Play } from "lucide-react";
 import ReviewStack from "@/components/kokonut/review-stack";
 import {
@@ -470,8 +471,7 @@ function HomePage() {
                 <div className="grid content-start gap-1">
                   <dt className="text-[0.62rem] uppercase tracking-[0.22em] text-muted-ink">When</dt>
                   <dd className="m-0">
-                    Mon–Fri 12–2:30 pm &amp; 5:30–7:30 pm
-                    <span className="block">Sat 12–5 pm · Closed Sunday</span>
+                    <ClinicHours />
                   </dd>
                 </div>
                 <div className="grid content-start gap-1">

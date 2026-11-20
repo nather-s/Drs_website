@@ -1,3 +1,4 @@
+import ClinicHours from "@/components/site/clinic-hours";
 import { categories, treatments } from "@/lib/treatments";
 import { clinic } from "@/lib/clinic";
 import Logo from "@/components/site/logo";
@@ -17,7 +18,7 @@ export default function Footer() {
               <span className="block" key={l}>{l}</span>
             ))}
           </address>
-          {clinic.hours && <p className="m-0 text-white/85">{clinic.hours}</p>}
+          {clinic.hours && <ClinicHours className="text-white" tone="light" />}
           <p className="grid gap-1">
             <a className="no-underline hover:text-gold-light" href={clinic.phoneHref}>{clinic.phoneDisplay}</a>
             <a className="break-words no-underline hover:text-gold-light" href={`mailto:${clinic.email}`}>{clinic.email}</a>

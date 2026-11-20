@@ -26,6 +26,12 @@ export const clinic = {
   // itself is open longer. Confirm with the clinic before launch.
   hours: "Mon–Fri 12–2:30 pm and 5:30–7:30 pm · Sat 12–5 pm · Closed Sunday" as string | undefined,
   fee: "₹1,500" as string | undefined,
+  /** The same hours as a timetable, one row per day, for easy reading on the page. */
+  hoursTable: [
+    { days: "Mon – Fri", times: ["12:00 – 2:30 pm", "5:30 – 7:30 pm"] },
+    { days: "Saturday", times: ["12:00 – 5:00 pm"] },
+    { days: "Sunday", times: ["Closed"] },
+  ],
   languages: "English, Hindi and Marathi",
   registration: "Maharashtra Medical Council reg. no. 2011051601",
   deliversAt: ["Surya Hospitals", "Cloudnine Hospital", "Criticare Asia"],

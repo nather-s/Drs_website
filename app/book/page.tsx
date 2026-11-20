@@ -1,3 +1,4 @@
+import ClinicHours from "@/components/site/clinic-hours";
 import type { Metadata } from "next";
 import { pageSeo, seoMeta } from "@/lib/seo";
 import Assistant from "@/components/site/assistant-lazy";
@@ -64,7 +65,7 @@ export default function Book() {
             {clinic.hours && (
               <div className="grid gap-1">
                 <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-plum">Consultation hours</dt>
-                <dd className="m-0">{clinic.hours}</dd>
+                <dd className="m-0"><ClinicHours /></dd>
               </div>
             )}
           </dl>
